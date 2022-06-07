@@ -62,28 +62,6 @@ namespace os
 
             // initialize filesystem
             filesystem::init();
-
-            // open file
-            const char* fname = "A:/test.txt";
-            file_t* file = filesystem::open_file(fname, "r");
-            if (file == NULL) { printf("%s Failed to open file '%s'\n", DEBUG_ERROR, fname); }
-            else
-            {
-                printf("%s\n", file->data);
-                filesystem::close_file(file);
-            }
-
-            // create test thread
-            threading::thread_t* t = threading::thread_create("test", STACKSZ_MEDIUM, test_main, 0, NULL);
-            threading::scheduler::load(t);
-            threading::scheduler::start(t);
-
-            // framebuffer test
-            sys::vbe_mode_info_t* vbe = (sys::vbe_mode_info_t*)multiboot.vbe_mode_info;
-            std::array<uint32_t> buff(vbe->width * vbe->height);
-            memset(buff.ptr(), 0xFFFF7F1F, vbe->width * vbe->height * 4);
-            memcpy((void*)vbe->physical_base, buff.ptr(), vbe->width * vbe->height * 4);
-            buff.dispose();
         }
 
         /// @brief Main loop for kernel
