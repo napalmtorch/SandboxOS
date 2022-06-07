@@ -84,9 +84,9 @@ namespace os
         static inline void multiboot_print(multiboot_t* mboot)
         {
             printf("Multiboot Header:\n");
-            printf("-- NAME            %s\n", mboot->bootloader_name);
-            printf("-- MODS ADDR       0x%8x\n", mboot->modules_addr);
-            printf("-- MODS COUNT      %d\n", mboot->modules_count);
+            printf("- NAME            %s\n", mboot->bootloader_name);
+            printf("- MODS ADDR       0x%8x\n", mboot->modules_addr);
+            printf("- MODS COUNT      %d\n", mboot->modules_count);
         }
     }
 }
