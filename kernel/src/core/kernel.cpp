@@ -16,6 +16,10 @@ namespace os
             // print multiboot information
             sys::multiboot_print(&multiboot);
 
+            // initialize global descriptor table
+            hal::gdt::init();
+            hal::idt::init();
+
             // clear vram to confirm boot
             unsigned int* vram = (unsigned int*)0xFD000000;
             for (int i = 0; i < 640 * 480; i++) { vram[i] = 0xFF007F7F; }

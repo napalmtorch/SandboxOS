@@ -12,6 +12,10 @@
 #include <core/system/debug.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
+#include <hardware/common/registers.h>
+#include <hardware/interrupts/gdt.h>
+#include <hardware/interrupts/idt.h>
+#include <hardware/interrupts/pic.h>
 
 namespace os
 {

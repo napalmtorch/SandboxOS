@@ -22,6 +22,17 @@ cdir="kernel/src/asm/" outdir="bin/" inf="boot.asm" outf="boot.o"
 nasm -felf32 "$cdir$inf" -o "$outdir$outf"
 echo "$nmsgl$cdir$inf$cmsgm$outdir$outf$cmsge"
 
+# registers.asm
+cdir="kernel/src/asm/" outdir="bin/kernel/objs/" inf="registers.asm" outf="registers.o"
+nasm -felf32 "$cdir$inf" -o "$outdir$outf"
+echo "$nmsgl$cdir$inf$cmsgm$outdir$outf$cmsge"
+
+# irqs.asm
+cdir="kernel/src/asm/" outdir="bin/kernel/objs/" inf="irqs.asm" outf="irqs.o"
+nasm -felf32 "$cdir$inf" -o "$outdir$outf"
+echo "$nmsgl$cdir$inf$cmsgm$outdir$outf$cmsge"
+
+
 # ----------------------------------------------- KERNEL --------------------------------------------------------------
 cdir="kernel/src/"
 outdir="bin/kernel/objs/"
