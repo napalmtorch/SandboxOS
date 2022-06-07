@@ -17,10 +17,15 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - RAMFS
 - VFS Abstraction Layer
 - Scheduler/Threading
-
-### TO DO
-- VBE
 - Garbage Collector
 - PIT
+
+### TO DO
+- Improve std::string
+- PCI Device Emumeration
+- ACPI
+- AHCI Disk Controller
+- USTAR/FAT32 File Systems
+- VBE
 - RTC
-- Typescript Interpreter
+- Language Interpreter
