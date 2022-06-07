@@ -1,1 +1,1 @@
-qemu-system-i386 -enable-kvm -cpu host -usb -m 2048M -vga std -cdrom 'sos.iso' -serial stdio -boot d -device AC97 -rtc base=localtime -no-reboot -no-shutdown
+qemu-system-i386 -enable-kvm -cpu host -usb -m 32M -vga std -cdrom 'sos.iso' -serial stdio -boot d -device AC97 -rtc base=localtime -no-reboot -no-shutdown

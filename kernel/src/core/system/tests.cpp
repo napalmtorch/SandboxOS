@@ -14,8 +14,8 @@ namespace os
                 for (size_t i = 0; i < iterations; i++)
                 {
                     void* test1 = tmalloc(128, ALLOCTYPE_STRING);
-                    void* test2 = tmalloc(32 * MB, ALLOCTYPE_ARRAY);
-                    void* test3 = tmalloc(256 * MB, ALLOCTYPE_ARRAY);
+                    void* test2 = tmalloc(32 * KB, ALLOCTYPE_ARRAY);
+                    void* test3 = tmalloc(256 * KB, ALLOCTYPE_ARRAY);
                     void* test4 = tmalloc(8192, ALLOCTYPE_OBJ);
                     void* test5 = tmalloc(6, ALLOCTYPE_OBJ);
                     void* test6 = tmalloc(0x10000, ALLOCTYPE_STRING);

@@ -102,18 +102,23 @@ namespace os
         if (size == 0) { perror("Attempt to request 0 bytes of physical memory"); return NULL; }
         if (type == memblk_type::invalid || type == memblk_type::bad_ram) { perror("Attempt to request physical memory of invalid type"); return NULL; }
 
+        uint32_t avail = 0;
         for (size_t i = 0; i < MEMBLK_COUNT; i++)
         {
-            if (_memblks[i].size >= size && _memblks[i].type == memblk_type::available)
-            {
-                memblk_t* blk = map(_memblks[i].address, size, type);
-                _memblks[i].address += size;
-                _memblks[i].size    -= size;
-                return blk;
+            if (_memblks[i].type == memblk_type::available)
+            {   
+                avail = _memblks[i].size;
+                if (_memblks[i].size >= size)
+                {
+                    memblk_t* blk = map(_memblks[i].address, size, type);
+                    _memblks[i].address += size;
+                    _memblks[i].size    -= size;
+                    return blk;
+                }
             }
         }
 
-        perror("Failed to request %u bytes of physical memory", size);
+        perror("Failed to request %u bytes of physical memory - available: %u bytes", size, avail);
         return NULL;
     }
 

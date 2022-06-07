@@ -50,9 +50,11 @@ namespace os
 
             // initialize heaps
             bool mmdbg = true;
-            uint32_t usable = memalign(memory_manager::usable() - (16 * MB), 0x1000);
-            heap_large.init((usable / 5) * 3, 16384, 0x1000, false);
-            heap_small.init((usable / 5) * 2, 32768, 0x100, false);
+            uint32_t count = 1024;
+            uint32_t needed = memalign((count + (count * 2)) * sizeof(heapblock_t), 0x1000) + 0x1000;
+            uint32_t usable = memalign(memory_manager::usable() - needed, 0x1000);
+            heap_large.init((usable / 5) * 3, count, 0x1000, false);
+            heap_small.init((usable / 5) * 2, count * 2, 0x100, false);
             sys::tests::test_heap(10);
             heap_large.toggle_msgs(mmdbg);
             heap_small.toggle_msgs(mmdbg);
@@ -68,8 +70,10 @@ namespace os
         void main()
         {
             printf("%s Entered kernel main\n", DEBUG_OK);
-            uint32_t memused = heap_large.calc_used() + heap_small.calc_used();
-            printf("%s Memory used after boot: %u bytes(%d MB)\n", DEBUG_INFO, memused, memused / MB);
+
+            uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
+            uint32_t memtotal = heap_large.data_size() + heap_small.data_size();
+            printf("%s Memory usage: %u/%u bytes(%u/%u MB)\n", DEBUG_INFO, memused, memtotal, memused / MB, memtotal / MB);
 
             while (true)
             {
