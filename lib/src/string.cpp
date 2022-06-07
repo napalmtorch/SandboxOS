@@ -260,3 +260,142 @@ char* strback(char* str)
 #ifdef __cplusplus
 }
 #endif
+
+
+namespace std
+{
+    string::string() { this->_data = NULL; this->_len = 0; }
+
+    string::string(char* str)
+    {
+        if (str == NULL || strlen(str) == 0) { this->_data = NULL; this->_len = 0; return; }
+        this->_len = strlen(str);
+        this->_data = (char*)tmalloc(this->_len + 1, ALLOCTYPE_ARRAY);
+        strcpy(this->_data, str);
+    }
+
+    string::string(const string& str)
+    {
+        if (&str == NULL) { this->_data = NULL; this->_len = 0; return; }
+        if (str._len == 0) { this->_data = NULL; this->_len = 0; return; }
+
+        this->_len  = str._len;
+        this->_data = (char*)tmalloc(str._len, ALLOCTYPE_ARRAY);
+        strcpy(this->_data, str._data);
+    }
+
+    string::string(string&& str)
+    {
+        if (&str == NULL) { this->_data = NULL; this->_len = 0; return; }
+        if (str._len == 0) { this->_data = NULL; this->_len = 0; return; }
+
+        this->_len  = str._len;
+        this->_data = (char*)tmalloc(str._len, ALLOCTYPE_ARRAY);
+        strcpy(this->_data, str._data);
+    }
+
+    string::~string() { dispose(); }
+
+    void string::dispose()
+    {
+        if (this->_data != NULL) { free(this->_data); this->_data = NULL; } 
+        this->_len = 0; 
+    }
+
+    void string::clear() { dispose(); }
+
+    void string::append(char c)
+    {
+        char* data = (char*)tmalloc(this->_len + 2, ALLOCTYPE_ARRAY);
+
+        if (this->_data != NULL)
+        {
+            memcpy(data, this->_data, this->_len);
+            free(this->_data);
+        }
+
+        this->_data = data;
+        stradd(this->_data, c);
+        this->_len = strlen(this->_data);
+    }
+
+    void string::append(char* str)
+    {
+        if (str == NULL || strlen(str) == 0) { return; }
+        char* data = (char*)tmalloc(this->_len + strlen(str) + 1, ALLOCTYPE_ARRAY);
+
+        if (this->_data != NULL)
+        {
+            memcpy(data, this->_data, this->_len);
+            free(this->_data);
+        }
+
+        this->_data = data;
+        strcat(this->_data, str);
+        this->_len = strlen(this->_data);
+    }
+
+    void string::append(const string& str) { append(str._data); }
+
+    void string::append(string&& str) { append(str._data); }
+
+    void string::insert(int index, char c)
+    {
+        
+    }
+
+    void string::insert(int index, char* str)
+    {
+
+    }
+
+    void string::insert(int index, const string& str)
+    {
+
+    }
+
+    void string::insert(string&& str)
+    {
+
+    }
+
+    void string::backspace()
+    {
+
+    }
+
+    void string::backspace(int count)
+    {
+
+    }
+
+    void string::remove(int index, int count)
+    {
+
+    }
+
+    void string::to_upper()
+    {
+
+    }
+
+    void string::to_lower()
+    {
+
+    }
+
+    char* string::c_str() { return this->_data; }
+
+    size_t string::length() { return this->_len; }
+
+    string& string::operator=(const string& rhs)
+    {
+        if (this == &rhs) { return *this; }
+        if (rhs._data == NULL || rhs._len == 0) { if (_data != NULL) { free(_data); } _len = 0; return *this; }
+        if (_data != NULL) { free(_data); }
+        _data = (char*)tmalloc(rhs._len + 1, ALLOCTYPE_ARRAY);
+        _len  = strlen(_data);
+        strcpy(_data, rhs._data);
+        return *this;
+    }
+}

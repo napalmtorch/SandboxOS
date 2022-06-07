@@ -29,6 +29,7 @@ namespace os
         if (blk == NULL) { perror("Failed to allocate %u bytes", size); }
         if (clear) { memset((void*)blk->address, 0, blk->size); }
         blk->type   = (blk->type == ALLOCTYPE_INVALID ? ALLOCTYPE_OBJ : type);
+        blk->thread = THREAD;
         if (_messages) { printf("%s ADDR:0x%8x THREAD:0x%8x TYPE:%s SIZE:%u bytes\n", DEBUG_MALLOC, blk->address, blk->thread, typestr(blk->type), blk->size); }
         return (void*)blk->address;
     }

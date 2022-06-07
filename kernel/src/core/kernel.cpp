@@ -73,6 +73,13 @@ namespace os
                 filesystem::close_file(file);
             }
 
+            std::string str("Hello world\n");
+            str.append("This is a test\n");
+            str.append("Chicken in the corn\n");
+            str.append("But the corn don't grow mama\n");
+            printf("STRING: '%s'\n", str.c_str());
+            str.dispose();
+
             // create test thread
             threading::thread_t* t = threading::thread_create("test", STACKSZ_MEDIUM, test_main, 0, NULL);
             threading::scheduler::load(t);
@@ -92,7 +99,7 @@ namespace os
             printf("%s Entered kernel main\n", DEBUG_OK);
             uint32_t memused = heap_large.calc_used() + heap_small.calc_used();
             printf("%s Memory used after boot: %u bytes(%d MB)\n", DEBUG_INFO, memused, memused / MB);
-            
+
             while (true)
             {
                 threading::scheduler::yield();

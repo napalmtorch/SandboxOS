@@ -37,3 +37,46 @@ char*  strback(char* str);
 #ifdef __cplusplus
 }
 #endif
+
+namespace std
+{
+    class string
+    {
+        private:
+            char*  _data;
+            size_t _len;
+
+        public:
+            string();
+            string(char* str);
+            string(const string& str);
+            string(string&& str);
+            ~string();
+
+        public:
+            void dispose();
+            void clear();
+            void append(char c);
+            void append(char* str);
+            void append(const string& str);
+            void append(string&& str);
+            void insert(int index, char c);
+            void insert(int index, char* str);
+            void insert(int index, const string& str);
+            void insert(string&& str);
+            void backspace();
+            void backspace(int count);
+            void remove(int index, int count);       
+
+        public:
+            void to_upper();
+            void to_lower();
+
+        public:
+            char* c_str();
+            size_t length();
+
+        public:
+            string& operator=(const string& rhs);
+    };
+}
