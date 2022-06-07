@@ -14,19 +14,11 @@ namespace os
 {
     namespace kernel
     {
-        /// @brief Multiboot information header
         sys::multiboot_t multiboot;
-
-        /// @brief Kernel heap used for small allocations aligned to 256 bytes
         memory_heap heap_small;
-
-        /// @brief Kernel heap used for larger allocations aligned to 4096 bytes
         memory_heap heap_large;
-
-        /// @brief Kernel thread instance
         threading::thread_t* thread;
 
-        /// @brief Boot sequence for kernel
         void boot()
         {
             // initialize serial port
@@ -60,7 +52,6 @@ namespace os
             filesystem::init();
         }
 
-        /// @brief Main loop for kernel
         void main()
         {
             lock();
@@ -71,32 +62,29 @@ namespace os
             printf("%s Memory usage: %u/%u bytes(%u/%u MB)\n", DEBUG_INFO, memused, memtotal, memused / MB, memtotal / MB);
             unlock();
 
+            uint32_t seconds = 0, now = 0, last = 0;
             while (true)
             {
                 lock();
-                void* test = tmalloc(1024, ALLOCTYPE_ARRAY);
-                free(test);
+
+                now = hal::pit::seconds();
+                if (now != last) { last = now; seconds++; printf("SECONDS SINCE START: %u\n", seconds); }
+
                 unlock();
                 threading::scheduler::yield();
             }
         }
 
-        /// @brief Return starting address of kernel memory
         uint32_t start_addr() { return (uint32_t)&_kernel_start; }
 
-        /// @brief Return ending address of kernel memory
         uint32_t end_addr() { return (uint32_t)&_kernel_end; }
         
-        /// @brief Return address to bottom of stack
         uint32_t stk_start_addr() { return (uint32_t)&_stack_bottom; }
 
-        /// @brief Return address to top of stack
         uint32_t stk_end_addr() { return (uint32_t)&_stack_top; }
 
-        /// @brief Return staring address of BSS section
         uint32_t bss_start_addr() { return (uint32_t)&_bss_start; }
 
-        /// @brief Return ending address of BSS section
         uint32_t bss_end_addr() { return (uint32_t)&_bss_end; }
     }
 }

@@ -39,12 +39,9 @@ namespace os
                     output->data = std::array<uint8_t>(this->_info->files[i].size);
                     strcpy(output->name, this->_info->files[i].name);
                     memcpy(output->data.ptr(), (void*)((uint32_t)this->_data.ptr() + this->_info->files[i].data), this->_info->files[i].size);
-                    printf("%s Successfully read RAMDISK file - NAME: '%s' SIZE: %d bytes\n", DEBUG_OK, fname, output->data.length());
                     return output;
                 }
             }
-
-            printf("%s Unable to read RAMDISK file '%s'\n", DEBUG_ERROR, fname);
             return NULL;
         }
 

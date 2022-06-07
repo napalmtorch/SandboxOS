@@ -5,22 +5,16 @@
 
 namespace os
 {
-    /// @brief Toggle debug messages
     bool memory_manager::messages;
     
-    /// @brief Array of memory block entries
     memblk_t  memory_manager::_memblks[MEMBLK_COUNT];
 
-    /// @brief Free memory block pointer
     memblk_t* memory_manager::_freeblk;
 
-    /// @brief Pointer to memory block directly after free block
     memblk_t* memory_manager::_after_freeblk;
 
-    /// @brief Amount of usable memory after initializing
     size_t memory_manager::_usable;
 
-    /// @brief Initialize physical memory manager
     void memory_manager::init()
     {
         memset(&_memblks, 0, sizeof(memblk_t) * MEMBLK_COUNT);
@@ -41,7 +35,6 @@ namespace os
         printf("%s Initialized memory manager\n", DEBUG_OK);
     }
 
-    /// @brief Read memory map and create corresponding blocks
     void memory_manager::probe_mmap()
     {
         sys::mmap_entry_t* mmap    = (sys::mmap_entry_t*)kernel::multiboot.mmap_addr;
@@ -63,7 +56,6 @@ namespace os
         map(kernel::start_addr(), kernel::end_addr() - kernel::start_addr(), memblk_type::kernel);
     }
 
-    /// @brief Read modules and create corresponding blocks
     void memory_manager::probe_mods()
     {
         sys::multiboot_module_t* mods = (sys::multiboot_module_t*)kernel::multiboot.modules_addr;
@@ -84,7 +76,6 @@ namespace os
         _freeblk->size     = (_after_freeblk->address - _freeblk->address); // + (kernel::end_addr() - kernel::start_addr());
     }
 
-    /// @brief Create memory block and add to list @param addr Memory address @param size Memory size @param type Type of memory @return Pointer to memory block
     memblk_t* memory_manager::map(uint32_t addr, size_t size, memblk_type type)
     {
         if (size == 0 || type == memblk_type::invalid) { perror("Tried to map invalid memory block - ADDR:0x%8x TYPE:0x%2x SIZE:%d bytes", addr, type, size); return NULL; }
@@ -96,7 +87,6 @@ namespace os
         return blk;
     }
 
-    /// @brief Request a memory block of specified size @param size Requested size @param type Type of memory @return Pointer to memory block
     memblk_t* memory_manager::request(size_t size, memblk_type type)
     {
         if (size == 0) { perror("Attempt to request 0 bytes of physical memory"); return NULL; }
@@ -122,7 +112,6 @@ namespace os
         return NULL;
     }
 
-    /// @brief Get first memory block with specified type @param type Memory block type @return Pointer to memory block
     memblk_t* memory_manager::first_bytype(memblk_type type)
     {
         for (size_t i = 0; i < MEMBLK_COUNT; i++)
@@ -132,7 +121,6 @@ namespace os
         return NULL;
     }
 
-    /// @brief Get next available block entry in list @return Pointer to unused memory block
     memblk_t* memory_manager::next()
     {
         for (size_t i = 0; i < MEMBLK_COUNT; i++)
@@ -142,10 +130,8 @@ namespace os
         return NULL;
     }
 
-    /// @brief Get total amount of usable memory detected after memory manager initialization - value will no longer be valid after requests are made @return Amount of usable memory in bytes
     size_t memory_manager::usable() { return _usable; }
     
-    /// @brief Convert memory block type into string representation @param type Type of memory @return Pointer to string representation
     const char* memory_manager::typestr(memblk_type type)
     {
         switch (type)

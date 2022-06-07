@@ -56,7 +56,6 @@ namespace os
     {
         namespace gdt
         {
-            /// @brief Initialize global descriptor table
             void init()
             {
                 // setup descriptor table
@@ -73,7 +72,6 @@ namespace os
                 printf("%s Initialized GDT - ADDR:0x%8x\n", DEBUG_OK, (uint32_t)&_gdt_reg);
             }
 
-            /// @brief Initialize standard global descriptors
             void init_descriptors()
             {
                 // null
@@ -84,7 +82,6 @@ namespace os
                 set_descriptor(KERNEL_DS_INDEX, 0, 0xFFFFFFFF, KERNEL_DS_ACCESS, KERNEL_DS_FLAGS);
             }
 
-            /// @brief Set specified descriptor @param n Descriptor index @param base Base address @param Limit Address limit @param access Access flags @param flags Flags
             void set_descriptor(uint8_t n, uint32_t base, uint32_t limit, gdt_access_t access, gdt_flags_t flags)
             {
                 _gdt_entries[n].base_low = base & 0xFFFF;

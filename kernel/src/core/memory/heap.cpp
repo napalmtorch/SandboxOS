@@ -153,11 +153,13 @@ namespace os
 
     heapblock_t* memory_heap::next_empty()
     {
+        int index = -1;
         for (size_t i = 0; i < this->_count_max; i++)
         {
-            if (this->_blocks[i].type == ALLOCTYPE_INVALID) { return &this->_blocks[i]; }
+            if (this->_blocks[i].type == ALLOCTYPE_INVALID) { index = i; break; }
         }
-        return NULL;
+        if (index == -1 || index >= this->_count_max) { perror("Maximum amount of entries reached for heap at 0x%8x", this); }
+        return &this->_blocks[index];
     }
 
     heapblock_t* memory_heap::nearest(heapblock_t* blk)
