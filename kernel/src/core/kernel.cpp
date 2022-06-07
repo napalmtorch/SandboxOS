@@ -40,7 +40,7 @@ namespace os
 
             // print multiboot information
             sys::multiboot_print(&multiboot);
-            
+
             // initialize global descriptor table
             hal::gdt::init();
             hal::idt::init();

@@ -1,43 +1,49 @@
 #include <math.h>
 
+#ifdef __cplusplus
 EXTC
 {
-    int abs(int i) { return i < 0 ? -i : i; }
+#endif
 
-    int clamp(int i, int min, int max)
-    {
-        if (i < min) { i = min; }
-        if (i > max) { i = max; }
-        return i;
-    }
+int abs(int i) { return i < 0 ? -i : i; }
 
-    double ceil(double x)
-    {
-        int inum = (int)x;
-        if (x == (float)inum) { return inum; }
-        return inum + 1;
-    }
+int clamp(int i, int min, int max)
+{
+    if (i < min) { i = min; }
+    if (i > max) { i = max; }
+    return i;
+}
 
-    double floor(double x)
-    {
-        if (x >= INT64_MAX || x <= INT64_MIN || x != x) { return x; }
-        uint64_t n = (uint64_t)x;
-        double d = (double)n;
-        if (d == x || x >= 0) { return d; } else { return d - 1; }
-        return 0;
-    }
+double ceil(double x)
+{
+    int inum = (int)x;
+    if (x == (float)inum) { return inum; }
+    return inum + 1;
+}
 
-    double pow(double x, int y)
+double floor(double x)
+{
+    if (x >= INT64_MAX || x <= INT64_MIN || x != x) { return x; }
+    uint64_t n = (uint64_t)x;
+    double d = (double)n;
+    if (d == x || x >= 0) { return d; } else { return d - 1; }
+    return 0;
+}
+
+double pow(double x, int y)
+{
+    double temp;
+    if (y == 0)
+    return 1;
+    temp = pow (x, y / 2);
+    if ((y % 2) == 0) { return temp * temp; } 
+    else 
     {
-        double temp;
-        if (y == 0)
-        return 1;
-        temp = pow (x, y / 2);
-        if ((y % 2) == 0) { return temp * temp; } 
-        else 
-        {
-            if (y > 0) { return x * temp * temp; }
-            else { return (temp * temp) / x; }
-        }
+        if (y > 0) { return x * temp * temp; }
+        else { return (temp * temp) / x; }
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
