@@ -55,3 +55,4 @@ EXTC
 {
     void kernel_main(os::sys::multiboot_t* mboot);
 }
+
