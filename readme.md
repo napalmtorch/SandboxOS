@@ -17,7 +17,6 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - RAMFS
 - VFS Abstraction Layer
 - Scheduler/Threading
-- 
 
 ### TO DO
 - VBE
