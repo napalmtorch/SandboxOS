@@ -20,6 +20,9 @@
 #include <core/memory/gc.h>
 #include <core/exec/thread.h>
 #include <core/exec/scheduler.h>
+#include <hardware/device.h>
+#include <hardware/devmgr.h>
+#include <hardware/devices/ata.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
 #include <hardware/common/registers.h>

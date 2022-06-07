@@ -79,7 +79,7 @@ namespace os
 
         void thread_monitor()
         {
-            THREAD->ticks++;
+            THREAD->time.ticks++;
         }
     }
 }

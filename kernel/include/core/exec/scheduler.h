@@ -4,29 +4,34 @@
 #include <arraylist.h>
 #include <core/exec/thread.h>
 
+EXTC
+{
+    /// @brief Switch thread contexts - only meant to be performed by os::threading::scheduler::yield
+    extern void _context_switch(void);
+}
+
 namespace os
 {
     namespace threading
     {
+        /// @brief Thread scheduler service - Used for queuing and manipulating threads
         class scheduler
         {
+            /// @internal Allow access to private members
             friend class thread;
 
             private:
                 /// @brief Last generated thread id - increments by one each generation
-                static uint32_t                  _tid;
-
+                static uint32_t _tid;
                 /// @brief Dynamic array list for queuing threads
                 static std::arraylist<thread_t*> _threads;
-
                 /// @brief Current thread index
-                static uint32_t                  _index;
-
+                static uint32_t _index;
                 /// @brief Toggle whether scheduler is allowed to context switch
-                static bool                      _ready;
+                static bool _ready;
 
             public:
-                /// @brief Initialized thread scheduler
+                /// @brief Initialize thread scheduler
                 static void init();
 
                 /// @brief Allow scheduler to start context switching
@@ -54,7 +59,7 @@ namespace os
                 static uint32_t generate_id();
 
                 /// @brief Check is scheduler is allowed to context switch @return Context switching enabled
-                static bool     is_ready();
+                static bool is_ready();
 
                 /// @brief Get thread queue list @return Pointer to thread queue
                 static std::arraylist<thread_t*>* threads();

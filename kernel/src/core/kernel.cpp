@@ -41,8 +41,8 @@ namespace os
             // initialize thread scheduler
             threading::scheduler::init();
 
-            // initialize pit
-            hal::pit::init();
+            // initialize device manager
+            hal::device_manager::init();
 
             // start garbage collector thread
             garbage_collector::start();

@@ -77,10 +77,14 @@ namespace os
             uint32_t base;
         } PACKED gdtr_t;
 
+        /// @brief Global descriptor table
         namespace gdt
         {
+            /// @brief Initialize global descriptor tables
             void init();
+            /// @brief Initialize descriptor entries
             void init_descriptors();
+            /// @brief Set specified descriptor properties @param n Entry index @param base Base address @param limit Address limit @param access Access flags @param flags Entry flags
             void set_descriptor(uint8_t n, uint32_t base, uint32_t limit, gdt_access_t access, gdt_flags_t flags);
         }
     }
