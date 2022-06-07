@@ -50,7 +50,7 @@ namespace os
 
             // initialize heaps
             bool mmdbg = true;
-            uint32_t count = 1024;
+            uint32_t count = 16384;
             uint32_t needed = memalign((count + (count * 2)) * sizeof(heapblock_t), 0x1000) + 0x1000;
             uint32_t usable = memalign(memory_manager::usable() - needed, 0x1000);
             heap_large.init((usable / 5) * 3, count, 0x1000, false);
