@@ -1,3 +1,4 @@
-/sos.iso
-/docs
-/ramdisk.img
+sos.iso
+docs/
+ramdisk.img
+bin/
