@@ -11,7 +11,6 @@ namespace os
         uint32_t pit::_freq;
         uint32_t pit::_ticks, pit::_timer;
         uint32_t pit::_millis, pit::_millis_total, pit::_seconds;
-        uint32_t pit::_switch_timer;
 
         void pit::init()
         {
@@ -21,7 +20,6 @@ namespace os
             _millis       = 0;
             _millis_total = 0;
             _seconds      = 0;
-            _switch_timer = 0;
 
             uint32_t f = 1193180 / _freq;
             uint8_t high = (uint8_t)((f & 0xFF00) >> 8);

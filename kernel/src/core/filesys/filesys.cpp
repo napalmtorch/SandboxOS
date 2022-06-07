@@ -81,14 +81,14 @@ namespace os
             return false;
         }
         
-        bool dir_exists(const char* fname)
+        bool dir_exists(const char* path)
         {
-            filesys_t* fs = from_path(fname);
+            filesys_t* fs = from_path(path);
             if (fs == NULL) { return false; }
 
             if (fs->type == filesystem_type::ramfs)
             {
-                if (fname[0] == fs->letter && fname[1] == ':' && fname[2] == '/' && strlen(fname) == 3) { return true; }
+                if (path[0] == fs->letter && path[1] == ':' && path[2] == '/' && strlen(path) == 3) { return true; }
                 return false;
             }
             return false;

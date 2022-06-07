@@ -81,6 +81,7 @@ namespace os
             uint16_t totalmem;
         } PACKED vbe_ctrl_info_t;
 
+        /// @brief Print multiboot header information @param mboot Pointer to multiboot header
         static inline void multiboot_print(multiboot_t* mboot)
         {
             printf("%s Multiboot Header:\n", DEBUG_INFO);

@@ -14,15 +14,6 @@ namespace os
         threading::scheduler::start(thread);
         printf("%s Initialized garbage collector\n", DEBUG_OK);
     }
-
-    void garbage_collector::run()
-    {
-        lock();
-        collect();
-        merge();
-        unlock();
-        yield();
-    }
     
     void garbage_collector::merge()
     {

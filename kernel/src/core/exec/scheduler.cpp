@@ -1,11 +1,6 @@
 #include <core/exec/scheduler.h>
 #include <core/kernel.h>
 
-EXTC
-{
-    extern void _context_switch(void);
-}
-
 namespace os
 {
     namespace threading

@@ -8,8 +8,10 @@ namespace os
 {
     namespace hal
     {
+        /// @brief Programmable interrupt controller
         namespace pic
         {
+            /// @brief Re-map PIC
             static inline void remap()
             {
                 ports::outb(0x20, 0x11);
