@@ -117,6 +117,16 @@ namespace os
         return NULL;
     }
 
+    /// @brief Get first memory block with specified type @param type Memory block type @return Pointer to memory block
+    memblk_t* memory_manager::first_bytype(memblk_type type)
+    {
+        for (size_t i = 0; i < MEMBLK_COUNT; i++)
+        {
+            if (_memblks[i].type == type) { return &_memblks[i]; }
+        }
+        return NULL;
+    }
+
     /// @brief Get next available block entry in list @return Pointer to unused memory block
     memblk_t* memory_manager::next()
     {

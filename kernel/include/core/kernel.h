@@ -25,6 +25,8 @@
 #include <hardware/interrupts/gdt.h>
 #include <hardware/interrupts/idt.h>
 #include <hardware/interrupts/pic.h>
+#include <filesys/ramfs.h>
+#include <filesys/filesys.h>
 
 namespace os
 {

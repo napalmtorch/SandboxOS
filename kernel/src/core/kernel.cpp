@@ -60,6 +60,19 @@ namespace os
             // initialize thread scheduler
             threading::scheduler::init();
 
+            // initialize filesystem
+            filesystem::init();
+
+            // open file
+            const char* fname = "A:/test.txt";
+            file_t* file = filesystem::open_file(fname, "r");
+            if (file == NULL) { printf("%s Failed to open file '%s'\n", DEBUG_ERROR, fname); }
+            else
+            {
+                printf("%s\n", file->data);
+                filesystem::close_file(file);
+            }
+
             // create test thread
             threading::thread_t* t = threading::thread_create("test", STACKSZ_MEDIUM, test_main, 0, NULL);
             threading::scheduler::load(t);
@@ -77,6 +90,9 @@ namespace os
         void main()
         {
             printf("%s Entered kernel main\n", DEBUG_OK);
+            uint32_t memused = heap_large.calc_used() + heap_small.calc_used();
+            printf("%s Memory used after boot: %u bytes(%d MB)\n", DEBUG_INFO, memused, memused / MB);
+            
             while (true)
             {
                 threading::scheduler::yield();

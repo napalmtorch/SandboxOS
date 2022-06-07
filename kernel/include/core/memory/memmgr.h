@@ -45,10 +45,12 @@ namespace os
         public:
             static memblk_t* map(uint32_t addr, size_t size, memblk_type type);
             static memblk_t* request(size_t size, memblk_type type = memblk_type::reserved);
+            static memblk_t* first_bytype(memblk_type type);
 
         public:
             static size_t      usable();
             static const char* typestr(memblk_type type);
+            
 
         private:
             static memblk_t* next();
