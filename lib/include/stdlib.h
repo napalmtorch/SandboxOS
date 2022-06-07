@@ -29,6 +29,7 @@ int      rand();
 void     exit(int code);
 char*    itoa(int num, char* str, int base);
 char*    ltoa(size_t num, char* str, int base);
+char*    ftoa(float n, char* res, int afterpoint);
 char*    strhex(uint32_t value, char* result, bool prefix, uint8_t bytes);
 int      system(char* command);
 char*    strerror(int errnum);

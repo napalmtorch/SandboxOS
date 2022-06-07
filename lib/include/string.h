@@ -79,4 +79,9 @@ namespace std
         public:
             string& operator=(const string& rhs);
     };
+
+    std::string to_string(bool value);
+    std::string to_string(int32_t value);
+    std::string to_string(uint32_t value);
+    std::string to_string(double value);
 }

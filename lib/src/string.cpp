@@ -264,6 +264,48 @@ char* strback(char* str)
 
 namespace std
 {
+    std::string to_string(bool value)
+    {
+        if (value) { return "true"; }
+        return "false";
+    }
+    
+    std::string to_string(int32_t value)
+    {
+        char temp[32];
+        memset(temp, 0, sizeof(temp));
+        itoa(value, temp, 10);
+        return std::string(temp);
+    }
+    
+    std::string to_string(uint32_t value)
+    {
+        char temp[32];
+        memset(temp, 0, sizeof(temp));
+        ltoa(value, temp, 10);
+        return std::string(temp);
+    }
+
+    std::string to_string(double value)
+    {
+        char temp[32];
+        memset(temp, 0, sizeof(temp));
+        ftoa(value, temp, 4);
+        if (value < 1)
+        {
+            char temp2[32];
+            memset(temp2, 0, sizeof(temp2));
+            stradd(temp2, '0');
+            strcat(temp2, temp);
+            while (temp2[strlen(temp2) - 1] == '0') { strback(temp2); }
+            return std::string(temp2);
+        }
+        while (temp[strlen(temp) - 1] == '0') { strback(temp); }
+        return std::string(temp);
+    }
+
+    // --------------------------------------------------------------------------------------------------------------
+
     string::string() { this->_data = NULL; this->_len = 0; }
 
     string::string(char* str)

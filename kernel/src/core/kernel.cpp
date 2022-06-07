@@ -73,13 +73,6 @@ namespace os
                 filesystem::close_file(file);
             }
 
-            std::string str("Hello world\n");
-            str.append("This is a test\n");
-            str.append("Chicken in the corn\n");
-            str.append("But the corn don't grow mama\n");
-            printf("STRING: '%s'\n", str.c_str());
-            str.dispose();
-
             // create test thread
             threading::thread_t* t = threading::thread_create("test", STACKSZ_MEDIUM, test_main, 0, NULL);
             threading::scheduler::load(t);

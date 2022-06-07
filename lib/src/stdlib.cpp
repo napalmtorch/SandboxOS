@@ -136,6 +136,46 @@ char* ltoa(size_t num, char* str, int base)
     return str;
 }
 
+void _ftoa_rev(char* str, int len)
+{
+    int i = 0, j = len - 1, temp;
+    while (i < j) 
+    {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+        i++;
+        j--;
+    }
+}
+
+int _ftoa_conv(int x, char str[], int d)
+{
+    int i = 0;
+    while (x) { str[i++] = (x % 10) + '0'; x = x / 10; }
+
+    while (i < d) { str[i++] = '0'; }
+  
+    _ftoa_rev(str, i);
+    str[i] = '\0';
+    return i;
+}
+
+char* ftoa(float n, char* res, int afterpoint)
+{
+    int ipart = (int)n;
+    float fpart = n - (float)ipart;
+    int i = _ftoa_conv(ipart, res, 0);
+  
+    if (afterpoint != 0) 
+    {
+        res[i] = '.';
+        fpart = fpart * pow(10, afterpoint);
+        _ftoa_conv((int)fpart, res + i + 1, afterpoint);
+    }
+    return res;
+}
+
 char* strhex(uint32_t value, char* result, bool prefix, uint8_t bytes)
 {
     char* orig = result;
