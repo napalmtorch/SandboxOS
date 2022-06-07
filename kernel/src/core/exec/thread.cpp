@@ -13,6 +13,7 @@ namespace os
     {
         uint32_t _mon_now, _mon_last;
 
+        /// @brief Set thread name @param thread Pointer to thread @param str Pointer to name string
         void thread_setname(thread_t* thread, const char* str)
         {
             if (thread == NULL) { return; }
@@ -22,6 +23,7 @@ namespace os
             strcpy(thread->name, str);
         }
 
+        /// @brief Called when thread returns from entry point
         void thread_exit()
         {
             asm volatile("cli");
@@ -33,6 +35,7 @@ namespace os
             while (true) { scheduler::yield(); }
         }
 
+        /// @brief Create a new thread instance @param name Name of thread @param stacksz Size of stack in bytes @param protocol Entry point of thread @param argc Arguments count @param argv Pointer to argument list @return Pointer to thread
         thread_t* thread_create(char* name, size_t stacksz, thread_protocol_t protocol, int argc, char** argv)
         {
             thread_t* t = (thread_t*)tmalloc(sizeof(thread_t), ALLOCTYPE_OBJ);
@@ -56,6 +59,7 @@ namespace os
             return t;
         }
 
+        /// @brief Create kernel thread instance @return Kernel thread
         thread_t* thread_create_k()
         {
             thread_t* t = (thread_t*)tmalloc(sizeof(thread_t), ALLOCTYPE_OBJ);
@@ -68,6 +72,7 @@ namespace os
             return t;
         }
 
+        /// @brief Dispose thread and corresponding allocations @param thread Pointer to thread @return Success of disposal
         bool thread_dispose(thread_t* thread)
         {
             if (thread == NULL) { return false; }
@@ -77,6 +82,7 @@ namespace os
             return true;
         }
 
+        /// @brief Monitor and update performance of current thread
         void thread_monitor()
         {
             THREAD->ticks++;

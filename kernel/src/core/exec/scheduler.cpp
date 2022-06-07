@@ -17,6 +17,7 @@ namespace os
         uint32_t                   scheduler::_index;
         bool                       scheduler::_ready;
 
+        /// @brief Initialize thread scheduler
         void scheduler::init()
         {
             _tid   = 0;
@@ -44,8 +45,10 @@ namespace os
             printf("%s Initialized scheduler\n", DEBUG_OK);
         }
 
+        /// @brief Notify scheduler that its allowed to context switch
         void scheduler::ready() { _ready = true; }
 
+        /// @brief Switch to next available thread in list 
         OPTIMIZE("O0") void scheduler::yield()
         {
             if (!_ready) { return; }
@@ -64,6 +67,7 @@ namespace os
             _context_switch();
         }
 
+        /// @brief Start specified thread @param thread Pointer to thread @return Thread started successfully
         bool scheduler::start(thread_t* thread)
         {
             if (thread == NULL) { return false; }
@@ -74,6 +78,7 @@ namespace os
             return true;
         }
 
+        /// @brief Pause specified thread @param thread Pointer to thread @return Thread paused successfully
         bool scheduler::pause(thread_t* thread)
         {
             if (thread == NULL) { return false; }
@@ -84,6 +89,7 @@ namespace os
             return true;
         }
 
+        /// @brief Send a request to terminate specified thread @param thread Pointer to thread @return Thread termination request sent successfully
         bool scheduler::terminate(thread_t* thread)
         {
             if (thread == NULL) { return false; }
@@ -94,6 +100,7 @@ namespace os
             return true;
         }
 
+        /// @brief Load specified thread into scheduler queue @param thread Pointer to thread @return Thread loaded successfully
         bool scheduler::load(thread_t* thread)
         {
             if (thread == NULL) { perror("Tried to load null thread"); return false; }
@@ -105,6 +112,7 @@ namespace os
             return true;
         }
 
+        /// @brief Unload specified thread into scheduler queue @param thread Pointer to thread @return Thread unloaded successfully
         bool scheduler::unload(thread_t* thread)
         {
             if (thread == NULL) { perror("Tried to unload null thread"); return false; }
@@ -124,6 +132,7 @@ namespace os
             return false;
         }
 
+        /// @brief Fetch next available thread in queue @return Pointer to thread
         thread_t* scheduler::next()
         {
             while (true)
@@ -142,16 +151,20 @@ namespace os
             return NULL;
         }
 
+        /// @brief Generate unused ID @return ID value
         uint32_t scheduler::generate_id()
         {
             uint32_t id = _tid++;
             return id;
         }
 
+        /// @brief Check if scheduler is allowed to context switch @return Can switch
         bool scheduler::is_ready() { return _ready; }
 
+        /// @brief Get list of threads @return Pointer to thread list
         std::arraylist<thread_t*>* scheduler::threads() { return &_threads; }
 
+        /// @brief Check if specified thread is running @param thread Pointer to thread @return Thread is running
         bool scheduler::is_running(thread_t* thread)
         {
             if (thread == NULL) { return false; }
@@ -162,6 +175,7 @@ namespace os
             return false;
         }
 
+        /// @brief Check if specified thread is running @param id ID of thread @return Thread is running
         bool scheduler::is_running(uint32_t id)
         {
             for (size_t i = 0; i < _threads.length(); i++)
@@ -171,6 +185,7 @@ namespace os
             return false;
         }
 
+        /// @brief Check if specified thread is running @param name Name of thread @return Thread is running
         bool scheduler::is_running(char* name)
         {
             if (name == NULL || strlen(name) == 0) { return false; }
