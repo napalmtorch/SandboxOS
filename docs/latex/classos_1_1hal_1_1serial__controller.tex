@@ -1,0 +1,186 @@
+\hypertarget{classos_1_1hal_1_1serial__controller}{}\doxysection{os\+::hal\+::serial\+\_\+controller Class Reference}
+\label{classos_1_1hal_1_1serial__controller}\index{os::hal::serial\_controller@{os::hal::serial\_controller}}
+
+
+{\ttfamily \#include $<$serial.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a287703868bc922d2dd191644295377aa}{begin}} (\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}} \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a3690eba949372ed19009e9a11a129d7f}{port}})
+\begin{DoxyCompactList}\small\item\em Establish a serial port connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_ab018864df1857538bb7b3fe5344f1bd7}{end}} ()
+\begin{DoxyCompactList}\small\item\em Disable serial port connection. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_ab6329687edfd8e1acc448430fe879165}{read}} ()
+\begin{DoxyCompactList}\small\item\em Read byte from serial controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a1b7c0834367caac8e68b70a46eec3b64}{write}} (char c)
+\begin{DoxyCompactList}\small\item\em Write character to serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a5d0907f0b46662159de54ac5f196622f}{print}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Write string of characters to serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a487605547ec18ab34ec82d46420354db}{println}} (char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Write line of characters to serial port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_af1a3bf2af473b36f2baf2328f7bcba80}{vprint\+\_\+fmt}} (char $\ast$fmt, \mbox{\hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\+\_\+list}} args)
+\begin{DoxyCompactList}\small\item\em Print formatted string with specified variadic list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_aa2fd96f92fb60d393de0c3459f0ee416}{print\+\_\+fmt}} (char $\ast$fmt,...)
+\begin{DoxyCompactList}\small\item\em Print formatted string with specified arguments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}} \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a3690eba949372ed19009e9a11a129d7f}{port}} ()
+\begin{DoxyCompactList}\small\item\em Get current serial port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a05b18a55e327517ff64b2f8bf22090e2}{portstr}} (\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}} \mbox{\hyperlink{classos_1_1hal_1_1serial__controller_a3690eba949372ed19009e9a11a129d7f}{port}})
+\begin{DoxyCompactList}\small\item\em Get name of serial port number. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a287703868bc922d2dd191644295377aa}\label{classos_1_1hal_1_1serial__controller_a287703868bc922d2dd191644295377aa}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!begin@{begin}}
+\index{begin@{begin}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}}}]{port }\end{DoxyParamCaption})}
+
+
+
+Establish a serial port connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Serial port number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_ab018864df1857538bb7b3fe5344f1bd7}\label{classos_1_1hal_1_1serial__controller_ab018864df1857538bb7b3fe5344f1bd7}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!end@{end}}
+\index{end@{end}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Disable serial port connection. 
+
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a3690eba949372ed19009e9a11a129d7f}\label{classos_1_1hal_1_1serial__controller_a3690eba949372ed19009e9a11a129d7f}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!port@{port}}
+\index{port@{port}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{port()}{port()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}} os\+::hal\+::serial\+\_\+controller\+::port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get current serial port. 
+
+\begin{DoxyReturn}{Returns}
+Port number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a05b18a55e327517ff64b2f8bf22090e2}\label{classos_1_1hal_1_1serial__controller_a05b18a55e327517ff64b2f8bf22090e2}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!portstr@{portstr}}
+\index{portstr@{portstr}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{portstr()}{portstr()}}
+{\footnotesize\ttfamily const char $\ast$ os\+::hal\+::serial\+\_\+controller\+::portstr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{serial\+\_\+port}}}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get name of serial port number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a5d0907f0b46662159de54ac5f196622f}\label{classos_1_1hal_1_1serial__controller_a5d0907f0b46662159de54ac5f196622f}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!print@{print}}
+\index{print@{print}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::print (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Write string of characters to serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Pointer to string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_aa2fd96f92fb60d393de0c3459f0ee416}\label{classos_1_1hal_1_1serial__controller_aa2fd96f92fb60d393de0c3459f0ee416}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!print\_fmt@{print\_fmt}}
+\index{print\_fmt@{print\_fmt}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{print\_fmt()}{print\_fmt()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::print\+\_\+fmt (\begin{DoxyParamCaption}\item[{char $\ast$}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Print formatted string with specified arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & Pointer to string\\
+\hline
+{\em ...} & Arguments \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a487605547ec18ab34ec82d46420354db}\label{classos_1_1hal_1_1serial__controller_a487605547ec18ab34ec82d46420354db}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!println@{println}}
+\index{println@{println}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::println (\begin{DoxyParamCaption}\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Write line of characters to serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Pointer to string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_ab6329687edfd8e1acc448430fe879165}\label{classos_1_1hal_1_1serial__controller_ab6329687edfd8e1acc448430fe879165}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!read@{read}}
+\index{read@{read}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily char os\+::hal\+::serial\+\_\+controller\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read byte from serial controller. 
+
+\begin{DoxyReturn}{Returns}
+ASCII value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_af1a3bf2af473b36f2baf2328f7bcba80}\label{classos_1_1hal_1_1serial__controller_af1a3bf2af473b36f2baf2328f7bcba80}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!vprint\_fmt@{vprint\_fmt}}
+\index{vprint\_fmt@{vprint\_fmt}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{vprint\_fmt()}{vprint\_fmt()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::vprint\+\_\+fmt (\begin{DoxyParamCaption}\item[{char $\ast$}]{fmt,  }\item[{\mbox{\hyperlink{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{va\+\_\+list}}}]{args }\end{DoxyParamCaption})}
+
+
+
+Print formatted string with specified variadic list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fmt} & Pointer to string\\
+\hline
+{\em args} & Variadic list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classos_1_1hal_1_1serial__controller_a1b7c0834367caac8e68b70a46eec3b64}\label{classos_1_1hal_1_1serial__controller_a1b7c0834367caac8e68b70a46eec3b64}} 
+\index{os::hal::serial\_controller@{os::hal::serial\_controller}!write@{write}}
+\index{write@{write}!os::hal::serial\_controller@{os::hal::serial\_controller}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void os\+::hal\+::serial\+\_\+controller\+::write (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Write character to serial port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & ASCII value \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+kernel/include/hardware/common/\mbox{\hyperlink{serial_8h}{serial.\+h}}\item 
+kernel/src/hardware/common/\mbox{\hyperlink{serial_8cpp}{serial.\+cpp}}\end{DoxyCompactItemize}

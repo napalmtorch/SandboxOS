@@ -66,6 +66,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -73,24 +75,37 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1threading_1_1scheduler.html">scheduler</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1threading_1_1thread__flags__t.html">thread_flags_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1threading_1_1thread__regs__t.html">thread_regs_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a94670e3f1ace2bb2f3d597b1e2e959e5"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a94670e3f1ace2bb2f3d597b1e2e959e5">thread_protocol_t</a>) (int, char **)</td></tr>
+<tr class="separator:a94670e3f1ace2bb2f3d597b1e2e959e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a02d847603daaee1197d9487ca6e5c9fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a02d847603daaee1197d9487ca6e5c9fd">OPTIMIZE</a> (&quot;O0&quot;) void scheduler</td></tr>
-<tr class="memdesc:a02d847603daaee1197d9487ca6e5c9fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch to next available thread in list.  <a href="namespaceos_1_1threading.html#a02d847603daaee1197d9487ca6e5c9fd">More...</a><br /></td></tr>
-<tr class="separator:a02d847603daaee1197d9487ca6e5c9fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc07d7d6a04880d1bd9af02565ad19ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#afc07d7d6a04880d1bd9af02565ad19ee">thread_setname</a> (thread_t *thread, const char *str)</td></tr>
+<tr class="memitem:afc07d7d6a04880d1bd9af02565ad19ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#afc07d7d6a04880d1bd9af02565ad19ee">thread_setname</a> (<a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *thread, const char *str)</td></tr>
 <tr class="memdesc:afc07d7d6a04880d1bd9af02565ad19ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set thread name.  <a href="namespaceos_1_1threading.html#afc07d7d6a04880d1bd9af02565ad19ee">More...</a><br /></td></tr>
 <tr class="separator:afc07d7d6a04880d1bd9af02565ad19ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16a801ab8d19c54a5f9c4cf186e3ca26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a16a801ab8d19c54a5f9c4cf186e3ca26">thread_exit</a> ()</td></tr>
 <tr class="memdesc:a16a801ab8d19c54a5f9c4cf186e3ca26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when thread returns from entry point.  <a href="namespaceos_1_1threading.html#a16a801ab8d19c54a5f9c4cf186e3ca26">More...</a><br /></td></tr>
 <tr class="separator:a16a801ab8d19c54a5f9c4cf186e3ca26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a569fb0f0274fbd3087035019a8621211"><td class="memItemLeft" align="right" valign="top">thread_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a569fb0f0274fbd3087035019a8621211">thread_create</a> (char *name, size_t stacksz, thread_protocol_t protocol, int argc, char **argv)</td></tr>
-<tr class="memdesc:a569fb0f0274fbd3087035019a8621211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new thread instance.  <a href="namespaceos_1_1threading.html#a569fb0f0274fbd3087035019a8621211">More...</a><br /></td></tr>
-<tr class="separator:a569fb0f0274fbd3087035019a8621211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b86000c9b613b3f526566e4bc5cacb1"><td class="memItemLeft" align="right" valign="top">thread_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a5b86000c9b613b3f526566e4bc5cacb1">thread_create_k</a> ()</td></tr>
-<tr class="memdesc:a5b86000c9b613b3f526566e4bc5cacb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create kernel thread instance.  <a href="namespaceos_1_1threading.html#a5b86000c9b613b3f526566e4bc5cacb1">More...</a><br /></td></tr>
-<tr class="separator:a5b86000c9b613b3f526566e4bc5cacb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8500975d44d702ee35a622e92932e6ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a8500975d44d702ee35a622e92932e6ab">thread_dispose</a> (thread_t *thread)</td></tr>
+<tr class="memitem:aadfcf2228956b2ef2f07368c52a78690"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#aadfcf2228956b2ef2f07368c52a78690">thread_create</a> (char *name, <a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> stacksz, <a class="el" href="namespaceos_1_1threading.html#a94670e3f1ace2bb2f3d597b1e2e959e5">thread_protocol_t</a> protocol, int argc, char **argv)</td></tr>
+<tr class="memdesc:aadfcf2228956b2ef2f07368c52a78690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new thread instance.  <a href="namespaceos_1_1threading.html#aadfcf2228956b2ef2f07368c52a78690">More...</a><br /></td></tr>
+<tr class="separator:aadfcf2228956b2ef2f07368c52a78690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad05e9b16d91bb8c4cf0c5b275081994"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#aad05e9b16d91bb8c4cf0c5b275081994">thread_create_k</a> ()</td></tr>
+<tr class="memdesc:aad05e9b16d91bb8c4cf0c5b275081994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create kernel thread instance.  <a href="namespaceos_1_1threading.html#aad05e9b16d91bb8c4cf0c5b275081994">More...</a><br /></td></tr>
+<tr class="separator:aad05e9b16d91bb8c4cf0c5b275081994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8500975d44d702ee35a622e92932e6ab"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a8500975d44d702ee35a622e92932e6ab">thread_dispose</a> (<a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *thread)</td></tr>
 <tr class="memdesc:a8500975d44d702ee35a622e92932e6ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispose thread and corresponding allocations.  <a href="namespaceos_1_1threading.html#a8500975d44d702ee35a622e92932e6ab">More...</a><br /></td></tr>
 <tr class="separator:a8500975d44d702ee35a622e92932e6ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cedd82318b81fcb6d79dee0a9120ac7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a1cedd82318b81fcb6d79dee0a9120ac7">thread_monitor</a> ()</td></tr>
@@ -99,40 +114,35 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aabb845f91c0f1490382877adf15ad7d3"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#aabb845f91c0f1490382877adf15ad7d3">_mon_now</a></td></tr>
+<tr class="memitem:aabb845f91c0f1490382877adf15ad7d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#aabb845f91c0f1490382877adf15ad7d3">_mon_now</a></td></tr>
 <tr class="separator:aabb845f91c0f1490382877adf15ad7d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a829aabd97c87d281b53a09173dfb6238"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a829aabd97c87d281b53a09173dfb6238">_mon_last</a></td></tr>
+<tr class="memitem:a829aabd97c87d281b53a09173dfb6238"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1threading.html#a829aabd97c87d281b53a09173dfb6238">_mon_last</a></td></tr>
 <tr class="separator:a829aabd97c87d281b53a09173dfb6238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a02d847603daaee1197d9487ca6e5c9fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02d847603daaee1197d9487ca6e5c9fd">&#9670;&nbsp;</a></span>OPTIMIZE()</h2>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a94670e3f1ace2bb2f3d597b1e2e959e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94670e3f1ace2bb2f3d597b1e2e959e5">&#9670;&nbsp;</a></span>thread_protocol_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">os::threading::OPTIMIZE </td>
-          <td>(</td>
-          <td class="paramtype">&quot;O0&quot;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef int(* os::threading::thread_protocol_t) (int, char **)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Switch to next available thread in list. </p>
-
 </div>
 </div>
-<a id="a569fb0f0274fbd3087035019a8621211"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a569fb0f0274fbd3087035019a8621211">&#9670;&nbsp;</a></span>thread_create()</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aadfcf2228956b2ef2f07368c52a78690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadfcf2228956b2ef2f07368c52a78690">&#9670;&nbsp;</a></span>thread_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">thread_t* os::threading::thread_create </td>
+          <td class="memname"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> * os::threading::thread_create </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -140,13 +150,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>stacksz</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">thread_protocol_t&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceos_1_1threading.html#a94670e3f1ace2bb2f3d597b1e2e959e5">thread_protocol_t</a>&#160;</td>
           <td class="paramname"><em>protocol</em>, </td>
         </tr>
         <tr>
@@ -184,14 +194,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5b86000c9b613b3f526566e4bc5cacb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b86000c9b613b3f526566e4bc5cacb1">&#9670;&nbsp;</a></span>thread_create_k()</h2>
+<a id="aad05e9b16d91bb8c4cf0c5b275081994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad05e9b16d91bb8c4cf0c5b275081994">&#9670;&nbsp;</a></span>thread_create_k()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">thread_t* os::threading::thread_create_k </td>
+          <td class="memname"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> * os::threading::thread_create_k </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -213,7 +223,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">bool os::threading::thread_dispose </td>
           <td>(</td>
-          <td class="paramtype">thread_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *&#160;</td>
           <td class="paramname"><em>thread</em></td><td>)</td>
           <td></td>
         </tr>
@@ -278,7 +288,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void os::threading::thread_setname </td>
           <td>(</td>
-          <td class="paramtype">thread_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1threading_1_1thread__t.html">thread_t</a> *&#160;</td>
           <td class="paramname"><em>thread</em>, </td>
         </tr>
         <tr>
@@ -314,7 +324,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t os::threading::_mon_last</td>
+          <td class="memname"><a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> os::threading::_mon_last</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -328,7 +338,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t os::threading::_mon_now</td>
+          <td class="memname"><a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> os::threading::_mon_now</td>
         </tr>
       </table>
 </div><div class="memdoc">

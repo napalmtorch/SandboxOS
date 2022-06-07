@@ -1,0 +1,181 @@
+\hypertarget{classos_1_1memory__manager}{}\doxysection{os\+::memory\+\_\+manager Class Reference}
+\label{classos_1_1memory__manager}\index{os::memory\_manager@{os::memory\_manager}}
+
+
+{\ttfamily \#include $<$memmgr.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classos_1_1memory__manager_a522b8320b25340aae59142b1b08d344d}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize physical memory manager. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classos_1_1memory__manager_af41cb2b5a9d626dfaa3c6a1fbd8c14f5}{print}} ()
+\item 
+static void \mbox{\hyperlink{classos_1_1memory__manager_aefc3f899c1b8fb145ceb690eea4c9487}{probe\+\_\+mmap}} ()
+\begin{DoxyCompactList}\small\item\em Read memory map and create corresponding blocks. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classos_1_1memory__manager_aff348df00ca53d356b9b9754524e584c}{probe\+\_\+mods}} ()
+\begin{DoxyCompactList}\small\item\em Read modules and create corresponding blocks. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__manager_a7e94b561c1412da1b2780b10e819c57d}{map}} (\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} addr, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Create memory block and add to list. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__manager_a9a175b864349548c32e5838ebb04e7ff}{request}} (\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}} type=\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}{memblk\+\_\+type\+::reserved}})
+\begin{DoxyCompactList}\small\item\em Request a memory block of specified size. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__manager_a5c9edd54a3340dd4e5a1bd70780f4047}{first\+\_\+bytype}} (\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Get first memory block with specified type. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__manager_addd2e3f575d5da711f6ae8398f3588f8}{usable}} ()
+\begin{DoxyCompactList}\small\item\em Get total amount of usable memory detected after memory manager initialization -\/ value will no longer be valid after requests are made. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classos_1_1memory__manager_aa8be4971349690fc70b45db2b1629a9c}{typestr}} (\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}} type)
+\begin{DoxyCompactList}\small\item\em Convert memory block type into string representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classos_1_1memory__manager_a79244730933140b7272f881a3a1dc5cd}{messages}}
+\begin{DoxyCompactList}\small\item\em Toggle debug messages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classos_1_1memory__manager_a5c9edd54a3340dd4e5a1bd70780f4047}\label{classos_1_1memory__manager_a5c9edd54a3340dd4e5a1bd70780f4047}} 
+\index{os::memory\_manager@{os::memory\_manager}!first\_bytype@{first\_bytype}}
+\index{first\_bytype@{first\_bytype}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{first\_bytype()}{first\_bytype()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ os\+::memory\+\_\+manager\+::first\+\_\+bytype (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get first memory block with specified type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Memory block type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to memory block 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1memory__manager_a522b8320b25340aae59142b1b08d344d}\label{classos_1_1memory__manager_a522b8320b25340aae59142b1b08d344d}} 
+\index{os::memory\_manager@{os::memory\_manager}!init@{init}}
+\index{init@{init}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+manager\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize physical memory manager. 
+
+\mbox{\Hypertarget{classos_1_1memory__manager_a7e94b561c1412da1b2780b10e819c57d}\label{classos_1_1memory__manager_a7e94b561c1412da1b2780b10e819c57d}} 
+\index{os::memory\_manager@{os::memory\_manager}!map@{map}}
+\index{map@{map}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ os\+::memory\+\_\+manager\+::map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{addr,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create memory block and add to list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & Memory address\\
+\hline
+{\em size} & Memory size\\
+\hline
+{\em type} & Type of memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to memory block 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1memory__manager_af41cb2b5a9d626dfaa3c6a1fbd8c14f5}\label{classos_1_1memory__manager_af41cb2b5a9d626dfaa3c6a1fbd8c14f5}} 
+\index{os::memory\_manager@{os::memory\_manager}!print@{print}}
+\index{print@{print}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+manager\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1memory__manager_aefc3f899c1b8fb145ceb690eea4c9487}\label{classos_1_1memory__manager_aefc3f899c1b8fb145ceb690eea4c9487}} 
+\index{os::memory\_manager@{os::memory\_manager}!probe\_mmap@{probe\_mmap}}
+\index{probe\_mmap@{probe\_mmap}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{probe\_mmap()}{probe\_mmap()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+manager\+::probe\+\_\+mmap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Read memory map and create corresponding blocks. 
+
+\mbox{\Hypertarget{classos_1_1memory__manager_aff348df00ca53d356b9b9754524e584c}\label{classos_1_1memory__manager_aff348df00ca53d356b9b9754524e584c}} 
+\index{os::memory\_manager@{os::memory\_manager}!probe\_mods@{probe\_mods}}
+\index{probe\_mods@{probe\_mods}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{probe\_mods()}{probe\_mods()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+manager\+::probe\+\_\+mods (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Read modules and create corresponding blocks. 
+
+\mbox{\Hypertarget{classos_1_1memory__manager_a9a175b864349548c32e5838ebb04e7ff}\label{classos_1_1memory__manager_a9a175b864349548c32e5838ebb04e7ff}} 
+\index{os::memory\_manager@{os::memory\_manager}!request@{request}}
+\index{request@{request}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{request()}{request()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}} $\ast$ os\+::memory\+\_\+manager\+::request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}}}]{type = {\ttfamily \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}{memblk\+\_\+type\+::reserved}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Request a memory block of specified size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & Requested size\\
+\hline
+{\em type} & Type of memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to memory block 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1memory__manager_aa8be4971349690fc70b45db2b1629a9c}\label{classos_1_1memory__manager_aa8be4971349690fc70b45db2b1629a9c}} 
+\index{os::memory\_manager@{os::memory\_manager}!typestr@{typestr}}
+\index{typestr@{typestr}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{typestr()}{typestr()}}
+{\footnotesize\ttfamily const char $\ast$ os\+::memory\+\_\+manager\+::typestr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Convert memory block type into string representation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Type of memory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to string representation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classos_1_1memory__manager_addd2e3f575d5da711f6ae8398f3588f8}\label{classos_1_1memory__manager_addd2e3f575d5da711f6ae8398f3588f8}} 
+\index{os::memory\_manager@{os::memory\_manager}!usable@{usable}}
+\index{usable@{usable}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{usable()}{usable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} os\+::memory\+\_\+manager\+::usable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get total amount of usable memory detected after memory manager initialization -\/ value will no longer be valid after requests are made. 
+
+\begin{DoxyReturn}{Returns}
+Amount of usable memory in bytes 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classos_1_1memory__manager_a79244730933140b7272f881a3a1dc5cd}\label{classos_1_1memory__manager_a79244730933140b7272f881a3a1dc5cd}} 
+\index{os::memory\_manager@{os::memory\_manager}!messages@{messages}}
+\index{messages@{messages}!os::memory\_manager@{os::memory\_manager}}
+\doxysubsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily bool os\+::memory\+\_\+manager\+::messages\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Toggle debug messages. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+kernel/include/core/memory/\mbox{\hyperlink{memmgr_8h}{memmgr.\+h}}\item 
+kernel/src/core/memory/\mbox{\hyperlink{memmgr_8cpp}{memmgr.\+cpp}}\end{DoxyCompactItemize}

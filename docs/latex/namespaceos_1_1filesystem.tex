@@ -1,41 +1,97 @@
 \hypertarget{namespaceos_1_1filesystem}{}\doxysection{os\+::filesystem Namespace Reference}
 \label{namespaceos_1_1filesystem}\index{os::filesystem@{os::filesystem}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1filesystem_1_1ramfs__file__t}{ramfs\+\_\+file\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1filesystem_1_1ramfs__info__t}{ramfs\+\_\+info\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classos_1_1filesystem_1_1ramfs__host}{ramfs\+\_\+host}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1filesystem_a80c342439cdf101d213adaf6cff2834c}{filesys\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}{filesystem\+\_\+type}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee}{ramfs}}
+, \mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa20c528209e3ffdd4e54e48975167e2e9}{diskfs}}
+, \mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa977700c737bee64ea04fa7adc40e7bf0}{fat32}}
+ \}
+\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{namespaceos_1_1filesystem_a5c43fc7686d23e051f5fa50a4b9955cd}{init}} ()
 \item 
-void \mbox{\hyperlink{namespaceos_1_1filesystem_a28a3c103cbf80f3ee5117e2e89ac764a}{fs\+\_\+register}} (filesys\+\_\+t $\ast$fs)
+void \mbox{\hyperlink{namespaceos_1_1filesystem_a28a3c103cbf80f3ee5117e2e89ac764a}{fs\+\_\+register}} (\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$fs)
 \item 
-void \mbox{\hyperlink{namespaceos_1_1filesystem_affb6134309cce5517047d3c16bc92c81}{fs\+\_\+unregister}} (filesys\+\_\+t $\ast$fs)
+void \mbox{\hyperlink{namespaceos_1_1filesystem_affb6134309cce5517047d3c16bc92c81}{fs\+\_\+unregister}} (\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$fs)
 \item 
-filesys\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_a9d940166e7918535d41e7d0a059c913a}{fs\+\_\+create}} (filesystem\+\_\+type type, char letter, char $\ast$label, void $\ast$host)
+\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_aa7e75cc6f8595a86bf038aa0893ad706}{fs\+\_\+create}} (\mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}{filesystem\+\_\+type}} type, char letter, char $\ast$label, void $\ast$host)
 \item 
-filesys\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_ae68d4194e44ac67eaf8baa2abbbed14d}{from\+\_\+path}} (const char $\ast$path)
+\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_a258581b5fc42ab0bee4f05b54eb685da}{from\+\_\+path}} (const char $\ast$path)
 \item 
-uint8\+\_\+t \mbox{\hyperlink{namespaceos_1_1filesystem_ab42f9c2f5b863e1e557ebd53968a4638}{from\+\_\+modestr}} (const char $\ast$mode)
+\mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1filesystem_ab42f9c2f5b863e1e557ebd53968a4638}{from\+\_\+modestr}} (const char $\ast$mode)
 \item 
 bool \mbox{\hyperlink{namespaceos_1_1filesystem_aeac60a6fff0f743f258a33bbd8903a43}{file\+\_\+exists}} (const char $\ast$fname)
 \item 
 bool \mbox{\hyperlink{namespaceos_1_1filesystem_a38bd7063ec3c75decdc7a0490c59aa68}{dir\+\_\+exists}} (const char $\ast$fname)
 \item 
-file\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_accd6bedfceb20f7a2905870783c0b80e}{open\+\_\+file}} (const char $\ast$fname, const char $\ast$mode)
+\mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$ \mbox{\hyperlink{namespaceos_1_1filesystem_a287241c0c9b6b9f6f66ce0f6b446245c}{open\+\_\+file}} (const char $\ast$fname, const char $\ast$mode)
 \item 
-size\+\_\+t \mbox{\hyperlink{namespaceos_1_1filesystem_a6ebb45eed1716952ec6891210b82e138}{read\+\_\+file}} (void $\ast$buff, size\+\_\+t size, size\+\_\+t nmemb, file\+\_\+t $\ast$file)
+\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1filesystem_a6ebb45eed1716952ec6891210b82e138}{read\+\_\+file}} (void $\ast$buff, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} nmemb, \mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$file)
 \item 
-size\+\_\+t \mbox{\hyperlink{namespaceos_1_1filesystem_a7d0e00cd8198e353ac3c7abfebb8c811}{write\+\_\+file}} (const void $\ast$buff, size\+\_\+t size, size\+\_\+t nmemb, file\+\_\+t $\ast$file)
+\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1filesystem_a7d0e00cd8198e353ac3c7abfebb8c811}{write\+\_\+file}} (const void $\ast$buff, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} nmemb, \mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$file)
 \item 
-void \mbox{\hyperlink{namespaceos_1_1filesystem_ad21264751d38c3b5f9d69d76faed632d}{close\+\_\+file}} (file\+\_\+t $\ast$file)
+void \mbox{\hyperlink{namespaceos_1_1filesystem_ad21264751d38c3b5f9d69d76faed632d}{close\+\_\+file}} (\mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$file)
 \item 
-std\+::arraylist$<$ fileinfo\+\_\+t $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_a5e804cde85a860b6af037b36d8636a7a}{fetch\+\_\+files}} (const char $\ast$path)
+\mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$ \mbox{\hyperlink{structos_1_1fileinfo__t}{fileinfo\+\_\+t}} $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_a9ac2cef351b5e7ffd21e63b3839264c8}{fetch\+\_\+files}} (const char $\ast$path)
 \item 
-std\+::arraylist$<$ char $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_ae9988798c871375e98e194eeabd22c09}{fetch\+\_\+dirs}} (const char $\ast$path)
+\mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$ char $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_a88e31f02d4afe4b0db17c8bbcc072762}{fetch\+\_\+dirs}} (const char $\ast$path)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_a3b7966847d86e6426dc629650beb55a2}{filesystems}}
+\mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$ \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1filesystem_a3b7966847d86e6426dc629650beb55a2}{filesystems}}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceos_1_1filesystem_a80c342439cdf101d213adaf6cff2834c}\label{namespaceos_1_1filesystem_a80c342439cdf101d213adaf6cff2834c}} 
+\index{os::filesystem@{os::filesystem}!filesys\_t@{filesys\_t}}
+\index{filesys\_t@{filesys\_t}!os::filesystem@{os::filesystem}}
+\doxysubsubsection{\texorpdfstring{filesys\_t}{filesys\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{os\+::filesystem\+::filesys\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}\label{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}} 
+\index{os::filesystem@{os::filesystem}!filesystem\_type@{filesystem\_type}}
+\index{filesystem\_type@{filesystem\_type}!os::filesystem@{os::filesystem}}
+\doxysubsubsection{\texorpdfstring{filesystem\_type}{filesystem\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}{os\+::filesystem\+::filesystem\+\_\+type}} \+: \mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ramfs@{ramfs}!os::filesystem@{os::filesystem}}\index{os::filesystem@{os::filesystem}!ramfs@{ramfs}}}\mbox{\Hypertarget{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee}\label{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee}} 
+ramfs&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{diskfs@{diskfs}!os::filesystem@{os::filesystem}}\index{os::filesystem@{os::filesystem}!diskfs@{diskfs}}}\mbox{\Hypertarget{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa20c528209e3ffdd4e54e48975167e2e9}\label{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa20c528209e3ffdd4e54e48975167e2e9}} 
+diskfs&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fat32@{fat32}!os::filesystem@{os::filesystem}}\index{os::filesystem@{os::filesystem}!fat32@{fat32}}}\mbox{\Hypertarget{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa977700c737bee64ea04fa7adc40e7bf0}\label{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efaa977700c737bee64ea04fa7adc40e7bf0}} 
+fat32&\\
+\hline
+
+\end{DoxyEnumFields}
 
 
 \doxysubsection{Function Documentation}
@@ -43,7 +99,7 @@ std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1fi
 \index{os::filesystem@{os::filesystem}!close\_file@{close\_file}}
 \index{close\_file@{close\_file}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{close\_file()}{close\_file()}}
-{\footnotesize\ttfamily void os\+::filesystem\+::close\+\_\+file (\begin{DoxyParamCaption}\item[{file\+\_\+t $\ast$}]{file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::filesystem\+::close\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$}]{file }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_a38bd7063ec3c75decdc7a0490c59aa68}\label{namespaceos_1_1filesystem_a38bd7063ec3c75decdc7a0490c59aa68}} 
 \index{os::filesystem@{os::filesystem}!dir\_exists@{dir\_exists}}
@@ -51,17 +107,17 @@ std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1fi
 \doxysubsubsection{\texorpdfstring{dir\_exists()}{dir\_exists()}}
 {\footnotesize\ttfamily bool os\+::filesystem\+::dir\+\_\+exists (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespaceos_1_1filesystem_ae9988798c871375e98e194eeabd22c09}\label{namespaceos_1_1filesystem_ae9988798c871375e98e194eeabd22c09}} 
+\mbox{\Hypertarget{namespaceos_1_1filesystem_a88e31f02d4afe4b0db17c8bbcc072762}\label{namespaceos_1_1filesystem_a88e31f02d4afe4b0db17c8bbcc072762}} 
 \index{os::filesystem@{os::filesystem}!fetch\_dirs@{fetch\_dirs}}
 \index{fetch\_dirs@{fetch\_dirs}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{fetch\_dirs()}{fetch\_dirs()}}
-{\footnotesize\ttfamily std\+::arraylist$<$char$\ast$$>$ os\+::filesystem\+::fetch\+\_\+dirs (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$ char $\ast$ $>$ os\+::filesystem\+::fetch\+\_\+dirs (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespaceos_1_1filesystem_a5e804cde85a860b6af037b36d8636a7a}\label{namespaceos_1_1filesystem_a5e804cde85a860b6af037b36d8636a7a}} 
+\mbox{\Hypertarget{namespaceos_1_1filesystem_a9ac2cef351b5e7ffd21e63b3839264c8}\label{namespaceos_1_1filesystem_a9ac2cef351b5e7ffd21e63b3839264c8}} 
 \index{os::filesystem@{os::filesystem}!fetch\_files@{fetch\_files}}
 \index{fetch\_files@{fetch\_files}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{fetch\_files()}{fetch\_files()}}
-{\footnotesize\ttfamily std\+::arraylist$<$fileinfo\+\_\+t$>$ os\+::filesystem\+::fetch\+\_\+files (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$ \mbox{\hyperlink{structos_1_1fileinfo__t}{fileinfo\+\_\+t}} $>$ os\+::filesystem\+::fetch\+\_\+files (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_aeac60a6fff0f743f258a33bbd8903a43}\label{namespaceos_1_1filesystem_aeac60a6fff0f743f258a33bbd8903a43}} 
 \index{os::filesystem@{os::filesystem}!file\_exists@{file\_exists}}
@@ -73,31 +129,31 @@ std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1fi
 \index{os::filesystem@{os::filesystem}!from\_modestr@{from\_modestr}}
 \index{from\_modestr@{from\_modestr}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{from\_modestr()}{from\_modestr()}}
-{\footnotesize\ttfamily uint8\+\_\+t os\+::filesystem\+::from\+\_\+modestr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} os\+::filesystem\+::from\+\_\+modestr (\begin{DoxyParamCaption}\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespaceos_1_1filesystem_ae68d4194e44ac67eaf8baa2abbbed14d}\label{namespaceos_1_1filesystem_ae68d4194e44ac67eaf8baa2abbbed14d}} 
+\mbox{\Hypertarget{namespaceos_1_1filesystem_a258581b5fc42ab0bee4f05b54eb685da}\label{namespaceos_1_1filesystem_a258581b5fc42ab0bee4f05b54eb685da}} 
 \index{os::filesystem@{os::filesystem}!from\_path@{from\_path}}
 \index{from\_path@{from\_path}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{from\_path()}{from\_path()}}
-{\footnotesize\ttfamily filesys\+\_\+t$\ast$ os\+::filesystem\+::from\+\_\+path (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$ os\+::filesystem\+::from\+\_\+path (\begin{DoxyParamCaption}\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespaceos_1_1filesystem_a9d940166e7918535d41e7d0a059c913a}\label{namespaceos_1_1filesystem_a9d940166e7918535d41e7d0a059c913a}} 
+\mbox{\Hypertarget{namespaceos_1_1filesystem_aa7e75cc6f8595a86bf038aa0893ad706}\label{namespaceos_1_1filesystem_aa7e75cc6f8595a86bf038aa0893ad706}} 
 \index{os::filesystem@{os::filesystem}!fs\_create@{fs\_create}}
 \index{fs\_create@{fs\_create}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{fs\_create()}{fs\_create()}}
-{\footnotesize\ttfamily filesys\+\_\+t$\ast$ os\+::filesystem\+::fs\+\_\+create (\begin{DoxyParamCaption}\item[{filesystem\+\_\+type}]{type,  }\item[{char}]{letter,  }\item[{char $\ast$}]{label,  }\item[{void $\ast$}]{host }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$ os\+::filesystem\+::fs\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1filesystem_afccabe3d891577bbf609e49e011c8efa}{filesystem\+\_\+type}}}]{type,  }\item[{char}]{letter,  }\item[{char $\ast$}]{label,  }\item[{void $\ast$}]{host }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_a28a3c103cbf80f3ee5117e2e89ac764a}\label{namespaceos_1_1filesystem_a28a3c103cbf80f3ee5117e2e89ac764a}} 
 \index{os::filesystem@{os::filesystem}!fs\_register@{fs\_register}}
 \index{fs\_register@{fs\_register}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{fs\_register()}{fs\_register()}}
-{\footnotesize\ttfamily void os\+::filesystem\+::fs\+\_\+register (\begin{DoxyParamCaption}\item[{filesys\+\_\+t $\ast$}]{fs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::filesystem\+::fs\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$}]{fs }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_affb6134309cce5517047d3c16bc92c81}\label{namespaceos_1_1filesystem_affb6134309cce5517047d3c16bc92c81}} 
 \index{os::filesystem@{os::filesystem}!fs\_unregister@{fs\_unregister}}
 \index{fs\_unregister@{fs\_unregister}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{fs\_unregister()}{fs\_unregister()}}
-{\footnotesize\ttfamily void os\+::filesystem\+::fs\+\_\+unregister (\begin{DoxyParamCaption}\item[{filesys\+\_\+t $\ast$}]{fs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::filesystem\+::fs\+\_\+unregister (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}} $\ast$}]{fs }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_a5c43fc7686d23e051f5fa50a4b9955cd}\label{namespaceos_1_1filesystem_a5c43fc7686d23e051f5fa50a4b9955cd}} 
 \index{os::filesystem@{os::filesystem}!init@{init}}
@@ -105,23 +161,23 @@ std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1fi
 \doxysubsubsection{\texorpdfstring{init()}{init()}}
 {\footnotesize\ttfamily void os\+::filesystem\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{namespaceos_1_1filesystem_accd6bedfceb20f7a2905870783c0b80e}\label{namespaceos_1_1filesystem_accd6bedfceb20f7a2905870783c0b80e}} 
+\mbox{\Hypertarget{namespaceos_1_1filesystem_a287241c0c9b6b9f6f66ce0f6b446245c}\label{namespaceos_1_1filesystem_a287241c0c9b6b9f6f66ce0f6b446245c}} 
 \index{os::filesystem@{os::filesystem}!open\_file@{open\_file}}
 \index{open\_file@{open\_file}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{open\_file()}{open\_file()}}
-{\footnotesize\ttfamily file\+\_\+t$\ast$ os\+::filesystem\+::open\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$ os\+::filesystem\+::open\+\_\+file (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fname,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_a6ebb45eed1716952ec6891210b82e138}\label{namespaceos_1_1filesystem_a6ebb45eed1716952ec6891210b82e138}} 
 \index{os::filesystem@{os::filesystem}!read\_file@{read\_file}}
 \index{read\_file@{read\_file}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{read\_file()}{read\_file()}}
-{\footnotesize\ttfamily size\+\_\+t os\+::filesystem\+::read\+\_\+file (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{file\+\_\+t $\ast$}]{file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} os\+::filesystem\+::read\+\_\+file (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{nmemb,  }\item[{\mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$}]{file }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespaceos_1_1filesystem_a7d0e00cd8198e353ac3c7abfebb8c811}\label{namespaceos_1_1filesystem_a7d0e00cd8198e353ac3c7abfebb8c811}} 
 \index{os::filesystem@{os::filesystem}!write\_file@{write\_file}}
 \index{write\_file@{write\_file}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{write\_file()}{write\_file()}}
-{\footnotesize\ttfamily size\+\_\+t os\+::filesystem\+::write\+\_\+file (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buff,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{file\+\_\+t $\ast$}]{file }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} os\+::filesystem\+::write\+\_\+file (\begin{DoxyParamCaption}\item[{const void $\ast$}]{buff,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{nmemb,  }\item[{\mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}} $\ast$}]{file }\end{DoxyParamCaption})}
 
 
 
@@ -130,5 +186,5 @@ std\+::arraylist$<$ filesys\+\_\+t $\ast$ $>$ \mbox{\hyperlink{namespaceos_1_1fi
 \index{os::filesystem@{os::filesystem}!filesystems@{filesystems}}
 \index{filesystems@{filesystems}!os::filesystem@{os::filesystem}}
 \doxysubsubsection{\texorpdfstring{filesystems}{filesystems}}
-{\footnotesize\ttfamily std\+::arraylist$<$filesys\+\_\+t$\ast$$>$ os\+::filesystem\+::filesystems}
+{\footnotesize\ttfamily \mbox{\hyperlink{classstd_1_1arraylist}{std\+::arraylist}}$<$\mbox{\hyperlink{structos_1_1filesystem_1_1filesys__t}{filesys\+\_\+t}}$\ast$$>$ os\+::filesystem\+::filesystems}
 

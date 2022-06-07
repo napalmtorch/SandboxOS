@@ -68,3 +68,6 @@ i686-elf-ld -T '../../../build/linker.ld' -o '../../kernel.bin' "../../boot.o" *
 cd '../../../'
 
 objdump -t -dwarf -Mintel "bin/kernel.bin" > "build/dumps/kernel.dump"
+
+rm -r "docs"
+doxygen doxyfile

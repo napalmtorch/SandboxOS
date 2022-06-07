@@ -1,0 +1,96 @@
+\hypertarget{classos_1_1garbage__collector}{}\doxysection{os\+::garbage\+\_\+collector Class Reference}
+\label{classos_1_1garbage__collector}\index{os::garbage\_collector@{os::garbage\_collector}}
+
+
+{\ttfamily \#include $<$gc.\+h$>$}
+
+
+
+Collaboration diagram for os\+::garbage\+\_\+collector\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classos_1_1garbage__collector__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classos_1_1garbage__collector_ab9de3fdcb020eb4036a712384303bcb9}{start}} ()
+\item 
+static void \mbox{\hyperlink{classos_1_1garbage__collector_a6560a370c12275fae1ba2f52fb19f492}{run}} ()
+\item 
+static void \mbox{\hyperlink{classos_1_1garbage__collector_a6b0435c0240ddf7dc6a75f8c0727e57b}{merge}} ()
+\item 
+static void \mbox{\hyperlink{classos_1_1garbage__collector_a7284909b6995f4a9dd3ede9bb1a9ef3d}{collect}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{threading\+::thread\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1garbage__collector_acfb2089e17af5cae0cd9c9222dd948f0}{thread}}
+\item 
+static bool \mbox{\hyperlink{classos_1_1garbage__collector_a0e8c55d4e411d6337c39c0564bfda3c2}{messages}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classos_1_1garbage__collector_a2e0c70c62407dcbc0549ca1f28669c5a}{memory\+\_\+heap}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classos_1_1garbage__collector_a7284909b6995f4a9dd3ede9bb1a9ef3d}\label{classos_1_1garbage__collector_a7284909b6995f4a9dd3ede9bb1a9ef3d}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!collect@{collect}}
+\index{collect@{collect}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{collect()}{collect()}}
+{\footnotesize\ttfamily void os\+::garbage\+\_\+collector\+::collect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1garbage__collector_a6b0435c0240ddf7dc6a75f8c0727e57b}\label{classos_1_1garbage__collector_a6b0435c0240ddf7dc6a75f8c0727e57b}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!merge@{merge}}
+\index{merge@{merge}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily void os\+::garbage\+\_\+collector\+::merge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1garbage__collector_a6560a370c12275fae1ba2f52fb19f492}\label{classos_1_1garbage__collector_a6560a370c12275fae1ba2f52fb19f492}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!run@{run}}
+\index{run@{run}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void os\+::garbage\+\_\+collector\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1garbage__collector_ab9de3fdcb020eb4036a712384303bcb9}\label{classos_1_1garbage__collector_ab9de3fdcb020eb4036a712384303bcb9}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!start@{start}}
+\index{start@{start}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void os\+::garbage\+\_\+collector\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classos_1_1garbage__collector_a2e0c70c62407dcbc0549ca1f28669c5a}\label{classos_1_1garbage__collector_a2e0c70c62407dcbc0549ca1f28669c5a}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!memory\_heap@{memory\_heap}}
+\index{memory\_heap@{memory\_heap}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{memory\_heap}{memory\_heap}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classos_1_1garbage__collector_a0e8c55d4e411d6337c39c0564bfda3c2}\label{classos_1_1garbage__collector_a0e8c55d4e411d6337c39c0564bfda3c2}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!messages@{messages}}
+\index{messages@{messages}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{messages}{messages}}
+{\footnotesize\ttfamily bool os\+::garbage\+\_\+collector\+::messages\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1garbage__collector_acfb2089e17af5cae0cd9c9222dd948f0}\label{classos_1_1garbage__collector_acfb2089e17af5cae0cd9c9222dd948f0}} 
+\index{os::garbage\_collector@{os::garbage\_collector}!thread@{thread}}
+\index{thread@{thread}!os::garbage\_collector@{os::garbage\_collector}}
+\doxysubsubsection{\texorpdfstring{thread}{thread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{threading\+::thread\+\_\+t}} $\ast$ os\+::garbage\+\_\+collector\+::thread\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+kernel/include/core/memory/\mbox{\hyperlink{gc_8h}{gc.\+h}}\item 
+kernel/src/core/memory/\mbox{\hyperlink{gc_8cpp}{gc.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,50 @@
+\hypertarget{memmgr_8h}{}\doxysection{kernel/include/core/memory/memmgr.h File Reference}
+\label{memmgr_8h}\index{kernel/include/core/memory/memmgr.h@{kernel/include/core/memory/memmgr.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for memmgr.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{memmgr_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{memmgr_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos_1_1memblk__t}{os\+::memblk\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classos_1_1memory__manager}{os\+::memory\+\_\+manager}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{os\+::memblk\+\_\+type}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaafedb2d84cafe20862cb4399751a8a7e3}{os\+::invalid}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaae4894ca167b08880bfc35862f18575eb}{os\+::available}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}{os\+::reserved}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaac9d3c8ae8e55bf959eff609b1d1fb3ed}{os\+::acpi\+\_\+reclaimable}}
+, \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa0f1edc61cfd92bb31d2d61eeaf480207}{os\+::nvs}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa8ba4afb884dfbb38b63998ac487c47de}{os\+::bad\+\_\+ram}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa50484c19f1afdaf3841a0d821ed393d2}{os\+::kernel}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa22884db148f0ffb0d830ba431102b0b5}{os\+::module}}
+, \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa4d4a9aa362b6ffe089fd2e992ccf4f5f}{os\+::heap}}
+ \}
+\end{DoxyCompactItemize}

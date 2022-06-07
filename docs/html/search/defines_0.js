@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['idt_5fcount_272',['IDT_COUNT',['../idt_8cpp.html#a9ce2936f452858a8e851796e1c1e14ac',1,'idt.cpp']]],
-  ['irq_273',['irq',['../idt_8cpp.html#abd5a28a2f149ee6e25d89b49bbf48061',1,'idt.cpp']]],
-  ['isr_274',['isr',['../idt_8cpp.html#a2542e37f1d57e16e961ff4768e4ca238',1,'idt.cpp']]]
+  ['_5f_5fint64_5fc_1411',['__INT64_C',['../stdint_8h.html#a4b8971e411b88166747d2a3c2425eaee',1,'stdint.h']]],
+  ['_5f_5fuint64_5fc_1412',['__UINT64_C',['../stdint_8h.html#a405cee4934ed56c9a4aa4e7dc4380bd2',1,'stdint.h']]],
+  ['_5f_5fva_5fargsiz_1413',['__va_argsiz',['../stdarg_8h.html#a5afddf91bec14da530be77e7f9be98bf',1,'stdarg.h']]]
 ];

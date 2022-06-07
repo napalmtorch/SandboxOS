@@ -1,0 +1,227 @@
+\hypertarget{classos_1_1memory__heap}{}\doxysection{os\+::memory\+\_\+heap Class Reference}
+\label{classos_1_1memory__heap}\index{os::memory\_heap@{os::memory\_heap}}
+
+
+{\ttfamily \#include $<$heap.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classos_1_1memory__heap_a95638b694efccd8514ce7efba2d0b5c8}{init}} (\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a9595302fe2a21aa2542d06be5d79ab13}{count}}, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} align, bool msgs=true)
+\item 
+void $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a0411bf0e660cba8c21b2eab7e3f1f063}{allocate}} (\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}} type, bool clear=false)
+\item 
+bool \mbox{\hyperlink{classos_1_1memory__heap_ac63f45994c7d200bf62e0b57fbdc320b}{free}} (void $\ast$ptr)
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_ae0c7dbf186185dfd98c604078c4b67c7}{merge}} ()
+\item 
+void \mbox{\hyperlink{classos_1_1memory__heap_ae028f74a3482055d7a95c07268916f6b}{print}} ()
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_aa204cbea211a11816b553ae9ea325480}{create}} (\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} addr, void $\ast$thread, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size, \mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}} type)
+\item 
+bool \mbox{\hyperlink{classos_1_1memory__heap_ad8fbb7c75c443ee38e840666061ea1cd}{remove}} (\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$blk)
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a51b23d9e892e737f0f7565eb2f3b0fc0}{next}} (\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} size)
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a572890e6769e73f4a0d2f552a261d9c6}{next\+\_\+empty}} ()
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a8d005556757c54b700578c3afbaad565}{nearest}} (\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$blk)
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a20784b2cd78a1f6ee97927f6edb94276}{fetch}} (void $\ast$ptr)
+\item 
+bool \mbox{\hyperlink{classos_1_1memory__heap_a47545ed1a990ffd3b76fa67ad44bc612}{validate}} (\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} addr)
+\item 
+bool \mbox{\hyperlink{classos_1_1memory__heap_af3731fc26d1640c04dda7142c1f365de}{validate}} (void $\ast$ptr)
+\item 
+void \mbox{\hyperlink{classos_1_1memory__heap_ab6c7f982d37a4acbc223f7d28ff34aa2}{toggle\+\_\+msgs}} (bool state)
+\item 
+\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a6c7b05a899f21b5b14c6f07c098ec904}{calc\+\_\+used}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a0a968dba7f8c89963cf87a42ce0f20b7}{total\+\_\+size}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a6e681e244acf0e962c2b151e07ab5164}{data\+\_\+size}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_ac41b4d583591cdecfdcb45a55215ccc3}{table\+\_\+size}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a9fa95a39f819df8bb89efd62bbaa279e}{alignment}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a9595302fe2a21aa2542d06be5d79ab13}{count}} ()
+\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{classos_1_1memory__heap_a16436b308df0351a96e9b448a3fc127e}{count\+\_\+max}} ()
+\item 
+\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a86ccbbed6f54222b21c0ac592791e89f}{blocks}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classos_1_1memory__heap_a5eb366382fb9fa0644515569646e4a28}{init}} (bool messages)
+\item 
+static const char $\ast$ \mbox{\hyperlink{classos_1_1memory__heap_a0973a4ff8964af50b01fd0f9a763042b}{typestr}} (\mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}} type)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classos_1_1memory__heap_a35c0117a0dd467a096a038ac0b39dd7a}{garbage\+\_\+collector}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classos_1_1memory__heap_a9fa95a39f819df8bb89efd62bbaa279e}\label{classos_1_1memory__heap_a9fa95a39f819df8bb89efd62bbaa279e}} 
+\index{os::memory\_heap@{os::memory\_heap}!alignment@{alignment}}
+\index{alignment@{alignment}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{alignment()}{alignment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::alignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a0411bf0e660cba8c21b2eab7e3f1f063}\label{classos_1_1memory__heap_a0411bf0e660cba8c21b2eab7e3f1f063}} 
+\index{os::memory\_heap@{os::memory\_heap}!allocate@{allocate}}
+\index{allocate@{allocate}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
+{\footnotesize\ttfamily void $\ast$ os\+::memory\+\_\+heap\+::allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}}}]{type,  }\item[{bool}]{clear = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a86ccbbed6f54222b21c0ac592791e89f}\label{classos_1_1memory__heap_a86ccbbed6f54222b21c0ac592791e89f}} 
+\index{os::memory\_heap@{os::memory\_heap}!blocks@{blocks}}
+\index{blocks@{blocks}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{blocks()}{blocks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::blocks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a6c7b05a899f21b5b14c6f07c098ec904}\label{classos_1_1memory__heap_a6c7b05a899f21b5b14c6f07c098ec904}} 
+\index{os::memory\_heap@{os::memory\_heap}!calc\_used@{calc\_used}}
+\index{calc\_used@{calc\_used}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{calc\_used()}{calc\_used()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} os\+::memory\+\_\+heap\+::calc\+\_\+used (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a9595302fe2a21aa2542d06be5d79ab13}\label{classos_1_1memory__heap_a9595302fe2a21aa2542d06be5d79ab13}} 
+\index{os::memory\_heap@{os::memory\_heap}!count@{count}}
+\index{count@{count}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a16436b308df0351a96e9b448a3fc127e}\label{classos_1_1memory__heap_a16436b308df0351a96e9b448a3fc127e}} 
+\index{os::memory\_heap@{os::memory\_heap}!count\_max@{count\_max}}
+\index{count\_max@{count\_max}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{count\_max()}{count\_max()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::count\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_aa204cbea211a11816b553ae9ea325480}\label{classos_1_1memory__heap_aa204cbea211a11816b553ae9ea325480}} 
+\index{os::memory\_heap@{os::memory\_heap}!create@{create}}
+\index{create@{create}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{addr,  }\item[{void $\ast$}]{thread,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}}}]{type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a6e681e244acf0e962c2b151e07ab5164}\label{classos_1_1memory__heap_a6e681e244acf0e962c2b151e07ab5164}} 
+\index{os::memory\_heap@{os::memory\_heap}!data\_size@{data\_size}}
+\index{data\_size@{data\_size}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{data\_size()}{data\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::data\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a20784b2cd78a1f6ee97927f6edb94276}\label{classos_1_1memory__heap_a20784b2cd78a1f6ee97927f6edb94276}} 
+\index{os::memory\_heap@{os::memory\_heap}!fetch@{fetch}}
+\index{fetch@{fetch}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{fetch()}{fetch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::fetch (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ac63f45994c7d200bf62e0b57fbdc320b}\label{classos_1_1memory__heap_ac63f45994c7d200bf62e0b57fbdc320b}} 
+\index{os::memory\_heap@{os::memory\_heap}!free@{free}}
+\index{free@{free}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily bool os\+::memory\+\_\+heap\+::free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a5eb366382fb9fa0644515569646e4a28}\label{classos_1_1memory__heap_a5eb366382fb9fa0644515569646e4a28}} 
+\index{os::memory\_heap@{os::memory\_heap}!init@{init}}
+\index{init@{init}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+heap\+::init (\begin{DoxyParamCaption}\item[{bool}]{messages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a95638b694efccd8514ce7efba2d0b5c8}\label{classos_1_1memory__heap_a95638b694efccd8514ce7efba2d0b5c8}} 
+\index{os::memory\_heap@{os::memory\_heap}!init@{init}}
+\index{init@{init}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+heap\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size,  }\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{align,  }\item[{bool}]{msgs = {\ttfamily true} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ae0c7dbf186185dfd98c604078c4b67c7}\label{classos_1_1memory__heap_ae0c7dbf186185dfd98c604078c4b67c7}} 
+\index{os::memory\_heap@{os::memory\_heap}!merge@{merge}}
+\index{merge@{merge}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::merge (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a8d005556757c54b700578c3afbaad565}\label{classos_1_1memory__heap_a8d005556757c54b700578c3afbaad565}} 
+\index{os::memory\_heap@{os::memory\_heap}!nearest@{nearest}}
+\index{nearest@{nearest}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{nearest()}{nearest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::nearest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$}]{blk }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a51b23d9e892e737f0f7565eb2f3b0fc0}\label{classos_1_1memory__heap_a51b23d9e892e737f0f7565eb2f3b0fc0}} 
+\index{os::memory\_heap@{os::memory\_heap}!next@{next}}
+\index{next@{next}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a572890e6769e73f4a0d2f552a261d9c6}\label{classos_1_1memory__heap_a572890e6769e73f4a0d2f552a261d9c6}} 
+\index{os::memory\_heap@{os::memory\_heap}!next\_empty@{next\_empty}}
+\index{next\_empty@{next\_empty}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{next\_empty()}{next\_empty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$ os\+::memory\+\_\+heap\+::next\+\_\+empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ae028f74a3482055d7a95c07268916f6b}\label{classos_1_1memory__heap_ae028f74a3482055d7a95c07268916f6b}} 
+\index{os::memory\_heap@{os::memory\_heap}!print@{print}}
+\index{print@{print}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+heap\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ad8fbb7c75c443ee38e840666061ea1cd}\label{classos_1_1memory__heap_ad8fbb7c75c443ee38e840666061ea1cd}} 
+\index{os::memory\_heap@{os::memory\_heap}!remove@{remove}}
+\index{remove@{remove}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily bool os\+::memory\+\_\+heap\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}} $\ast$}]{blk }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ac41b4d583591cdecfdcb45a55215ccc3}\label{classos_1_1memory__heap_ac41b4d583591cdecfdcb45a55215ccc3}} 
+\index{os::memory\_heap@{os::memory\_heap}!table\_size@{table\_size}}
+\index{table\_size@{table\_size}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{table\_size()}{table\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::table\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_ab6c7f982d37a4acbc223f7d28ff34aa2}\label{classos_1_1memory__heap_ab6c7f982d37a4acbc223f7d28ff34aa2}} 
+\index{os::memory\_heap@{os::memory\_heap}!toggle\_msgs@{toggle\_msgs}}
+\index{toggle\_msgs@{toggle\_msgs}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{toggle\_msgs()}{toggle\_msgs()}}
+{\footnotesize\ttfamily void os\+::memory\+\_\+heap\+::toggle\+\_\+msgs (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a0a968dba7f8c89963cf87a42ce0f20b7}\label{classos_1_1memory__heap_a0a968dba7f8c89963cf87a42ce0f20b7}} 
+\index{os::memory\_heap@{os::memory\_heap}!total\_size@{total\_size}}
+\index{total\_size@{total\_size}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{total\_size()}{total\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::memory\+\_\+heap\+::total\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a0973a4ff8964af50b01fd0f9a763042b}\label{classos_1_1memory__heap_a0973a4ff8964af50b01fd0f9a763042b}} 
+\index{os::memory\_heap@{os::memory\_heap}!typestr@{typestr}}
+\index{typestr@{typestr}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{typestr()}{typestr()}}
+{\footnotesize\ttfamily const char $\ast$ os\+::memory\+\_\+heap\+::typestr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdlib_8h_a0b76c721c2478f5eac85d080527ca1c0}{ALLOCTYPE}}}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_a47545ed1a990ffd3b76fa67ad44bc612}\label{classos_1_1memory__heap_a47545ed1a990ffd3b76fa67ad44bc612}} 
+\index{os::memory\_heap@{os::memory\_heap}!validate@{validate}}
+\index{validate@{validate}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool os\+::memory\+\_\+heap\+::validate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{addr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classos_1_1memory__heap_af3731fc26d1640c04dda7142c1f365de}\label{classos_1_1memory__heap_af3731fc26d1640c04dda7142c1f365de}} 
+\index{os::memory\_heap@{os::memory\_heap}!validate@{validate}}
+\index{validate@{validate}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool os\+::memory\+\_\+heap\+::validate (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classos_1_1memory__heap_a35c0117a0dd467a096a038ac0b39dd7a}\label{classos_1_1memory__heap_a35c0117a0dd467a096a038ac0b39dd7a}} 
+\index{os::memory\_heap@{os::memory\_heap}!garbage\_collector@{garbage\_collector}}
+\index{garbage\_collector@{garbage\_collector}!os::memory\_heap@{os::memory\_heap}}
+\doxysubsubsection{\texorpdfstring{garbage\_collector}{garbage\_collector}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{classos_1_1garbage__collector}{garbage\+\_\+collector}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+kernel/include/core/memory/\mbox{\hyperlink{heap_8h}{heap.\+h}}\item 
+kernel/src/core/memory/\mbox{\hyperlink{heap_8cpp}{heap.\+cpp}}\end{DoxyCompactItemize}

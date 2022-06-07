@@ -1,0 +1,70 @@
+\hypertarget{classos_1_1sys_1_1debug}{}\doxysection{os\+::sys\+::debug Class Reference}
+\label{classos_1_1sys_1_1debug}\index{os::sys::debug@{os::sys::debug}}
+
+
+{\ttfamily \#include $<$debug.\+h$>$}
+
+
+
+Collaboration diagram for os\+::sys\+::debug\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{classos_1_1sys_1_1debug__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classos_1_1sys_1_1debug_a94b6b07dcb454df6a390a3fd35d68f29}{init}} (\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{hal\+::serial\+\_\+port}} port)
+\begin{DoxyCompactList}\small\item\em Initialize debugging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classos_1_1hal_1_1serial__controller}{hal\+::serial\+\_\+controller}} \mbox{\hyperlink{classos_1_1sys_1_1debug_a9ffbf524247b1f2200ff03f92ea1b58b}{serial}}
+\begin{DoxyCompactList}\small\item\em Serial controller used for debugging output. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classos_1_1sys_1_1debug_aaa23621f49f379cfa87a6ad907ea7112}{stdout\+\_\+enabled}} = false
+\begin{DoxyCompactList}\small\item\em Toggle whether printf outputs to serial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classos_1_1sys_1_1debug_a94b6b07dcb454df6a390a3fd35d68f29}\label{classos_1_1sys_1_1debug_a94b6b07dcb454df6a390a3fd35d68f29}} 
+\index{os::sys::debug@{os::sys::debug}!init@{init}}
+\index{init@{init}!os::sys::debug@{os::sys::debug}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void os\+::sys\+::debug\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1hal_a7e7de033f264ae6011f8d36df3176a5e}{hal\+::serial\+\_\+port}}}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize debugging. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classos_1_1sys_1_1debug_a9ffbf524247b1f2200ff03f92ea1b58b}\label{classos_1_1sys_1_1debug_a9ffbf524247b1f2200ff03f92ea1b58b}} 
+\index{os::sys::debug@{os::sys::debug}!serial@{serial}}
+\index{serial@{serial}!os::sys::debug@{os::sys::debug}}
+\doxysubsubsection{\texorpdfstring{serial}{serial}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classos_1_1hal_1_1serial__controller}{hal\+::serial\+\_\+controller}} os\+::sys\+::debug\+::serial\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Serial controller used for debugging output. 
+
+\mbox{\Hypertarget{classos_1_1sys_1_1debug_aaa23621f49f379cfa87a6ad907ea7112}\label{classos_1_1sys_1_1debug_aaa23621f49f379cfa87a6ad907ea7112}} 
+\index{os::sys::debug@{os::sys::debug}!stdout\_enabled@{stdout\_enabled}}
+\index{stdout\_enabled@{stdout\_enabled}!os::sys::debug@{os::sys::debug}}
+\doxysubsubsection{\texorpdfstring{stdout\_enabled}{stdout\_enabled}}
+{\footnotesize\ttfamily bool os\+::sys\+::debug\+::stdout\+\_\+enabled = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Toggle whether printf outputs to serial. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+kernel/include/core/system/\mbox{\hyperlink{debug_8h}{debug.\+h}}\item 
+kernel/src/core/system/\mbox{\hyperlink{debug_8cpp}{debug.\+cpp}}\end{DoxyCompactItemize}

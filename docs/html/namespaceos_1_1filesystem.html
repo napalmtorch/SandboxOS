@@ -66,6 +66,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -73,42 +76,109 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1filesystem_1_1ramfs__file__t.html">ramfs_file_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structos_1_1filesystem_1_1ramfs__info__t.html">ramfs_info_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classos_1_1filesystem_1_1ramfs__host.html">ramfs_host</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a80c342439cdf101d213adaf6cff2834c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a80c342439cdf101d213adaf6cff2834c">filesys_t</a></td></tr>
+<tr class="separator:a80c342439cdf101d213adaf6cff2834c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afccabe3d891577bbf609e49e011c8efa"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efa">filesystem_type</a> : uint8_t { <a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee">ramfs</a>
+, <a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efaa20c528209e3ffdd4e54e48975167e2e9">diskfs</a>
+, <a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efaa977700c737bee64ea04fa7adc40e7bf0">fat32</a>
+ }</td></tr>
+<tr class="separator:afccabe3d891577bbf609e49e011c8efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5c43fc7686d23e051f5fa50a4b9955cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a5c43fc7686d23e051f5fa50a4b9955cd">init</a> ()</td></tr>
 <tr class="separator:a5c43fc7686d23e051f5fa50a4b9955cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28a3c103cbf80f3ee5117e2e89ac764a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a28a3c103cbf80f3ee5117e2e89ac764a">fs_register</a> (filesys_t *fs)</td></tr>
+<tr class="memitem:a28a3c103cbf80f3ee5117e2e89ac764a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a28a3c103cbf80f3ee5117e2e89ac764a">fs_register</a> (<a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *fs)</td></tr>
 <tr class="separator:a28a3c103cbf80f3ee5117e2e89ac764a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affb6134309cce5517047d3c16bc92c81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#affb6134309cce5517047d3c16bc92c81">fs_unregister</a> (filesys_t *fs)</td></tr>
+<tr class="memitem:affb6134309cce5517047d3c16bc92c81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#affb6134309cce5517047d3c16bc92c81">fs_unregister</a> (<a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *fs)</td></tr>
 <tr class="separator:affb6134309cce5517047d3c16bc92c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d940166e7918535d41e7d0a059c913a"><td class="memItemLeft" align="right" valign="top">filesys_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a9d940166e7918535d41e7d0a059c913a">fs_create</a> (filesystem_type type, char letter, char *label, void *host)</td></tr>
-<tr class="separator:a9d940166e7918535d41e7d0a059c913a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae68d4194e44ac67eaf8baa2abbbed14d"><td class="memItemLeft" align="right" valign="top">filesys_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ae68d4194e44ac67eaf8baa2abbbed14d">from_path</a> (const char *path)</td></tr>
-<tr class="separator:ae68d4194e44ac67eaf8baa2abbbed14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab42f9c2f5b863e1e557ebd53968a4638"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ab42f9c2f5b863e1e557ebd53968a4638">from_modestr</a> (const char *mode)</td></tr>
+<tr class="memitem:aa7e75cc6f8595a86bf038aa0893ad706"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#aa7e75cc6f8595a86bf038aa0893ad706">fs_create</a> (<a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efa">filesystem_type</a> type, char letter, char *label, void *host)</td></tr>
+<tr class="separator:aa7e75cc6f8595a86bf038aa0893ad706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a258581b5fc42ab0bee4f05b54eb685da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a258581b5fc42ab0bee4f05b54eb685da">from_path</a> (const char *path)</td></tr>
+<tr class="separator:a258581b5fc42ab0bee4f05b54eb685da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab42f9c2f5b863e1e557ebd53968a4638"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ab42f9c2f5b863e1e557ebd53968a4638">from_modestr</a> (const char *mode)</td></tr>
 <tr class="separator:ab42f9c2f5b863e1e557ebd53968a4638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeac60a6fff0f743f258a33bbd8903a43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#aeac60a6fff0f743f258a33bbd8903a43">file_exists</a> (const char *fname)</td></tr>
 <tr class="separator:aeac60a6fff0f743f258a33bbd8903a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38bd7063ec3c75decdc7a0490c59aa68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a38bd7063ec3c75decdc7a0490c59aa68">dir_exists</a> (const char *fname)</td></tr>
 <tr class="separator:a38bd7063ec3c75decdc7a0490c59aa68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:accd6bedfceb20f7a2905870783c0b80e"><td class="memItemLeft" align="right" valign="top">file_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#accd6bedfceb20f7a2905870783c0b80e">open_file</a> (const char *fname, const char *mode)</td></tr>
-<tr class="separator:accd6bedfceb20f7a2905870783c0b80e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ebb45eed1716952ec6891210b82e138"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a6ebb45eed1716952ec6891210b82e138">read_file</a> (void *buff, size_t size, size_t nmemb, file_t *file)</td></tr>
+<tr class="memitem:a287241c0c9b6b9f6f66ce0f6b446245c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structos_1_1file__t.html">file_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a287241c0c9b6b9f6f66ce0f6b446245c">open_file</a> (const char *fname, const char *mode)</td></tr>
+<tr class="separator:a287241c0c9b6b9f6f66ce0f6b446245c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebb45eed1716952ec6891210b82e138"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a6ebb45eed1716952ec6891210b82e138">read_file</a> (void *buff, <a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> size, <a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> nmemb, <a class="el" href="structos_1_1file__t.html">file_t</a> *file)</td></tr>
 <tr class="separator:a6ebb45eed1716952ec6891210b82e138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d0e00cd8198e353ac3c7abfebb8c811"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a7d0e00cd8198e353ac3c7abfebb8c811">write_file</a> (const void *buff, size_t size, size_t nmemb, file_t *file)</td></tr>
+<tr class="memitem:a7d0e00cd8198e353ac3c7abfebb8c811"><td class="memItemLeft" align="right" valign="top"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a7d0e00cd8198e353ac3c7abfebb8c811">write_file</a> (const void *buff, <a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> size, <a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> nmemb, <a class="el" href="structos_1_1file__t.html">file_t</a> *file)</td></tr>
 <tr class="separator:a7d0e00cd8198e353ac3c7abfebb8c811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad21264751d38c3b5f9d69d76faed632d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ad21264751d38c3b5f9d69d76faed632d">close_file</a> (file_t *file)</td></tr>
+<tr class="memitem:ad21264751d38c3b5f9d69d76faed632d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ad21264751d38c3b5f9d69d76faed632d">close_file</a> (<a class="el" href="structos_1_1file__t.html">file_t</a> *file)</td></tr>
 <tr class="separator:ad21264751d38c3b5f9d69d76faed632d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e804cde85a860b6af037b36d8636a7a"><td class="memItemLeft" align="right" valign="top">std::arraylist&lt; fileinfo_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a5e804cde85a860b6af037b36d8636a7a">fetch_files</a> (const char *path)</td></tr>
-<tr class="separator:a5e804cde85a860b6af037b36d8636a7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9988798c871375e98e194eeabd22c09"><td class="memItemLeft" align="right" valign="top">std::arraylist&lt; char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#ae9988798c871375e98e194eeabd22c09">fetch_dirs</a> (const char *path)</td></tr>
-<tr class="separator:ae9988798c871375e98e194eeabd22c09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ac2cef351b5e7ffd21e63b3839264c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt; <a class="el" href="structos_1_1fileinfo__t.html">fileinfo_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a9ac2cef351b5e7ffd21e63b3839264c8">fetch_files</a> (const char *path)</td></tr>
+<tr class="separator:a9ac2cef351b5e7ffd21e63b3839264c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88e31f02d4afe4b0db17c8bbcc072762"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt; char * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a88e31f02d4afe4b0db17c8bbcc072762">fetch_dirs</a> (const char *path)</td></tr>
+<tr class="separator:a88e31f02d4afe4b0db17c8bbcc072762"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3b7966847d86e6426dc629650beb55a2"><td class="memItemLeft" align="right" valign="top">std::arraylist&lt; filesys_t * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a3b7966847d86e6426dc629650beb55a2">filesystems</a></td></tr>
+<tr class="memitem:a3b7966847d86e6426dc629650beb55a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt; <a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1filesystem.html#a3b7966847d86e6426dc629650beb55a2">filesystems</a></td></tr>
 <tr class="separator:a3b7966847d86e6426dc629650beb55a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a80c342439cdf101d213adaf6cff2834c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c342439cdf101d213adaf6cff2834c">&#9670;&nbsp;</a></span>filesys_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> <a class="el" href="structos_1_1filesystem_1_1filesys__t.html">os::filesystem::filesys_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="afccabe3d891577bbf609e49e011c8efa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afccabe3d891577bbf609e49e011c8efa">&#9670;&nbsp;</a></span>filesystem_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efa">os::filesystem::filesystem_type</a> : <a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee"></a>ramfs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afccabe3d891577bbf609e49e011c8efaa20c528209e3ffdd4e54e48975167e2e9"></a>diskfs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afccabe3d891577bbf609e49e011c8efaa977700c737bee64ea04fa7adc40e7bf0"></a>fat32&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ad21264751d38c3b5f9d69d76faed632d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad21264751d38c3b5f9d69d76faed632d">&#9670;&nbsp;</a></span>close_file()</h2>
@@ -119,7 +189,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void os::filesystem::close_file </td>
           <td>(</td>
-          <td class="paramtype">file_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1file__t.html">file_t</a> *&#160;</td>
           <td class="paramname"><em>file</em></td><td>)</td>
           <td></td>
         </tr>
@@ -146,14 +216,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9988798c871375e98e194eeabd22c09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9988798c871375e98e194eeabd22c09">&#9670;&nbsp;</a></span>fetch_dirs()</h2>
+<a id="a88e31f02d4afe4b0db17c8bbcc072762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88e31f02d4afe4b0db17c8bbcc072762">&#9670;&nbsp;</a></span>fetch_dirs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::arraylist&lt;char*&gt; os::filesystem::fetch_dirs </td>
+          <td class="memname"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt; char * &gt; os::filesystem::fetch_dirs </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -164,14 +234,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a5e804cde85a860b6af037b36d8636a7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e804cde85a860b6af037b36d8636a7a">&#9670;&nbsp;</a></span>fetch_files()</h2>
+<a id="a9ac2cef351b5e7ffd21e63b3839264c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ac2cef351b5e7ffd21e63b3839264c8">&#9670;&nbsp;</a></span>fetch_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::arraylist&lt;fileinfo_t&gt; os::filesystem::fetch_files </td>
+          <td class="memname"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt; <a class="el" href="structos_1_1fileinfo__t.html">fileinfo_t</a> &gt; os::filesystem::fetch_files </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -207,7 +277,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t os::filesystem::from_modestr </td>
+          <td class="memname"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> os::filesystem::from_modestr </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>mode</em></td><td>)</td>
@@ -218,14 +288,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae68d4194e44ac67eaf8baa2abbbed14d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae68d4194e44ac67eaf8baa2abbbed14d">&#9670;&nbsp;</a></span>from_path()</h2>
+<a id="a258581b5fc42ab0bee4f05b54eb685da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a258581b5fc42ab0bee4f05b54eb685da">&#9670;&nbsp;</a></span>from_path()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">filesys_t* os::filesystem::from_path </td>
+          <td class="memname"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> * os::filesystem::from_path </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -236,16 +306,16 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9d940166e7918535d41e7d0a059c913a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d940166e7918535d41e7d0a059c913a">&#9670;&nbsp;</a></span>fs_create()</h2>
+<a id="aa7e75cc6f8595a86bf038aa0893ad706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7e75cc6f8595a86bf038aa0893ad706">&#9670;&nbsp;</a></span>fs_create()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">filesys_t* os::filesystem::fs_create </td>
+          <td class="memname"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> * os::filesystem::fs_create </td>
           <td>(</td>
-          <td class="paramtype">filesystem_type&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efa">filesystem_type</a>&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
@@ -285,7 +355,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void os::filesystem::fs_register </td>
           <td>(</td>
-          <td class="paramtype">filesys_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *&#160;</td>
           <td class="paramname"><em>fs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -303,7 +373,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void os::filesystem::fs_unregister </td>
           <td>(</td>
-          <td class="paramtype">filesys_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a> *&#160;</td>
           <td class="paramname"><em>fs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -329,14 +399,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="accd6bedfceb20f7a2905870783c0b80e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accd6bedfceb20f7a2905870783c0b80e">&#9670;&nbsp;</a></span>open_file()</h2>
+<a id="a287241c0c9b6b9f6f66ce0f6b446245c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a287241c0c9b6b9f6f66ce0f6b446245c">&#9670;&nbsp;</a></span>open_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">file_t* os::filesystem::open_file </td>
+          <td class="memname"><a class="el" href="structos_1_1file__t.html">file_t</a> * os::filesystem::open_file </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>fname</em>, </td>
@@ -364,7 +434,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t os::filesystem::read_file </td>
+          <td class="memname"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> os::filesystem::read_file </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>buff</em>, </td>
@@ -372,19 +442,19 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>nmemb</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">file_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1file__t.html">file_t</a> *&#160;</td>
           <td class="paramname"><em>file</em>&#160;</td>
         </tr>
         <tr>
@@ -404,7 +474,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t os::filesystem::write_file </td>
+          <td class="memname"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a> os::filesystem::write_file </td>
           <td>(</td>
           <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>buff</em>, </td>
@@ -412,19 +482,19 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stddef_8h.html#a222d67ef9d7959e65735150c95b7eee3">size_t</a>&#160;</td>
           <td class="paramname"><em>nmemb</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">file_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1file__t.html">file_t</a> *&#160;</td>
           <td class="paramname"><em>file</em>&#160;</td>
         </tr>
         <tr>
@@ -445,7 +515,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::arraylist&lt;filesys_t*&gt; os::filesystem::filesystems</td>
+          <td class="memname"><a class="el" href="classstd_1_1arraylist.html">std::arraylist</a>&lt;<a class="el" href="structos_1_1filesystem_1_1filesys__t.html">filesys_t</a>*&gt; os::filesystem::filesystems</td>
         </tr>
       </table>
 </div><div class="memdoc">

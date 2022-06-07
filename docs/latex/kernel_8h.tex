@@ -1,0 +1,74 @@
+\hypertarget{kernel_8h}{}\doxysection{kernel/include/core/kernel.h File Reference}
+\label{kernel_8h}\index{kernel/include/core/kernel.h@{kernel/include/core/kernel.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$ubsan.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$common.\+h$>$}\newline
+{\ttfamily \#include $<$array.\+h$>$}\newline
+{\ttfamily \#include $<$arraylist.\+h$>$}\newline
+{\ttfamily \#include $<$stream.\+h$>$}\newline
+{\ttfamily \#include $<$core/system/multiboot.\+h$>$}\newline
+{\ttfamily \#include $<$core/system/debug.\+h$>$}\newline
+{\ttfamily \#include $<$core/system/tests.\+h$>$}\newline
+{\ttfamily \#include $<$core/memory/memmgr.\+h$>$}\newline
+{\ttfamily \#include $<$core/memory/heap.\+h$>$}\newline
+{\ttfamily \#include $<$core/memory/gc.\+h$>$}\newline
+{\ttfamily \#include $<$core/exec/thread.\+h$>$}\newline
+{\ttfamily \#include $<$core/exec/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/common/ports.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/common/serial.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/common/registers.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/common/pit.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/interrupts/gdt.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/interrupts/idt.\+h$>$}\newline
+{\ttfamily \#include $<$hardware/interrupts/pic.\+h$>$}\newline
+{\ttfamily \#include $<$filesys/ramfs.\+h$>$}\newline
+{\ttfamily \#include $<$filesys/filesys.\+h$>$}\newline
+Include dependency graph for kernel.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kernel_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{kernel_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1kernel}{os\+::kernel}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceos_1_1kernel_a71ff4d0f3a8514a437e1da2c97b6e866}{os\+::kernel\+::boot}} ()
+\begin{DoxyCompactList}\small\item\em Boot sequence for kernel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1kernel_ac96d0967f013f3846356f78894296bbf}{os\+::kernel\+::main}} ()
+\begin{DoxyCompactList}\small\item\em Main loop for kernel. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_aa793dc3046e53128ecd2fd419fcab3dc}{os\+::kernel\+::start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return starting address of kernel memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_af89414c989b17d99d63599c4d706309f}{os\+::kernel\+::end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return ending address of kernel memory. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a00807a6ad11e339f664e61c6156b9f28}{os\+::kernel\+::stk\+\_\+start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return address to bottom of stack. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_ad8010a4a2d4ca4b1a2b3475115db0a15}{os\+::kernel\+::stk\+\_\+end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return address to top of stack. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a36918aac2afed3f207712c74653e686c}{os\+::kernel\+::bss\+\_\+start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return staring address of BSS section. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a8655c29f80fa69d4747301f89690be35}{os\+::kernel\+::bss\+\_\+end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return ending address of BSS section. \end{DoxyCompactList}\end{DoxyCompactItemize}

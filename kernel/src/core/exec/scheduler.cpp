@@ -49,7 +49,7 @@ namespace os
         void scheduler::ready() { _ready = true; }
 
         /// @brief Switch to next available thread in list 
-        OPTIMIZE("O0") void scheduler::yield()
+        void scheduler::yield()
         {
             if (!_ready) { return; }
             if (_threads.length() == 0) { return; }

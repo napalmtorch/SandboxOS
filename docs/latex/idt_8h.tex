@@ -1,0 +1,97 @@
+\hypertarget{idt_8h}{}\doxysection{kernel/include/hardware/interrupts/idt.h File Reference}
+\label{idt_8h}\index{kernel/include/hardware/interrupts/idt.h@{kernel/include/hardware/interrupts/idt.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for idt.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{idt_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{idt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1hal_1_1idt__entry__t}{os\+::hal\+::idt\+\_\+entry\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1hal_1_1idtr__t}{os\+::hal\+::idtr\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1hal}{os\+::hal}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1hal_1_1idt}{os\+::hal\+::idt}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{namespaceos_1_1hal_adc101628bb2fb281311a1a0a56ad5049}{os\+::hal\+::idt\+\_\+handler\+\_\+t}}) (idt\+\_\+registers\+\_\+t $\ast$regs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018}{os\+::hal\+::\+IRQ}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a0f7e94535a697e1578c10ff11fac6515}{os\+::hal\+::\+IRQ0}} = 32
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018aa1af3bd1499a8ba1eb503f47548140ce}{os\+::hal\+::\+IRQ1}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a35649e6b3c7065a802c6846add9a301f}{os\+::hal\+::\+IRQ2}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a11a2d78432ca2f8a1b520844f307b8fa}{os\+::hal\+::\+IRQ3}}
+, \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a8c76a69d198ed81176b224a89d82c836}{os\+::hal\+::\+IRQ4}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a563763935b618aaf41bd4f12f431e434}{os\+::hal\+::\+IRQ5}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a599fd4ed864c596f2f4e436b65c3b4a2}{os\+::hal\+::\+IRQ6}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018aff39c90a64cbe4e94d68605374d7c351}{os\+::hal\+::\+IRQ7}}
+, \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a1817aa3d1d9c762afc44f4f5559f4504}{os\+::hal\+::\+IRQ8}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018ac99a9629f6dab6f3b1e4c975fc079dd8}{os\+::hal\+::\+IRQ9}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018ab0279cd17980d15ca53d094734e932bb}{os\+::hal\+::\+IRQ10}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018aec3dd890726da0ea126290d78362b133}{os\+::hal\+::\+IRQ11}}
+, \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018ac056459fa121529d49d77ba139a73cff}{os\+::hal\+::\+IRQ12}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a662d5e20feca665f48fcd97de1b2c493}{os\+::hal\+::\+IRQ13}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a397e6bdccd70a362f00a2668251f6c06}{os\+::hal\+::\+IRQ14}}
+, \mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018ab174a3219545eabd79b461350d86d91e}{os\+::hal\+::\+IRQ15}}
+, \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018a72b63b55a70df5cb9057a0f27a110859}{os\+::hal\+::\+IRQ\+\_\+\+SYSCALL}} = 160
+ \}
+\item 
+enum \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7}{os\+::hal\+::\+IDTTYPE}} \{ \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a8ef3571117030581162184517031f3e1}{os\+::hal\+::\+IDTTYPE\+\_\+\+TASK}} = 0x05
+, \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7afa2de03814de2c821263cbc3cce8f24e}{os\+::hal\+::\+IDTTYPE\+\_\+\+INT16}} = 0x06
+, \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a35633d9ea7d7768877f2312973b503b0}{os\+::hal\+::\+IDTTYPE\+\_\+\+INT32}} = 0x0E
+, \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a9f89b76ed764b152395ae034d9a5d42d}{os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP16}} = 0x07
+, \newline
+\mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a51fe0e6e6231b3d49caf34211e085ff0}{os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP32}} = 0x0F
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_afe1c8e2bba6012787c2beeceff70316a}{os\+::hal\+::idt\+::init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize interrupt descriptor table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4ac}{os\+::hal\+::idt\+::init\+\_\+exceptions}} ()
+\begin{DoxyCompactList}\small\item\em Initialize exception interrupt descriptors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}{os\+::hal\+::idt\+::init\+\_\+irqs}} ()
+\begin{DoxyCompactList}\small\item\em Initialize IRQ interrupt descriptors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{os\+::hal\+::idt\+::set\+\_\+descriptor}} (\mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} n, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} base, idt\+\_\+flags\+\_\+t flags, \mbox{\hyperlink{stdint_8h_adf4d876453337156dde61095e1f20223}{uint16\+\_\+t}} seg)
+\begin{DoxyCompactList}\small\item\em Set specified interrupt descriptor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}{os\+::hal\+::idt\+::register\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}}, idt\+\_\+handler\+\_\+t handler)
+\begin{DoxyCompactList}\small\item\em Assign callback function to specified IRQ. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}{os\+::hal\+::idt\+::unregister\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}})
+\begin{DoxyCompactList}\small\item\em Unassign function from specified IRQ. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}{os\+::hal\+::idt\+::ack\+\_\+irq}} (idt\+\_\+registers\+\_\+t $\ast$regs)
+\begin{DoxyCompactList}\small\item\em Acknowledge that interrupt has been handled. \end{DoxyCompactList}\end{DoxyCompactItemize}

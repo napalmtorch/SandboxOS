@@ -1,4 +1,31 @@
 var searchData=
 [
-  ['unregister_5firq_137',['unregister_irq',['../namespaceos_1_1hal_1_1idt.html#aa0be8f379fe6e0b0440c831556b227ee',1,'os::hal::idt']]]
+  ['ramfs_529',['ramfs',['../namespaceos_1_1filesystem.html#afccabe3d891577bbf609e49e011c8efaa40d9df03d2636379cf444ddff69586ee',1,'os::filesystem']]],
+  ['ramfs_2ecpp_530',['ramfs.cpp',['../ramfs_8cpp.html',1,'']]],
+  ['ramfs_2eh_531',['ramfs.h',['../ramfs_8h.html',1,'']]],
+  ['ramfs_5ffile_5ft_532',['ramfs_file_t',['../structos_1_1filesystem_1_1ramfs__file__t.html',1,'os::filesystem']]],
+  ['ramfs_5fhost_533',['ramfs_host',['../classos_1_1filesystem_1_1ramfs__host.html',1,'os::filesystem']]],
+  ['ramfs_5finfo_5ft_534',['ramfs_info_t',['../structos_1_1filesystem_1_1ramfs__info__t.html',1,'os::filesystem']]],
+  ['rand_535',['rand',['../stdlib_8h.html#a20e50ab9d6b10af0e2940d9419448f42',1,'rand():&#160;stdlib.cpp'],['../stdlib_8cpp.html#a20e50ab9d6b10af0e2940d9419448f42',1,'rand():&#160;stdlib.cpp']]],
+  ['read_536',['read',['../classos_1_1filesystem_1_1ramfs__host.html#a4d717a80ed9bd49206ec80549223b440',1,'os::filesystem::ramfs_host::read()'],['../classos_1_1hal_1_1serial__controller.html#ab6329687edfd8e1acc448430fe879165',1,'os::hal::serial_controller::read()'],['../namespaceos.html#aa4386495bf8f6f67f06197d23eacf1baaecae13117d6f0584c25a9da6c8f8415e',1,'os::read()']]],
+  ['read_5ffile_537',['read_file',['../namespaceos_1_1filesystem.html#a6ebb45eed1716952ec6891210b82e138',1,'os::filesystem']]],
+  ['read_5fwrite_538',['read_write',['../structos_1_1hal_1_1gdt__entry__t.html#aa658df4e967e8cefb1c98d2d9a26e7fa',1,'os::hal::gdt_entry_t::read_write()'],['../structos_1_1hal_1_1gdt__access__t.html#a1f3bb5fba1a374494637e1cdc5df30ff',1,'os::hal::gdt_access_t::read_write()'],['../namespaceos.html#aa4386495bf8f6f67f06197d23eacf1baa06ad287ea83b37a6f9db3d8d10d72c8f',1,'os::read_write()']]],
+  ['ready_539',['ready',['../classos_1_1threading_1_1scheduler.html#a8244aae4aa51f32d91a947c2303186c8',1,'os::threading::scheduler']]],
+  ['red_5fmask_540',['red_mask',['../structos_1_1sys_1_1vbe__mode__info__t.html#a88f02c3e13cc8f4f392d491190723852',1,'os::sys::vbe_mode_info_t']]],
+  ['red_5fposition_541',['red_position',['../structos_1_1sys_1_1vbe__mode__info__t.html#ae9c40abee4ab84810a5b186b1256114b',1,'os::sys::vbe_mode_info_t']]],
+  ['register_5firq_542',['register_irq',['../namespaceos_1_1hal_1_1idt.html#aaca3a7187b31977838891fead1e8cfda',1,'os::hal::idt']]],
+  ['registers_543',['registers',['../structos_1_1threading_1_1thread__t.html#a7c5d45d03a7b841658da86d168c9cff9',1,'os::threading::thread_t']]],
+  ['registers_2eh_544',['registers.h',['../registers_8h.html',1,'']]],
+  ['remove_545',['remove',['../classstd_1_1string.html#ac427b312eadb6d9f43eb8b821515003a',1,'std::string::remove()'],['../classos_1_1memory__heap.html#ad8fbb7c75c443ee38e840666061ea1cd',1,'os::memory_heap::remove()']]],
+  ['remove_5fat_546',['remove_at',['../classstd_1_1arraylist.html#aa5b764788288a8d5c479391e84fe57f9',1,'std::arraylist']]],
+  ['request_547',['request',['../classos_1_1memory__manager.html#a9a175b864349548c32e5838ebb04e7ff',1,'os::memory_manager']]],
+  ['reserved_548',['reserved',['../namespaceos.html#a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072',1,'os::reserved()'],['../structos_1_1hal_1_1idt__entry__t.html#a8cc802e07612e40d1059a48115c87727',1,'os::hal::idt_entry_t::reserved()'],['../structos_1_1hal_1_1gdt__entry__t.html#a6c4c561e97221c9ac46cb247f85aa63e',1,'os::hal::gdt_entry_t::reserved()'],['../structos_1_1hal_1_1gdt__flags__t.html#a1b6eeac65e56ea8aaebf16d3373c9e84',1,'os::hal::gdt_flags_t::reserved()'],['../structos_1_1sys_1_1multiboot__module__t.html#a376592fc5347a8a8ba0616bf8ce82941',1,'os::sys::multiboot_module_t::reserved()']]],
+  ['reserved0_549',['reserved0',['../structos_1_1sys_1_1vbe__mode__info__t.html#ac73b1d89e75f67c9218dd5ad9fb41ae7',1,'os::sys::vbe_mode_info_t']]],
+  ['reserved1_550',['reserved1',['../structos_1_1sys_1_1vbe__mode__info__t.html#a7f70c81b99a222b0e0dc844aeefea3e9',1,'os::sys::vbe_mode_info_t']]],
+  ['reserved2_551',['reserved2',['../structos_1_1sys_1_1vbe__mode__info__t.html#a62c34b5fdde97561098d71a71d38e9bc',1,'os::sys::vbe_mode_info_t']]],
+  ['right_5ftype_552',['right_type',['../structubsan__shift__outofbounds__t.html#ab744ef4597a5d78255a5b7e52bdc6844',1,'ubsan_shift_outofbounds_t']]],
+  ['rsv_5fmask_553',['rsv_mask',['../structos_1_1sys_1_1vbe__mode__info__t.html#ab61d92137e0d95e3c36c79a5443c7cb1',1,'os::sys::vbe_mode_info_t']]],
+  ['rsv_5fposition_554',['rsv_position',['../structos_1_1sys_1_1vbe__mode__info__t.html#a09348ffd4d1071c160a4f08d4b8b6c4a',1,'os::sys::vbe_mode_info_t']]],
+  ['run_555',['run',['../classos_1_1garbage__collector.html#a6560a370c12275fae1ba2f52fb19f492',1,'os::garbage_collector']]],
+  ['running_556',['running',['../structos_1_1threading_1_1thread__flags__t.html#a414f42534ad7730b05805fb76e5c4dea',1,'os::threading::thread_flags_t']]]
 ];

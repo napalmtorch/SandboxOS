@@ -7,28 +7,28 @@ void \mbox{\hyperlink{namespaceos_1_1kernel_a71ff4d0f3a8514a437e1da2c97b6e866}{b
 \begin{DoxyCompactList}\small\item\em Boot sequence for kernel. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceos_1_1kernel_ac96d0967f013f3846356f78894296bbf}{main}} ()
 \begin{DoxyCompactList}\small\item\em Main loop for kernel. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_aa793dc3046e53128ecd2fd419fcab3dc}{start\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_aa793dc3046e53128ecd2fd419fcab3dc}{start\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return starting address of kernel memory. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_af89414c989b17d99d63599c4d706309f}{end\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_af89414c989b17d99d63599c4d706309f}{end\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return ending address of kernel memory. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a00807a6ad11e339f664e61c6156b9f28}{stk\+\_\+start\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a00807a6ad11e339f664e61c6156b9f28}{stk\+\_\+start\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return address to bottom of stack. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_ad8010a4a2d4ca4b1a2b3475115db0a15}{stk\+\_\+end\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_ad8010a4a2d4ca4b1a2b3475115db0a15}{stk\+\_\+end\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return address to top of stack. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a36918aac2afed3f207712c74653e686c}{bss\+\_\+start\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a36918aac2afed3f207712c74653e686c}{bss\+\_\+start\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return staring address of BSS section. \end{DoxyCompactList}\item 
-uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a8655c29f80fa69d4747301f89690be35}{bss\+\_\+end\+\_\+addr}} ()
+\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_a8655c29f80fa69d4747301f89690be35}{bss\+\_\+end\+\_\+addr}} ()
 \begin{DoxyCompactList}\small\item\em Return ending address of BSS section. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-sys\+::multiboot\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_aedb5605ff3279ddc5781d0c53e0658ea}{multiboot}}
+\mbox{\hyperlink{structos_1_1sys_1_1multiboot__t}{sys\+::multiboot\+\_\+t}} \mbox{\hyperlink{namespaceos_1_1kernel_aedb5605ff3279ddc5781d0c53e0658ea}{multiboot}}
 \begin{DoxyCompactList}\small\item\em Multiboot information header. \end{DoxyCompactList}\item 
-memory\+\_\+heap \mbox{\hyperlink{namespaceos_1_1kernel_a75a6f9b651fdbd67de060e166ec22330}{heap\+\_\+small}}
+\mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}} \mbox{\hyperlink{namespaceos_1_1kernel_a75a6f9b651fdbd67de060e166ec22330}{heap\+\_\+small}}
 \begin{DoxyCompactList}\small\item\em Kernel heap used for small allocations aligned to 256 bytes. \end{DoxyCompactList}\item 
-memory\+\_\+heap \mbox{\hyperlink{namespaceos_1_1kernel_af9cde8266dffee757e63ac13eac85673}{heap\+\_\+large}}
+\mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}} \mbox{\hyperlink{namespaceos_1_1kernel_af9cde8266dffee757e63ac13eac85673}{heap\+\_\+large}}
 \begin{DoxyCompactList}\small\item\em Kernel heap used for larger allocations aligned to 4096 bytes. \end{DoxyCompactList}\item 
-threading\+::thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1kernel_a4707be442785416b88dad38c8bed3d87}{thread}}
+\mbox{\hyperlink{structos_1_1threading_1_1thread__t}{threading\+::thread\+\_\+t}} $\ast$ \mbox{\hyperlink{namespaceos_1_1kernel_a54e42f6d5342f18268553564bfaa066a}{thread}}
 \begin{DoxyCompactList}\small\item\em Kernel thread instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -47,7 +47,7 @@ Boot sequence for kernel.
 \index{os::kernel@{os::kernel}!bss\_end\_addr@{bss\_end\_addr}}
 \index{bss\_end\_addr@{bss\_end\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{bss\_end\_addr()}{bss\_end\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::bss\+\_\+end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::bss\+\_\+end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -57,7 +57,7 @@ Return ending address of BSS section.
 \index{os::kernel@{os::kernel}!bss\_start\_addr@{bss\_start\_addr}}
 \index{bss\_start\_addr@{bss\_start\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{bss\_start\_addr()}{bss\_start\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::bss\+\_\+start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::bss\+\_\+start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -67,7 +67,7 @@ Return staring address of BSS section.
 \index{os::kernel@{os::kernel}!end\_addr@{end\_addr}}
 \index{end\_addr@{end\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{end\_addr()}{end\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -87,7 +87,7 @@ Main loop for kernel.
 \index{os::kernel@{os::kernel}!start\_addr@{start\_addr}}
 \index{start\_addr@{start\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{start\_addr()}{start\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -97,7 +97,7 @@ Return starting address of kernel memory.
 \index{os::kernel@{os::kernel}!stk\_end\_addr@{stk\_end\_addr}}
 \index{stk\_end\_addr@{stk\_end\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{stk\_end\_addr()}{stk\_end\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::stk\+\_\+end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::stk\+\_\+end\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -107,7 +107,7 @@ Return address to top of stack.
 \index{os::kernel@{os::kernel}!stk\_start\_addr@{stk\_start\_addr}}
 \index{stk\_start\_addr@{stk\_start\_addr}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{stk\_start\_addr()}{stk\_start\_addr()}}
-{\footnotesize\ttfamily uint32\+\_\+t os\+::kernel\+::stk\+\_\+start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} os\+::kernel\+::stk\+\_\+start\+\_\+addr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -120,7 +120,7 @@ Return address to bottom of stack.
 \index{os::kernel@{os::kernel}!heap\_large@{heap\_large}}
 \index{heap\_large@{heap\_large}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{heap\_large}{heap\_large}}
-{\footnotesize\ttfamily memory\+\_\+heap os\+::kernel\+::heap\+\_\+large}
+{\footnotesize\ttfamily \mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}} os\+::kernel\+::heap\+\_\+large}
 
 
 
@@ -130,7 +130,7 @@ Kernel heap used for larger allocations aligned to 4096 bytes.
 \index{os::kernel@{os::kernel}!heap\_small@{heap\_small}}
 \index{heap\_small@{heap\_small}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{heap\_small}{heap\_small}}
-{\footnotesize\ttfamily memory\+\_\+heap os\+::kernel\+::heap\+\_\+small}
+{\footnotesize\ttfamily \mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}} os\+::kernel\+::heap\+\_\+small}
 
 
 
@@ -140,17 +140,17 @@ Kernel heap used for small allocations aligned to 256 bytes.
 \index{os::kernel@{os::kernel}!multiboot@{multiboot}}
 \index{multiboot@{multiboot}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{multiboot}{multiboot}}
-{\footnotesize\ttfamily sys\+::multiboot\+\_\+t os\+::kernel\+::multiboot}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1sys_1_1multiboot__t}{sys\+::multiboot\+\_\+t}} os\+::kernel\+::multiboot}
 
 
 
 Multiboot information header. 
 
-\mbox{\Hypertarget{namespaceos_1_1kernel_a4707be442785416b88dad38c8bed3d87}\label{namespaceos_1_1kernel_a4707be442785416b88dad38c8bed3d87}} 
+\mbox{\Hypertarget{namespaceos_1_1kernel_a54e42f6d5342f18268553564bfaa066a}\label{namespaceos_1_1kernel_a54e42f6d5342f18268553564bfaa066a}} 
 \index{os::kernel@{os::kernel}!thread@{thread}}
 \index{thread@{thread}!os::kernel@{os::kernel}}
 \doxysubsubsection{\texorpdfstring{thread}{thread}}
-{\footnotesize\ttfamily threading\+::thread\+\_\+t$\ast$ os\+::kernel\+::thread}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{threading\+::thread\+\_\+t}} $\ast$ os\+::kernel\+::thread}
 
 
 

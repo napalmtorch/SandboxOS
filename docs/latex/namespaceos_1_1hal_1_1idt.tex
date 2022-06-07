@@ -9,13 +9,13 @@ void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4a
 \begin{DoxyCompactList}\small\item\em Initialize exception interrupt descriptors. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}{init\+\_\+irqs}} ()
 \begin{DoxyCompactList}\small\item\em Initialize IRQ interrupt descriptors. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{set\+\_\+descriptor}} (uint8\+\_\+t n, uint32\+\_\+t base, idt\+\_\+flags\+\_\+t flags, uint16\+\_\+t seg)
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{set\+\_\+descriptor}} (\mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} n, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} base, \mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{idt\+\_\+flags\+\_\+t}} flags, \mbox{\hyperlink{stdint_8h_adf4d876453337156dde61095e1f20223}{uint16\+\_\+t}} seg)
 \begin{DoxyCompactList}\small\item\em Set specified interrupt descriptor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}{register\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}}, idt\+\_\+handler\+\_\+t handler)
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}{register\+\_\+irq}} (\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018}{IRQ}} \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}}, \mbox{\hyperlink{namespaceos_1_1hal_adc101628bb2fb281311a1a0a56ad5049}{idt\+\_\+handler\+\_\+t}} handler)
 \begin{DoxyCompactList}\small\item\em Assign callback function to specified IRQ. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}{unregister\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}})
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}{unregister\+\_\+irq}} (\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018}{IRQ}} \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}})
 \begin{DoxyCompactList}\small\item\em Unassign function from specified IRQ. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}{ack\+\_\+irq}} (idt\+\_\+registers\+\_\+t $\ast$regs)
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}{ack\+\_\+irq}} (\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{idt\+\_\+registers\+\_\+t}} $\ast$regs)
 \begin{DoxyCompactList}\small\item\em Acknowledge that interrupt has been handled. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -24,7 +24,7 @@ void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899
 \index{os::hal::idt@{os::hal::idt}!ack\_irq@{ack\_irq}}
 \index{ack\_irq@{ack\_irq}!os::hal::idt@{os::hal::idt}}
 \doxysubsubsection{\texorpdfstring{ack\_irq()}{ack\_irq()}}
-{\footnotesize\ttfamily void os\+::hal\+::idt\+::ack\+\_\+irq (\begin{DoxyParamCaption}\item[{idt\+\_\+registers\+\_\+t $\ast$}]{regs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::ack\+\_\+irq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{idt\+\_\+registers\+\_\+t}} $\ast$}]{regs }\end{DoxyParamCaption})}
 
 
 
@@ -69,7 +69,7 @@ Initialize IRQ interrupt descriptors.
 \index{os::hal::idt@{os::hal::idt}!register\_irq@{register\_irq}}
 \index{register\_irq@{register\_irq}!os::hal::idt@{os::hal::idt}}
 \doxysubsubsection{\texorpdfstring{register\_irq()}{register\_irq()}}
-{\footnotesize\ttfamily void os\+::hal\+::idt\+::register\+\_\+irq (\begin{DoxyParamCaption}\item[{IRQ}]{irq,  }\item[{idt\+\_\+handler\+\_\+t}]{handler }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::register\+\_\+irq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018}{IRQ}}}]{irq,  }\item[{\mbox{\hyperlink{namespaceos_1_1hal_adc101628bb2fb281311a1a0a56ad5049}{idt\+\_\+handler\+\_\+t}}}]{handler }\end{DoxyParamCaption})}
 
 
 
@@ -86,7 +86,7 @@ Assign callback function to specified IRQ.
 \index{os::hal::idt@{os::hal::idt}!set\_descriptor@{set\_descriptor}}
 \index{set\_descriptor@{set\_descriptor}!os::hal::idt@{os::hal::idt}}
 \doxysubsubsection{\texorpdfstring{set\_descriptor()}{set\_descriptor()}}
-{\footnotesize\ttfamily void os\+::hal\+::idt\+::set\+\_\+descriptor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n,  }\item[{uint32\+\_\+t}]{base,  }\item[{idt\+\_\+flags\+\_\+t}]{flags,  }\item[{uint16\+\_\+t}]{seg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::set\+\_\+descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{n,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{base,  }\item[{\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{idt\+\_\+flags\+\_\+t}}}]{flags,  }\item[{\mbox{\hyperlink{stdint_8h_adf4d876453337156dde61095e1f20223}{uint16\+\_\+t}}}]{seg }\end{DoxyParamCaption})}
 
 
 
@@ -107,7 +107,7 @@ Set specified interrupt descriptor.
 \index{os::hal::idt@{os::hal::idt}!unregister\_irq@{unregister\_irq}}
 \index{unregister\_irq@{unregister\_irq}!os::hal::idt@{os::hal::idt}}
 \doxysubsubsection{\texorpdfstring{unregister\_irq()}{unregister\_irq()}}
-{\footnotesize\ttfamily void os\+::hal\+::idt\+::unregister\+\_\+irq (\begin{DoxyParamCaption}\item[{IRQ}]{irq }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::unregister\+\_\+irq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceos_1_1hal_a129a522b70529305486b58a279e44018}{IRQ}}}]{irq }\end{DoxyParamCaption})}
 
 
 

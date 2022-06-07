@@ -1,0 +1,284 @@
+\hypertarget{ubsan_8h}{}\doxysection{lib/include/ubsan.h File Reference}
+\label{ubsan_8h}\index{lib/include/ubsan.h@{lib/include/ubsan.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Include dependency graph for ubsan.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{ubsan_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ubsan_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structubsan__srcloc__t}{ubsan\+\_\+srcloc\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__typedesc__t}{ubsan\+\_\+typedesc\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__outofbounds__t}{ubsan\+\_\+outofbounds\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__unreachabledata__t}{ubsan\+\_\+unreachabledata\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__invalidvalue__t}{ubsan\+\_\+invalidvalue\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__shift__outofbounds__t}{ubsan\+\_\+shift\+\_\+outofbounds\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structubsan__vla__bound__data__t}{ubsan\+\_\+vla\+\_\+bound\+\_\+data\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a4407b4d6eae3ba7fe9538b1242a7e165}{DEBUG\+\_\+\+INFO}}~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}36m$>$$>$\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a3847d2d93a215cc477beca42cf210780}{DEBUG\+\_\+\+OK}}~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}32m\+OK\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_ac9603ba178c9f584ce4ea7f51798e67d}{DEBUG\+\_\+\+WARN}}~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}33m??\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a49bce9dafa991fde5616257caa9e3c4a}{DEBUG\+\_\+\+ERROR}}~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}31m!!\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_ad1357ab900e7ce4a1052d63bfc5b8320}{DEBUG\+\_\+\+MMAP}}~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}36m\+MMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a8ceca172cbf670e4c4ced438a2891781}{DEBUG\+\_\+\+PMAP}}~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+PMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_ac1159bc1ad2fc0971ba4b0c01c38e5d2}{DEBUG\+\_\+\+PUNMAP}}~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+PUNMAP\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a3cd241b4b56fdb6bd2132fb6d25a5d76}{DEBUG\+\_\+\+VMAP}}~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+VMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_acf89cfee54b20bfadea9260bf2d3eff2}{DEBUG\+\_\+\+VUNMAP}}~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+VUNMAP\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_abba9671b92b29e61edd8101571604c94}{DEBUG\+\_\+\+MALLOC}}~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}35m\+MALLOC\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a63cc4fbd22608eb21c77c5ffce2ed4ae}{DEBUG\+\_\+\+FREE}}~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}33m\+FREE\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_ab015edc90c82d15e00916f5ef094a24b}{DEBUG\+\_\+\+THREAD}}~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}35m\+THREAD\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a31ff8589d250d8148edcf63021cab0fa}{DEBUG\+\_\+\+PROC}}~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+PROC\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_ab4c43207d319a24a279eff9cf7d37ede}{DEBUG\+\_\+\+KILLED}}~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+KILLED\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a68b3a78c7d0fea2e507bf9f767e899ee}{DEBUG\+\_\+\+HDR\+\_\+\+START}}~\char`\"{}-\/-\/-\/-\/-\/-\/-\/-\/ \char`\"{}
+\item 
+\#define \mbox{\hyperlink{ubsan_8h_a18b8ba499a3dcd9492aa5c8527a13c54}{DEBUG\+\_\+\+HDR\+\_\+\+END}}~\char`\"{} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}} \mbox{\hyperlink{ubsan_8h_a284f87e66b72731ba8e7576a4050e7f2}{ubsan\+\_\+typemismatch\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ubsan_8h_a3c27b7555bad6acc242809295a36e4ea}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+out\+\_\+of\+\_\+bounds}} (\mbox{\hyperlink{structubsan__outofbounds__t}{ubsan\+\_\+outofbounds\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a728e973c799f206f0151c8a3bd1e5699}{uintptr\+\_\+t}} pointer)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a32f0d3c6d996dcf604dfeb30de677119}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+type\+\_\+mismatch}} (\mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a728e973c799f206f0151c8a3bd1e5699}{uintptr\+\_\+t}} pointer)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a2a8b4c414defdca5297f4119d35a2a0b}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+add\+\_\+overflow}} (\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} lhs, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} rhs)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a8315be7a9aa249303fef87f8d380332b}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+sub\+\_\+overflow}} (\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} lhs, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} rhs)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a8203e82b5ee32fb8de918ff02b6485c2}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+mul\+\_\+overflow}} (\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} lhs, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} rhs)
+\item 
+void \mbox{\hyperlink{ubsan_8h_acfb45d5d6f2971fc2544f677a9bab4bb}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+negate\+\_\+overflow}} (\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} old\+\_\+val)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a6e82a99584a7aaa5274d96ddd8c3b894}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+divrem\+\_\+overflow}} (\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} lhs, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} rhs)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a65b7df7259e3cee2869365607b3b5cf4}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+missing\+\_\+return}} (\mbox{\hyperlink{structubsan__unreachabledata__t}{ubsan\+\_\+unreachabledata\+\_\+t}} $\ast$info)
+\item 
+void \mbox{\hyperlink{ubsan_8h_a43ba3fd7359e6e26fdb810270685815b}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+load\+\_\+invalid\+\_\+value}} (\mbox{\hyperlink{structubsan__invalidvalue__t}{ubsan\+\_\+invalidvalue\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} val)
+\item 
+void \mbox{\hyperlink{ubsan_8h_ae1bfa3fdc924d5b9a02b1d4f95f67da7}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+shift\+\_\+out\+\_\+of\+\_\+bounds}} (\mbox{\hyperlink{structubsan__shift__outofbounds__t}{ubsan\+\_\+shift\+\_\+outofbounds\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} lhs, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} rhs)
+\item 
+void \mbox{\hyperlink{ubsan_8h_aa0eede289f9d0bcf17e8082e06246d36}{\+\_\+\+\_\+ubsan\+\_\+handle\+\_\+vla\+\_\+bound\+\_\+not\+\_\+positive}} (\mbox{\hyperlink{structubsan__vla__bound__data__t}{ubsan\+\_\+vla\+\_\+bound\+\_\+data\+\_\+t}} $\ast$info, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} bound)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ubsan_8h_a49bce9dafa991fde5616257caa9e3c4a}\label{ubsan_8h_a49bce9dafa991fde5616257caa9e3c4a}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_ERROR@{DEBUG\_ERROR}}
+\index{DEBUG\_ERROR@{DEBUG\_ERROR}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_ERROR}{DEBUG\_ERROR}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+ERROR~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}31m!!\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a63cc4fbd22608eb21c77c5ffce2ed4ae}\label{ubsan_8h_a63cc4fbd22608eb21c77c5ffce2ed4ae}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_FREE@{DEBUG\_FREE}}
+\index{DEBUG\_FREE@{DEBUG\_FREE}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_FREE}{DEBUG\_FREE}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+FREE~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}33m\+FREE\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a18b8ba499a3dcd9492aa5c8527a13c54}\label{ubsan_8h_a18b8ba499a3dcd9492aa5c8527a13c54}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_HDR\_END@{DEBUG\_HDR\_END}}
+\index{DEBUG\_HDR\_END@{DEBUG\_HDR\_END}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_HDR\_END}{DEBUG\_HDR\_END}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+HDR\+\_\+\+END~\char`\"{} -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a68b3a78c7d0fea2e507bf9f767e899ee}\label{ubsan_8h_a68b3a78c7d0fea2e507bf9f767e899ee}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_HDR\_START@{DEBUG\_HDR\_START}}
+\index{DEBUG\_HDR\_START@{DEBUG\_HDR\_START}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_HDR\_START}{DEBUG\_HDR\_START}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+HDR\+\_\+\+START~\char`\"{}-\/-\/-\/-\/-\/-\/-\/-\/ \char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a4407b4d6eae3ba7fe9538b1242a7e165}\label{ubsan_8h_a4407b4d6eae3ba7fe9538b1242a7e165}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_INFO@{DEBUG\_INFO}}
+\index{DEBUG\_INFO@{DEBUG\_INFO}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_INFO}{DEBUG\_INFO}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+INFO~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}36m$>$$>$\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_ab4c43207d319a24a279eff9cf7d37ede}\label{ubsan_8h_ab4c43207d319a24a279eff9cf7d37ede}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_KILLED@{DEBUG\_KILLED}}
+\index{DEBUG\_KILLED@{DEBUG\_KILLED}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_KILLED}{DEBUG\_KILLED}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+KILLED~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+KILLED\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_abba9671b92b29e61edd8101571604c94}\label{ubsan_8h_abba9671b92b29e61edd8101571604c94}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_MALLOC@{DEBUG\_MALLOC}}
+\index{DEBUG\_MALLOC@{DEBUG\_MALLOC}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MALLOC}{DEBUG\_MALLOC}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MALLOC~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}35m\+MALLOC\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_ad1357ab900e7ce4a1052d63bfc5b8320}\label{ubsan_8h_ad1357ab900e7ce4a1052d63bfc5b8320}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_MMAP@{DEBUG\_MMAP}}
+\index{DEBUG\_MMAP@{DEBUG\_MMAP}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MMAP}{DEBUG\_MMAP}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MMAP~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}36m\+MMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a3847d2d93a215cc477beca42cf210780}\label{ubsan_8h_a3847d2d93a215cc477beca42cf210780}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_OK@{DEBUG\_OK}}
+\index{DEBUG\_OK@{DEBUG\_OK}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_OK}{DEBUG\_OK}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+OK~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}32m\+OK\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a8ceca172cbf670e4c4ced438a2891781}\label{ubsan_8h_a8ceca172cbf670e4c4ced438a2891781}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_PMAP@{DEBUG\_PMAP}}
+\index{DEBUG\_PMAP@{DEBUG\_PMAP}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PMAP}{DEBUG\_PMAP}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PMAP~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+PMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a31ff8589d250d8148edcf63021cab0fa}\label{ubsan_8h_a31ff8589d250d8148edcf63021cab0fa}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_PROC@{DEBUG\_PROC}}
+\index{DEBUG\_PROC@{DEBUG\_PROC}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PROC}{DEBUG\_PROC}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PROC~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+PROC\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_ac1159bc1ad2fc0971ba4b0c01c38e5d2}\label{ubsan_8h_ac1159bc1ad2fc0971ba4b0c01c38e5d2}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_PUNMAP@{DEBUG\_PUNMAP}}
+\index{DEBUG\_PUNMAP@{DEBUG\_PUNMAP}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_PUNMAP}{DEBUG\_PUNMAP}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+PUNMAP~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+PUNMAP\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_ab015edc90c82d15e00916f5ef094a24b}\label{ubsan_8h_ab015edc90c82d15e00916f5ef094a24b}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_THREAD@{DEBUG\_THREAD}}
+\index{DEBUG\_THREAD@{DEBUG\_THREAD}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_THREAD}{DEBUG\_THREAD}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+THREAD~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}35m\+THREAD\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_a3cd241b4b56fdb6bd2132fb6d25a5d76}\label{ubsan_8h_a3cd241b4b56fdb6bd2132fb6d25a5d76}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_VMAP@{DEBUG\_VMAP}}
+\index{DEBUG\_VMAP@{DEBUG\_VMAP}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_VMAP}{DEBUG\_VMAP}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+VMAP~\char`\"{}\mbox{[} \textbackslash{}x1b\mbox{[}35m\+VMAP\textbackslash{}x1b\mbox{[}0m \mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_acf89cfee54b20bfadea9260bf2d3eff2}\label{ubsan_8h_acf89cfee54b20bfadea9260bf2d3eff2}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_VUNMAP@{DEBUG\_VUNMAP}}
+\index{DEBUG\_VUNMAP@{DEBUG\_VUNMAP}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_VUNMAP}{DEBUG\_VUNMAP}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+VUNMAP~\char`\"{}\mbox{[}\textbackslash{}x1b\mbox{[}33m\+VUNMAP\textbackslash{}x1b\mbox{[}0m\mbox{]}\char`\"{}}
+
+\mbox{\Hypertarget{ubsan_8h_ac9603ba178c9f584ce4ea7f51798e67d}\label{ubsan_8h_ac9603ba178c9f584ce4ea7f51798e67d}} 
+\index{ubsan.h@{ubsan.h}!DEBUG\_WARN@{DEBUG\_WARN}}
+\index{DEBUG\_WARN@{DEBUG\_WARN}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_WARN}{DEBUG\_WARN}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+WARN~\char`\"{}\mbox{[}  \textbackslash{}x1b\mbox{[}33m??\textbackslash{}x1b\mbox{[}0m  \mbox{]}\char`\"{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ubsan_8h_a284f87e66b72731ba8e7576a4050e7f2}\label{ubsan_8h_a284f87e66b72731ba8e7576a4050e7f2}} 
+\index{ubsan.h@{ubsan.h}!ubsan\_typemismatch\_t@{ubsan\_typemismatch\_t}}
+\index{ubsan\_typemismatch\_t@{ubsan\_typemismatch\_t}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{ubsan\_typemismatch\_t}{ubsan\_typemismatch\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}} \mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ubsan_8h_a2a8b4c414defdca5297f4119d35a2a0b}\label{ubsan_8h_a2a8b4c414defdca5297f4119d35a2a0b}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_add\_overflow@{\_\_ubsan\_handle\_add\_overflow}}
+\index{\_\_ubsan\_handle\_add\_overflow@{\_\_ubsan\_handle\_add\_overflow}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_add\_overflow()}{\_\_ubsan\_handle\_add\_overflow()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+add\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{lhs,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a6e82a99584a7aaa5274d96ddd8c3b894}\label{ubsan_8h_a6e82a99584a7aaa5274d96ddd8c3b894}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_divrem\_overflow@{\_\_ubsan\_handle\_divrem\_overflow}}
+\index{\_\_ubsan\_handle\_divrem\_overflow@{\_\_ubsan\_handle\_divrem\_overflow}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_divrem\_overflow()}{\_\_ubsan\_handle\_divrem\_overflow()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+divrem\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{lhs,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a43ba3fd7359e6e26fdb810270685815b}\label{ubsan_8h_a43ba3fd7359e6e26fdb810270685815b}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_load\_invalid\_value@{\_\_ubsan\_handle\_load\_invalid\_value}}
+\index{\_\_ubsan\_handle\_load\_invalid\_value@{\_\_ubsan\_handle\_load\_invalid\_value}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_load\_invalid\_value()}{\_\_ubsan\_handle\_load\_invalid\_value()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+load\+\_\+invalid\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__invalidvalue__t}{ubsan\+\_\+invalidvalue\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a65b7df7259e3cee2869365607b3b5cf4}\label{ubsan_8h_a65b7df7259e3cee2869365607b3b5cf4}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_missing\_return@{\_\_ubsan\_handle\_missing\_return}}
+\index{\_\_ubsan\_handle\_missing\_return@{\_\_ubsan\_handle\_missing\_return}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_missing\_return()}{\_\_ubsan\_handle\_missing\_return()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+missing\+\_\+return (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__unreachabledata__t}{ubsan\+\_\+unreachabledata\+\_\+t}} $\ast$}]{info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a8203e82b5ee32fb8de918ff02b6485c2}\label{ubsan_8h_a8203e82b5ee32fb8de918ff02b6485c2}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_mul\_overflow@{\_\_ubsan\_handle\_mul\_overflow}}
+\index{\_\_ubsan\_handle\_mul\_overflow@{\_\_ubsan\_handle\_mul\_overflow}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_mul\_overflow()}{\_\_ubsan\_handle\_mul\_overflow()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+mul\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{lhs,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_acfb45d5d6f2971fc2544f677a9bab4bb}\label{ubsan_8h_acfb45d5d6f2971fc2544f677a9bab4bb}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_negate\_overflow@{\_\_ubsan\_handle\_negate\_overflow}}
+\index{\_\_ubsan\_handle\_negate\_overflow@{\_\_ubsan\_handle\_negate\_overflow}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_negate\_overflow()}{\_\_ubsan\_handle\_negate\_overflow()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+negate\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{old\+\_\+val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a3c27b7555bad6acc242809295a36e4ea}\label{ubsan_8h_a3c27b7555bad6acc242809295a36e4ea}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_out\_of\_bounds@{\_\_ubsan\_handle\_out\_of\_bounds}}
+\index{\_\_ubsan\_handle\_out\_of\_bounds@{\_\_ubsan\_handle\_out\_of\_bounds}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_out\_of\_bounds()}{\_\_ubsan\_handle\_out\_of\_bounds()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+out\+\_\+of\+\_\+bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__outofbounds__t}{ubsan\+\_\+outofbounds\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a728e973c799f206f0151c8a3bd1e5699}{uintptr\+\_\+t}}}]{pointer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_ae1bfa3fdc924d5b9a02b1d4f95f67da7}\label{ubsan_8h_ae1bfa3fdc924d5b9a02b1d4f95f67da7}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_shift\_out\_of\_bounds@{\_\_ubsan\_handle\_shift\_out\_of\_bounds}}
+\index{\_\_ubsan\_handle\_shift\_out\_of\_bounds@{\_\_ubsan\_handle\_shift\_out\_of\_bounds}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_shift\_out\_of\_bounds()}{\_\_ubsan\_handle\_shift\_out\_of\_bounds()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+shift\+\_\+out\+\_\+of\+\_\+bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__shift__outofbounds__t}{ubsan\+\_\+shift\+\_\+outofbounds\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{lhs,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a8315be7a9aa249303fef87f8d380332b}\label{ubsan_8h_a8315be7a9aa249303fef87f8d380332b}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_sub\_overflow@{\_\_ubsan\_handle\_sub\_overflow}}
+\index{\_\_ubsan\_handle\_sub\_overflow@{\_\_ubsan\_handle\_sub\_overflow}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_sub\_overflow()}{\_\_ubsan\_handle\_sub\_overflow()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+sub\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__overflow__t}{ubsan\+\_\+overflow\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{lhs,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{rhs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_a32f0d3c6d996dcf604dfeb30de677119}\label{ubsan_8h_a32f0d3c6d996dcf604dfeb30de677119}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_type\_mismatch@{\_\_ubsan\_handle\_type\_mismatch}}
+\index{\_\_ubsan\_handle\_type\_mismatch@{\_\_ubsan\_handle\_type\_mismatch}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_type\_mismatch()}{\_\_ubsan\_handle\_type\_mismatch()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+type\+\_\+mismatch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__typemismatch__t}{ubsan\+\_\+typemismatch\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a728e973c799f206f0151c8a3bd1e5699}{uintptr\+\_\+t}}}]{pointer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ubsan_8h_aa0eede289f9d0bcf17e8082e06246d36}\label{ubsan_8h_aa0eede289f9d0bcf17e8082e06246d36}} 
+\index{ubsan.h@{ubsan.h}!\_\_ubsan\_handle\_vla\_bound\_not\_positive@{\_\_ubsan\_handle\_vla\_bound\_not\_positive}}
+\index{\_\_ubsan\_handle\_vla\_bound\_not\_positive@{\_\_ubsan\_handle\_vla\_bound\_not\_positive}!ubsan.h@{ubsan.h}}
+\doxysubsubsection{\texorpdfstring{\_\_ubsan\_handle\_vla\_bound\_not\_positive()}{\_\_ubsan\_handle\_vla\_bound\_not\_positive()}}
+{\footnotesize\ttfamily void \+\_\+\+\_\+ubsan\+\_\+handle\+\_\+vla\+\_\+bound\+\_\+not\+\_\+positive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structubsan__vla__bound__data__t}{ubsan\+\_\+vla\+\_\+bound\+\_\+data\+\_\+t}} $\ast$}]{info,  }\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{bound }\end{DoxyParamCaption})}
+

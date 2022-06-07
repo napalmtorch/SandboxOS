@@ -83,16 +83,16 @@ Functions</h2></td></tr>
 <tr class="memitem:ac69a1b6bb4eb3bc682b9d363c64b5ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#ac69a1b6bb4eb3bc682b9d363c64b5ba9">init_irqs</a> ()</td></tr>
 <tr class="memdesc:ac69a1b6bb4eb3bc682b9d363c64b5ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize IRQ interrupt descriptors.  <a href="namespaceos_1_1hal_1_1idt.html#ac69a1b6bb4eb3bc682b9d363c64b5ba9">More...</a><br /></td></tr>
 <tr class="separator:ac69a1b6bb4eb3bc682b9d363c64b5ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc83f654447f220c01b26ef66e1f6246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#abc83f654447f220c01b26ef66e1f6246">set_descriptor</a> (uint8_t n, uint32_t base, idt_flags_t flags, uint16_t seg)</td></tr>
+<tr class="memitem:abc83f654447f220c01b26ef66e1f6246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#abc83f654447f220c01b26ef66e1f6246">set_descriptor</a> (<a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> n, <a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> base, <a class="el" href="structos_1_1hal_1_1idt__flags__t.html">idt_flags_t</a> flags, <a class="el" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a> seg)</td></tr>
 <tr class="memdesc:abc83f654447f220c01b26ef66e1f6246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set specified interrupt descriptor.  <a href="namespaceos_1_1hal_1_1idt.html#abc83f654447f220c01b26ef66e1f6246">More...</a><br /></td></tr>
 <tr class="separator:abc83f654447f220c01b26ef66e1f6246"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaca3a7187b31977838891fead1e8cfda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#aaca3a7187b31977838891fead1e8cfda">register_irq</a> (IRQ <a class="el" href="idt_8cpp.html#abd5a28a2f149ee6e25d89b49bbf48061">irq</a>, idt_handler_t handler)</td></tr>
+<tr class="memitem:aaca3a7187b31977838891fead1e8cfda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#aaca3a7187b31977838891fead1e8cfda">register_irq</a> (<a class="el" href="namespaceos_1_1hal.html#a129a522b70529305486b58a279e44018">IRQ</a> <a class="el" href="idt_8cpp.html#abd5a28a2f149ee6e25d89b49bbf48061">irq</a>, <a class="el" href="namespaceos_1_1hal.html#adc101628bb2fb281311a1a0a56ad5049">idt_handler_t</a> handler)</td></tr>
 <tr class="memdesc:aaca3a7187b31977838891fead1e8cfda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign callback function to specified IRQ.  <a href="namespaceos_1_1hal_1_1idt.html#aaca3a7187b31977838891fead1e8cfda">More...</a><br /></td></tr>
 <tr class="separator:aaca3a7187b31977838891fead1e8cfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0be8f379fe6e0b0440c831556b227ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#aa0be8f379fe6e0b0440c831556b227ee">unregister_irq</a> (IRQ <a class="el" href="idt_8cpp.html#abd5a28a2f149ee6e25d89b49bbf48061">irq</a>)</td></tr>
+<tr class="memitem:aa0be8f379fe6e0b0440c831556b227ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#aa0be8f379fe6e0b0440c831556b227ee">unregister_irq</a> (<a class="el" href="namespaceos_1_1hal.html#a129a522b70529305486b58a279e44018">IRQ</a> <a class="el" href="idt_8cpp.html#abd5a28a2f149ee6e25d89b49bbf48061">irq</a>)</td></tr>
 <tr class="memdesc:aa0be8f379fe6e0b0440c831556b227ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unassign function from specified IRQ.  <a href="namespaceos_1_1hal_1_1idt.html#aa0be8f379fe6e0b0440c831556b227ee">More...</a><br /></td></tr>
 <tr class="separator:aa0be8f379fe6e0b0440c831556b227ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2687eef5af2ae62a78ee4d5b883f899b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#a2687eef5af2ae62a78ee4d5b883f899b">ack_irq</a> (idt_registers_t *regs)</td></tr>
+<tr class="memitem:a2687eef5af2ae62a78ee4d5b883f899b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceos_1_1hal_1_1idt.html#a2687eef5af2ae62a78ee4d5b883f899b">ack_irq</a> (<a class="el" href="structos_1_1hal_1_1idt__registers__t.html">idt_registers_t</a> *regs)</td></tr>
 <tr class="memdesc:a2687eef5af2ae62a78ee4d5b883f899b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acknowledge that interrupt has been handled.  <a href="namespaceos_1_1hal_1_1idt.html#a2687eef5af2ae62a78ee4d5b883f899b">More...</a><br /></td></tr>
 <tr class="separator:a2687eef5af2ae62a78ee4d5b883f899b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -106,7 +106,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void os::hal::idt::ack_irq </td>
           <td>(</td>
-          <td class="paramtype">idt_registers_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1hal_1_1idt__registers__t.html">idt_registers_t</a> *&#160;</td>
           <td class="paramname"><em>regs</em></td><td>)</td>
           <td></td>
         </tr>
@@ -189,13 +189,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void os::hal::idt::register_irq </td>
           <td>(</td>
-          <td class="paramtype">IRQ&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceos_1_1hal.html#a129a522b70529305486b58a279e44018">IRQ</a>&#160;</td>
           <td class="paramname"><em>irq</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">idt_handler_t&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceos_1_1hal.html#adc101628bb2fb281311a1a0a56ad5049">idt_handler_t</a>&#160;</td>
           <td class="paramname"><em>handler</em>&#160;</td>
         </tr>
         <tr>
@@ -226,25 +226,25 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void os::hal::idt::set_descriptor </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stdint_8h.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
           <td class="paramname"><em>n</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stdint_8h.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"><em>base</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">idt_flags_t&#160;</td>
+          <td class="paramtype"><a class="el" href="structos_1_1hal_1_1idt__flags__t.html">idt_flags_t</a>&#160;</td>
           <td class="paramname"><em>flags</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramtype"><a class="el" href="stdint_8h.html#adf4d876453337156dde61095e1f20223">uint16_t</a>&#160;</td>
           <td class="paramname"><em>seg</em>&#160;</td>
         </tr>
         <tr>
@@ -277,7 +277,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void os::hal::idt::unregister_irq </td>
           <td>(</td>
-          <td class="paramtype">IRQ&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceos_1_1hal.html#a129a522b70529305486b58a279e44018">IRQ</a>&#160;</td>
           <td class="paramname"><em>irq</em></td><td>)</td>
           <td></td>
         </tr>

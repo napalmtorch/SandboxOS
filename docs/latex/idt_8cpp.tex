@@ -3,7 +3,13 @@
 {\ttfamily \#include $<$hardware/interrupts/idt.\+h$>$}\newline
 {\ttfamily \#include $<$core/kernel.\+h$>$}\newline
 Include dependency graph for idt.\+cpp\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{idt_8cpp__incl}
+\end{center}
+\end{figure}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -121,15 +127,15 @@ void \mbox{\hyperlink{idt_8cpp_a516b16b006f8c0555c15a793220e28a2}{irq15}} ()
 \item 
 void \mbox{\hyperlink{idt_8cpp_ac7d6f12d69b27ba3abb5c41f3efabcb6}{irq128}} ()
 \item 
-void \mbox{\hyperlink{idt_8cpp_aea163f352ab2004151a4d2e32f7724fb}{\+\_\+idt\+\_\+flush}} (uint32\+\_\+t idt)
+void \mbox{\hyperlink{idt_8cpp_aea163f352ab2004151a4d2e32f7724fb}{\+\_\+idt\+\_\+flush}} (\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} idt)
 \item 
-os\+::hal\+::idtr\+\_\+t \+\_\+idt\+\_\+reg \mbox{\hyperlink{idt_8cpp_a80f090fb9523d382324545d7a48311f6}{ALIGNED}} (0x100)
+\mbox{\hyperlink{structos_1_1hal_1_1idtr__t}{os\+::hal\+::idtr\+\_\+t}} \+\_\+idt\+\_\+reg \mbox{\hyperlink{idt_8cpp_a9ce9fc511742a84eeef579bbcf3cf9fd}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((aligned(0x100)))
 \item 
-void \mbox{\hyperlink{idt_8cpp_ac5d747e6a3b04286728a8519c4556b04}{exception\+\_\+handler}} (os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$regs)
+void \mbox{\hyperlink{idt_8cpp_ac5d747e6a3b04286728a8519c4556b04}{exception\+\_\+handler}} (\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$regs)
 \begin{DoxyCompactList}\small\item\em Handle exception interrupts. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{idt_8cpp_a83f0471ccf8d8c80566700a55cea38f2}{irq\+\_\+handler}} (os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$regs)
+void \mbox{\hyperlink{idt_8cpp_a83f0471ccf8d8c80566700a55cea38f2}{irq\+\_\+handler}} (\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$regs)
 \begin{DoxyCompactList}\small\item\em Handle IRQ interrupts. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{idt_8cpp_a82558f74c572b5d5a6d5cbba1ace9d3b}{default\+\_\+handler}} (os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$regs)
+void \mbox{\hyperlink{idt_8cpp_a82558f74c572b5d5a6d5cbba1ace9d3b}{default\+\_\+handler}} (\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$regs)
 \item 
 void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_afe1c8e2bba6012787c2beeceff70316a}{os\+::hal\+::idt\+::init}} ()
 \begin{DoxyCompactList}\small\item\em Initialize interrupt descriptor table. \end{DoxyCompactList}\item 
@@ -137,7 +143,7 @@ void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4a
 \begin{DoxyCompactList}\small\item\em Initialize exception interrupt descriptors. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}{os\+::hal\+::idt\+::init\+\_\+irqs}} ()
 \begin{DoxyCompactList}\small\item\em Initialize IRQ interrupt descriptors. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{os\+::hal\+::idt\+::set\+\_\+descriptor}} (uint8\+\_\+t n, uint32\+\_\+t base, idt\+\_\+flags\+\_\+t flags, uint16\+\_\+t seg)
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{os\+::hal\+::idt\+::set\+\_\+descriptor}} (\mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} n, \mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} base, idt\+\_\+flags\+\_\+t flags, \mbox{\hyperlink{stdint_8h_adf4d876453337156dde61095e1f20223}{uint16\+\_\+t}} seg)
 \begin{DoxyCompactList}\small\item\em Set specified interrupt descriptor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}{os\+::hal\+::idt\+::register\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_abd5a28a2f149ee6e25d89b49bbf48061}{irq}}, idt\+\_\+handler\+\_\+t handler)
 \begin{DoxyCompactList}\small\item\em Assign callback function to specified IRQ. \end{DoxyCompactList}\item 
@@ -148,11 +154,9 @@ void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{idt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}{EXTC}}
+\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}} \mbox{\hyperlink{idt_8cpp_afdbed49d75a2b61e4d5025450e35d62b}{IDT\+\_\+\+EXCEPTION\+\_\+\+ATTRS}} = (\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}}) \{ .type = \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a51fe0e6e6231b3d49caf34211e085ff0}{os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP32}}, .unused = 0, .dpl = 3, .present = 1 \}
 \item 
-os\+::hal\+::idt\+\_\+flags\+\_\+t \mbox{\hyperlink{idt_8cpp_afdbed49d75a2b61e4d5025450e35d62b}{IDT\+\_\+\+EXCEPTION\+\_\+\+ATTRS}} = (os\+::hal\+::idt\+\_\+flags\+\_\+t) \{ .type = os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP32, .unused = 0, .dpl = 3, .present = 1 \}
-\item 
-os\+::hal\+::idt\+\_\+flags\+\_\+t \mbox{\hyperlink{idt_8cpp_a29954acafd73b275873c2fc1b7d3af44}{IDT\+\_\+\+IRQ\+\_\+\+ATTRS}} = (os\+::hal\+::idt\+\_\+flags\+\_\+t) \{ .type = os\+::hal\+::\+IDTTYPE\+\_\+\+INT32, .unused = 0, .dpl = 3, .present = 1 \}
+\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}} \mbox{\hyperlink{idt_8cpp_a29954acafd73b275873c2fc1b7d3af44}{IDT\+\_\+\+IRQ\+\_\+\+ATTRS}} = (\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}}) \{ .type = \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a35633d9ea7d7768877f2312973b503b0}{os\+::hal\+::\+IDTTYPE\+\_\+\+INT32}}, .unused = 0, .dpl = 3, .present = 1 \}
 \end{DoxyCompactItemize}
 
 
@@ -178,29 +182,29 @@ os\+::hal\+::idt\+\_\+flags\+\_\+t \mbox{\hyperlink{idt_8cpp_a29954acafd73b27587
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{idt_8cpp_a9ce9fc511742a84eeef579bbcf3cf9fd}\label{idt_8cpp_a9ce9fc511742a84eeef579bbcf3cf9fd}} 
+\index{idt.cpp@{idt.cpp}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!idt.cpp@{idt.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1hal_1_1idtr__t}{os\+::hal\+::idtr\+\_\+t}} \+\_\+idt\+\_\+reg \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(aligned(0x100))}]{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{idt_8cpp_aea163f352ab2004151a4d2e32f7724fb}\label{idt_8cpp_aea163f352ab2004151a4d2e32f7724fb}} 
 \index{idt.cpp@{idt.cpp}!\_idt\_flush@{\_idt\_flush}}
 \index{\_idt\_flush@{\_idt\_flush}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{\_idt\_flush()}{\_idt\_flush()}}
-{\footnotesize\ttfamily void \+\_\+idt\+\_\+flush (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{idt }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{idt_8cpp_a80f090fb9523d382324545d7a48311f6}\label{idt_8cpp_a80f090fb9523d382324545d7a48311f6}} 
-\index{idt.cpp@{idt.cpp}!ALIGNED@{ALIGNED}}
-\index{ALIGNED@{ALIGNED}!idt.cpp@{idt.cpp}}
-\doxysubsubsection{\texorpdfstring{ALIGNED()}{ALIGNED()}}
-{\footnotesize\ttfamily os\+::hal\+::idtr\+\_\+t \+\_\+idt\+\_\+reg ALIGNED (\begin{DoxyParamCaption}\item[{0x100}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void \+\_\+idt\+\_\+flush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stdint_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}}]{idt }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{idt_8cpp_a82558f74c572b5d5a6d5cbba1ace9d3b}\label{idt_8cpp_a82558f74c572b5d5a6d5cbba1ace9d3b}} 
 \index{idt.cpp@{idt.cpp}!default\_handler@{default\_handler}}
 \index{default\_handler@{default\_handler}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{default\_handler()}{default\_handler()}}
-{\footnotesize\ttfamily void default\+\_\+handler (\begin{DoxyParamCaption}\item[{os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$}]{regs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void default\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$}]{regs }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{idt_8cpp_ac5d747e6a3b04286728a8519c4556b04}\label{idt_8cpp_ac5d747e6a3b04286728a8519c4556b04}} 
 \index{idt.cpp@{idt.cpp}!exception\_handler@{exception\_handler}}
 \index{exception\_handler@{exception\_handler}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{exception\_handler()}{exception\_handler()}}
-{\footnotesize\ttfamily void exception\+\_\+handler (\begin{DoxyParamCaption}\item[{os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$}]{regs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void exception\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$}]{regs }\end{DoxyParamCaption})}
 
 
 
@@ -317,7 +321,7 @@ Handle exception interrupts.
 \index{idt.cpp@{idt.cpp}!irq\_handler@{irq\_handler}}
 \index{irq\_handler@{irq\_handler}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{irq\_handler()}{irq\_handler()}}
-{\footnotesize\ttfamily void irq\+\_\+handler (\begin{DoxyParamCaption}\item[{os\+::hal\+::idt\+\_\+registers\+\_\+t $\ast$}]{regs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void irq\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structos_1_1hal_1_1idt__registers__t}{os\+::hal\+::idt\+\_\+registers\+\_\+t}} $\ast$}]{regs }\end{DoxyParamCaption})}
 
 
 
@@ -517,30 +521,15 @@ Handle IRQ interrupts.
 
 
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{idt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}\label{idt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}} 
-\index{idt.cpp@{idt.cpp}!EXTC@{EXTC}}
-\index{EXTC@{EXTC}!idt.cpp@{idt.cpp}}
-\doxysubsubsection{\texorpdfstring{EXTC}{EXTC}}
-{\footnotesize\ttfamily EXTC}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\textcolor{preprocessor}{\#define isr(x) }}
-\DoxyCodeLine{\textcolor{preprocessor}{\#define irq(x) }}
-\DoxyCodeLine{}
-\DoxyCodeLine{    \textcolor{keyword}{extern} \textcolor{keywordtype}{void} isr0 ()}
-
-\end{DoxyCode}
 \mbox{\Hypertarget{idt_8cpp_afdbed49d75a2b61e4d5025450e35d62b}\label{idt_8cpp_afdbed49d75a2b61e4d5025450e35d62b}} 
 \index{idt.cpp@{idt.cpp}!IDT\_EXCEPTION\_ATTRS@{IDT\_EXCEPTION\_ATTRS}}
 \index{IDT\_EXCEPTION\_ATTRS@{IDT\_EXCEPTION\_ATTRS}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{IDT\_EXCEPTION\_ATTRS}{IDT\_EXCEPTION\_ATTRS}}
-{\footnotesize\ttfamily os\+::hal\+::idt\+\_\+flags\+\_\+t IDT\+\_\+\+EXCEPTION\+\_\+\+ATTRS = (os\+::hal\+::idt\+\_\+flags\+\_\+t) \{ .type = os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP32, .unused = 0, .dpl = 3, .present = 1 \}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}} IDT\+\_\+\+EXCEPTION\+\_\+\+ATTRS = (\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}}) \{ .type = \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a51fe0e6e6231b3d49caf34211e085ff0}{os\+::hal\+::\+IDTTYPE\+\_\+\+TRAP32}}, .unused = 0, .dpl = 3, .present = 1 \}}
 
 \mbox{\Hypertarget{idt_8cpp_a29954acafd73b275873c2fc1b7d3af44}\label{idt_8cpp_a29954acafd73b275873c2fc1b7d3af44}} 
 \index{idt.cpp@{idt.cpp}!IDT\_IRQ\_ATTRS@{IDT\_IRQ\_ATTRS}}
 \index{IDT\_IRQ\_ATTRS@{IDT\_IRQ\_ATTRS}!idt.cpp@{idt.cpp}}
 \doxysubsubsection{\texorpdfstring{IDT\_IRQ\_ATTRS}{IDT\_IRQ\_ATTRS}}
-{\footnotesize\ttfamily os\+::hal\+::idt\+\_\+flags\+\_\+t IDT\+\_\+\+IRQ\+\_\+\+ATTRS = (os\+::hal\+::idt\+\_\+flags\+\_\+t) \{ .type = os\+::hal\+::\+IDTTYPE\+\_\+\+INT32, .unused = 0, .dpl = 3, .present = 1 \}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}} IDT\+\_\+\+IRQ\+\_\+\+ATTRS = (\mbox{\hyperlink{structos_1_1hal_1_1idt__flags__t}{os\+::hal\+::idt\+\_\+flags\+\_\+t}}) \{ .type = \mbox{\hyperlink{namespaceos_1_1hal_a3593a3cee8bfbb7798f37a4c13b85cd7a35633d9ea7d7768877f2312973b503b0}{os\+::hal\+::\+IDTTYPE\+\_\+\+INT32}}, .unused = 0, .dpl = 3, .present = 1 \}}
 

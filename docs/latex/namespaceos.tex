@@ -13,17 +13,106 @@
 \item 
  \mbox{\hyperlink{namespaceos_1_1threading}{threading}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{namespaceos_aa0ac17a84e6cd53385c9135facee49bc}{test\+\_\+main}} (int argc, char $\ast$$\ast$argv)
+class \mbox{\hyperlink{classos_1_1garbage__collector}{garbage\+\_\+collector}}
+\item 
+struct \mbox{\hyperlink{structos_1_1heapblock__t}{heapblock\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classos_1_1memory__heap}{memory\+\_\+heap}}
+\item 
+struct \mbox{\hyperlink{structos_1_1memblk__t}{memblk\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classos_1_1memory__manager}{memory\+\_\+manager}}
+\item 
+struct \mbox{\hyperlink{structos_1_1file__t}{file\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1directory__t}{directory\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1fileinfo__t}{fileinfo\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{memblk\+\_\+type}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaafedb2d84cafe20862cb4399751a8a7e3}{invalid}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaae4894ca167b08880bfc35862f18575eb}{available}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}{reserved}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaac9d3c8ae8e55bf959eff609b1d1fb3ed}{acpi\+\_\+reclaimable}}
+, \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa0f1edc61cfd92bb31d2d61eeaf480207}{nvs}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa8ba4afb884dfbb38b63998ac487c47de}{bad\+\_\+ram}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa50484c19f1afdaf3841a0d821ed393d2}{kernel}}
+, \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa22884db148f0ffb0d830ba431102b0b5}{module}}
+, \newline
+\mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa4d4a9aa362b6ffe089fd2e992ccf4f5f}{heap}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespaceos_aa4386495bf8f6f67f06197d23eacf1ba}{file\+\_\+mode}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{namespaceos_aa4386495bf8f6f67f06197d23eacf1baaecae13117d6f0584c25a9da6c8f8415e}{read}}
+, \mbox{\hyperlink{namespaceos_aa4386495bf8f6f67f06197d23eacf1baa06ad287ea83b37a6f9db3d8d10d72c8f}{read\+\_\+write}}
+ \}
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{namespaceos_aa0ac17a84e6cd53385c9135facee49bc}\label{namespaceos_aa0ac17a84e6cd53385c9135facee49bc}} 
-\index{os@{os}!test\_main@{test\_main}}
-\index{test\_main@{test\_main}!os@{os}}
-\doxysubsubsection{\texorpdfstring{test\_main()}{test\_main()}}
-{\footnotesize\ttfamily int os\+::test\+\_\+main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespaceos_aa4386495bf8f6f67f06197d23eacf1ba}\label{namespaceos_aa4386495bf8f6f67f06197d23eacf1ba}} 
+\index{os@{os}!file\_mode@{file\_mode}}
+\index{file\_mode@{file\_mode}!os@{os}}
+\doxysubsubsection{\texorpdfstring{file\_mode}{file\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceos_aa4386495bf8f6f67f06197d23eacf1ba}{os\+::file\+\_\+mode}} \+: \mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
 
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{read@{read}!os@{os}}\index{os@{os}!read@{read}}}\mbox{\Hypertarget{namespaceos_aa4386495bf8f6f67f06197d23eacf1baaecae13117d6f0584c25a9da6c8f8415e}\label{namespaceos_aa4386495bf8f6f67f06197d23eacf1baaecae13117d6f0584c25a9da6c8f8415e}} 
+read&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{read\_write@{read\_write}!os@{os}}\index{os@{os}!read\_write@{read\_write}}}\mbox{\Hypertarget{namespaceos_aa4386495bf8f6f67f06197d23eacf1baa06ad287ea83b37a6f9db3d8d10d72c8f}\label{namespaceos_aa4386495bf8f6f67f06197d23eacf1baa06ad287ea83b37a6f9db3d8d10d72c8f}} 
+read\+\_\+write&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}} 
+\index{os@{os}!memblk\_type@{memblk\_type}}
+\index{memblk\_type@{memblk\_type}!os@{os}}
+\doxysubsubsection{\texorpdfstring{memblk\_type}{memblk\_type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespaceos_a64b5df64a0e03ca67521340ab97cf7ea}{os\+::memblk\+\_\+type}} \+: \mbox{\hyperlink{stdint_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{invalid@{invalid}!os@{os}}\index{os@{os}!invalid@{invalid}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaafedb2d84cafe20862cb4399751a8a7e3}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaafedb2d84cafe20862cb4399751a8a7e3}} 
+invalid&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{available@{available}!os@{os}}\index{os@{os}!available@{available}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaae4894ca167b08880bfc35862f18575eb}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaae4894ca167b08880bfc35862f18575eb}} 
+available&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{reserved@{reserved}!os@{os}}\index{os@{os}!reserved@{reserved}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa7f005c3fa691e77c52d3297cc2699072}} 
+reserved&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{acpi\_reclaimable@{acpi\_reclaimable}!os@{os}}\index{os@{os}!acpi\_reclaimable@{acpi\_reclaimable}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaac9d3c8ae8e55bf959eff609b1d1fb3ed}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaac9d3c8ae8e55bf959eff609b1d1fb3ed}} 
+acpi\+\_\+reclaimable&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{nvs@{nvs}!os@{os}}\index{os@{os}!nvs@{nvs}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa0f1edc61cfd92bb31d2d61eeaf480207}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa0f1edc61cfd92bb31d2d61eeaf480207}} 
+nvs&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bad\_ram@{bad\_ram}!os@{os}}\index{os@{os}!bad\_ram@{bad\_ram}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa8ba4afb884dfbb38b63998ac487c47de}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa8ba4afb884dfbb38b63998ac487c47de}} 
+bad\+\_\+ram&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{kernel@{kernel}!os@{os}}\index{os@{os}!kernel@{kernel}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa50484c19f1afdaf3841a0d821ed393d2}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa50484c19f1afdaf3841a0d821ed393d2}} 
+kernel&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{module@{module}!os@{os}}\index{os@{os}!module@{module}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa22884db148f0ffb0d830ba431102b0b5}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa22884db148f0ffb0d830ba431102b0b5}} 
+module&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{heap@{heap}!os@{os}}\index{os@{os}!heap@{heap}}}\mbox{\Hypertarget{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa4d4a9aa362b6ffe089fd2e992ccf4f5f}\label{namespaceos_a64b5df64a0e03ca67521340ab97cf7eaa4d4a9aa362b6ffe089fd2e992ccf4f5f}} 
+heap&\\
+\hline
+
+\end{DoxyEnumFields}

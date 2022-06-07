@@ -1,0 +1,9 @@
+<map id="kernel/include/core/system" name="kernel/include/core/system">
+<area shape="rect" id="node1" href="dir_e5baca8874ae58dd8d357765d7b927e2.html" title="system" alt="" coords="51,52,123,100"/>
+<area shape="rect" id="node2" href="dir_2c7d3eb9768bbe000743249795be4a9b.html" title="hardware" alt="" coords="5,148,88,196"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000005_000007.html" title="1" alt="" coords="67,127,76,142"/>
+<area shape="rect" id="node3" href="dir_97aefd0d527b934f1d99a682da8fe6a9.html" title="lib" alt="" coords="49,244,121,292"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000005_000019.html" title="6" alt="" coords="99,221,108,235"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000007_000019.html" title="15" alt="" coords="68,217,85,231"/>
+<area shape="rect" id="clust1" href="dir_f6228c8f68c22b726af3e48104f2d999.html" title="core" alt="" coords="40,16,133,111"/>
+</map>

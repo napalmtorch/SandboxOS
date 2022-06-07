@@ -1,0 +1,103 @@
+\hypertarget{thread_8h}{}\doxysection{kernel/include/core/exec/thread.h File Reference}
+\label{thread_8h}\index{kernel/include/core/exec/thread.h@{kernel/include/core/exec/thread.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$array.\+h$>$}\newline
+Include dependency graph for thread.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{thread_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structos_1_1threading_1_1thread__flags__t}{os\+::threading\+::thread\+\_\+flags\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1threading_1_1thread__regs__t}{os\+::threading\+::thread\+\_\+regs\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{os\+::threading\+::thread\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1threading}{os\+::threading}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{thread_8h_af3a0c5bfa1247b812aecb863e8204908}{STACKSZ\+\_\+\+SMALL}}~(8   $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})
+\item 
+\#define \mbox{\hyperlink{thread_8h_a6a25a4307fec4a63c82bbbe916de51ec}{STACKSZ\+\_\+\+MEDIUM}}~(64  $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})
+\item 
+\#define \mbox{\hyperlink{thread_8h_a4d30e925726325103bd3b1d29df4c638}{STACKSZ\+\_\+\+LARGE}}~(512 $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \mbox{\hyperlink{namespaceos_1_1threading_a94670e3f1ace2bb2f3d597b1e2e959e5}{os\+::threading\+::thread\+\_\+protocol\+\_\+t}}) (int, char $\ast$$\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_aadfcf2228956b2ef2f07368c52a78690}{os\+::threading\+::thread\+\_\+create}} (char $\ast$name, \mbox{\hyperlink{stddef_8h_a222d67ef9d7959e65735150c95b7eee3}{size\+\_\+t}} stacksz, thread\+\_\+protocol\+\_\+t protocol, int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Create a new thread instance. \end{DoxyCompactList}\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_aad05e9b16d91bb8c4cf0c5b275081994}{os\+::threading\+::thread\+\_\+create\+\_\+k}} ()
+\begin{DoxyCompactList}\small\item\em Create kernel thread instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceos_1_1threading_a8500975d44d702ee35a622e92932e6ab}{os\+::threading\+::thread\+\_\+dispose}} (thread\+\_\+t $\ast$thread)
+\begin{DoxyCompactList}\small\item\em Dispose thread and corresponding allocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_a1cedd82318b81fcb6d79dee0a9120ac7}{os\+::threading\+::thread\+\_\+monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitor and update performance of current thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structos_1_1threading_1_1thread__t}{os\+::threading\+::thread\+\_\+t}} $\ast$ \mbox{\hyperlink{thread_8h_ae681c84571af2fdfffa3bcd2bd7aa749}{THREAD\+\_\+\+NEXT}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{thread_8h_a4d30e925726325103bd3b1d29df4c638}\label{thread_8h_a4d30e925726325103bd3b1d29df4c638}} 
+\index{thread.h@{thread.h}!STACKSZ\_LARGE@{STACKSZ\_LARGE}}
+\index{STACKSZ\_LARGE@{STACKSZ\_LARGE}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{STACKSZ\_LARGE}{STACKSZ\_LARGE}}
+{\footnotesize\ttfamily \#define STACKSZ\+\_\+\+LARGE~(512 $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})}
+
+\mbox{\Hypertarget{thread_8h_a6a25a4307fec4a63c82bbbe916de51ec}\label{thread_8h_a6a25a4307fec4a63c82bbbe916de51ec}} 
+\index{thread.h@{thread.h}!STACKSZ\_MEDIUM@{STACKSZ\_MEDIUM}}
+\index{STACKSZ\_MEDIUM@{STACKSZ\_MEDIUM}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{STACKSZ\_MEDIUM}{STACKSZ\_MEDIUM}}
+{\footnotesize\ttfamily \#define STACKSZ\+\_\+\+MEDIUM~(64  $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})}
+
+\mbox{\Hypertarget{thread_8h_af3a0c5bfa1247b812aecb863e8204908}\label{thread_8h_af3a0c5bfa1247b812aecb863e8204908}} 
+\index{thread.h@{thread.h}!STACKSZ\_SMALL@{STACKSZ\_SMALL}}
+\index{STACKSZ\_SMALL@{STACKSZ\_SMALL}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{STACKSZ\_SMALL}{STACKSZ\_SMALL}}
+{\footnotesize\ttfamily \#define STACKSZ\+\_\+\+SMALL~(8   $\ast$ \mbox{\hyperlink{stdint_8h_a1841fd1a462d245d8c73dce55e2f45da}{KB}})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{thread_8h_ae681c84571af2fdfffa3bcd2bd7aa749}\label{thread_8h_ae681c84571af2fdfffa3bcd2bd7aa749}} 
+\index{thread.h@{thread.h}!THREAD\_NEXT@{THREAD\_NEXT}}
+\index{THREAD\_NEXT@{THREAD\_NEXT}!thread.h@{thread.h}}
+\doxysubsubsection{\texorpdfstring{THREAD\_NEXT}{THREAD\_NEXT}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{os\+::threading\+::thread\+\_\+t}}$\ast$ THREAD\+\_\+\+NEXT\hspace{0.3cm}{\ttfamily [extern]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{extern} \mbox{\hyperlink{structos_1_1threading_1_1thread__t}{os::threading::thread\_t}}* THREAD}
+
+\end{DoxyCode}
