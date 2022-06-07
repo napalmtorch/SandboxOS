@@ -3,6 +3,18 @@
 
 namespace os
 {
+    void memory_heap::init(bool messages)
+    {
+        uint32_t count = 16384;
+        uint32_t needed = memalign((count + (count * 2)) * sizeof(heapblock_t), 0x1000) + 0x1000;
+        uint32_t usable = memalign(memory_manager::usable() - needed, 0x1000);
+        kernel::heap_large.init((usable / 5) * 3, count, 0x1000, false);
+        kernel::heap_small.init((usable / 5) * 2, count * 2, 0x100, false);
+        sys::tests::test_heap(10);
+        kernel::heap_large.toggle_msgs(messages);
+        kernel::heap_small.toggle_msgs(messages);
+    }
+
     void memory_heap::init(size_t size, size_t count, uint32_t align, bool msgs)
     {
         uint32_t req_size = memalign(size + (count * sizeof(heapblock_t)), 0x1000);

@@ -17,11 +17,13 @@
 #include <core/system/tests.h>
 #include <core/memory/memmgr.h>
 #include <core/memory/heap.h>
+#include <core/memory/gc.h>
 #include <core/exec/thread.h>
 #include <core/exec/scheduler.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
 #include <hardware/common/registers.h>
+#include <hardware/common/pit.h>
 #include <hardware/interrupts/gdt.h>
 #include <hardware/interrupts/idt.h>
 #include <hardware/interrupts/pic.h>

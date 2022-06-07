@@ -12,12 +12,6 @@ EXTC
 
 namespace os
 {
-    int test_main(int argc, char** argv)
-    {
-        printf("%s Entered test thread\n", DEBUG_INFO);
-        return 420;
-    }
-
     namespace kernel
     {
         /// @brief Multiboot information header
@@ -49,18 +43,18 @@ namespace os
             memory_manager::init();
 
             // initialize heaps
-            bool mmdbg = true;
-            uint32_t count = 16384;
-            uint32_t needed = memalign((count + (count * 2)) * sizeof(heapblock_t), 0x1000) + 0x1000;
-            uint32_t usable = memalign(memory_manager::usable() - needed, 0x1000);
-            heap_large.init((usable / 5) * 3, count, 0x1000, false);
-            heap_small.init((usable / 5) * 2, count * 2, 0x100, false);
-            sys::tests::test_heap(10);
-            heap_large.toggle_msgs(mmdbg);
-            heap_small.toggle_msgs(mmdbg);
+            bool mmdbg = false;
+            memory_heap::init(mmdbg);
 
             // initialize thread scheduler
             threading::scheduler::init();
+
+            // initialize pit
+            hal::pit::init();
+
+            // start garbage collector thread
+            garbage_collector::start();
+            garbage_collector::messages = false;
 
             // initialize filesystem
             filesystem::init();
@@ -69,14 +63,20 @@ namespace os
         /// @brief Main loop for kernel
         void main()
         {
+            lock();
             printf("%s Entered kernel main\n", DEBUG_OK);
 
             uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
             uint32_t memtotal = heap_large.data_size() + heap_small.data_size();
             printf("%s Memory usage: %u/%u bytes(%u/%u MB)\n", DEBUG_INFO, memused, memtotal, memused / MB, memtotal / MB);
+            unlock();
 
             while (true)
             {
+                lock();
+                void* test = tmalloc(1024, ALLOCTYPE_ARRAY);
+                free(test);
+                unlock();
                 threading::scheduler::yield();
             }
         }

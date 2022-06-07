@@ -11,3 +11,7 @@ EXTC
         return out;
     }
 }
+
+void lock();
+void unlock();
+void yield();

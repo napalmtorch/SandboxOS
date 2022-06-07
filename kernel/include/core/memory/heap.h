@@ -27,6 +27,7 @@ namespace os
             bool         _messages;
 
         public:
+            static void init(bool messages);
             void init(size_t size, size_t count, uint32_t align, bool msgs = true);
 
         public:
