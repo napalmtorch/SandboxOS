@@ -1,6 +1,6 @@
 ### SandboxOS
-A simple operating system which focuses on interpreting 90% of user code in a safe sandboxed instance
-Developed by Nik300 and napalmtorch
+A simple operating system which focuses on interpreting 90% of user code in a safe sandboxed instance  
+Developed by Nik300 and napalmtorch  
 
 ### Building
 To build our operating system, simply clone the repo, cd the root repo directory, and run the build/scripts/build_all.sh
@@ -17,10 +17,18 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - RAMFS
 - VFS Abstraction Layer
 - Scheduler/Threading
-
-### TO DO
-- VBE
 - Garbage Collector
 - PIT
+
+### TO DO
+- Improve std::string
+- Standard I/O streams
+- Extended CPU instructions(SSE, MMX, etc.)
+- PCI Device Emumeration
+- ACPI
+- AHCI Disk Controller
+- USTAR/FAT32 File Systems
+- VBE
 - RTC
-- Typescript Interpreter
+- PS/2 Keyboard and mouse
+- Language Interpreter
