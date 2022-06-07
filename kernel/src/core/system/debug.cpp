@@ -5,9 +5,13 @@ namespace os
 {
     namespace sys
     {
+        /// @brief Serial controller used for debugging output
         hal::serial_controller debug::serial;
-        bool                   debug::stdout_enabled = false;
 
+        /// @brief Toggle whether printf outputs to serial
+        bool debug::stdout_enabled = false;
+
+        /// @brief Initialize debugging
         void debug::init(hal::serial_port port)
         {
             stdout_enabled = true;

@@ -5,6 +5,7 @@ namespace os
 {
     namespace hal
     {
+        /// @brief Establish a serial port connection @param port Serial port number
         void serial_controller::begin(serial_port port)
         {
             // set port variable
@@ -28,11 +29,13 @@ namespace os
             ports::outb((portnum_t)this->_port + 4, 0x0F);
         }
 
+        /// @brief Disable serial port connection
         void serial_controller::end()
         {
             this->_port = serial_port::disabled;
         }
 
+        /// @brief Read byte from serial controller @return ASCII value
         char serial_controller::read()
         {
             if (!validate()) { return 0; }
@@ -40,6 +43,7 @@ namespace os
             return ports::inb((portnum_t)this->_port);
         }
 
+        /// @brief Write character to serial port @param c ASCII value
         void serial_controller::write(char c)
         {
             if (!validate()) { return; }
@@ -47,6 +51,7 @@ namespace os
             ports::outb((portnum_t)this->_port, c);
         }
 
+        /// @brief Write string of characters to serial port @param str Pointer to string
         void serial_controller::print(char* str)
         {
             if (str == NULL) { return; }
@@ -56,12 +61,14 @@ namespace os
             while (str[i] != 0) { write(str[i]); i++; }
         }
 
+        /// @brief Write line of characters to serial port @param str Pointer to string
         void serial_controller::println(char* str)
         {
             print(str);
             write('\n');
         }
 
+        /// @brief Print formatted string with specified variadic list @param fmt Pointer to string @param args Variadic list
         void serial_controller::vprint_fmt(char* fmt, va_list args)
         {
             while (*fmt != 0)
@@ -128,10 +135,7 @@ namespace os
                             print(strhex(num, str, false, 4));
                         }
                     }
-                    else if (*fmt == 'f')
-                    {
-                        /* TODO : implement float to fmting */
-                    }
+                    else if (*fmt == 'f') { }
                     else if (*fmt == 's')
                     {
                         char* val = va_arg(args, char*);
@@ -144,6 +148,7 @@ namespace os
             }
         }
 
+        /// @brief Print formatted string with specified arguments @param fmt Pointer to string @param ... Arguments
         void serial_controller::print_fmt(char* fmt, ...)
         {
             va_list args;
@@ -152,10 +157,13 @@ namespace os
             va_end(args);
         }
 
+        /// @brief Check if serial is able to send data @return Can send
         bool serial_controller::can_send() { return ports::inb((uint16_t)this->_port + 5) & 0x20; }
 
+        /// @brief Check if serial has received data @return Has received
         bool serial_controller::has_recv() { return ports::inb((uint16_t)this->_port + 5) & 1; }
 
+        /// @brief Check if serial is enabled
         bool serial_controller::validate()
         {
             if (this->_port == serial_port::com1) { return true; }
@@ -165,6 +173,7 @@ namespace os
             return false;
         }
 
+        /// @brief Get name of serial port number @param port Port number
         const char* serial_controller::portstr(serial_port port)
         {
             switch (port)
@@ -177,6 +186,7 @@ namespace os
             }
         }
 
+        /// @brief Get current serial port @return Port number
         serial_port serial_controller::port() { return this->_port; }
     }
 }   
