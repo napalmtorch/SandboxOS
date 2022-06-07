@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <core/kernel.h>
 
-
 #ifdef __cplusplus
 EXTC
 {
@@ -222,6 +221,7 @@ void perror(const char* str, ...)
     va_start(args, str);
     vprintf(str, args);
     printf("\n");
+    os::sys::debug::print_regs(&THREAD->registers);
     va_end(args);
     asm volatile("hlt");
 }

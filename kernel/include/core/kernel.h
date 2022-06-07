@@ -32,21 +32,43 @@
 
 namespace os
 {
+    /// @brief Namespace containing object instances and methods for the kernel
     namespace kernel
     {
-        extern sys::multiboot_t     multiboot;
-        extern memory_heap          heap_large;
-        extern memory_heap          heap_small;
+        /// @brief A copy of the multiboot header
+        extern sys::multiboot_t multiboot;
+
+        /// @brief Kernel heap designated for large allocations - aligned to 4096 bytes
+        extern memory_heap heap_large;
+
+        /// @brief Kernel heap designated for small allocations - aligned to 256 bytes 
+        extern memory_heap heap_small;
+
+        /// @brief Kernel thread instance
         extern threading::thread_t* thread;
         
+        /// @brief Boot sequence for kernel - initializes debugging, memory, threading, and devices
         void boot();
+
+        /// @brief Main loop for kernel
         void main();
 
+        /// @brief Get starting address of kernel memory @return Address value
         uint32_t start_addr();
+
+        /// @brief Get ending address of kernel memory @return Address value
         uint32_t end_addr();
+
+        /// @brief Get bottom of kernel stack @return Address value
         uint32_t stk_start_addr();
+
+        /// @brief Get Top of kernel stack @return Address value
         uint32_t stk_end_addr();
+
+        /// @brief Get starting address of BSS section memory @return Address value
         uint32_t bss_start_addr();
+
+        /// @brief Get ending address of BSS section memory @return Address value
         uint32_t bss_end_addr();
     }
 }

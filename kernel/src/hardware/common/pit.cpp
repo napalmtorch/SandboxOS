@@ -52,23 +52,6 @@ namespace os
                 _millis++;
                 _millis_total++;
                 _timer = 0;
-            
-                for (size_t i = 0; i < threading::scheduler::threads()->length(); i++)
-                {
-                    threading::thread_t* thread = threading::scheduler::threads()->at(i);
-
-                    if (thread->flags.sleeping)
-                    {
-                        thread->sleeptime--;
-                        if (thread->sleeptime == 0) { thread->flags.sleeping = false; }
-                    }
-
-                    if (_millis >= 1000) 
-                    { 
-                        thread->tps = threading::scheduler::threads()->at(i)->ticks; 
-                        thread->ticks = 0;
-                    }
-                }
             }
 
             if (_millis >= 1000)

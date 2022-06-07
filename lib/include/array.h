@@ -15,10 +15,8 @@ namespace std
             T      _dummy;
 
         public:
-            /// @brief Create an empty array
             array() { this->_data = NULL; this->_len = 0; }
             
-            /// @brief Create an allocated array of specified size @param len Amount of entries
             array(size_t len) 
             { 
                 if (len == 0) { this->_data = NULL; this->_len = 0; return; }
@@ -27,7 +25,6 @@ namespace std
                 memset(&_dummy, 0, sizeof(T)); 
             }
             
-            /// @brief Create array with existing data @param data Pointer to source array @param len Amount of entries @param copy Create a new copy of the data
             array(T* data, size_t len, bool copy = false) 
             { 
                 this->_len = len; 
@@ -36,7 +33,6 @@ namespace std
             }
 
         public: 
-            /// @
             void dispose()
             {
                 if (this->_data != NULL) { free(this->_data); }
