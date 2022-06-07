@@ -22,10 +22,13 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 
 ### TO DO
 - Improve std::string
+- Standard I/O streams
+- Extended CPU instructions(SSE, MMX, etc.)
 - PCI Device Emumeration
 - ACPI
 - AHCI Disk Controller
 - USTAR/FAT32 File Systems
 - VBE
 - RTC
+- PS/2 Keyboard and mouse
 - Language Interpreter
