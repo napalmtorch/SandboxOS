@@ -17,6 +17,8 @@
 #include <core/system/tests.h>
 #include <core/memory/memmgr.h>
 #include <core/memory/heap.h>
+#include <core/exec/thread.h>
+#include <core/exec/scheduler.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
 #include <hardware/common/registers.h>
@@ -28,9 +30,10 @@ namespace os
 {
     namespace kernel
     {
-        extern sys::multiboot_t multiboot;
-        extern memory_heap      heap_large;
-        extern memory_heap      heap_small;
+        extern sys::multiboot_t     multiboot;
+        extern memory_heap          heap_large;
+        extern memory_heap          heap_small;
+        extern threading::thread_t* thread;
         
         void boot();
         void main();
@@ -42,4 +45,9 @@ namespace os
         uint32_t bss_start_addr();
         uint32_t bss_end_addr();
     }
+}
+
+EXTC
+{
+    void kernel_main(os::sys::multiboot_t* mboot);
 }

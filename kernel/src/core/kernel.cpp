@@ -12,6 +12,12 @@ EXTC
 
 namespace os
 {
+    int test_main(int argc, char** argv)
+    {
+        printf("%s Entered test thread\n", DEBUG_INFO);
+        return 420;
+    }
+
     namespace kernel
     {
         /// @brief Multiboot information header
@@ -22,6 +28,9 @@ namespace os
 
         /// @brief Kernel heap used for larger allocations aligned to 4096 bytes
         memory_heap heap_large;
+
+        /// @brief Kernel thread instance
+        threading::thread_t* thread;
 
         /// @brief Boot sequence for kernel
         void boot()
@@ -48,6 +57,14 @@ namespace os
             heap_large.toggle_msgs(mmdbg);
             heap_small.toggle_msgs(mmdbg);
 
+            // initialize thread scheduler
+            threading::scheduler::init();
+
+            // create test thread
+            threading::thread_t* t = threading::thread_create("test", STACKSZ_MEDIUM, test_main, 0, NULL);
+            threading::scheduler::load(t);
+            threading::scheduler::start(t);
+
             // framebuffer test
             sys::vbe_mode_info_t* vbe = (sys::vbe_mode_info_t*)multiboot.vbe_mode_info;
             std::array<uint32_t> buff(vbe->width * vbe->height);
@@ -62,7 +79,7 @@ namespace os
             printf("%s Entered kernel main\n", DEBUG_OK);
             while (true)
             {
-
+                threading::scheduler::yield();
             }
         }
 
@@ -87,9 +104,11 @@ namespace os
 }
 
 /// @brief Kernel entry point from assembly @param mboot Multiboot header pointer
-extern "C" void kernel_main(os::sys::multiboot_t* mboot)
+EXTC void kernel_main(os::sys::multiboot_t* mboot)
 {
     os::kernel::multiboot = *mboot;
     os::kernel::boot();
+    
+    os::threading::scheduler::ready();
     os::kernel::main();
 }
