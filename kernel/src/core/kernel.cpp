@@ -101,12 +101,14 @@ namespace os
     }
 }
 
-/// @brief Kernel entry point from assembly @param mboot Multiboot header pointer
-EXTC void kernel_main(os::sys::multiboot_t* mboot)
+EXTC
 {
-    os::kernel::multiboot = *mboot;
-    os::kernel::boot();
-    
-    os::threading::scheduler::ready();
-    os::kernel::main();
+    void kernel_main(os::sys::multiboot_t* mboot)
+    {
+        os::kernel::multiboot = *mboot;
+        os::kernel::boot();
+        
+        os::threading::scheduler::ready();
+        os::kernel::main();
+    }
 }

@@ -1,0 +1,148 @@
+\hypertarget{namespaceos_1_1threading}{}\doxysection{os\+::threading Namespace Reference}
+\label{namespaceos_1_1threading}\index{os::threading@{os::threading}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceos_1_1threading_a02d847603daaee1197d9487ca6e5c9fd}{OPTIMIZE}} (\char`\"{}O0\char`\"{}) void scheduler
+\begin{DoxyCompactList}\small\item\em Switch to next available thread in list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_afc07d7d6a04880d1bd9af02565ad19ee}{thread\+\_\+setname}} (thread\+\_\+t $\ast$thread, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Set thread name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_a16a801ab8d19c54a5f9c4cf186e3ca26}{thread\+\_\+exit}} ()
+\begin{DoxyCompactList}\small\item\em Called when thread returns from entry point. \end{DoxyCompactList}\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_a569fb0f0274fbd3087035019a8621211}{thread\+\_\+create}} (char $\ast$name, size\+\_\+t stacksz, thread\+\_\+protocol\+\_\+t protocol, int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Create a new thread instance. \end{DoxyCompactList}\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_a5b86000c9b613b3f526566e4bc5cacb1}{thread\+\_\+create\+\_\+k}} ()
+\begin{DoxyCompactList}\small\item\em Create kernel thread instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceos_1_1threading_a8500975d44d702ee35a622e92932e6ab}{thread\+\_\+dispose}} (thread\+\_\+t $\ast$thread)
+\begin{DoxyCompactList}\small\item\em Dispose thread and corresponding allocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_a1cedd82318b81fcb6d79dee0a9120ac7}{thread\+\_\+monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitor and update performance of current thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1threading_aabb845f91c0f1490382877adf15ad7d3}{\+\_\+mon\+\_\+now}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1threading_a829aabd97c87d281b53a09173dfb6238}{\+\_\+mon\+\_\+last}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceos_1_1threading_a02d847603daaee1197d9487ca6e5c9fd}\label{namespaceos_1_1threading_a02d847603daaee1197d9487ca6e5c9fd}} 
+\index{os::threading@{os::threading}!OPTIMIZE@{OPTIMIZE}}
+\index{OPTIMIZE@{OPTIMIZE}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{OPTIMIZE()}{OPTIMIZE()}}
+{\footnotesize\ttfamily os\+::threading\+::\+OPTIMIZE (\begin{DoxyParamCaption}\item[{\char`\"{}O0\char`\"{}}]{ }\end{DoxyParamCaption})}
+
+
+
+Switch to next available thread in list. 
+
+\mbox{\Hypertarget{namespaceos_1_1threading_a569fb0f0274fbd3087035019a8621211}\label{namespaceos_1_1threading_a569fb0f0274fbd3087035019a8621211}} 
+\index{os::threading@{os::threading}!thread\_create@{thread\_create}}
+\index{thread\_create@{thread\_create}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_create()}{thread\_create()}}
+{\footnotesize\ttfamily thread\+\_\+t$\ast$ os\+::threading\+::thread\+\_\+create (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{size\+\_\+t}]{stacksz,  }\item[{thread\+\_\+protocol\+\_\+t}]{protocol,  }\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Create a new thread instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of thread\\
+\hline
+{\em stacksz} & Size of stack in bytes\\
+\hline
+{\em protocol} & Entry point of thread\\
+\hline
+{\em argc} & Arguments count\\
+\hline
+{\em argv} & Pointer to argument list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to thread 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceos_1_1threading_a5b86000c9b613b3f526566e4bc5cacb1}\label{namespaceos_1_1threading_a5b86000c9b613b3f526566e4bc5cacb1}} 
+\index{os::threading@{os::threading}!thread\_create\_k@{thread\_create\_k}}
+\index{thread\_create\_k@{thread\_create\_k}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_create\_k()}{thread\_create\_k()}}
+{\footnotesize\ttfamily thread\+\_\+t$\ast$ os\+::threading\+::thread\+\_\+create\+\_\+k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create kernel thread instance. 
+
+\begin{DoxyReturn}{Returns}
+Kernel thread 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceos_1_1threading_a8500975d44d702ee35a622e92932e6ab}\label{namespaceos_1_1threading_a8500975d44d702ee35a622e92932e6ab}} 
+\index{os::threading@{os::threading}!thread\_dispose@{thread\_dispose}}
+\index{thread\_dispose@{thread\_dispose}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_dispose()}{thread\_dispose()}}
+{\footnotesize\ttfamily bool os\+::threading\+::thread\+\_\+dispose (\begin{DoxyParamCaption}\item[{thread\+\_\+t $\ast$}]{thread }\end{DoxyParamCaption})}
+
+
+
+Dispose thread and corresponding allocations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread} & Pointer to thread \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Success of disposal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespaceos_1_1threading_a16a801ab8d19c54a5f9c4cf186e3ca26}\label{namespaceos_1_1threading_a16a801ab8d19c54a5f9c4cf186e3ca26}} 
+\index{os::threading@{os::threading}!thread\_exit@{thread\_exit}}
+\index{thread\_exit@{thread\_exit}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_exit()}{thread\_exit()}}
+{\footnotesize\ttfamily void os\+::threading\+::thread\+\_\+exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Called when thread returns from entry point. 
+
+\mbox{\Hypertarget{namespaceos_1_1threading_a1cedd82318b81fcb6d79dee0a9120ac7}\label{namespaceos_1_1threading_a1cedd82318b81fcb6d79dee0a9120ac7}} 
+\index{os::threading@{os::threading}!thread\_monitor@{thread\_monitor}}
+\index{thread\_monitor@{thread\_monitor}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_monitor()}{thread\_monitor()}}
+{\footnotesize\ttfamily void os\+::threading\+::thread\+\_\+monitor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Monitor and update performance of current thread. 
+
+\mbox{\Hypertarget{namespaceos_1_1threading_afc07d7d6a04880d1bd9af02565ad19ee}\label{namespaceos_1_1threading_afc07d7d6a04880d1bd9af02565ad19ee}} 
+\index{os::threading@{os::threading}!thread\_setname@{thread\_setname}}
+\index{thread\_setname@{thread\_setname}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{thread\_setname()}{thread\_setname()}}
+{\footnotesize\ttfamily void os\+::threading\+::thread\+\_\+setname (\begin{DoxyParamCaption}\item[{thread\+\_\+t $\ast$}]{thread,  }\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Set thread name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em thread} & Pointer to thread\\
+\hline
+{\em str} & Pointer to name string \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceos_1_1threading_a829aabd97c87d281b53a09173dfb6238}\label{namespaceos_1_1threading_a829aabd97c87d281b53a09173dfb6238}} 
+\index{os::threading@{os::threading}!\_mon\_last@{\_mon\_last}}
+\index{\_mon\_last@{\_mon\_last}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{\_mon\_last}{\_mon\_last}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+::threading\+::\+\_\+mon\+\_\+last}
+
+\mbox{\Hypertarget{namespaceos_1_1threading_aabb845f91c0f1490382877adf15ad7d3}\label{namespaceos_1_1threading_aabb845f91c0f1490382877adf15ad7d3}} 
+\index{os::threading@{os::threading}!\_mon\_now@{\_mon\_now}}
+\index{\_mon\_now@{\_mon\_now}!os::threading@{os::threading}}
+\doxysubsubsection{\texorpdfstring{\_mon\_now}{\_mon\_now}}
+{\footnotesize\ttfamily uint32\+\_\+t os\+::threading\+::\+\_\+mon\+\_\+now}
+

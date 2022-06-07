@@ -1,0 +1,60 @@
+\hypertarget{thread_8cpp}{}\doxysection{kernel/src/core/exec/thread.cpp File Reference}
+\label{thread_8cpp}\index{kernel/src/core/exec/thread.cpp@{kernel/src/core/exec/thread.cpp}}
+{\ttfamily \#include $<$core/exec/thread.\+h$>$}\newline
+{\ttfamily \#include $<$core/kernel.\+h$>$}\newline
+Include dependency graph for thread.\+cpp\+:
+% FIG 0
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1threading}{os\+::threading}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_afc07d7d6a04880d1bd9af02565ad19ee}{os\+::threading\+::thread\+\_\+setname}} (thread\+\_\+t $\ast$thread, const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Set thread name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_a16a801ab8d19c54a5f9c4cf186e3ca26}{os\+::threading\+::thread\+\_\+exit}} ()
+\begin{DoxyCompactList}\small\item\em Called when thread returns from entry point. \end{DoxyCompactList}\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_a569fb0f0274fbd3087035019a8621211}{os\+::threading\+::thread\+\_\+create}} (char $\ast$name, size\+\_\+t stacksz, thread\+\_\+protocol\+\_\+t protocol, int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Create a new thread instance. \end{DoxyCompactList}\item 
+thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1threading_a5b86000c9b613b3f526566e4bc5cacb1}{os\+::threading\+::thread\+\_\+create\+\_\+k}} ()
+\begin{DoxyCompactList}\small\item\em Create kernel thread instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespaceos_1_1threading_a8500975d44d702ee35a622e92932e6ab}{os\+::threading\+::thread\+\_\+dispose}} (thread\+\_\+t $\ast$thread)
+\begin{DoxyCompactList}\small\item\em Dispose thread and corresponding allocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1threading_a1cedd82318b81fcb6d79dee0a9120ac7}{os\+::threading\+::thread\+\_\+monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitor and update performance of current thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{thread_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}{EXTC}}
+\item 
+os\+::threading\+::thread\+\_\+t $\ast$ \mbox{\hyperlink{thread_8cpp_ae681c84571af2fdfffa3bcd2bd7aa749}{THREAD\+\_\+\+NEXT}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1threading_aabb845f91c0f1490382877adf15ad7d3}{os\+::threading\+::\+\_\+mon\+\_\+now}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1threading_a829aabd97c87d281b53a09173dfb6238}{os\+::threading\+::\+\_\+mon\+\_\+last}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{thread_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}\label{thread_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}} 
+\index{thread.cpp@{thread.cpp}!EXTC@{EXTC}}
+\index{EXTC@{EXTC}!thread.cpp@{thread.cpp}}
+\doxysubsubsection{\texorpdfstring{EXTC}{EXTC}}
+{\footnotesize\ttfamily EXTC}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    os::threading::thread\_t* THREAD}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{thread_8cpp_ae681c84571af2fdfffa3bcd2bd7aa749}\label{thread_8cpp_ae681c84571af2fdfffa3bcd2bd7aa749}} 
+\index{thread.cpp@{thread.cpp}!THREAD\_NEXT@{THREAD\_NEXT}}
+\index{THREAD\_NEXT@{THREAD\_NEXT}!thread.cpp@{thread.cpp}}
+\doxysubsubsection{\texorpdfstring{THREAD\_NEXT}{THREAD\_NEXT}}
+{\footnotesize\ttfamily os\+::threading\+::thread\+\_\+t$\ast$ THREAD\+\_\+\+NEXT}
+

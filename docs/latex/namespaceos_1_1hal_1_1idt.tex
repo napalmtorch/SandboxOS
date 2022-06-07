@@ -1,0 +1,120 @@
+\hypertarget{namespaceos_1_1hal_1_1idt}{}\doxysection{os\+::hal\+::idt Namespace Reference}
+\label{namespaceos_1_1hal_1_1idt}\index{os::hal::idt@{os::hal::idt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_afe1c8e2bba6012787c2beeceff70316a}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize interrupt descriptor table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4ac}{init\+\_\+exceptions}} ()
+\begin{DoxyCompactList}\small\item\em Initialize exception interrupt descriptors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}{init\+\_\+irqs}} ()
+\begin{DoxyCompactList}\small\item\em Initialize IRQ interrupt descriptors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}{set\+\_\+descriptor}} (uint8\+\_\+t n, uint32\+\_\+t base, idt\+\_\+flags\+\_\+t flags, uint16\+\_\+t seg)
+\begin{DoxyCompactList}\small\item\em Set specified interrupt descriptor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}{register\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_ae85de8da34f1e7f6bea7cdfaa6294d35}{irq}}, idt\+\_\+handler\+\_\+t handler)
+\begin{DoxyCompactList}\small\item\em Assign callback function to specified IRQ. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}{unregister\+\_\+irq}} (IRQ \mbox{\hyperlink{idt_8cpp_ae85de8da34f1e7f6bea7cdfaa6294d35}{irq}})
+\begin{DoxyCompactList}\small\item\em Unassign function from specified IRQ. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}{ack\+\_\+irq}} (idt\+\_\+registers\+\_\+t $\ast$regs)
+\begin{DoxyCompactList}\small\item\em Acknowledge that interrupt has been handled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}\label{namespaceos_1_1hal_1_1idt_a2687eef5af2ae62a78ee4d5b883f899b}} 
+\index{os::hal::idt@{os::hal::idt}!ack\_irq@{ack\_irq}}
+\index{ack\_irq@{ack\_irq}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{ack\_irq()}{ack\_irq()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::ack\+\_\+irq (\begin{DoxyParamCaption}\item[{idt\+\_\+registers\+\_\+t $\ast$}]{regs }\end{DoxyParamCaption})}
+
+
+
+Acknowledge that interrupt has been handled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em regs} & Pointer to callback registers \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_afe1c8e2bba6012787c2beeceff70316a}\label{namespaceos_1_1hal_1_1idt_afe1c8e2bba6012787c2beeceff70316a}} 
+\index{os::hal::idt@{os::hal::idt}!init@{init}}
+\index{init@{init}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize interrupt descriptor table. 
+
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4ac}\label{namespaceos_1_1hal_1_1idt_a91ca6762c91f9f194d8310adb885e4ac}} 
+\index{os::hal::idt@{os::hal::idt}!init\_exceptions@{init\_exceptions}}
+\index{init\_exceptions@{init\_exceptions}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{init\_exceptions()}{init\_exceptions()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::init\+\_\+exceptions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize exception interrupt descriptors. 
+
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}\label{namespaceos_1_1hal_1_1idt_ac69a1b6bb4eb3bc682b9d363c64b5ba9}} 
+\index{os::hal::idt@{os::hal::idt}!init\_irqs@{init\_irqs}}
+\index{init\_irqs@{init\_irqs}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{init\_irqs()}{init\_irqs()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::init\+\_\+irqs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize IRQ interrupt descriptors. 
+
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}\label{namespaceos_1_1hal_1_1idt_aaca3a7187b31977838891fead1e8cfda}} 
+\index{os::hal::idt@{os::hal::idt}!register\_irq@{register\_irq}}
+\index{register\_irq@{register\_irq}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{register\_irq()}{register\_irq()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::register\+\_\+irq (\begin{DoxyParamCaption}\item[{IRQ}]{irq,  }\item[{idt\+\_\+handler\+\_\+t}]{handler }\end{DoxyParamCaption})}
+
+
+
+Assign callback function to specified IRQ. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em irq} & IRQ number\\
+\hline
+{\em handler} & Callback function handler \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}\label{namespaceos_1_1hal_1_1idt_abc83f654447f220c01b26ef66e1f6246}} 
+\index{os::hal::idt@{os::hal::idt}!set\_descriptor@{set\_descriptor}}
+\index{set\_descriptor@{set\_descriptor}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{set\_descriptor()}{set\_descriptor()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::set\+\_\+descriptor (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{n,  }\item[{uint32\+\_\+t}]{base,  }\item[{idt\+\_\+flags\+\_\+t}]{flags,  }\item[{uint16\+\_\+t}]{seg }\end{DoxyParamCaption})}
+
+
+
+Set specified interrupt descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Descriptor index\\
+\hline
+{\em base} & Base address\\
+\hline
+{\em flags} & Flags\\
+\hline
+{\em seg} & Segment \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}\label{namespaceos_1_1hal_1_1idt_aa0be8f379fe6e0b0440c831556b227ee}} 
+\index{os::hal::idt@{os::hal::idt}!unregister\_irq@{unregister\_irq}}
+\index{unregister\_irq@{unregister\_irq}!os::hal::idt@{os::hal::idt}}
+\doxysubsubsection{\texorpdfstring{unregister\_irq()}{unregister\_irq()}}
+{\footnotesize\ttfamily void os\+::hal\+::idt\+::unregister\+\_\+irq (\begin{DoxyParamCaption}\item[{IRQ}]{irq }\end{DoxyParamCaption})}
+
+
+
+Unassign function from specified IRQ. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em irq} & IRQ number \\
+\hline
+\end{DoxyParams}

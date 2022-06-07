@@ -1,0 +1,101 @@
+\hypertarget{kernel_8cpp}{}\doxysection{kernel/src/core/kernel.cpp File Reference}
+\label{kernel_8cpp}\index{kernel/src/core/kernel.cpp@{kernel/src/core/kernel.cpp}}
+{\ttfamily \#include $<$core/kernel.\+h$>$}\newline
+Include dependency graph for kernel.\+cpp\+:
+% FIG 0
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1kernel}{os\+::kernel}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceos_aa0ac17a84e6cd53385c9135facee49bc}{os\+::test\+\_\+main}} (int argc, char $\ast$$\ast$argv)
+\item 
+void \mbox{\hyperlink{namespaceos_1_1kernel_a71ff4d0f3a8514a437e1da2c97b6e866}{os\+::kernel\+::boot}} ()
+\begin{DoxyCompactList}\small\item\em Boot sequence for kernel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1kernel_ac96d0967f013f3846356f78894296bbf}{os\+::kernel\+::main}} ()
+\begin{DoxyCompactList}\small\item\em Main loop for kernel. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_aa793dc3046e53128ecd2fd419fcab3dc}{os\+::kernel\+::start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return starting address of kernel memory. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_af89414c989b17d99d63599c4d706309f}{os\+::kernel\+::end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return ending address of kernel memory. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a00807a6ad11e339f664e61c6156b9f28}{os\+::kernel\+::stk\+\_\+start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return address to bottom of stack. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_ad8010a4a2d4ca4b1a2b3475115db0a15}{os\+::kernel\+::stk\+\_\+end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return address to top of stack. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a36918aac2afed3f207712c74653e686c}{os\+::kernel\+::bss\+\_\+start\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return staring address of BSS section. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_a8655c29f80fa69d4747301f89690be35}{os\+::kernel\+::bss\+\_\+end\+\_\+addr}} ()
+\begin{DoxyCompactList}\small\item\em Return ending address of BSS section. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{kernel_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}{EXTC}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{kernel_8cpp_a71a5fba7d4b97d83a2aa572a0d23fe3f}{\+\_\+kernel\+\_\+end}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{kernel_8cpp_a24e18fa62d0535c69795666addcd28f0}{\+\_\+bss\+\_\+start}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{kernel_8cpp_ae44079824f55f2ca6c6bcc7dc38bdeba}{\+\_\+bss\+\_\+end}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{kernel_8cpp_ac5371953c1dffabe2144ea197ad3a057}{\+\_\+stack\+\_\+bottom}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{kernel_8cpp_a1bb5009947b1b4d16d6dc1489d42633d}{\+\_\+stack\+\_\+top}}
+\item 
+sys\+::multiboot\+\_\+t \mbox{\hyperlink{namespaceos_1_1kernel_aedb5605ff3279ddc5781d0c53e0658ea}{os\+::kernel\+::multiboot}}
+\begin{DoxyCompactList}\small\item\em Multiboot information header. \end{DoxyCompactList}\item 
+memory\+\_\+heap \mbox{\hyperlink{namespaceos_1_1kernel_a75a6f9b651fdbd67de060e166ec22330}{os\+::kernel\+::heap\+\_\+small}}
+\begin{DoxyCompactList}\small\item\em Kernel heap used for small allocations aligned to 256 bytes. \end{DoxyCompactList}\item 
+memory\+\_\+heap \mbox{\hyperlink{namespaceos_1_1kernel_af9cde8266dffee757e63ac13eac85673}{os\+::kernel\+::heap\+\_\+large}}
+\begin{DoxyCompactList}\small\item\em Kernel heap used for larger allocations aligned to 4096 bytes. \end{DoxyCompactList}\item 
+threading\+::thread\+\_\+t $\ast$ \mbox{\hyperlink{namespaceos_1_1kernel_a4707be442785416b88dad38c8bed3d87}{os\+::kernel\+::thread}}
+\begin{DoxyCompactList}\small\item\em Kernel thread instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{kernel_8cpp_ae44079824f55f2ca6c6bcc7dc38bdeba}\label{kernel_8cpp_ae44079824f55f2ca6c6bcc7dc38bdeba}} 
+\index{kernel.cpp@{kernel.cpp}!\_bss\_end@{\_bss\_end}}
+\index{\_bss\_end@{\_bss\_end}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{\_bss\_end}{\_bss\_end}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+bss\+\_\+end\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{kernel_8cpp_a24e18fa62d0535c69795666addcd28f0}\label{kernel_8cpp_a24e18fa62d0535c69795666addcd28f0}} 
+\index{kernel.cpp@{kernel.cpp}!\_bss\_start@{\_bss\_start}}
+\index{\_bss\_start@{\_bss\_start}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{\_bss\_start}{\_bss\_start}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+bss\+\_\+start\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{kernel_8cpp_a71a5fba7d4b97d83a2aa572a0d23fe3f}\label{kernel_8cpp_a71a5fba7d4b97d83a2aa572a0d23fe3f}} 
+\index{kernel.cpp@{kernel.cpp}!\_kernel\_end@{\_kernel\_end}}
+\index{\_kernel\_end@{\_kernel\_end}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{\_kernel\_end}{\_kernel\_end}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+kernel\+\_\+end\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{kernel_8cpp_ac5371953c1dffabe2144ea197ad3a057}\label{kernel_8cpp_ac5371953c1dffabe2144ea197ad3a057}} 
+\index{kernel.cpp@{kernel.cpp}!\_stack\_bottom@{\_stack\_bottom}}
+\index{\_stack\_bottom@{\_stack\_bottom}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{\_stack\_bottom}{\_stack\_bottom}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+stack\+\_\+bottom\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{kernel_8cpp_a1bb5009947b1b4d16d6dc1489d42633d}\label{kernel_8cpp_a1bb5009947b1b4d16d6dc1489d42633d}} 
+\index{kernel.cpp@{kernel.cpp}!\_stack\_top@{\_stack\_top}}
+\index{\_stack\_top@{\_stack\_top}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{\_stack\_top}{\_stack\_top}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+stack\+\_\+top\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{kernel_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}\label{kernel_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}} 
+\index{kernel.cpp@{kernel.cpp}!EXTC@{EXTC}}
+\index{EXTC@{EXTC}!kernel.cpp@{kernel.cpp}}
+\doxysubsubsection{\texorpdfstring{EXTC}{EXTC}}
+{\footnotesize\ttfamily EXTC}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{extern} uint32\_t \_kernel\_start}
+
+\end{DoxyCode}

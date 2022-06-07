@@ -1,0 +1,38 @@
+\hypertarget{scheduler_8cpp}{}\doxysection{kernel/src/core/exec/scheduler.cpp File Reference}
+\label{scheduler_8cpp}\index{kernel/src/core/exec/scheduler.cpp@{kernel/src/core/exec/scheduler.cpp}}
+{\ttfamily \#include $<$core/exec/scheduler.\+h$>$}\newline
+{\ttfamily \#include $<$core/kernel.\+h$>$}\newline
+Include dependency graph for scheduler.\+cpp\+:
+% FIG 0
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1threading}{os\+::threading}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceos_1_1threading_a02d847603daaee1197d9487ca6e5c9fd}{os\+::threading\+::\+OPTIMIZE}} (\char`\"{}O0\char`\"{}) void scheduler
+\begin{DoxyCompactList}\small\item\em Switch to next available thread in list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{scheduler_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}{EXTC}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{scheduler_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}\label{scheduler_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}} 
+\index{scheduler.cpp@{scheduler.cpp}!EXTC@{EXTC}}
+\index{EXTC@{EXTC}!scheduler.cpp@{scheduler.cpp}}
+\doxysubsubsection{\texorpdfstring{EXTC}{EXTC}}
+{\footnotesize\ttfamily EXTC}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \textcolor{keyword}{extern} \textcolor{keywordtype}{void} \_context\_switch()}
+
+\end{DoxyCode}

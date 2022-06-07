@@ -1,0 +1,167 @@
+\hypertarget{gdt_8cpp}{}\doxysection{kernel/src/hardware/interrupts/gdt.cpp File Reference}
+\label{gdt_8cpp}\index{kernel/src/hardware/interrupts/gdt.cpp@{kernel/src/hardware/interrupts/gdt.cpp}}
+{\ttfamily \#include $<$hardware/interrupts/gdt.\+h$>$}\newline
+{\ttfamily \#include $<$core/kernel.\+h$>$}\newline
+Include dependency graph for gdt.\+cpp\+:
+% FIG 0
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceos}{os}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1hal}{os\+::hal}}
+\item 
+ \mbox{\hyperlink{namespaceos_1_1hal_1_1gdt}{os\+::hal\+::gdt}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gdt_8cpp_a5f8093cb2221deb35e77764841eebdc6}{KERNEL\+\_\+\+CS\+\_\+\+INDEX}}~1
+\item 
+\#define \mbox{\hyperlink{gdt_8cpp_a4e4b2807ab5d9231acd923fab0f4ee27}{KERNEL\+\_\+\+DS\+\_\+\+INDEX}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+os\+::hal\+::gdt\+\_\+entry\+\_\+t \+\_\+gdt\+\_\+entries\mbox{[}GDT\+\_\+\+COUNT\mbox{]} \mbox{\hyperlink{gdt_8cpp_a41f75dc40e4c9cbfa17603ae4c9a4bcd}{ALIGNED}} (0x100)
+\item 
+void \mbox{\hyperlink{gdt_8cpp_ac56e13159755eb520e139459eff8abef}{\+\_\+gdt\+\_\+flush}} (uint32\+\_\+t gdt)
+\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1gdt_aac9141229adeadb7325edf7e5e0b7351}{os\+::hal\+::gdt\+::init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize global descriptor table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1gdt_a719237f3ebb37402e353872d27730b24}{os\+::hal\+::gdt\+::init\+\_\+descriptors}} ()
+\begin{DoxyCompactList}\small\item\em Initialize standard global descriptors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespaceos_1_1hal_1_1gdt_a46c9e9c779f4ca111a3dd2bacbc4d01f}{os\+::hal\+::gdt\+::set\+\_\+descriptor}} (uint8\+\_\+t n, uint32\+\_\+t base, uint32\+\_\+t limit, gdt\+\_\+access\+\_\+t access, gdt\+\_\+flags\+\_\+t flags)
+\begin{DoxyCompactList}\small\item\em Set specified descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gdt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}{EXTC}}
+\item 
+const os\+::hal\+::gdt\+\_\+access\+\_\+t \mbox{\hyperlink{gdt_8cpp_a4b37d65c9c5044d3ca6d84f16f3f6f2f}{KERNEL\+\_\+\+CS\+\_\+\+ACCESS}}
+\item 
+const os\+::hal\+::gdt\+\_\+access\+\_\+t \mbox{\hyperlink{gdt_8cpp_af081d515fbdd75d66b8aef46e415addc}{KERNEL\+\_\+\+DS\+\_\+\+ACCESS}}
+\item 
+const os\+::hal\+::gdt\+\_\+flags\+\_\+t \mbox{\hyperlink{gdt_8cpp_a3e0edbaf4b03c5b880db29acb87fb5bf}{KERNEL\+\_\+\+CS\+\_\+\+FLAGS}}
+\item 
+const os\+::hal\+::gdt\+\_\+flags\+\_\+t \mbox{\hyperlink{gdt_8cpp_a777dcfded1c5f0ef5882321d4569be99}{KERNEL\+\_\+\+DS\+\_\+\+FLAGS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{gdt_8cpp_a5f8093cb2221deb35e77764841eebdc6}\label{gdt_8cpp_a5f8093cb2221deb35e77764841eebdc6}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_CS\_INDEX@{KERNEL\_CS\_INDEX}}
+\index{KERNEL\_CS\_INDEX@{KERNEL\_CS\_INDEX}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_CS\_INDEX}{KERNEL\_CS\_INDEX}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+CS\+\_\+\+INDEX~1}
+
+\mbox{\Hypertarget{gdt_8cpp_a4e4b2807ab5d9231acd923fab0f4ee27}\label{gdt_8cpp_a4e4b2807ab5d9231acd923fab0f4ee27}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_DS\_INDEX@{KERNEL\_DS\_INDEX}}
+\index{KERNEL\_DS\_INDEX@{KERNEL\_DS\_INDEX}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_DS\_INDEX}{KERNEL\_DS\_INDEX}}
+{\footnotesize\ttfamily \#define KERNEL\+\_\+\+DS\+\_\+\+INDEX~2}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{gdt_8cpp_ac56e13159755eb520e139459eff8abef}\label{gdt_8cpp_ac56e13159755eb520e139459eff8abef}} 
+\index{gdt.cpp@{gdt.cpp}!\_gdt\_flush@{\_gdt\_flush}}
+\index{\_gdt\_flush@{\_gdt\_flush}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{\_gdt\_flush()}{\_gdt\_flush()}}
+{\footnotesize\ttfamily void \+\_\+gdt\+\_\+flush (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{gdt }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{gdt_8cpp_a41f75dc40e4c9cbfa17603ae4c9a4bcd}\label{gdt_8cpp_a41f75dc40e4c9cbfa17603ae4c9a4bcd}} 
+\index{gdt.cpp@{gdt.cpp}!ALIGNED@{ALIGNED}}
+\index{ALIGNED@{ALIGNED}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{ALIGNED()}{ALIGNED()}}
+{\footnotesize\ttfamily os\+::hal\+::gdt\+\_\+entry\+\_\+t \+\_\+gdt\+\_\+entries \mbox{[}GDT\+\_\+\+COUNT\mbox{]} ALIGNED (\begin{DoxyParamCaption}\item[{0x100}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{gdt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}\label{gdt_8cpp_a4773a6f39c9af7432c9861dc8a9c6de3}} 
+\index{gdt.cpp@{gdt.cpp}!EXTC@{EXTC}}
+\index{EXTC@{EXTC}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{EXTC}{EXTC}}
+{\footnotesize\ttfamily EXTC}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    os::hal::gdtr\_t      \_gdt\_reg                \mbox{\hyperlink{gdt_8cpp_a41f75dc40e4c9cbfa17603ae4c9a4bcd}{ALIGNED}}(0x100)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{gdt_8cpp_a4b37d65c9c5044d3ca6d84f16f3f6f2f}\label{gdt_8cpp_a4b37d65c9c5044d3ca6d84f16f3f6f2f}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_CS\_ACCESS@{KERNEL\_CS\_ACCESS}}
+\index{KERNEL\_CS\_ACCESS@{KERNEL\_CS\_ACCESS}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_CS\_ACCESS}{KERNEL\_CS\_ACCESS}}
+{\footnotesize\ttfamily const os\+::hal\+::gdt\+\_\+access\+\_\+t KERNEL\+\_\+\+CS\+\_\+\+ACCESS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (os::hal::gdt\_access\_t)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        .accessed        = 0,}
+\DoxyCodeLine{        .read\_write      = 1,}
+\DoxyCodeLine{        .dc\_flag         = GDT\_NONCONF,}
+\DoxyCodeLine{        .executable      = \textcolor{keyword}{true},}
+\DoxyCodeLine{        .type            = 1,}
+\DoxyCodeLine{        .privilege\_level = 0,}
+\DoxyCodeLine{        .present         = 1,}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{gdt_8cpp_a3e0edbaf4b03c5b880db29acb87fb5bf}\label{gdt_8cpp_a3e0edbaf4b03c5b880db29acb87fb5bf}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_CS\_FLAGS@{KERNEL\_CS\_FLAGS}}
+\index{KERNEL\_CS\_FLAGS@{KERNEL\_CS\_FLAGS}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_CS\_FLAGS}{KERNEL\_CS\_FLAGS}}
+{\footnotesize\ttfamily const os\+::hal\+::gdt\+\_\+flags\+\_\+t KERNEL\+\_\+\+CS\+\_\+\+FLAGS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (os::hal::gdt\_flags\_t)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        .reserved    = 0,}
+\DoxyCodeLine{        .long\_mode   = \textcolor{keyword}{false},}
+\DoxyCodeLine{        .size        = os::hal::GDTSIZE\_32BIT,}
+\DoxyCodeLine{        .granularity = os::hal::GDTGRAN\_ALIGN\_4K,}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{gdt_8cpp_af081d515fbdd75d66b8aef46e415addc}\label{gdt_8cpp_af081d515fbdd75d66b8aef46e415addc}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_DS\_ACCESS@{KERNEL\_DS\_ACCESS}}
+\index{KERNEL\_DS\_ACCESS@{KERNEL\_DS\_ACCESS}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_DS\_ACCESS}{KERNEL\_DS\_ACCESS}}
+{\footnotesize\ttfamily const os\+::hal\+::gdt\+\_\+access\+\_\+t KERNEL\+\_\+\+DS\+\_\+\+ACCESS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (os::hal::gdt\_access\_t)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        .accessed        = 0,}
+\DoxyCodeLine{        .read\_write      = 1,}
+\DoxyCodeLine{        .dc\_flag         = os::hal::GDTDIR\_UPWARDS,}
+\DoxyCodeLine{        .executable      = \textcolor{keyword}{false},}
+\DoxyCodeLine{        .type            = 1,}
+\DoxyCodeLine{        .privilege\_level = 0,}
+\DoxyCodeLine{        .present         = 1,}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{gdt_8cpp_a777dcfded1c5f0ef5882321d4569be99}\label{gdt_8cpp_a777dcfded1c5f0ef5882321d4569be99}} 
+\index{gdt.cpp@{gdt.cpp}!KERNEL\_DS\_FLAGS@{KERNEL\_DS\_FLAGS}}
+\index{KERNEL\_DS\_FLAGS@{KERNEL\_DS\_FLAGS}!gdt.cpp@{gdt.cpp}}
+\doxysubsubsection{\texorpdfstring{KERNEL\_DS\_FLAGS}{KERNEL\_DS\_FLAGS}}
+{\footnotesize\ttfamily const os\+::hal\+::gdt\+\_\+flags\+\_\+t KERNEL\+\_\+\+DS\+\_\+\+FLAGS}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= (os::hal::gdt\_flags\_t)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{        .reserved    = 0,}
+\DoxyCodeLine{        .long\_mode   = \textcolor{keyword}{false},}
+\DoxyCodeLine{        .size        = os::hal::GDTSIZE\_32BIT,}
+\DoxyCodeLine{        .granularity = os::hal::GDTGRAN\_ALIGN\_4K,}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
