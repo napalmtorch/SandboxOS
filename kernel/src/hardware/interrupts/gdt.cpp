@@ -56,27 +56,35 @@ namespace os
     {
         namespace gdt
         {
+            /// @brief Initialize global descriptor table
             void init()
             {
+                // setup descriptor table
                 memset(&_gdt_entries, 0, sizeof(gdt_entry_t) * GDT_COUNT);
-    
                 _gdt_reg.base  = (uint32_t)&_gdt_entries;
                 _gdt_reg.limit = (GDT_COUNT * sizeof(gdt_entry_t)) - 1;
 
+                // create descriptors
                 printf("%s Creating GDT entries...\n", DEBUG_INFO);
                 init_descriptors();
 
+                // set gdt location
                 _gdt_flush((uint32_t)&_gdt_reg);
                 printf("%s Initialized GDT - ADDR:0x%8x\n", DEBUG_OK, (uint32_t)&_gdt_reg);
             }
 
+            /// @brief Initialize standard global descriptors
             void init_descriptors()
             {
+                // null
                 set_descriptor(0, 0, 0, (gdt_access_t){ 0, 0, false, 0, 0, 0, 0 }, (gdt_flags_t){ 0, false, GDTSIZE_16BIT, GDTGRAN_ALIGN_1B });
+                // code
                 set_descriptor(KERNEL_CS_INDEX, 0, 0xFFFFFFFF, KERNEL_CS_ACCESS, KERNEL_CS_FLAGS);
+                // segment
                 set_descriptor(KERNEL_DS_INDEX, 0, 0xFFFFFFFF, KERNEL_DS_ACCESS, KERNEL_DS_FLAGS);
             }
 
+            /// @brief Set specified descriptor @param n Descriptor index @param base Base address @param Limit Address limit @param access Access flags @param flags Flags
             void set_descriptor(uint8_t n, uint32_t base, uint32_t limit, gdt_access_t access, gdt_flags_t flags)
             {
                 _gdt_entries[n].base_low = base & 0xFFFF;

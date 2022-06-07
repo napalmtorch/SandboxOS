@@ -1,0 +1,5 @@
+create 16777216
+add test.txt build/disks/a/test.txt
+save ramdisk.img
+print
+exit

@@ -3,6 +3,8 @@
 [GLOBAL _start]
 [GLOBAL _stack_top]
 [GLOBAL _stack_bottom]
+[EXTERN _bss_start]
+[EXTERN _bss_end]
 [EXTERN _kernel_start]
 [EXTERN _kernel_end]
 [EXTERN kernel_main]

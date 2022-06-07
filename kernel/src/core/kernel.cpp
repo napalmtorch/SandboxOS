@@ -1,11 +1,27 @@
 #include <core/kernel.h>
 
+EXTC
+{
+    extern uint32_t _kernel_start;
+    extern uint32_t _kernel_end;
+    extern uint32_t _bss_start;
+    extern uint32_t _bss_end;
+    extern uint32_t _stack_bottom;
+    extern uint32_t _stack_top;
+}
+
 namespace os
 {
     namespace kernel
     {
         /// @brief Multiboot information header
         sys::multiboot_t multiboot;
+
+        /// @brief Kernel heap used for small allocations aligned to 256 bytes
+        memory_heap heap_small;
+
+        /// @brief Kernel heap used for larger allocations aligned to 4096 bytes
+        memory_heap heap_large;
 
         /// @brief Boot sequence for kernel
         void boot()
@@ -15,14 +31,29 @@ namespace os
 
             // print multiboot information
             sys::multiboot_print(&multiboot);
-
+            
             // initialize global descriptor table
             hal::gdt::init();
             hal::idt::init();
 
-            // clear vram to confirm boot
-            unsigned int* vram = (unsigned int*)0xFD000000;
-            for (int i = 0; i < 640 * 480; i++) { vram[i] = 0xFF007F7F; }
+            // initialize physical memory manager
+            memory_manager::init();
+
+            // initialize heaps
+            bool mmdbg = true;
+            uint32_t usable = memalign(memory_manager::usable() - (16 * MB), 0x1000);
+            heap_large.init((usable / 5) * 3, 16384, 0x1000, false);
+            heap_small.init((usable / 5) * 2, 32768, 0x100, false);
+            sys::tests::test_heap(10);
+            heap_large.toggle_msgs(mmdbg);
+            heap_small.toggle_msgs(mmdbg);
+
+            // framebuffer test
+            sys::vbe_mode_info_t* vbe = (sys::vbe_mode_info_t*)multiboot.vbe_mode_info;
+            std::array<uint32_t> buff(vbe->width * vbe->height);
+            memset(buff.ptr(), 0xFFFF7F1F, vbe->width * vbe->height * 4);
+            memcpy((void*)vbe->physical_base, buff.ptr(), vbe->width * vbe->height * 4);
+            buff.dispose();
         }
 
         /// @brief Main loop for kernel
@@ -34,6 +65,24 @@ namespace os
 
             }
         }
+
+        /// @brief Return starting address of kernel memory
+        uint32_t start_addr() { return (uint32_t)&_kernel_start; }
+
+        /// @brief Return ending address of kernel memory
+        uint32_t end_addr() { return (uint32_t)&_kernel_end; }
+        
+        /// @brief Return address to bottom of stack
+        uint32_t stk_start_addr() { return (uint32_t)&_stack_bottom; }
+
+        /// @brief Return address to top of stack
+        uint32_t stk_end_addr() { return (uint32_t)&_stack_top; }
+
+        /// @brief Return staring address of BSS section
+        uint32_t bss_start_addr() { return (uint32_t)&_bss_start; }
+
+        /// @brief Return ending address of BSS section
+        uint32_t bss_end_addr() { return (uint32_t)&_bss_end; }
     }
 }
 

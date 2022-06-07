@@ -26,6 +26,7 @@ EXTC
     os::hal::idt_entry_t   _idt_entries[IDT_COUNT]  ALIGNED(0x100);
     os::hal::idt_handler_t _idt_handlers[IDT_COUNT] ALIGNED(0x100);
 
+    /// @brief Handle exception interrupts @param regs Pointer to registers
     void exception_handler(os::hal::idt_registers_t* regs)
     {
         asm volatile("cli");
@@ -40,6 +41,7 @@ EXTC
         asm volatile("hlt");
     }
 
+    /// @brief Handle IRQ interrupts @param regs Pointer to registers
     void irq_handler(os::hal::idt_registers_t* regs)
     {
         if (_idt_handlers[regs->irq] != NULL) { _idt_handlers[regs->irq](regs); }
@@ -59,26 +61,38 @@ namespace os
     {
         namespace idt
         {
+            /// @brief Initialize interrupt descriptor table
             void init()
             {
-                asm volatile("cli");
+                // clear tables
                 memset(&_idt_entries,  0, IDT_COUNT * sizeof(idt_entry_t));
                 memset(&_idt_handlers, 0, IDT_COUNT * sizeof(idt_handler_t));
 
+                // initialize exception interrupts
                 init_exceptions();
+                
+                // re-map PIC
                 pic::remap();
+
+                // initialize irq interrupts
                 init_irqs();
 
+                // setup descriptor table
                 _idt_reg.base  = (uint32_t)&_idt_entries;
                 _idt_reg.limit = (sizeof(idt_entry_t) * IDT_COUNT) - 1;
                 
+                // set idt location and enable interrupts
                 _idt_flush((uint32_t)&_idt_reg);
                 asm volatile("sti");
 
+                // interrupt 7 can sometimes fire randomly - provide default handler to prevent
                 register_irq(IRQ::IRQ7, default_handler);
+
+                // finished
                 printf("%s Initialized IDT - ADDR:0x%8x\n", DEBUG_OK, (uint32_t)&_idt_reg);
             }
 
+            /// @brief Initialize exception interrupt descriptors
             void init_exceptions()
             {
                 set_descriptor(0x00, (uint32_t)isr0,  IDT_EXCEPTION_ATTRS, KERNEL_CS);
@@ -116,6 +130,7 @@ namespace os
                 printf("%s Initialized exception descriptors\n", DEBUG_INFO);
             }
 
+            /// @brief Initialize IRQ interrupt descriptors
             void init_irqs()
             {
                 set_descriptor(0x20, (uint32_t)irq0,  IDT_IRQ_ATTRS, KERNEL_CS);
@@ -138,6 +153,7 @@ namespace os
                 printf("%s Initialized irq descriptors\n", DEBUG_INFO);
             }
 
+            /// @brief Set specified interrupt descriptor @param n Descriptor index @param base Base address @param flags Flags @param seg Segment
             void set_descriptor(uint8_t n, uint32_t base, idt_flags_t flags, uint16_t seg)
             {
                 _idt_entries[n].offset_low    = LOW_16(base);
@@ -150,6 +166,7 @@ namespace os
                 _idt_entries[n].segment       = seg;
             }
 
+            /// @brief Assign callback function to specified IRQ @param irq IRQ number @param handler Callback function handler
             void register_irq(IRQ irq, idt_handler_t handler)
             {
                 if (handler == NULL) { perror("Tried to register null interrupt handler\n"); }
@@ -157,6 +174,7 @@ namespace os
                 printf("%s Registered handler at 0x%8x to irq 0x%2x\n", DEBUG_INFO, handler, irq);
             }
 
+            /// @brief Unassign function from specified IRQ @param irq IRQ number
             void unregister_irq(IRQ irq)
             {
                 if (_idt_handlers[(uint8_t)irq] == NULL) { return; }
@@ -164,6 +182,7 @@ namespace os
                 printf("%s Unregistered handler for irq 0x%2x\n", DEBUG_INFO, irq);
             }
 
+            /// @brief Acknowledge that interrupt has been handled @param regs Pointer to callback registers
             void ack_irq(idt_registers_t* regs)
             {
                 if (regs->irq >= 40) { ports::outb(0xA0, 0x20); }

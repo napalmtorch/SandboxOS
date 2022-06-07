@@ -1,27 +1,34 @@
 #include <stdlib.h>
 #include <core/kernel.h>
+
+
 EXTC
 {
     const char HEX_VALUES[]  = "0123456789ABCDEF";
 
-    void* malloc(size_t size)
+    void* malloc(size_t size) { return tmalloc(size, ALLOCTYPE_UNSPECIFIED); }
+
+    void* tmalloc(size_t size, ALLOCTYPE type)
     {
-        return NULL;
+        if (size < os::kernel::heap_large.alignment()) { return os::kernel::heap_small.allocate(size, type, true); }
+        return os::kernel::heap_large.allocate(size, type, true);
     }
 
-    void* tmalloc(size_t size, uint8_t type)
+    bool free(void* ptr)
     {
-        return NULL;
+        if (ptr == NULL) { return false; }
+        os::heapblock_t* blk = os::kernel::heap_small.fetch(ptr);
+        if (blk != NULL) { return os::kernel::heap_small.free(ptr); }
+        blk = os::kernel::heap_large.fetch(ptr);
+        if (blk == NULL) { return false; }
+        return os::kernel::heap_large.free(ptr);
     }
 
-    void free(void* ptr)
+    bool freearray(void** ptr, uint32_t count)
     {
-
-    }
-
-    void freearray(void** ptr, uint32_t count)
-    {
-
+        if (ptr == NULL) { return false; }
+        for (size_t i = 0; i < count; i++) { if (ptr[i] != NULL) { if (!free(ptr[i])) { return false; } } }
+        return free(ptr);
     }
 
     int atoi(const char* str)

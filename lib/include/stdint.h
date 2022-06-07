@@ -5,6 +5,10 @@
 #define ALIGNED(x)  __attribute__((aligned(x)))
 #define OPTIMIZE(x) __attribute__((optimize(x)))
 
+#define KB (1024)
+#define MB (KB * 1024)
+#define GB (MB * 1024)
+
 EXTC
 {
     typedef signed char   int8_t;

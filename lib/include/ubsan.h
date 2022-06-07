@@ -7,6 +7,7 @@
 #define DEBUG_OK     "[  \x1b[32mOK\x1b[0m  ]"
 #define DEBUG_WARN   "[  \x1b[33m??\x1b[0m  ]"
 #define DEBUG_ERROR  "[  \x1b[31m!!\x1b[0m  ]"
+#define DEBUG_MMAP   "[ \x1b[36mMMAP\x1b[0m ]"
 #define DEBUG_PMAP   "[ \x1b[35mPMAP\x1b[0m ]"
 #define DEBUG_PUNMAP "[\x1b[33mPUNMAP\x1b[0m]"
 #define DEBUG_VMAP   "[ \x1b[35mVMAP\x1b[0m ]"

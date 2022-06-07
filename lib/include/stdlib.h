@@ -4,15 +4,20 @@
 
 EXTC
 {
-    #define MEMTYPE_FREE   0
-    #define MEMTYPE_OBJ    1
-    #define MEMTYPE_ARRAY  2
-    #define MEMTYPE_STRING 3
+    typedef enum
+    {
+        ALLOCTYPE_INVALID,
+        ALLOCTYPE_FREE,
+        ALLOCTYPE_UNSPECIFIED,
+        ALLOCTYPE_OBJ,
+        ALLOCTYPE_ARRAY,
+        ALLOCTYPE_STRING,
+    } ALLOCTYPE;
 
     void*    malloc(size_t size);
-    void*    tmalloc(size_t size, uint8_t type);
-    void     free(void* ptr);
-    void     freearray(void** ptr, uint32_t count);
+    void*    tmalloc(size_t size, ALLOCTYPE type);
+    bool     free(void* ptr);
+    bool     freearray(void** ptr, uint32_t count);
     int      atoi(const char* str);
     uint32_t atol(const char* str);
     uint32_t atox(const char* str);

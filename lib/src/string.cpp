@@ -203,7 +203,7 @@ EXTC
         for(int i = 0; i < len - 1; i++) { if(str[i] == delim) { num_delimeters++; } }
 
         uint32_t arr_size = sizeof(char*) * (num_delimeters + 1);
-        char** str_array = (char**)tmalloc(arr_size, MEMTYPE_STRING);
+        char** str_array = (char**)tmalloc(arr_size, ALLOCTYPE_STRING);
         int str_offset = 0;
 
         int start = 0;
@@ -212,7 +212,7 @@ EXTC
         {
             while(str[end] != delim && end < len) { end++; }
 
-            char* substr = (char*)tmalloc(end - start + 1, MEMTYPE_STRING);
+            char* substr = (char*)tmalloc(end - start + 1, ALLOCTYPE_STRING);
             memcpy(substr, str + start, end - start);
             start = end + 1;
             end++;
