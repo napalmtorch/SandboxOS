@@ -72,7 +72,7 @@ namespace os
                 { 
                     last = now; seconds++; 
                     uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
-                    printf("SECONDS:%u MEM:%u bytes\n", seconds, memused); 
+                    printf("SECONDS:%u, MEM:%u/%u bytes, THREADS: %u\n", seconds, memused, memtotal, threading::scheduler::threads()->length());
                 }
 
                 unlock();
