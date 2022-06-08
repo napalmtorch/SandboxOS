@@ -19,6 +19,9 @@ namespace os
 
             /// @brief Test functionality of scheduler @param iterations Times to loop @return Test has passed
             bool test_scheduler(int iterations);
+
+            /// @brief Test functionality of language tokenizer @param iterations Times to loop @return Test has passed
+            bool test_tokenizer(int iterations);
         }
     }
 }

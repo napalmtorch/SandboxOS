@@ -55,33 +55,7 @@ namespace os
         /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
         void before_main()
         {
-            const char* gs_keywords[] = { "func", "var", "if", "else", "using", "while", "for", "break", "return", "continue", };
-            interpreter::tokenizer_rules_t rules = (interpreter::tokenizer_rules_t)
-            { 
-                .allow_decimal = true,
-                .allow_hex = true,
-                .allow_binary = true,
-                .allow_bool = true,
-                .allow_character = true,
-                .allow_string = true,
-                .allow_comment = true,
-                .allow_keywords = true,
-                .allow_typenames = false,
-                .prefix_hex = { '0', 'x', 0 },
-                .prefix_binary = { '0', 'b', 0 },
-                .prefix_comment = { '/', '/', 0 },
-                .bool_true = { 't', 'r', 'u', 'e', 0 },
-                .bool_false = { 'f', 'a', 'l', 's', 'e', 0 }, 
-                .sym_char = '\'',
-                .sym_string = '\"',
-                .symbols = { ';', '.', ',', '+', '-', '*', '/', '|', '&', '^', '%', '~', '=', '(', ')', '{', '}', '[', ']', '<', '>' },
-                .keywords = std::arraylist<char*>((char**)gs_keywords, sizeof(gs_keywords) / sizeof(char*), false),
-            };
             
-            interpreter::tokenizer_unit tokenizer("A:/democode.gs");
-            tokenizer.rules = rules;
-            tokenizer.run();
-            tokenizer.dispose();
         }
 
         void main()

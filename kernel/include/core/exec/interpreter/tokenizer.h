@@ -72,6 +72,8 @@ namespace os
             bool allow_string : 1;
             /// @brief Allow comments
             bool allow_comment : 1;
+            /// @brief Allow newline tokens
+            bool allow_newline : 1;
             /// @brief Allow keywords
             bool allow_keywords : 1;
             /// @brief Allow typenames
@@ -144,6 +146,8 @@ namespace os
             public:
                 /// @brief Handle input character
                 void handle(char c);
+                /// @brief Handle newline feed
+                void handle_newline();
                 /// @brief Handle string of characters
                 void handle_word();
                 /// @brief Handle character literal

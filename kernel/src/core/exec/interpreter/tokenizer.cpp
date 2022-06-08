@@ -105,12 +105,22 @@ namespace os
 
             switch (c)
             {
-                default: { stradd(_word, c); break; }
+                default:   { stradd(_word, c); break; }
                 case '\r': { break; }
                 case '\t': { break; }
-                case '\n': { handle_word(); add_token(token_type::newline, _line++, "NL", true); break; }
-                case ' ': { handle_word(); break; }
+                case '\n': { handle_newline(); break; }
+                case ' ':  { handle_word(); break; }
             }
+        }
+
+        void tokenizer_unit::handle_newline()
+        {
+            handle_word();
+            if (rules.allow_newline)
+            {
+                if (input[input.tell() - 2] != '\n') { add_token(token_type::newline, _line, "NL", true); }                
+            }
+            _line++;
         }
 
         void tokenizer_unit::handle_word()

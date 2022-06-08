@@ -14,6 +14,7 @@
 #include <stream.h>
 #include <time.h>
 #include <hash.h>
+#include <hashmap.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
