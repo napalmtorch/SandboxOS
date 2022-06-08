@@ -32081,7 +32081,7 @@ Disassembly of section .text:
   11a423:	50                   	push   eax
   11a424:	56                   	push   esi
   11a425:	53                   	push   ebx
-  11a426:	e8 a5 a1 ff ff       	call   1145d0 <strncmp>
+  11a426:	e8 65 9d ff ff       	call   114190 <memcmp>
   11a42b:	83 c4 10             	add    esp,0x10
   11a42e:	85 c0                	test   eax,eax
   11a430:	75 cc                	jne    11a3fe <_ZN2os11interpreter14tokenizer_unit14is_literal_hexEPc+0x1e>
@@ -32181,7 +32181,7 @@ Disassembly of section .text:
   11a526:	e8 65 9c ff ff       	call   114190 <memcmp>
   11a52b:	83 c4 10             	add    esp,0x10
   11a52e:	85 c0                	test   eax,eax
-  11a530:	74 cb                	je     11a4fd <_ZN2os11interpreter14tokenizer_unit14is_literal_binEPc+0x1d>
+  11a530:	75 cb                	jne    11a4fd <_ZN2os11interpreter14tokenizer_unit14is_literal_binEPc+0x1d>
   11a532:	83 ec 0c             	sub    esp,0xc
   11a535:	56                   	push   esi
   11a536:	89 de                	mov    esi,ebx

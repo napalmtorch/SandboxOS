@@ -172,7 +172,7 @@ namespace os
         bool tokenizer_unit::is_literal_hex(char* value)
         {
             if (value == NULL || strlen(value) == 0) { return false; }
-            if (strncmp(value, rules.prefix_hex, strlen(rules.prefix_hex))) { return false; }
+            if (memcmp(value, rules.prefix_hex, strlen(rules.prefix_hex))) { return false; }
             
             int i = strlen(rules.prefix_hex);
             while (value[i] != 0) { if (!isxdigit(value[i])) { return false; } i++; }
@@ -182,7 +182,7 @@ namespace os
         bool tokenizer_unit::is_literal_bin(char* value)
         {
             if (value == NULL || strlen(value) == 0) { return false; }
-            if (!memcmp(value, rules.prefix_binary, strlen(rules.prefix_binary))) { return false; }        
+            if (memcmp(value, rules.prefix_binary, strlen(rules.prefix_binary))) { return false; }        
             
             int i = strlen(rules.prefix_binary);
             while (value[i] != 0) { if (value[i] != '0' && value[i] != '1') { return false; } i++; }
