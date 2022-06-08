@@ -154,6 +154,7 @@ size_t strcspn(const char* str1, const char* str2)
 
 size_t strlen(const char* str)
 {
+    if (str == NULL) { return 0; }
     uint32_t len = 0;
     while (str[len] != 0) { len++; }
     return len;

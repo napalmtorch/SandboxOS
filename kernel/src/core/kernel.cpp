@@ -35,7 +35,7 @@ namespace os
             memory_manager::init();
 
             // initialize heaps
-            bool mmdbg = true;
+            bool mmdbg = false;
             memory_heap::init(mmdbg);
 
             // initialize thread scheduler
@@ -52,6 +52,38 @@ namespace os
             filesystem::init();
         }
 
+        /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
+        void before_main()
+        {
+            const char* gs_keywords[] = { "func", "var", "if", "else", "using", "while", "for", "break", "return", "continue", };
+            interpreter::tokenizer_rules_t rules = (interpreter::tokenizer_rules_t)
+            { 
+                .allow_decimal = true,
+                .allow_hex = true,
+                .allow_binary = true,
+                .allow_bool = true,
+                .allow_character = true,
+                .allow_string = true,
+                .allow_comment = true,
+                .allow_keywords = true,
+                .allow_typenames = false,
+                .prefix_hex = { '0', 'x', 0 },
+                .prefix_binary = { '0', 'b', 0 },
+                .prefix_comment = { '/', '/', 0 },
+                .bool_true = { 't', 'r', 'u', 'e', 0 },
+                .bool_false = { 'f', 'a', 'l', 's', 'e', 0 }, 
+                .sym_char = '\'',
+                .sym_string = '\"',
+                .symbols = { ';', '.', ',', '+', '-', '*', '/', '|', '&', '^', '%', '~', '=', '(', ')', '{', '}', '[', ']', '<', '>' },
+                .keywords = std::arraylist<char*>((char**)gs_keywords, sizeof(gs_keywords) / sizeof(char*), false),
+            };
+            
+            interpreter::tokenizer_unit tokenizer("A:/democode.gs");
+            tokenizer.rules = rules;
+            tokenizer.run();
+            tokenizer.dispose();
+        }
+
         void main()
         {
             lock();
@@ -63,16 +95,19 @@ namespace os
             unlock();
 
             uint32_t seconds = 0, now = 0, last = 0;
+            char tmstr[32];
             while (true)
             {
                 lock();
-
-                now = hal::pit::seconds();
+                std::time_t tm = std::timenow();
+                now = tm.second;
                 if (now != last) 
                 { 
-                    last = now; seconds++; 
+                    last = now; 
+                    seconds++; 
                     uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
-                    printf("SECONDS:%u, MEM:%u/%u bytes, THREADS: %u\n", seconds, memused, memtotal, threading::scheduler::threads()->length());
+                    memset(tmstr, 0, sizeof(tmstr));
+                    printf("TM: %s, RUNTIME:%u, MEM:%u/%u bytes, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused, memtotal, threading::scheduler::threads()->length());
                 }
 
                 unlock();
@@ -102,6 +137,7 @@ EXTC
         os::kernel::boot();
         
         os::threading::scheduler::ready();
+        os::kernel::before_main();
         os::kernel::main();
     }
 }

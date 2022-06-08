@@ -30,6 +30,9 @@ namespace os
             // initialize pit
             hal::pit::init();
 
+            // initialize rtc
+            hal::rtc::init();
+
             // install ata
             install(new hal::ata_controller());
         }

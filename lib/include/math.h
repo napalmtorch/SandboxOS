@@ -29,6 +29,7 @@ double ceil(double x);
 double fabs(double x);
 double floor(double x);
 double fmod(double x, double y);
+double trunc(double x);
 
 #ifdef __cplusplus
 }

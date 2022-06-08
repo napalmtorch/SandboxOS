@@ -12,6 +12,8 @@
 #include <array.h>
 #include <arraylist.h>
 #include <stream.h>
+#include <time.h>
+#include <hash.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
@@ -20,12 +22,14 @@
 #include <core/memory/gc.h>
 #include <core/exec/thread.h>
 #include <core/exec/scheduler.h>
+#include <core/exec/interpreter/tokenizer.h>
 #include <hardware/device.h>
 #include <hardware/devmgr.h>
 #include <hardware/devices/ata.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
 #include <hardware/common/registers.h>
+#include <hardware/common/rtc.h>
 #include <hardware/common/pit.h>
 #include <hardware/interrupts/gdt.h>
 #include <hardware/interrupts/idt.h>
@@ -52,6 +56,9 @@ namespace os
         
         /// @brief Boot sequence for kernel - initializes debugging, memory, threading, and devices
         void boot();
+        
+        /// @brief To be executed before entering kernel main, but after threading is enabled
+        void before_main();
 
         /// @brief Main loop for kernel
         void main();

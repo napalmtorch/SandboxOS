@@ -38,8 +38,8 @@ namespace std
             {
                 this->_len = data.length();
                 this->_pos = 0;
-                if (copy) { this->data = (T*)tmalloc(sizeof(T) * data.length(), ALLOCTYPE_ARRAY); memcpy(this->_data, data.ptr(), sizeof(T) * data.length()); }
-                else { this->data = data.ptr(); }
+                if (copy) { this->_data = (T*)tmalloc(sizeof(T) * data.length(), ALLOCTYPE_ARRAY); memcpy(this->_data, data.ptr(), sizeof(T) * data.length()); }
+                else { this->_data = data.ptr(); }
                 memset(&_dummy, 0, sizeof(T));
             }
 

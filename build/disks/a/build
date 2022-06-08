@@ -1,5 +1,6 @@
 create 16777216
 add test.txt build/disks/a/test.txt
+add democode.gs build/disks/a/democode.gs
 save ramdisk.img
 print
 exit
