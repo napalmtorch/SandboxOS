@@ -39,6 +39,8 @@ namespace os
 
         void scheduler::ready() { _ready = true; }
 
+        void scheduler::unready() { _ready = false; }
+
         void scheduler::yield()
         {
             if (!_ready) { return; }
@@ -51,7 +53,6 @@ namespace os
             if (THREAD == NULL) { perror("Current thread null"); return; }
 
             THREAD_NEXT = next();
-            if (THREAD_NEXT == NULL) { perror("Next thread null"); return; }
 
             _ready = true;
             _context_switch();
@@ -59,47 +60,59 @@ namespace os
 
         bool scheduler::start(thread_t* thread)
         {
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             if (thread == NULL) { return false; }
             thread->flags.running    = true;
             thread->flags.terminated = false;
             thread->flags.locked     = false;
             printf("%s Started thread %u('%s')\n", DEBUG_INFO, thread->id, thread->name);
+            if (ints) { asm volatile("sti"); }
             return true;
         }
 
         bool scheduler::pause(thread_t* thread)
         {
-            if (thread == NULL) { return false; }
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             thread->flags.running    = false;
             thread->flags.terminated = false;
             thread->flags.locked     = false;
             printf("%s Paused thread %u('%s')\n", DEBUG_INFO, thread->id, thread->name);
+            if (ints) { asm volatile("sti"); }
             return true;
         }
 
         bool scheduler::terminate(thread_t* thread)
         {
-            if (thread == NULL) { return false; }
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             thread->flags.running    = false;
             thread->flags.terminated = true;
             thread->flags.locked     = false;
             printf("%s Terminated thread %u('%s')\n", DEBUG_INFO, thread->id, thread->name);
+            if (ints) { asm volatile("sti"); }
             return true;
         }
 
         bool scheduler::load(thread_t* thread)
         {
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             if (thread == NULL) { perror("Tried to load null thread"); return false; }
             thread->flags.running    = false;
             thread->flags.locked     = false;
             thread->flags.terminated = false;
             _threads.add(thread);
             printf("%s Loaded thread %u('%s') into scheduler\n", DEBUG_INFO, thread->id, thread->name);
+            if (ints) { asm volatile("sti"); }
             return true;
         }
 
         bool scheduler::unload(thread_t* thread)
         {
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             if (thread == NULL) { perror("Tried to unload null thread"); return false; }
             for (size_t i = 0; i < _threads.length(); i++)
             {
@@ -109,6 +122,7 @@ namespace os
                     _threads.remove_at(i);
                     printf("%s Unloaded thread %u('%s') from scheduler\n", DEBUG_INFO, t->id, t->name);
                     thread_dispose(t);
+                    if (ints) { asm volatile("sti"); }
                     return true;
                 }
             }
@@ -123,8 +137,10 @@ namespace os
             {
                 _index++;
                 if (_index >= _threads.length()) { _index = 0; return _threads[0]; }
+                if (_threads[_index] == NULL) { perror("Next thread null"); }
                 if (_threads[_index]->flags.terminated)
                 {
+                    printf("GONNA DISPOSE THREAD\n");
                     unload(_threads[_index]);
                     _index = 0;
                     return _threads[0];
@@ -150,6 +166,7 @@ namespace os
             if (thread == NULL) { return false; }
             for (size_t i = 0; i < _threads.length(); i++)
             {
+                if (_threads[i] == NULL) { continue; }
                 if (_threads[i] == thread) { return true; }
             }
             return false;
@@ -159,6 +176,7 @@ namespace os
         {
             for (size_t i = 0; i < _threads.length(); i++)
             {
+                if (_threads[i] == NULL) { continue; }
                 if (_threads[i]->id == id) { return true; }
             }
             return false;
@@ -169,6 +187,7 @@ namespace os
             if (name == NULL || strlen(name) == 0) { return false; }
             for (size_t i = 0; i < _threads.length(); i++)
             {
+                if (_threads[i] == NULL) { continue; }
                 if (!strcmp(_threads[i]->name, name)) { return true; }
             }
             return false;

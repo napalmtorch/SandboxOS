@@ -108,6 +108,7 @@ char* strchr(const char* str, int c)
 
 int strcmp(const char* str1, const char* str2)
 {
+    if (str1 == NULL && str1 != str2) { return 1; }
     while (*str1)
     {
         if (*str1 != *str2) { break; }
@@ -118,6 +119,7 @@ int strcmp(const char* str1, const char* str2)
 
 int strncmp(const char* str1, const char* str2, size_t n)
 {
+    if (str1 == NULL || str2 == NULL) { return 1; }
     while (n && *str1 && (*str1 == *str2))
     {
         ++str1;

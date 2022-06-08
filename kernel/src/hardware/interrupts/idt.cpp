@@ -175,6 +175,12 @@ namespace os
                 if (regs->irq >= 40) { ports::outb(0xA0, 0x20); }
                 ports::outb(0x20, 0x20);
             }
+
+            bool irqs_enabled()
+            {
+                uint32_t eflags = _read_eflags();
+                return (eflags & 0x200) >> 9;
+            }
         }
     }
 }

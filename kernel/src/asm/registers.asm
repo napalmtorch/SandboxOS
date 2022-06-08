@@ -5,6 +5,7 @@
 [GLOBAL _read_cr2]
 [GLOBAL _read_cr3]
 [GLOBAL _read_cr4]
+[GLOBAL _read_eflags]
 
 [GLOBAL _write_cr0]
 [GLOBAL _write_cr3]
@@ -50,6 +51,11 @@ _read_cr3:
     
 _read_cr4:
     mov eax, cr4
+    retn
+
+_read_eflags:
+    pushf
+    pop eax
     retn
 
 _write_cr0:

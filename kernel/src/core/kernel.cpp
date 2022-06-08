@@ -35,7 +35,7 @@ namespace os
             memory_manager::init();
 
             // initialize heaps
-            bool mmdbg = false;
+            bool mmdbg = true;
             memory_heap::init(mmdbg);
 
             // initialize thread scheduler
@@ -68,7 +68,12 @@ namespace os
                 lock();
 
                 now = hal::pit::seconds();
-                if (now != last) { last = now; seconds++; printf("SECONDS SINCE START: %u\n", seconds); }
+                if (now != last) 
+                { 
+                    last = now; seconds++; 
+                    uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
+                    printf("SECONDS:%u MEM:%u bytes\n", seconds, memused); 
+                }
 
                 unlock();
                 threading::scheduler::yield();

@@ -77,7 +77,7 @@ namespace std
             }
 
             /// @brief Get pointer to data list @return Pointer to data
-            T* data() { return this->_items; }
+            T* ptr() { return this->_items; }
 
             /// @brief Get amount of entries
             size_t length() { return this->_len; }
