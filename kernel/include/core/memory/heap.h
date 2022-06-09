@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <core/memory/memmgr.h>
+#include <core/exec/thread.h>
 
 namespace os
 {
@@ -11,9 +12,9 @@ namespace os
         /// @brief Physical address of allocation in memory
         uint32_t  address;
         /// @brief Parent thread which called the allocation
-        void*     thread;
+        threading::thread_t* thread;
         /// @brief Size of allocation in bytes
-        size_t    size;
+        size_t size;
         /// @brief Type of allocation
         ALLOCTYPE type;
     } PACKED heapblock_t;
@@ -58,7 +59,7 @@ namespace os
         
         public:
             /// @brief Create a new heap entry @param addr Address value @param thread Pointer to thread @param size Size in bytes @param type Allocation type @return Pointer to heap entry
-            heapblock_t* create(uint32_t addr, void* thread, size_t size, ALLOCTYPE type);
+            heapblock_t* create(uint32_t addr, threading::thread_t* thread, size_t size, ALLOCTYPE type);
             /// @brief Remove exisitng heap entry @param blk Pointer to heap entry @return Entry removed successfully
             bool remove(heapblock_t* blk);
 
@@ -81,6 +82,8 @@ namespace os
             void toggle_msgs(bool state);
             /// @brief Calculate amount of used memory in bytes @return Size in bytes
             size_t calc_used();
+            /// @brief Calculate amount of used memory in bytes for specified thread @param thread Pointer to thread @return Size in bytes
+            size_t calc_used(threading::thread_t* thread);
             /// @brief Get name from allocation type @param type Allocation type @return Pointer to type string
             static const char* typestr(ALLOCTYPE type);
 

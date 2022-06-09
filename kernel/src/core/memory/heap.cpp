@@ -106,7 +106,7 @@ namespace os
         printf("}\n\n");
     }
 
-    heapblock_t* memory_heap::create(uint32_t addr, void* thread, size_t size, ALLOCTYPE type)
+    heapblock_t* memory_heap::create(uint32_t addr, threading::thread_t* thread, size_t size, ALLOCTYPE type)
     {
         if (!validate(addr)) { perror("Attempt to create heap block with invalid address 0x%8x", addr); }
         heapblock_t* blk = next_empty();
@@ -201,6 +201,17 @@ namespace os
         for (size_t i = 0; i < this->_count_max; i++)
         {
             if (this->_blocks[i].size > 0 && this->_blocks[i].type > ALLOCTYPE_FREE) { bytes += this->_blocks[i].size; }
+        }
+        return bytes;
+    }
+
+    size_t memory_heap::calc_used(threading::thread_t* thread)
+    {
+        if (thread == NULL) { return 0; }
+        size_t bytes = 0;
+        for (size_t i = 0; i < this->_count_max; i++)
+        {
+            if (this->_blocks[i].size > 0 && this->_blocks[i].type > ALLOCTYPE_FREE && this->_blocks[i].thread == thread) { bytes += this->_blocks[i].size; }
         }
         return bytes;
     }

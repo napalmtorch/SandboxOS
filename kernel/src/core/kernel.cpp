@@ -88,7 +88,9 @@ namespace os
 
                     // print info
                     printf("TM:%s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
-                    printf("KERNEL_CPU:%u%%(%u ticks) GC_CPU:%u%%(%u ticks)\n\n", kernel::thread->time.cpu_usage, kernel::thread->time.tps, garbage_collector::thread->time.cpu_usage, garbage_collector::thread->time.tps);
+                    printf("KERNEL - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", kernel::thread->time.cpu_usage, heap_small.calc_used(kernel::thread) + heap_large.calc_used(kernel::thread));
+                    printf("GC     - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", garbage_collector::thread->time.cpu_usage, heap_small.calc_used(garbage_collector::thread) + heap_large.calc_used(garbage_collector::thread));
+                    printf("--------------------------------------------------------------------------------------------------------\n");
                 }
                 threading::scheduler::monitor();
 
