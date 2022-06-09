@@ -88,7 +88,7 @@ namespace os
                 if (*fmt == '%')
                 {
                     fmt++;
-                    if (*fmt == '%') { write('%'); }
+                    if (*fmt == '%') { write('%'); fmt++; continue; }
                     if (*fmt == 'c') { write((char)va_arg(args, int)); }
                     else if (*fmt == 'd')
                     {

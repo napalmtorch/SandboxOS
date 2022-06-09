@@ -70,8 +70,9 @@ namespace os
             uint32_t seconds = 0, now = 0, last = 0;
             char tmstr[32];
             while (true)
-            {
+            {                
                 lock();
+                threading::thread_monitor();
                 std::time_t tm = std::timenow();
                 now = tm.second;
                 if (now != last)
@@ -84,10 +85,12 @@ namespace os
                     // calculate memory usage
                     uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
                     uint32_t memtotal = heap_large.data_size() + heap_small.data_size();
-                    
+
                     // print info
-                    printf("TM: %s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
+                    printf("TM:%s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
+                    printf("KERNEL_CPU:%u%%(%u ticks) GC_CPU:%u%%(%u ticks)\n\n", kernel::thread->time.cpu_usage, kernel::thread->time.tps, garbage_collector::thread->time.cpu_usage, garbage_collector::thread->time.tps);
                 }
+                threading::scheduler::monitor();
 
                 unlock();
                 threading::scheduler::yield();

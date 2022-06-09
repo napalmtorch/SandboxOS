@@ -35,6 +35,7 @@ namespace os
         typedef struct
         {
             uint32_t ticks;
+            uint32_t tpsf;
             uint32_t tps;
             uint8_t  cpu_usage;
         } PACKED thread_time_t;

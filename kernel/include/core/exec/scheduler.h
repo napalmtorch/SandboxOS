@@ -29,6 +29,10 @@ namespace os
                 static uint32_t _index;
                 /// @brief Toggle whether scheduler is allowed to context switch
                 static bool _ready;
+                /// @brief Current time
+                static uint32_t _now;
+                /// @brief Last time
+                static uint32_t _last;
 
             public:
                 /// @brief Initialize thread scheduler
@@ -42,6 +46,9 @@ namespace os
 
                 /// @brief Perform context switch into the next thread in the queue
                 static void yield();
+
+                /// @brief Monitor and update time and performance information of running threads
+                static void monitor();
 
                 /// @brief Start specified thread @param thread Pointer to thread @return Thread started successfully
                 static bool start(thread_t* thread);

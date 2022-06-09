@@ -9,9 +9,13 @@ namespace os
         std::arraylist<thread_t*> scheduler::_threads;
         uint32_t                   scheduler::_index;
         bool                       scheduler::_ready;
+        uint32_t                   scheduler::_now;
+        uint32_t                   scheduler::_last;
 
         void scheduler::init()
         {
+            _now   = 0;
+            _last  = 0;
             _tid   = 0;
             _index = 0;
             _ready = false;
@@ -56,6 +60,33 @@ namespace os
 
             _ready = true;
             _context_switch();
+        }
+
+        void scheduler::monitor()
+        {
+            _now = std::timenow().second;
+            if (_now != _last)
+            {
+                _last = _now;
+                uint32_t total_tps = 0;
+
+                for (size_t i = 0; i < _threads.length(); i++)
+                {
+                    if (_threads[i] == NULL) { continue; }
+                    _threads[i]->time.tps = _threads[i]->time.ticks;
+                    _threads[i]->time.tpsf = _threads[i]->time.tps / 10;
+                    _threads[i]->time.ticks = 0;
+                    total_tps += _threads[i]->time.tpsf;
+                }
+
+                for (size_t i = 0; i < _threads.length(); i++)
+                {
+                    if (_threads[i] == NULL) { continue; }
+                    if (_threads[i]->time.tpsf == 0) { continue; }
+                    double usage = (double)((double)_threads[i]->time.tpsf / (double)total_tps) * 100.0;
+                    _threads[i]->time.cpu_usage = (uint8_t)usage;
+                }
+            }
         }
 
         bool scheduler::start(thread_t* thread)
