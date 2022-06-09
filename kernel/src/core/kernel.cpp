@@ -56,18 +56,8 @@ namespace os
             // initialize filesystem
             filesystem::init();
 
-            // initialize default font
-            const char* font_fname = "A:/font_thin.bin";
-            file_t* font_file = filesystem::open_file(font_fname, "r");
-            if (font_file != NULL)
-            {
-                uint8_t* data = new uint8_t[font_file->data.length()];
-                memcpy(data, font_file->data.ptr(), font_file->data.length());
-                filesystem::close_file(font_file);
-                std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, data);
-                printf("%s Loaded primary font from '%s'\n", DEBUG_INFO, font_fname);
-            }
-            else { std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT); }
+            // load assets
+            sys::assets::load();
         }
 
         /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
@@ -80,8 +70,6 @@ namespace os
         {
             lock();
             printf("%s Entered kernel main\n", DEBUG_OK);
-
-            std::gfx::image logo = std::gfx::image("A:/logo.bmp");
 
             unlock();
 
@@ -96,7 +84,7 @@ namespace os
                 { 
                     last = now;
                     hal::devices::vbe->clear(0xFF000000);
-                    if (logo.data().ptr() != NULL) { hal::devices::vbe->copy((hal::devices::vbe->modeinfo().width / 2) - (logo.size().x / 2), (hal::devices::vbe->modeinfo().height / 2) - (logo.size().y / 2), logo.size().x, logo.size().y, logo.data().ptr()); }
+                    if (sys::assets::img_logo.data().ptr() != NULL) { hal::devices::vbe->copy((hal::devices::vbe->modeinfo().width / 2) - (sys::assets::img_logo.size().x / 2), (hal::devices::vbe->modeinfo().height / 2) - (sys::assets::img_logo.size().y / 2), sys::assets::img_logo.size().x, sys::assets::img_logo.size().y, sys::assets::img_logo.data().ptr());  }
                     sys::debug::draw_overlay();
                 }
                 threading::scheduler::monitor();

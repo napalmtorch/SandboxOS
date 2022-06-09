@@ -23,6 +23,7 @@
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
+#include <core/system/assets.h>
 #include <core/memory/memmgr.h>
 #include <core/memory/heap.h>
 #include <core/memory/gc.h>
