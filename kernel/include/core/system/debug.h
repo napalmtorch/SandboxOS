@@ -26,6 +26,10 @@ namespace os
                 static void print_regs(hal::idt_registers_t* regs);
                 /// @brief Print thread register values @param regs Pointer to register structure
                 static void print_regs(threading::thread_regs_t* regs);
+
+            public:
+                /// @brief Draw VBE graphical overlay containing debugging information
+                static void draw_overlay();
         };
     }
 }

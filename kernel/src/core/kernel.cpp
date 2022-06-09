@@ -87,10 +87,12 @@ namespace os
                     uint32_t memtotal = heap_large.data_size() + heap_small.data_size();
 
                     // print info
-                    printf("TM:%s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
-                    printf("KERNEL - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", kernel::thread->time.cpu_usage, heap_small.calc_used(kernel::thread) + heap_large.calc_used(kernel::thread));
-                    printf("GC     - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", garbage_collector::thread->time.cpu_usage, heap_small.calc_used(garbage_collector::thread) + heap_large.calc_used(garbage_collector::thread));
-                    printf("--------------------------------------------------------------------------------------------------------\n");
+                    //printf("TM:%s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
+                    //printf("KERNEL - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", kernel::thread->time.cpu_usage, heap_small.calc_used(kernel::thread) + heap_large.calc_used(kernel::thread));
+                    //printf("GC     - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", garbage_collector::thread->time.cpu_usage, heap_small.calc_used(garbage_collector::thread) + heap_large.calc_used(garbage_collector::thread));
+                    //printf("--------------------------------------------------------------------------------------------------------\n");
+                    hal::devices::vbe->clear(0xFF000000);
+                    sys::debug::draw_overlay();
                 }
                 threading::scheduler::monitor();
 

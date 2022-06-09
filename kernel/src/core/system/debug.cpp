@@ -34,5 +34,55 @@ namespace os
             printf("EFL: 0x%8x CS:  0x%8x SS:  0x%8x\n", regs->eflags);
             printf("CR0: 0x%8x CR2: 0x%8x CR3: 0x%8x CR4: 0x%8x\n", _read_cr0(), _read_cr2(), _read_cr3(), _read_cr4());
         }
+
+        void debug::draw_overlay()
+        {
+            int yy = 0;
+            char temp[64];
+            char temp2[64];
+
+            // current time
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            std::time_t now = std::timenow();
+            std::timestr(now, temp, std::time_format::standard, true);
+            strcat(temp2, "TIME   - ");
+            strcat(temp2, temp);
+            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+
+            // uptime
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            strcat(temp2, "UPTIME - ");
+            strcat(temp2, ltoa(hal::pit::seconds(), temp, 10));
+            strcat(temp2, "s");
+            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+
+            // kernel
+            hal::devices::vbe->putstr(0, 15 * yy, "KERNEL - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            strcat(temp2, "CPU: ");
+            if (kernel::thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
+            strcat(temp2, ltoa(kernel::thread->time.cpu_usage, temp, 10));            
+            strcat(temp2, "% MEM: ");
+            memset(temp, 0, sizeof(temp));
+            strcat(temp2, ltoa(kernel::heap_large.calc_used(kernel::thread) + kernel::heap_small.calc_used(kernel::thread), temp, 10));
+            strcat(temp2, " bytes");
+            hal::devices::vbe->putstr(128, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+
+            // gc
+            hal::devices::vbe->putstr(0, 15 * yy, "GC     - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            strcat(temp2, "CPU: ");
+            if (garbage_collector::thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
+            strcat(temp2, ltoa(garbage_collector::thread->time.cpu_usage, temp, 10));
+            strcat(temp2, "% MEM: ");
+            memset(temp, 0, sizeof(temp));
+            strcat(temp2, ltoa(kernel::heap_large.calc_used(garbage_collector::thread) + kernel::heap_small.calc_used(garbage_collector::thread), temp, 10));
+            strcat(temp2, " bytes");
+            hal::devices::vbe->putstr(128, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+        }
     }
 }

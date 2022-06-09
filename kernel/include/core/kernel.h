@@ -42,8 +42,8 @@
 #include <hardware/interrupts/gdt.h>
 #include <hardware/interrupts/idt.h>
 #include <hardware/interrupts/pic.h>
-#include <filesys/ramfs.h>
 #include <filesys/filesys.h>
+#include <filesys/types/ramfs.h>
 #include <filesys/parsing/config_parser.h>
 
 namespace os

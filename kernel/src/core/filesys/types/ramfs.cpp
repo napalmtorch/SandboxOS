@@ -1,4 +1,4 @@
-#include <filesys/ramfs.h>
+#include <filesys/types/ramfs.h>
 #include <core/kernel.h>
 
 namespace os
