@@ -65,6 +65,9 @@ namespace os
         {
             lock();
             printf("%s Entered kernel main\n", DEBUG_OK);
+
+            std::gfx::image logo = std::gfx::image("A:/logo.bmp");
+
             unlock();
 
             uint32_t seconds = 0, now = 0, last = 0;
@@ -92,6 +95,7 @@ namespace os
                     //printf("GC     - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", garbage_collector::thread->time.cpu_usage, heap_small.calc_used(garbage_collector::thread) + heap_large.calc_used(garbage_collector::thread));
                     //printf("--------------------------------------------------------------------------------------------------------\n");
                     hal::devices::vbe->clear(0xFF000000);
+                    if (logo.data().ptr() != NULL) { hal::devices::vbe->copy((hal::devices::vbe->modeinfo().width / 2) - (logo.size().x / 2), (hal::devices::vbe->modeinfo().height / 2) - (logo.size().y / 2), logo.size().x, logo.size().y, logo.data().ptr()); }
                     sys::debug::draw_overlay();
                 }
                 threading::scheduler::monitor();

@@ -36,8 +36,10 @@ namespace std
 
         bool image::load(char* fname)
         {
-            printf("%s Bitmap file loading not yet supported!\n", DEBUG_ERROR);
-            return false;
+            image img = os::filesystem::parsing::bmp_load(fname);
+            load(img.size().x, img.size().y, img.data());
+            if (_data.ptr() == NULL) { return false; }
+            return true;
         }
 
         void image::resize(int w, int h)

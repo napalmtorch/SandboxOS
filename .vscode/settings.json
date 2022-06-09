@@ -15,6 +15,9 @@
         "*.tcc": "cpp",
         "cinttypes": "cpp",
         "cstdint": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "array": "cpp",
+        "utility": "cpp",
+        "initializer_list": "cpp"
     }
 }

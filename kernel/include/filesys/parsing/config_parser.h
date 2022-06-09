@@ -9,7 +9,7 @@ namespace os
 {
     namespace filesystem
     {
-        namespace file_parsers
+        namespace parsing
         {
             enum class configobj_type : uint8_t
             {

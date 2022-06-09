@@ -34,4 +34,5 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - AHCI Disk Controller
 - USTAR/FAT32 File Systems
 - PS/2 Keyboard and mouse
+- Parsers for (.json, .cfg)
 - Language Interpreter

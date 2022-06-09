@@ -45,6 +45,7 @@
 #include <filesys/filesys.h>
 #include <filesys/types/ramfs.h>
 #include <filesys/parsing/config_parser.h>
+#include <filesys/parsing/bitmap.h>
 
 namespace os
 {

@@ -5,7 +5,7 @@ namespace os
 {
     namespace filesystem
     {
-        namespace file_parsers
+        namespace parsing
         {
             config_parser::config_parser()
             {
