@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <hardware/device.h>
 
 namespace os
 {
@@ -33,17 +34,21 @@ namespace os
         };
 
         /// @brief Serial interface controller
-        class serial_controller
+        class serial_controller : public device_t
         {
             private:
                 /// @brief Active serial port
                 serial_port _port;
 
             public:
+                /// @brief Initialize serial controller
+                void init() override;
+                /// @brief Begin serial connection on default port(COM1)
+                void start() override;
                 /// @brief Begin serial connection on specified port @param port Serial port number
-                void begin(serial_port port);
+                void start(serial_port port);
                 /// @brief Disconnect serial from active port
-                void end();
+                void stop() override;
 
             public:
                 /// @brief Read byte from serial port @return 8-bit value
@@ -73,5 +78,10 @@ namespace os
                 /// @brief Get active serial port @return Serial port number
                 serial_port port();
         };
+
+        namespace devices
+        {
+            extern serial_controller* serial;
+        }
     }
 }

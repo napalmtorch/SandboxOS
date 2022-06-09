@@ -10,9 +10,12 @@ namespace os
     {
         class debug
         {
+            private:
+                static hal::serial_controller _dbg_serial;
+
             public:
                 /// @brief Serial controller for debugging output
-                static hal::serial_controller serial;
+                static hal::serial_controller* serial;
                 /// @brief Allow printf to output to serial
                 static bool stdout_enabled;
 

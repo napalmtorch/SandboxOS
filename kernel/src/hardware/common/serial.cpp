@@ -5,8 +5,26 @@ namespace os
 {
     namespace hal
     {
-        void serial_controller::begin(serial_port port)
+        namespace devices
         {
+            serial_controller* serial;
+        }
+
+        void serial_controller::init()
+        {
+            device_t::init();
+            set_info("Serial I/O Controller", 0xD000FFFF);
+        }
+
+        void serial_controller::start()
+        {
+            device_t::start();
+        }
+
+        void serial_controller::start(serial_port port)
+        {
+            device_t::start();
+
             // set port variable
             this->_port = port;
 
@@ -28,8 +46,9 @@ namespace os
             ports::outb((portnum_t)this->_port + 4, 0x0F);
         }
 
-        void serial_controller::end()
+        void serial_controller::stop()
         {
+            device_t::stop();
             this->_port = serial_port::disabled;
         }
 

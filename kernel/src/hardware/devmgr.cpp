@@ -33,6 +33,12 @@ namespace os
             // initialize rtc
             hal::rtc::init();
 
+            // install serial
+            devices::serial = new hal::serial_controller();
+            install(devices::serial);
+            devices::serial->start(sys::debug::serial->port());
+            sys::debug::serial = devices::serial;
+
             // install ata
             devices::ata = new hal::ata_controller();
             install(devices::ata);
@@ -47,10 +53,10 @@ namespace os
             printf("%s Probing PCI devices...\n", DEBUG_INFO);
         }
 
-        bool device_manager::install(device_t* dev)
+        bool device_manager::install(device_t* dev, bool auto_init)
         {
             if (dev == NULL) { perror("Tried to install null device"); return false; }
-            dev->init();
+            if (auto_init) { dev->init(); }
             _devices.add(dev);
             printf("%s Installed device - ADDR:0x%8x ID:0x%8x NAME:'%s'\n", DEBUG_INFO, dev, dev->id(), dev->name());
             return true;

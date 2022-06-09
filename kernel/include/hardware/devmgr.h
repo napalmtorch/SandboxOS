@@ -25,7 +25,7 @@ namespace os
 
             public:
                 /// @brief Acknowledge device and add to list @param dev Pointer to device @return Device installed successfully
-                static bool install(device_t* dev);
+                static bool install(device_t* dev, bool auto_init = true);
                 /// @brief Uninstall already-detected device @param dev Pointer to device @return Device uninstalled successfully
                 static bool uninstall(device_t* dev);
 

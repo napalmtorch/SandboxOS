@@ -5,15 +5,18 @@ namespace os
 {
     namespace sys
     {
-        hal::serial_controller debug::serial;
+        hal::serial_controller* debug::serial;
+        hal::serial_controller  debug::_dbg_serial;
 
         bool debug::stdout_enabled = false;
 
         void debug::init(hal::serial_port port)
         {
             stdout_enabled = true;
-            debug::serial.begin(port);
-            debug::serial.print_fmt("%s Enabled serial debugging on %s\n", DEBUG_OK, debug::serial.portstr(port));
+            serial = &_dbg_serial;
+            _dbg_serial.init();
+            _dbg_serial.start(port);
+            _dbg_serial.print_fmt("%s Enabled serial debugging on %s\n", DEBUG_OK, serial->portstr(port));
         }
 
         void debug::print_regs(hal::idt_registers_t* regs)
