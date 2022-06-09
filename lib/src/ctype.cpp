@@ -1,5 +1,5 @@
 #include <ctype.h>
-
+#include <core/kernel.h>
 
 #ifdef __cplusplus
 EXTC

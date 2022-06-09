@@ -84,30 +84,16 @@ namespace os
 
             unlock();
 
-            uint32_t seconds = 0, now = 0, last = 0;
+            uint32_t now = 0, last = 0;
             char tmstr[32];
             while (true)
             {                
                 lock();
                 threading::thread_monitor();
-                std::time_t tm = std::timenow();
-                now = tm.second;
+                now = std::timenow().second;
                 if (now != last)
                 { 
-                    // reset values and increment second counter
-                    last = now; 
-                    seconds++; 
-                    memset(tmstr, 0, sizeof(tmstr));
-                    
-                    // calculate memory usage
-                    uint32_t memused  = heap_large.calc_used() + heap_small.calc_used();
-                    uint32_t memtotal = heap_large.data_size() + heap_small.data_size();
-
-                    // print info
-                    //printf("TM:%s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
-                    //printf("KERNEL - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", kernel::thread->time.cpu_usage, heap_small.calc_used(kernel::thread) + heap_large.calc_used(kernel::thread));
-                    //printf("GC     - CPU USAGE: %u%% MEMORY USAGE: %u bytes\n", garbage_collector::thread->time.cpu_usage, heap_small.calc_used(garbage_collector::thread) + heap_large.calc_used(garbage_collector::thread));
-                    //printf("--------------------------------------------------------------------------------------------------------\n");
+                    last = now;
                     hal::devices::vbe->clear(0xFF000000);
                     if (logo.data().ptr() != NULL) { hal::devices::vbe->copy((hal::devices::vbe->modeinfo().width / 2) - (logo.size().x / 2), (hal::devices::vbe->modeinfo().height / 2) - (logo.size().y / 2), logo.size().x, logo.size().y, logo.data().ptr()); }
                     sys::debug::draw_overlay();

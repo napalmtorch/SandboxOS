@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <arraylist.h>
 #include <hardware/device.h>
+#include <hardware/pci.h>
 
 namespace os
 {

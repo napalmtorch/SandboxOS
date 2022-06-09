@@ -13,8 +13,8 @@ namespace os
             _devices = std::arraylist<device_t*>();
 
             // probe for devices
-            probe();
             probe_pci();
+            probe();
 
             // start all installed devices
             for (size_t i = 0; i < _devices.length(); i++) { _devices[i]->start(); }
@@ -44,20 +44,28 @@ namespace os
             install(devices::ata);
 
             // install vbe
-            devices::vbe = new hal::vbe_controller();
-            install(devices::vbe);
+            pcihdr_t* vbe_device = pci_controller::fetch(0x1234, 0x1111);
+            if (vbe_device == NULL) { printf("%s Failed to locate VBE compatible device\n", DEBUG_ERROR); }
+            else
+            {
+                devices::vbe = new hal::vbe_controller();
+                devices::vbe->pcidev = vbe_device;
+                devices::vbe->pcidev->device_drv = devices::vbe;
+                install(devices::vbe);
+            }
         }
 
         void device_manager::probe_pci()
         {
             printf("%s Probing PCI devices...\n", DEBUG_INFO);
+            pci_controller::probe();
         }
 
         bool device_manager::install(device_t* dev, bool auto_init)
         {
             if (dev == NULL) { perror("Tried to install null device"); return false; }
-            if (auto_init) { dev->init(); }
             _devices.add(dev);
+            if (auto_init) { dev->init(); }
             printf("%s Installed device - ADDR:0x%8x ID:0x%8x NAME:'%s'\n", DEBUG_INFO, dev, dev->id(), dev->name());
             return true;
         }

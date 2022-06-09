@@ -31,6 +31,7 @@
 #include <core/exec/interpreter/tokenizer.h>
 #include <hardware/device.h>
 #include <hardware/devmgr.h>
+#include <hardware/pci.h>
 #include <hardware/devices/ata.h>
 #include <hardware/devices/vbe.h>
 #include <hardware/common/realmode.h>

@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <hardware/pci.h>
 
 namespace os
 {
@@ -10,6 +11,9 @@ namespace os
         /// @brief Hardware device abstraction interface
         class device_t
         {
+            public:
+                pcihdr_t* pcidev;
+
             protected:
                 /// @brief Name of devices - maximum of 128 characters
                 char _name[128];
