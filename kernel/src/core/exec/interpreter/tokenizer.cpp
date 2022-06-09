@@ -5,6 +5,15 @@ namespace os
 {
     namespace interpreter
     {
+        tokenizer_unit::tokenizer_unit()
+        {
+            this->input = std::stream<char>();
+            this->_line = -1;
+            this->_wordlen = 0;
+            this->_word = NULL;
+            memset(&this->rules, 0, sizeof(tokenizer_rules_t));
+        }
+
         tokenizer_unit::tokenizer_unit(std::array<char> in)
         {
             load(in);

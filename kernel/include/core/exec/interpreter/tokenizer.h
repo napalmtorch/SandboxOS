@@ -120,6 +120,8 @@ namespace os
                 size_t _wordlen;
 
             public:
+                /// @brief Default tokenizer constructor - initializes all values to null
+                tokenizer_unit();
                 /// @brief Create tokenizer with specified input data @param input Input characters
                 tokenizer_unit(std::array<char> in);
                 /// @brief Create tokenizer with specified input data @param input Input characters
