@@ -1,4 +1,5 @@
 sos.iso
 docs/
 ramdisk.img
+hdd.img
 bin/
