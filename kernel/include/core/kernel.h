@@ -19,7 +19,6 @@
 #include <gfx/font.h>
 #include <gfx/image.h>
 #include <gfx/primitives/vec2d.h>
-#include <gfx/primitives/vec3d.h>
 #include <gfx/primitives/rectangle.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>

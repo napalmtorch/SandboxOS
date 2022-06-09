@@ -46,7 +46,7 @@ namespace os
 
             // start garbage collector thread
             garbage_collector::start();
-            garbage_collector::messages = false;
+            garbage_collector::messages = true;
 
             // initialize filesystem
             filesystem::init();
@@ -84,7 +84,7 @@ namespace os
                     seconds++; 
                     uint32_t memused = heap_large.calc_used() + heap_small.calc_used();
                     memset(tmstr, 0, sizeof(tmstr));
-                    printf("TM: %s, RUNTIME:%u, MEM:%u/%u bytes, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused, memtotal, threading::scheduler::threads()->length());
+                    printf("TM: %s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
                 }
 
                 unlock();

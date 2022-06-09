@@ -5,11 +5,20 @@
 
 namespace std
 {
+    /// @brief Structure for managing 32-bit ARGB color values
     typedef struct
     {
-        uint8_t a, r, g, b;
+        /// @brief 8-bit alpha value
+        uint8_t a;
+        /// @brief 8-bit red value
+        uint8_t r;
+        /// @brief 8-bit green value
+        uint8_t g;
+        /// @Brief 8-bit blue value
+        uint8_t b;
     } PACKED argb_t;
 
+    /// @brief 4-bit color codes
     enum class color4 : uint8_t
     {
         black,
@@ -30,6 +39,7 @@ namespace std
         white,
     };
 
+    /// @brief 32-bit color codes
     enum class color32 : uint32_t
     {
         transparent = 0x00FFFFFF,
@@ -177,30 +187,36 @@ namespace std
 
     namespace gfx
     {
+        /// @brief Palette used for 4-bit to 32-bit color conversions
         static const uint32_t PALETTE_4BIT[16]
         {
             0xFF000000, 0xFF000080, 0xFF008000, 0xFF008080, 0xFF800000, 0xFF800080, 0xFF808000, 0xFFC0C0C0, 
             0xFF808080, 0xFF8080FF, 0xFF00FF00, 0xFF00FFFF, 0xFFFF0000, 0xFFFF00FF, 0xFFFFFF00, 0xFFFFFFFF,
         };
 
+        /// @brief Convert 32-bit color to ARGB color structure @param color 32-bit color value @return ARGB color
         static inline argb_t color32_to_argb(uint32_t color)
         {
             return { (color & 0xFF000000) >> 24, (color & 0xFF0000) >> 16, (color & 0xFF00) >> 8, color & 0xFF };
         }
 
+        /// @brief Convert 32-bit color to ARGB color structure @param color 32-bit color value @return ARGB color
         static inline argb_t color32_to_argb(color32 color) { return color32_to_argb((uint32_t)color); }
 
+        /// @brief Convert ARGB color structure to 32-bit packed value @param argb ARGB color value @return 32-bit packed color value
         static inline color32 argb_to_color32(argb_t argb)
         {
             return (color32)((argb.a << 24) | (argb.r << 16) | (argb.g << 8) | argb.b);
         }
 
+        /// @brief Convert 4-bit color to 32-bit color @param color 4-bit color value @return 32-bit color value
         static inline color32 color4_to_color32(color4 color)
         {
             if ((uint8_t)color >= 16) { return color32::black; }
             return (color32)PALETTE_4BIT[(int)color];
         }
 
+        /// @brief Convert 32-bit color to 4-bit color @param color 32-bit color value @return 4-bit color
         static inline color4 color32_to_color4(uint32_t color)
         {
             argb_t argb = color32_to_argb(color);
@@ -216,6 +232,7 @@ namespace std
             return color4::black;
         }
 
+        /// @brief Convert 32-bit color to 4-bit color @param color 32-bit color value @return 4-bit color
         static inline color4 color32_to_color4(color32 color) { return color32_to_color4((uint32_t)color); }
     }
 }

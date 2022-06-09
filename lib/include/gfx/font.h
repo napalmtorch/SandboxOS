@@ -7,27 +7,42 @@ namespace std
 {
     namespace gfx
     {
+        /// @brief Structure for managing bitfonts
         class bitfont
         {
             private:
-                uint8_t  _cw, _ch;
-                uint8_t  _sx, _sy;
+                /// @brief Width of character
+                uint8_t _cw;
+                /// @brief Height of character
+                uint8_t _ch;
+                /// @brief Horizontal spacing of each character
+                uint8_t _sx;
+                /// @brief Vertical spacing for each character
+                uint8_t _sy;
+                /// @brief Pointer to physical font data
                 uint8_t* _data;
 
             public:
+                /// @brief Default font constructor - initializes all values to null
                 bitfont() { _cw = 0; _ch = 0; _sx = 0; _sy = 0; _data = NULL; }
+                /// @brief Create new bitfont structure with specified values @param cw Width of character @param ch Height of character @param sx Horizontal spacing of each character @param sy Vertical spacing of each character @param data Pointer to physical font data
                 bitfont(uint8_t cw, uint8_t ch, uint8_t sx, uint8_t sy, uint8_t* data) { _cw = cw; _ch = ch; _sx = sx; _sy = sy; _data = data; }
 
             public:
+                /// @brief Get pointer to physical font data
                 uint8_t* data() { return _data; }
-                int width(bool spacing = true)  { if (spacing) { return _cw + _sx; } return _cw; }
+                /// @brief Get width of character @param spacing Add horizontal spacing to output value @return Width of character
+                int width(bool spacing = true) { if (spacing) { return _cw + _sx; } return _cw; }
+                /// @brief Get height of character @param spacing Add Vertical spacing to output value @return Height of character
                 int height(bool spacing = true) { if (spacing) { return _ch + _sy; } return _ch; }
+                /// @brief Get horizontal spacing of each character
                 int spacing_x() { return _sx; }
+                /// @brief Get vertical spacing of each character
                 int spacing_y() { return _sy; }
         };
     }
 
-
+    /// @brief Physical data for default font(8x14)
     static const uint8_t FONTDATA_DEFAULT[] = 
     {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
@@ -256,5 +271,6 @@ namespace std
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     };
 
+    /// @brief Default font instance(8x14)
     extern gfx::bitfont FONT_DEFAULT;
 }

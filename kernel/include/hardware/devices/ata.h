@@ -21,6 +21,7 @@ namespace os
 
         namespace devices
         {
+            /// @brief ATA controller device instance
             extern ata_controller* ata;
         }
     }

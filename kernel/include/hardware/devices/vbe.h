@@ -15,9 +15,12 @@ namespace os
         class vbe_controller : public device_t
         {
             private:
+                /// @brief VBE control information header
                 sys::vbe_ctrl_info_t _ctrlinfo;
+                /// @brief VBE mode information header
                 sys::vbe_mode_info_t _modeinfo;
-                size_t               _size;
+                /// @brief Size of display in bytes
+                size_t _size;
 
             public:
                 /// @brief Initialize ATA controller           
@@ -59,6 +62,7 @@ namespace os
 
         namespace devices
         {
+            /// @brief VBE controller device instance
             extern vbe_controller* vbe;
         }
     }

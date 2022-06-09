@@ -33,7 +33,7 @@ void sleep(uint32_t ms)
         uint32_t now = 0, last = 0, timer = 0;
         while (true)
         {
-            now = os::hal::pit::millis();
+            now = std::timenow().millis;
             if (now != last) { last = now; timer++; }
             if (timer >= ms) { timer = 0; return; }
         }

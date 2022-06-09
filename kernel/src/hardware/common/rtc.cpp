@@ -42,6 +42,7 @@ namespace os
             _ticks++;
             _timer++;
             _millis++;
+            _tm.millis = _millis;
             _now = _tm.second;
             if (_now != _last) { _last = _now; _millis = 0; }
             if (_timer >= 512) { _timer = 0; fetch(); }
@@ -83,6 +84,5 @@ namespace os
         }
 
         std::time_t* rtc::time() { return &_tm; }
-
     }
 }

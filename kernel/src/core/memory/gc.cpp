@@ -58,7 +58,7 @@ namespace os
         while (true)
         {
             threading::thread_monitor();
-            now = hal::pit::millis();
+            now = std::timenow().millis;
             if (now != last) { last = now; timerm++; timerc++; }
             if (timerm >= 5) { timerm = 0; lock(); merge(); unlock(); yield(); }
             if (timerc >= 50) { timerc = 0; lock(); collect(); unlock(); }
