@@ -81,7 +81,13 @@ uint32_t atox(const char* str)
 
 float atof(const char* str) { return 0.0f; }
 
-int rand() { return 0; }
+static uint32_t _rand_next = 0xFFFFFFFF;
+int rand(int max)
+{
+    if (_rand_next == 0xFFFFFFFF) { _rand_next = os::hal::pit::millis(); }
+    _rand_next = _rand_next * 1103515245 + 12345;
+    return (_rand_next / (max * 2)) % max;
+}
 
 void exit(int code) { }
 

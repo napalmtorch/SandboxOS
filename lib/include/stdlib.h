@@ -25,7 +25,7 @@ int      atoi(const char* str);
 uint32_t atol(const char* str);
 uint32_t atox(const char* str);
 float    atof(const char* str);
-int      rand();
+int      rand(int max);
 void     exit(int code);
 char*    itoa(int num, char* str, int base);
 char*    ltoa(size_t num, char* str, int base);
