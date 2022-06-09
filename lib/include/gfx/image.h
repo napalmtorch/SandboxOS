@@ -85,6 +85,10 @@ namespace std
                 void copy(int x, int y, color32 trans, image* img);
                 void copy(ivec2d_t pos, uint32_t trans, image* img);
                 void copy(ivec2d_t pos, color32 trans, image* img);
+
+            public:
+                ivec2d_t size();
+                array<uint32_t> data();
         };
     }
 }
