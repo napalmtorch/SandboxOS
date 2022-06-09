@@ -19,6 +19,12 @@ namespace os
             _dbg_serial.print_fmt("%s Enabled serial debugging on %s\n", DEBUG_OK, serial->portstr(port));
         }
 
+        void debug::disable()
+        {
+            stdout_enabled = false;
+            serial->stop();
+        }
+
         void debug::print_regs(hal::idt_registers_t* regs)
         {
             printf("EAX: 0x%8x EBX: 0x%8x ECX: 0x%8x EDX: 0x%8x\n", regs->eax, regs->ebx, regs->ecx, regs->edx);

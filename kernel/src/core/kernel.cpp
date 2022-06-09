@@ -14,9 +14,10 @@ namespace os
 {
     namespace kernel
     {
-        sys::multiboot_t multiboot;
-        memory_heap heap_small;
-        memory_heap heap_large;
+        sys::multiboot_t     multiboot;
+        kernel_args_t        start_args;
+        memory_heap          heap_small;
+        memory_heap          heap_large;
         threading::thread_t* thread;
 
         void boot()
@@ -38,6 +39,10 @@ namespace os
             bool mmdbg = false;
             memory_heap::init(mmdbg);
 
+            // parse kernel start arguments
+            start_args.has_parsed = false;
+            parse_args();
+
             // initialize thread scheduler
             threading::scheduler::init();
 
@@ -52,7 +57,16 @@ namespace os
             filesystem::init();
 
             // initialize default font
-            std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT);
+            file_t* font_file = filesystem::open_file("A:/font.bin", "r");
+            if (font_file != NULL)
+            {
+                uint8_t* data = new uint8_t[font_file->data.length()];
+                memcpy(data, font_file->data.ptr(), font_file->data.length());
+                filesystem::close_file(font_file);
+                std::FONT_DEFAULT = std::gfx::bitfont(8, 12, 1, 0, data);
+                printf("%s Loaded primary font from 'A:/font.bin'\n", DEBUG_INFO);
+            }
+            else { std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT); }
         }
 
         /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
@@ -103,6 +117,44 @@ namespace os
                 unlock();
                 threading::scheduler::yield();
             }
+        }
+
+        void parse_args()
+        {
+            // set default start arguments
+            if (!start_args.has_parsed)
+            {
+                start_args.screen_size = std::ivec2d_t(640, 480);
+            }
+
+            char* argstr = (char*)multiboot.command_line;
+            if (argstr == NULL || strlen(argstr) == 0) { printf("%s No kernel arguments specified\n", DEBUG_WARN); return; }
+            int args_count = 0;
+            char** args = strsplit(argstr, ' ', &args_count);
+
+            int pos = 0;
+            while (true)
+            {
+                if (pos >= args_count) { break; }
+
+                // screen width
+                if (!strcmp(args[pos], "-w"))
+                {
+                    if (pos + 1 >= args_count) { printf("%s Error parsing width value in kernel arguments\n", DEBUG_ERROR); break; }
+                    start_args.screen_size.x = atol(args[pos + 1]);
+                    pos += 2;
+                }
+                // screen height
+                else if (!strcmp(args[pos], "-h"))
+                {
+                    if (pos + 1 >= args_count) { printf("%s Error parsing height value in kernel arguments\n", DEBUG_ERROR); break; }
+                    start_args.screen_size.y = atol(args[pos + 1]);
+                    pos += 2;
+                }
+                else { pos++; }
+            }
+            freearray((void**)args, args_count);
+            start_args.has_parsed = true;
         }
 
         uint32_t start_addr() { return (uint32_t)&_kernel_start; }

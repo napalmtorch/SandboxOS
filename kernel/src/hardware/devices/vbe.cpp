@@ -26,7 +26,7 @@ namespace os
         void vbe_controller::start()
         {
             device_t::start();
-            set_mode(640, 480);
+            set_mode(kernel::start_args.screen_size.x, kernel::start_args.screen_size.y);
         }
         
         void vbe_controller::stop()

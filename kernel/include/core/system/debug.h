@@ -22,6 +22,8 @@ namespace os
             public:
                 /// @brief Initialize debugging interface @param port Serial port
                 static void init(hal::serial_port port);
+                /// @brief Disable debugging output
+                static void disable();
                 /// @brief Print IDT register values @param regs Pointer to register structure
                 static void print_regs(hal::idt_registers_t* regs);
                 /// @brief Print thread register values @param regs Pointer to register structure

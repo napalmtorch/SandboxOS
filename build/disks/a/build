@@ -3,6 +3,7 @@ add test.txt build/disks/a/test.txt
 add democode.gs build/disks/a/democode.gs
 add boot.cfg build/disks/a/boot.cfg
 add logo.bmp build/disks/a/logo.bmp
+add font.bin build/disks/a/font.bin
 save ramdisk.img
 print
 exit

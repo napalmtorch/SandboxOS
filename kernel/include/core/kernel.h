@@ -49,11 +49,20 @@
 
 namespace os
 {
+    typedef struct
+    {
+        std::ivec2d_t screen_size;
+        bool has_parsed;
+    } PACKED kernel_args_t;
+
     /// @brief Namespace containing object instances and methods for the kernel
     namespace kernel
     {
         /// @brief A copy of the multiboot header
         extern sys::multiboot_t multiboot;
+
+        /// @brief Starting arguments specified from bootloader
+        extern kernel_args_t start_args;
 
         /// @brief Kernel heap designated for large allocations - aligned to 4096 bytes
         extern memory_heap heap_large;
@@ -72,6 +81,9 @@ namespace os
 
         /// @brief Main loop for kernel
         void main();
+
+        /// @brief Parse kernel start arguments
+        void parse_args();
 
         /// @brief Get starting address of kernel memory @return Address value
         uint32_t start_addr();
