@@ -1,0 +1,8 @@
+newimg 536870912
+format
+
+mkdir /sys
+infile /sys/test.txt build/disks/c/test.txt
+
+saveimg ./hdd.img
+exit

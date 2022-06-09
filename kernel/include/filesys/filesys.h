@@ -58,7 +58,7 @@ namespace os
             /// @brief Custom RAMFS
             ramfs, 
             /// @brief Custom DISKFS
-            diskfs, 
+            sbfs, 
             /// @brief USTAR file system
             ustar,
             /// @brief FAT12/16/13/EX file system

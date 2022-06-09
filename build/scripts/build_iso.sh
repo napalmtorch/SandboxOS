@@ -8,7 +8,7 @@ rm "ramdisk.img"
 
 # create primary HDD
 rm "hdd.img"
-dd if=/dev/zero of="hdd.img" count=512 bs=1M
+./sbfsmgr build/disks/c/build
 
 cp 'bin/kernel.bin' 'bin/iso/boot/kernel.bin'
 cp 'ramdisk.img' 'bin/iso/boot/ramdisk.img'
