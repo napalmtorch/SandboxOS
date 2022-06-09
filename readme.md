@@ -19,6 +19,9 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - Scheduler/Threading
 - Garbage Collector
 - PIT
+- VBE
+- RTC
+- Simple Device Manager
 
 ### TO DO
 - Improve std::string
@@ -28,7 +31,5 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - ACPI
 - AHCI Disk Controller
 - USTAR/FAT32 File Systems
-- VBE
-- RTC
 - PS/2 Keyboard and mouse
 - Language Interpreter
