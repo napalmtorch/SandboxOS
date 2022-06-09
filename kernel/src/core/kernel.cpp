@@ -114,9 +114,6 @@ namespace os
                 }
                 threading::scheduler::monitor();
 
-                int r = rand(255);
-                printf("RAND: %d\n", r);
-
                 unlock();
                 threading::scheduler::yield();
             }
