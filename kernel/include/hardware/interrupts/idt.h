@@ -157,6 +157,8 @@ namespace os
             void unregister_irq(IRQ irq);
             /// @brief Acknowledge interrupt request @param regs Pointer to interrupt registers
             void ack_irq(idt_registers_t* regs);
+            /// @brief Check if interrupts are enabled
+            bool irqs_enabled();
         }
     }
 }

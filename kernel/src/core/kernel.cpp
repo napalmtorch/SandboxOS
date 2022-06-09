@@ -46,10 +46,22 @@ namespace os
 
             // start garbage collector thread
             garbage_collector::start();
-            garbage_collector::messages = false;
+            garbage_collector::messages = true;
 
             // initialize filesystem
             filesystem::init();
+
+            // initialize default font
+            std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT);
+        }
+
+        /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
+        void before_main()
+        {
+            lock();
+            filesystem::file_parsers::config_parser cfg_parser("A:/boot.cfg");
+            if (!cfg_parser.tokenize()) { printf("%s Config parser failed to tokenize file\n", DEBUG_ERROR); }
+            unlock();
         }
 
         void main()
@@ -63,12 +75,20 @@ namespace os
             unlock();
 
             uint32_t seconds = 0, now = 0, last = 0;
+            char tmstr[32];
             while (true)
             {
                 lock();
-
-                now = hal::pit::seconds();
-                if (now != last) { last = now; seconds++; printf("SECONDS SINCE START: %u\n", seconds); }
+                std::time_t tm = std::timenow();
+                now = tm.second;
+                if (now != last)
+                { 
+                    last = now; 
+                    seconds++; 
+                    uint32_t memused = heap_large.calc_used() + heap_small.calc_used();
+                    memset(tmstr, 0, sizeof(tmstr));
+                    printf("TM: %s, RUNTIME:%u, MEM:%u/%u KB, THREADS: %u\n", std::timestr(tm, tmstr, std::time_format::standard, true), seconds, memused / KB, memtotal / KB, threading::scheduler::threads()->length());
+                }
 
                 unlock();
                 threading::scheduler::yield();
@@ -97,6 +117,7 @@ EXTC
         os::kernel::boot();
         
         os::threading::scheduler::ready();
+        os::kernel::before_main();
         os::kernel::main();
     }
 }

@@ -37,6 +37,11 @@ cdir="kernel/src/asm/" outdir="bin/kernel/objs/" inf="contextsw.asm" outf="conte
 nasm -felf32 "$cdir$inf" -o "$outdir$outf"
 echo "$nmsgl$cdir$inf$cmsgm$outdir$outf$cmsge"
 
+# realmode.asm
+cdir="kernel/src/asm/" outdir="bin/kernel/objs/" inf="realmode.asm" outf="realmode.o"
+nasm -felf32 "$cdir$inf" -o "$outdir$outf"
+echo "$nmsgl$cdir$inf$cmsgm$outdir$outf$cmsge"
+
 
 # ----------------------------------------------- KERNEL --------------------------------------------------------------
 cdir="kernel/src/"

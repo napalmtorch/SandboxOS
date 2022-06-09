@@ -16,10 +16,9 @@ void __ubsan_handle_out_of_bounds(ubsan_outofbounds_t* info, uintptr_t pointer)
 
 void __ubsan_handle_type_mismatch(ubsan_typemismatch_t* info, uintptr_t pointer)
 {
-    printf("%s Type Mismatch Exception\n", DEBUG_ERROR); 
-    if (pointer == 0) { printf("Null pointer access\n"); }
-    else if (info->alignment != 0 && is_aligned(pointer, info->alignment)) { printf("Unaligned memory access\n"); }
-    else { printf("Insufficient size - "); printf("%s address 0x%8x with insufficient space for object of type %s\n", ubsan_typecheck_kinds[info->type_check], pointer, info->type->name); }
+    if (pointer == 0) { printf("%s Type Mismatch Exception\n", DEBUG_ERROR); printf("Null pointer access\n"); }
+    else if (info->alignment != 0 && is_aligned(pointer, info->alignment)) { printf("%s Type Mismatch Exception\n", DEBUG_ERROR); printf("Unaligned memory access\n"); }   
+    else { return; } 
     perror("LINE: %d COL: %d FILE: '%s'\n", info->location.line, info->location.column, info->location.file);
 }
 

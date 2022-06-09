@@ -6,16 +6,22 @@
 
 namespace std
 {
+    /// @brief Template class for creating dynamically-sized lists
     template<typename T> class arraylist
     {
         private:
+            /// @brief Pointer to list of items
             T*     _items;
-            size_t _len;
-            T      _dummy;
+            /// @brief Amount if items in list
+            size_t _len;  
+            /// @brief Dummy value for returning from failed methods
+            T _dummy;
 
         public:
+            /// @brief Create a new array list
             arraylist() { this->_items = nullptr; this->_len = 0; }
 
+            /// @brief Create an arraylist with existing properties @param data Pointer to data @param len Amount of entries @param bool Create a new copy of data
             arraylist(T* items, size_t len, bool copy = false)
             {
                 this->_len = len;
@@ -23,6 +29,7 @@ namespace std
                 else { this->_items = items; }
             }
 
+            /// @brief Dispose arraylist items and reset properties
             void dispose()
             {
                 if (this->_items != NULL) { free(this->_items); }
@@ -30,6 +37,7 @@ namespace std
                 this->_len   = 0;
             }
 
+            /// @brief Clear all entries from arraylist
             void clear() { dispose(); }
 
             void add(T item)
@@ -41,6 +49,7 @@ namespace std
                 this->_len++;
             }
 
+            /// @brief Remove item in list at specified index @param index Index of item @return Successfully removed item
             bool remove_at(int index)
             {
                 if (this->_len == 0 || this->_items == NULL) { return false; }
@@ -56,6 +65,7 @@ namespace std
                 return true;
             }
 
+            /// @brief Access value in list by index @param index Index of item
             T& operator[](int index) { return at(index); }
 
         public:
@@ -66,10 +76,13 @@ namespace std
                 return this->_items[index];
             }
 
-            T* data() { return this->_items; }
+            /// @brief Get pointer to data list @return Pointer to data
+            T* ptr() { return this->_items; }
 
+            /// @brief Get amount of entries
             size_t length() { return this->_len; }
 
+            /// @brief Return an array representation of this list @return Array containing data with matching list pointer
             array<T> to_array() { return array<T>(this->_items, this->_len); }
     };
 }

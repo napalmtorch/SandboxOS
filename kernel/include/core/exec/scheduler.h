@@ -37,6 +37,9 @@ namespace os
                 /// @brief Allow scheduler to start context switching
                 static void ready();
 
+                /// @brief Stop scheduler from context switching
+                static void unready();
+
                 /// @brief Perform context switch into the next thread in the queue
                 static void yield();
 

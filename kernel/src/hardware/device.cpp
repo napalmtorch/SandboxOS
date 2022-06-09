@@ -14,12 +14,14 @@ namespace os
         {
             if (_running) { return; }
             _running = true;
+            printf("%s Started driver for device 0x%8x('%s')\n", DEBUG_OK, _id, _name);
         }
 
         void device_t::stop()
         {
             if (!_running) { return; }
             _running = false;
+            printf("%s Stopped driver for device 0x%8x('%s')\n", DEBUG_INFO, _id, _name);
         }
 
         void device_t::set_info(char* name, uint32_t id)

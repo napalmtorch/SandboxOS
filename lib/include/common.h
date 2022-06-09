@@ -15,3 +15,4 @@ EXTC
 void lock();
 void unlock();
 void yield();
+void sleep(uint32_t ms);

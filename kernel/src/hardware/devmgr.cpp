@@ -30,8 +30,16 @@ namespace os
             // initialize pit
             hal::pit::init();
 
+            // initialize rtc
+            hal::rtc::init();
+
             // install ata
-            install(new hal::ata_controller());
+            devices::ata = new hal::ata_controller();
+            install(devices::ata);
+
+            // install vbe
+            devices::vbe = new hal::vbe_controller();
+            install(devices::vbe);
         }
 
         void device_manager::probe_pci()

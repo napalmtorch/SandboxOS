@@ -20,7 +20,7 @@ void* memchr(const void* str, int c, size_t n)
     return find;
 }
 
-int memcmp(const void* str1, const char* str2, size_t size)
+int memcmp(const void* str1, const void* str2, size_t size)
 {
     int r = 0;
     uint8_t* x = (uint8_t*)str1;
@@ -108,6 +108,7 @@ char* strchr(const char* str, int c)
 
 int strcmp(const char* str1, const char* str2)
 {
+    if (str1 == NULL && str1 != str2) { return 1; }
     while (*str1)
     {
         if (*str1 != *str2) { break; }
@@ -118,6 +119,7 @@ int strcmp(const char* str1, const char* str2)
 
 int strncmp(const char* str1, const char* str2, size_t n)
 {
+    if (str1 == NULL || str2 == NULL) { return 1; }
     while (n && *str1 && (*str1 == *str2))
     {
         ++str1;
@@ -152,6 +154,7 @@ size_t strcspn(const char* str1, const char* str2)
 
 size_t strlen(const char* str)
 {
+    if (str == NULL) { return 0; }
     uint32_t len = 0;
     while (str[len] != 0) { len++; }
     return len;

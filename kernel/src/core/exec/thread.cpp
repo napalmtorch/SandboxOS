@@ -24,12 +24,13 @@ namespace os
 
         void thread_exit()
         {
-            asm volatile("cli");
             register int eax asm("eax");
             int exit_code = eax;
+            bool ints = hal::idt::irqs_enabled();
+            if (ints) { asm volatile("cli"); }
             THREAD->flags.terminated = true;
             printf("Thread %u('%s') exited with code %u\n", THREAD->id, THREAD->name, exit_code);
-            asm volatile("sti");
+            if (ints) { asm volatile("sti"); }
             while (true) { scheduler::yield(); }
         }
 

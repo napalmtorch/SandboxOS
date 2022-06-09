@@ -44,6 +44,16 @@ double pow(double x, int y)
     }
 }
 
+double fmod(double x, double y)
+{
+    return x - trunc(x / y) * y;
+}
+
+double trunc(double x)
+{
+    return x < 0 ? -floor(-x) : floor(x);
+}
+
 #ifdef __cplusplus
 }
 #endif

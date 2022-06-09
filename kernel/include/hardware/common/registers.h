@@ -23,4 +23,7 @@ EXTC
 
     /// @brief Read value from CR0 register @return CR4 value
     extern uint32_t _read_cr4();
+
+    /// @brief Read value from EFLAGS register @return ELAGS value
+    extern uint32_t _read_eflags();
 }
