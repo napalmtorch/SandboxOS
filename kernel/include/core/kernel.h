@@ -15,6 +15,12 @@
 #include <time.h>
 #include <hash.h>
 #include <hashmap.h>
+#include <gfx/color.h>
+#include <gfx/font.h>
+#include <gfx/image.h>
+#include <gfx/primitives/vec2d.h>
+#include <gfx/primitives/vec3d.h>
+#include <gfx/primitives/rectangle.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
@@ -27,6 +33,8 @@
 #include <hardware/device.h>
 #include <hardware/devmgr.h>
 #include <hardware/devices/ata.h>
+#include <hardware/devices/vbe.h>
+#include <hardware/common/realmode.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>
 #include <hardware/common/registers.h>

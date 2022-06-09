@@ -188,6 +188,55 @@ namespace os
                 printf("%s Tokenizer test passed\n", DEBUG_OK);
                 return true;
             }
+
+            bool test_vbe_iter(hal::vbe_controller* vbe, int w, int h, int test_time)
+            {
+                std::array<uint32_t> data = std::array<uint32_t>(w * h);
+                memset(data.ptr(), 0xFF007F7F, w * h * 4);
+
+                vbe->set_mode(w, h);
+                if (vbe->modeinfo().width != w || vbe->modeinfo().height != h) { return false; }
+                sleep(test_time);
+
+                vbe->clear(0xFFFFFFFF);
+                sleep(test_time);
+
+                vbe->blit(vbe->modeinfo().width / 2, vbe->modeinfo().height / 2, 0xFF000000);
+                if (vbe->get_pixel(vbe->modeinfo().width / 2, vbe->modeinfo().height / 2) != 0xFF000000) { return false; }
+                sleep(test_time);
+
+                vbe->rect_filled(32, 16, 64, 32, 0xFFFF0000);
+                sleep(test_time);
+
+                vbe->putc(vbe->modeinfo().width - std::FONT_DEFAULT.width(), vbe->modeinfo().height - std::FONT_DEFAULT.height(), 'X', std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+                sleep(test_time);
+
+                vbe->putstr(0, 0, "Hello world", std::FONT_DEFAULT, 0xFFFFFF00, 0xFF00003F);
+                sleep(test_time);
+
+                vbe->copy(0, 0, w, h, data.ptr());
+                sleep(test_time);
+
+                data.dispose();
+                sleep(test_time);
+                return true;
+            }
+
+            bool test_vbe(int iterations, int test_time)
+            {
+                hal::vbe_controller* vbe = hal::devices::vbe;
+                int oldw = vbe->modeinfo().width, oldh = vbe->modeinfo().height;
+                for (int i = 0; i < iterations; i++)
+                {
+                    if (!test_vbe_iter(vbe, 640,  480, test_time)) { perror("VBE test failed"); return false; }
+                    if (!test_vbe_iter(vbe, 800,  600, test_time)) { perror("VBE test failed"); return false; }
+                    if (!test_vbe_iter(vbe, 1024, 768, test_time)) { perror("VBE test failed"); return false; }
+                }
+                vbe->set_mode(oldw, oldh);
+                vbe->clear(0xFF000000);
+                if (vbe->modeinfo().width != oldw || vbe->modeinfo().height != oldh) { perror("VBE test failed"); return false; }
+                else { printf("%s VBE test passed\n", DEBUG_OK); return true; }
+            }
         }
     }
 }

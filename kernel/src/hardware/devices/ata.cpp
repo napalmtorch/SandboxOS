@@ -5,6 +5,11 @@ namespace os
 {
     namespace hal
     {
+        namespace devices
+        {
+            ata_controller* ata;
+        }
+
         void ata_controller::init()
         {
             device_t::init();

@@ -20,7 +20,7 @@ void* memchr(const void* str, int c, size_t n)
     return find;
 }
 
-int memcmp(const void* str1, const char* str2, size_t size)
+int memcmp(const void* str1, const void* str2, size_t size)
 {
     int r = 0;
     uint8_t* x = (uint8_t*)str1;

@@ -22,6 +22,9 @@ namespace os
 
             /// @brief Test functionality of language tokenizer @param iterations Times to loop @return Test has passed
             bool test_tokenizer(int iterations);
+
+            /// @brief Test functionality of vbe controller @param iterations Times to loop @return Test has passed
+            bool test_vbe(int iterations, int test_time);
         }
     }
 }

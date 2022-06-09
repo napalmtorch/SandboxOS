@@ -18,5 +18,10 @@ namespace os
                 /// @brief Stop ATA controller driver
                 void stop() override;
         };
+
+        namespace devices
+        {
+            extern ata_controller* ata;
+        }
     }
 }
