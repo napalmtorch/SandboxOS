@@ -14,14 +14,16 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - GDT/IDT
 - Physical Memory Manager
 - Heap Allocator
-- RAMFS
+- Custom RAMFS and Disk Creation Utility
 - VFS Abstraction Layer
-- Scheduler/Threading
-- Garbage Collector
-- PIT
-- VBE
-- RTC
 - Simple Device Manager
+- Preemptive Scheduler/Threading
+- Garbage Collector
+- PIT Timer
+- VBE Graphics Driver
+- RTC
+- ATAPIO
+- Dynamic source code tokenizer
 
 ### TO DO
 - Improve std::string
