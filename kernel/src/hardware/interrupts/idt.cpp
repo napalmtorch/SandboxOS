@@ -33,7 +33,8 @@ EXTC
         if (regs->irq >= count) { printf("%s Unknown Exception\n", DEBUG_ERROR); }
         else { printf("%s %s Exception\n", DEBUG_ERROR, os::hal::EXCEPTION_MSGS[regs->irq]); }
         os::sys::debug::print_regs(regs);
-        asm volatile("hlt");
+        if (THREAD == NULL) { asm volatile("hlt"); }
+        else { os::threading::scheduler::terminate(THREAD); asm volatile("sti"); }
     }
 
     void irq_handler(os::hal::idt_registers_t* regs)

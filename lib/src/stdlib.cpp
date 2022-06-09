@@ -221,7 +221,8 @@ char* strerror(int errnum)
 
 void perror(const char* str, ...)
 {
-    asm volatile("cli");
+    bool ints = os::hal::idt::irqs_enabled();
+    if (ints) { asm volatile("cli"); }
     printf("%s ", DEBUG_ERROR);
     va_list args;
     va_start(args, str);
@@ -229,7 +230,8 @@ void perror(const char* str, ...)
     printf("\n");
     os::sys::debug::print_regs(&THREAD->registers);
     va_end(args);
-    asm volatile("hlt");
+    if (THREAD == NULL) { asm volatile("hlt"); }
+    else { os::threading::scheduler::terminate(THREAD); if (ints) { asm volatile("sti"); } }
 }
 
 #ifdef __cplusplus

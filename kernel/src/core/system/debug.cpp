@@ -68,7 +68,6 @@ namespace os
             memset(temp, 0, sizeof(temp));
             memset(temp2, 0, sizeof(temp2));
             strcat(temp2, "THREADS   - ");
-            strcat(temp2, "RAM USAGE - ");
             strcat(temp2, ltoa(threading::scheduler::threads()->length(), temp, 10));
             hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 

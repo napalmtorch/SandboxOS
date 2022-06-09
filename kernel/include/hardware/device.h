@@ -27,7 +27,7 @@ namespace os
                 virtual void start();
                 virtual void stop();
 
-            protected:
+            public:
                 void set_info(char* name, uint32_t id);
 
             public:

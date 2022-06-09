@@ -57,14 +57,15 @@ namespace os
             filesystem::init();
 
             // initialize default font
-            file_t* font_file = filesystem::open_file("A:/font.bin", "r");
+            const char* font_fname = "A:/font_thin.bin";
+            file_t* font_file = filesystem::open_file(font_fname, "r");
             if (font_file != NULL)
             {
                 uint8_t* data = new uint8_t[font_file->data.length()];
                 memcpy(data, font_file->data.ptr(), font_file->data.length());
                 filesystem::close_file(font_file);
-                std::FONT_DEFAULT = std::gfx::bitfont(8, 12, 1, 0, data);
-                printf("%s Loaded primary font from 'A:/font.bin'\n", DEBUG_INFO);
+                std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, data);
+                printf("%s Loaded primary font from '%s'\n", DEBUG_INFO, font_fname);
             }
             else { std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT); }
         }
