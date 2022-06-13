@@ -30,7 +30,9 @@ namespace os
             /// @brief The statement is an operand.
             operand,
             /// @brief The statement is a block.
-            block
+            block,
+            /// @brief The statement is a function call.
+            function_call
         };
         /// @brief class representing a statement.
         class statement_t
@@ -607,6 +609,54 @@ namespace os
             inline std::arraylist<statement_t*> statements() const
             {
                 return _statements;
+            }
+        };
+        /// @brief class representing a function call.
+        class function_call_t: public statement_t
+        {
+        private:
+            /// @brief the function call's name.
+            std::string _name;
+            /// @brief the function call's arguments.
+            std::arraylist<statement_t*> _arguments;
+            /// @brief internal function to dispose the statement.
+            inline void internal_dispose() override
+            {
+                _name.dispose();
+                for (int i = 0; i < _arguments.length(); i++)
+                {
+                    auto argument = _arguments[i];
+                    argument->dispose();
+                    delete argument;
+                }
+                _arguments.dispose();
+            }
+        public:
+            /// @brief constructor.
+            inline function_call_t(std::string name)
+            : statement_t(statement_type::function_call) 
+            {
+                _name = name;
+            }
+            /// @brief destructor.
+            inline ~function_call_t()
+            {
+            }
+        public:
+            /// @brief add an argument to the function call.
+            inline void add_argument(statement_t* argument)
+            {
+                _arguments.add(argument);
+            }
+            /// @brief get the function call's name.
+            inline std::string name() const
+            {
+                return _name;
+            }
+            /// @brief get the function call's arguments.
+            inline std::arraylist<statement_t*> arguments() const
+            {
+                return _arguments;
             }
         };
     }
