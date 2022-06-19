@@ -22,6 +22,8 @@
 #include <gfx/image.h>
 #include <gfx/primitives/vec2d.h>
 #include <gfx/primitives/rectangle.h>
+#include <gui/control.h>
+#include <gui/container.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
@@ -38,6 +40,9 @@
 #include <hardware/pci.h>
 #include <hardware/devices/ata.h>
 #include <hardware/devices/vbe.h>
+#include <hardware/devices/ps2.h>
+#include <hardware/devices/keyboard.h>
+#include <hardware/devices/mouse.h>
 #include <hardware/common/realmode.h>
 #include <hardware/common/ports.h>
 #include <hardware/common/serial.h>

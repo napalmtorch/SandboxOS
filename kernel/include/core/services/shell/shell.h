@@ -24,6 +24,10 @@ namespace os
                 void dispose();
                 void start();
 
+            public:
+                void update();
+                void draw();
+
             private:
                 static int main(int argc, char** argv);
             

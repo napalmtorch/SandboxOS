@@ -8,6 +8,10 @@ namespace os
         void shell_host::init()
         {
             framebuffer = std::gfx::image(hal::devices::vbe->modeinfo().width, hal::devices::vbe->modeinfo().height);
+            if (sys::assets::bg_default.data().ptr() != NULL)
+            {
+                if (!sys::assets::bg_default.size().equals(framebuffer.size())) { sys::assets::bg_default.resize(framebuffer.size()); }
+            }
             printf("%s Initialized shell instance\n", DEBUG_OK);
         }
 
@@ -27,6 +31,22 @@ namespace os
             printf("%s Started shell host service\n", DEBUG_OK);
         }
 
+        void shell_host::update()
+        {
+            
+        }
+
+        void shell_host::draw()
+        {
+            if (sys::assets::bg_default.data().ptr() == NULL) { framebuffer.clear(std::color32::dark_cyan); }
+            else { framebuffer.copy(0, 0, &sys::assets::bg_default); }
+            sys::debug::draw_overlay(&framebuffer);
+
+            framebuffer.copy(std::mspos(), std::color32::magenta, &sys::assets::mscur_default);
+
+            hal::devices::vbe->copy(0, 0, framebuffer.size().x, framebuffer.size().y, framebuffer.data().ptr());
+        }
+
         int shell_host::main(int argc, char** argv)
         {
             shell_host* shell = (shell_host*)argv[0];
@@ -44,6 +64,7 @@ namespace os
             {                
                 lock();
                 threading::thread_monitor();     
+                shell->update();
 
                 now = std::timenow().second;
                 if (now != last)
@@ -62,16 +83,12 @@ namespace os
                 sw_now = hal::pit::millis();
                 if (sw_now != sw_last) { sw_last = sw_now; sw_timer++; }           
                 if (sw_timer == 3 || sw_timer == 6) { unlock(); threading::scheduler::yield(); }
-                if (sw_timer >= 16)
+                if (sw_timer >= 15)
                 {
                     lock();
                     frames++;
                     sw_timer = 0;                
-                    shell->framebuffer.clear(std::color32::dark_cyan);
-                    sys::debug::draw_overlay(&shell->framebuffer);
-                    hal::devices::vbe->copy(0, 0, shell->framebuffer.size().x, shell->framebuffer.size().y, shell->framebuffer.data().ptr());
-                    unlock();
-                    threading::scheduler::yield();
+                    shell->draw();
                 }
 
                 unlock();

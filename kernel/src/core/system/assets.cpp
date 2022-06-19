@@ -12,6 +12,13 @@ namespace os
             std::gfx::bitfont font_thin;
 
             std::gfx::image img_logo;
+            std::gfx::image bg_default;
+            std::gfx::image tbar_icons;
+            std::gfx::image mscur_default;
+            std::gfx::image mscur_hand;
+            std::gfx::image mscur_grab;
+            std::gfx::image mscur_caret;
+            std::gfx::image mscur_wait;
 
             std::gfx::bitfont load_font(const char* fname, int w, int h, int sx, int sy)
             {
@@ -33,13 +40,18 @@ namespace os
                 font_square = load_font("A:/font.bin", 8, 14, 1, 0);
                 font_comic  = load_font("A:/font_comic.bin", 8, 16, 1, 0);
                 font_thin   = load_font("A:/font_thin.bin", 8, 14, 1, 0);
-                img_logo    = std::gfx::image("A:/logo.bmp");
 
-                if (font_thin.data() != NULL && font_thin.width(false) > 0)
-                {
-                    std::FONT_DEFAULT = font_thin;
-                }
+                if (font_thin.data() != NULL && font_thin.width(false) > 0) { std::FONT_DEFAULT = font_thin; }
                 else { std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT); }
+
+                img_logo      = std::gfx::image("A:/logo.bmp");
+                bg_default    = std::gfx::image("A:/bg.bmp");
+                tbar_icons    = std::gfx::image("A:/tbar.bmp");
+                mscur_default = std::gfx::image("A:/mscur_default.bmp");
+                mscur_grab    = std::gfx::image("A:/mscur_grab.bmp");
+                mscur_caret   = std::gfx::image("A:/mscur_caret.bmp");
+                mscur_hand    = std::gfx::image("A:/mscur_hand.bmp");
+                mscur_wait    = std::gfx::image("A:/mscur_wait.bmp");
 
                 printf("%s Finished loading assets\n", DEBUG_OK);
             }

@@ -1,11 +1,17 @@
 create 16777216
-add test.txt build/disks/a/test.txt
 add democode.gs build/disks/a/democode.gs
 add boot.cfg build/disks/a/boot.cfg
 add logo.bmp build/disks/a/logo.bmp
 add font.bin build/disks/a/font.bin
 add font_comic.bin build/disks/a/font_comic.bin
 add font_thin.bin build/disks/a/font_thin.bin
+add bg.bmp build/disks/a/bg.bmp
+add mscur_caret.bmp build/disks/a/mscur_caret.bmp
+add mscur_default.bmp build/disks/a/mscur_default.bmp
+add mscur_grab.bmp build/disks/a/mscur_grab.bmp
+add mscur_hand.bmp build/disks/a/mscur_hand.bmp
+add mscur_wait.bmp build/disks/a/mscur_wait.bmp
+add tbar.bmp build/disks/a/tbar.bmp
 save ramdisk.img
 print
 exit

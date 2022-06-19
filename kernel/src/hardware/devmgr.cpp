@@ -43,6 +43,17 @@ namespace os
             devices::ata = new hal::ata_controller();
             install(devices::ata);
 
+            // install keyboard
+            devices::kbd = new hal::ps2_keyboard();
+            install(devices::kbd);
+            
+            // install mouse
+            devices::mouse = new hal::ps2_mouse();
+            install(devices::mouse);
+
+            // initialized ps/2 controller
+            ps2_controller::init();
+
             // install vbe
             pcihdr_t* vbe_device = pci_controller::fetch(0x1234, 0x1111);
             if (vbe_device == NULL) { printf("%s Failed to locate VBE compatible device\n", DEBUG_ERROR); }
