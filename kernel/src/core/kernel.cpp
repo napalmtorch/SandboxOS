@@ -68,7 +68,10 @@ namespace os
         /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
         void before_main()
         {
-
+            lock();
+            filesystem::parsing::ini_parser ini("A:/boot.ini");
+            ini.run();
+            unlock();
         }
 
         void main()

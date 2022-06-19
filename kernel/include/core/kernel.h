@@ -58,7 +58,9 @@
 #include <hardware/interrupts/pic.h>
 #include <filesys/filesys.h>
 #include <filesys/types/ramfs.h>
+#include <filesys/parsing/token.h>
 #include <filesys/parsing/bitmap.h>
+#include <filesys/parsing/ini_parser.h>
 
 namespace os
 {

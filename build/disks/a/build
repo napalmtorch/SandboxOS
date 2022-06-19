@@ -1,6 +1,6 @@
 create 16777216
 add democode.gs build/disks/a/democode.gs
-add boot.cfg build/disks/a/boot.cfg
+add boot.ini build/disks/a/boot.ini
 add logo.bmp build/disks/a/logo.bmp
 add font.bin build/disks/a/font.bin
 add font_comic.bin build/disks/a/font_comic.bin

@@ -23,6 +23,8 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - VBE Graphics Driver
 - RTC
 - ATAPIO
+- PS/2 Keyboard and mouse
+- GUI(Event-based controls)
 - PCI Device Emumeration
 - Dynamic source code tokenizer
 
@@ -33,6 +35,5 @@ To add additional files to the RAMDISK image, use the 'add' command in the RAMDI
 - ACPI
 - AHCI Disk Controller
 - USTAR/FAT32 File Systems
-- PS/2 Keyboard and mouse
 - Parsers for (.json, .cfg)
 - Language Interpreter

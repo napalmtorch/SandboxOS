@@ -231,7 +231,15 @@ void perror(const char* str, ...)
     os::sys::debug::print_regs(&THREAD->registers);
     va_end(args);
     if (THREAD == NULL) { asm volatile("hlt"); }
-    else { os::threading::scheduler::terminate(THREAD); if (ints) { asm volatile("sti"); } }
+    else 
+    { 
+        if (THREAD->id > 0)
+        {
+            os::threading::scheduler::terminate(THREAD); 
+            if (ints) { asm volatile("sti"); } 
+        }
+        else { asm volatile("hlt"); }
+    }
 }
 
 #ifdef __cplusplus
