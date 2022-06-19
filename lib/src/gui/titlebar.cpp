@@ -77,9 +77,9 @@ namespace std
         {
             control::render();
 
-            _info.parent->framebuffer.copy(btn_close->bounds()->x + 4, btn_close->bounds()->y + 3, irect_t(0, 0, 8, 8), color32::magenta, &os::sys::assets::tbar_icons);
-            _info.parent->framebuffer.copy(btn_max->bounds()->x + 3, btn_max->bounds()->y + 3, irect_t(9, 0, 9, 9), color32::magenta, &os::sys::assets::tbar_icons);
-            _info.parent->framebuffer.copy(btn_min->bounds()->x + 4, btn_min->bounds()->y + 3, irect_t(18, 0, 9, 9), color32::magenta, &os::sys::assets::tbar_icons);
+            if (btn_close != NULL) { _info.parent->framebuffer.copy(btn_close->bounds()->x + 4, btn_close->bounds()->y + 3, irect_t(0, 0, 8, 8), color32::magenta, &os::sys::assets::tbar_icons); }
+            if (btn_max != NULL)   { _info.parent->framebuffer.copy(btn_max->bounds()->x + 3, btn_max->bounds()->y + 3, irect_t(9, 0, 9, 9), color32::magenta, &os::sys::assets::tbar_icons); }
+            if (btn_min != NULL)   { _info.parent->framebuffer.copy(btn_min->bounds()->x + 4, btn_min->bounds()->y + 3, irect_t(18, 0, 9, 9), color32::magenta, &os::sys::assets::tbar_icons); }
         }
 
         void titlebar::handle_movement()
