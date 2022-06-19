@@ -41,7 +41,7 @@ namespace os
             printf("CR0: 0x%8x CR2: 0x%8x CR3: 0x%8x CR4: 0x%8x\n", _read_cr0(), _read_cr2(), _read_cr3(), _read_cr4());
         }
 
-        void debug::draw_overlay()
+        void debug::draw_overlay(std::gfx::image* img)
         {
             int yy = 0;
             char temp[64];
@@ -54,7 +54,7 @@ namespace os
             std::timestr(now, temp, std::time_format::standard, true);
             strcat(temp2, "TIME      - ");
             strcat(temp2, temp);
-            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 
             // uptime
             memset(temp, 0, sizeof(temp));
@@ -62,14 +62,21 @@ namespace os
             strcat(temp2, "UPTIME    - ");
             strcat(temp2, ltoa(hal::pit::seconds(), temp, 10));
             strcat(temp2, "s");
-            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 
             // threads
             memset(temp, 0, sizeof(temp));
             memset(temp2, 0, sizeof(temp2));
             strcat(temp2, "THREADS   - ");
             strcat(temp2, ltoa(threading::scheduler::threads()->length(), temp, 10));
-            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+
+            // fps
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            strcat(temp2, "FPS       - ");
+            strcat(temp2, ltoa(kernel::shell->fps(), temp, 10));
+            img->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 
             // memory usage
             memset(temp, 0, sizeof(temp));
@@ -80,10 +87,10 @@ namespace os
             memset(temp, 0, sizeof(temp));
             strcat(temp2, ltoa((kernel::heap_large.data_size() + kernel::heap_small.data_size()) / KB, temp, 10));
             strcat(temp2, " KB");
-            hal::devices::vbe->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(0, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 
             // kernel
-            hal::devices::vbe->putstr(0, 15 * yy, "KERNEL    - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(0, 15 * yy, "KERNEL    - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
             memset(temp, 0, sizeof(temp));
             memset(temp2, 0, sizeof(temp2));
             strcat(temp2, "CPU: ");
@@ -93,20 +100,36 @@ namespace os
             memset(temp, 0, sizeof(temp));
             strcat(temp2, ltoa(kernel::heap_large.calc_used(kernel::thread) + kernel::heap_small.calc_used(kernel::thread), temp, 10));
             strcat(temp2, " bytes");
-            hal::devices::vbe->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
 
             // gc
-            hal::devices::vbe->putstr(0, 15 * yy, "GCOLLECT  - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            if (garbage_collector::thread != NULL)
+            {
+                img->putstr(0, 15 * yy, "GCOLLECT  - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+                memset(temp, 0, sizeof(temp));
+                memset(temp2, 0, sizeof(temp2));
+                strcat(temp2, "CPU: ");
+                if (garbage_collector::thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
+                strcat(temp2, ltoa(garbage_collector::thread->time.cpu_usage, temp, 10));
+                strcat(temp2, "% MEM: ");
+                memset(temp, 0, sizeof(temp));
+                strcat(temp2, ltoa(kernel::heap_large.calc_used(garbage_collector::thread) + kernel::heap_small.calc_used(garbage_collector::thread), temp, 10));
+                strcat(temp2, " bytes");
+                img->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            }
+
+            // shell
+            img->putstr(0, 15 * yy, "SHELL     - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
             memset(temp, 0, sizeof(temp));
             memset(temp2, 0, sizeof(temp2));
             strcat(temp2, "CPU: ");
-            if (garbage_collector::thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
-            strcat(temp2, ltoa(garbage_collector::thread->time.cpu_usage, temp, 10));
+            if (kernel::shell->thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
+            strcat(temp2, ltoa(kernel::shell->thread->time.cpu_usage, temp, 10));
             strcat(temp2, "% MEM: ");
             memset(temp, 0, sizeof(temp));
-            strcat(temp2, ltoa(kernel::heap_large.calc_used(garbage_collector::thread) + kernel::heap_small.calc_used(garbage_collector::thread), temp, 10));
+            strcat(temp2, ltoa(kernel::heap_large.calc_used(kernel::shell->thread) + kernel::heap_small.calc_used(kernel::shell->thread), temp, 10));
             strcat(temp2, " bytes");
-            hal::devices::vbe->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            img->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
         }
     }
 }

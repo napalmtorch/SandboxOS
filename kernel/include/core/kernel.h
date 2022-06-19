@@ -15,6 +15,8 @@
 #include <time.h>
 #include <hash.h>
 #include <hashmap.h>
+#include <memops.h>
+#include <dictionary.h>
 #include <gfx/color.h>
 #include <gfx/font.h>
 #include <gfx/image.h>
@@ -30,6 +32,7 @@
 #include <core/exec/thread.h>
 #include <core/exec/scheduler.h>
 #include <core/exec/interpreter/tokenizer.h>
+#include <core/services/shell/shell.h>
 #include <hardware/device.h>
 #include <hardware/devmgr.h>
 #include <hardware/pci.h>
@@ -46,7 +49,6 @@
 #include <hardware/interrupts/pic.h>
 #include <filesys/filesys.h>
 #include <filesys/types/ramfs.h>
-#include <filesys/parsing/config_parser.h>
 #include <filesys/parsing/bitmap.h>
 
 namespace os
@@ -74,6 +76,9 @@ namespace os
 
         /// @brief Kernel thread instance
         extern threading::thread_t* thread;
+
+        /// @brief Primary shell instance
+        extern services::shell_host* shell;
         
         /// @brief Boot sequence for kernel - initializes debugging, memory, threading, and devices
         void boot();

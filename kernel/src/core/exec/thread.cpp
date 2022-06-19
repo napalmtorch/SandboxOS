@@ -43,6 +43,9 @@ namespace os
             t->stack     = std::array<uint8_t>(stacksz < 0x1000 ? 0x1000 : stacksz);
             t->protocol  = protocol;
 
+            memfetch(t->stack.ptr())->thread = t;
+            if (t->arguments.ptr() != nullptr) { memfetch(t->arguments.ptr())->thread = t; }
+
             uint32_t* stk = (uint32_t*)((uint32_t)t->stack.ptr() + (t->stack.length() - sizeof(thread_regs_t) - 20));
             *--stk = (uint32_t)t;
             *--stk = (uint32_t)argv;

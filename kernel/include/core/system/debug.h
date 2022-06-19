@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <gfx/image.h>
 #include <hardware/common/serial.h>
 #include <hardware/interrupts/idt.h>
 #include <core/exec/thread.h>
@@ -31,7 +32,7 @@ namespace os
 
             public:
                 /// @brief Draw VBE graphical overlay containing debugging information
-                static void draw_overlay();
+                static void draw_overlay(std::gfx::image* img);
         };
     }
 }

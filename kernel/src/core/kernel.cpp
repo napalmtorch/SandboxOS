@@ -14,11 +14,12 @@ namespace os
 {
     namespace kernel
     {
-        sys::multiboot_t     multiboot;
-        kernel_args_t        start_args;
-        memory_heap          heap_small;
-        memory_heap          heap_large;
-        threading::thread_t* thread;
+        sys::multiboot_t      multiboot;
+        kernel_args_t         start_args;
+        memory_heap           heap_small;
+        memory_heap           heap_large;
+        threading::thread_t*  thread;
+        services::shell_host* shell;
 
         void boot()
         {
@@ -58,37 +59,28 @@ namespace os
 
             // load assets
             sys::assets::load();
+
+            // start shell
+            shell = new services::shell_host();
+            shell->start();
         }
 
         /// @internal NICO - this is probably where you wanna test the interpreter, as there is no garbage collection in the boot function xDDD
         void before_main()
         {
-            
+
         }
 
         void main()
         {
             lock();
             printf("%s Entered kernel main\n", DEBUG_OK);
-
             unlock();
 
-            uint32_t now = 0, last = 0;
-            char tmstr[32];
             while (true)
-            {                
+            {
                 lock();
-                threading::thread_monitor();
-                now = std::timenow().second;
-                if (now != last)
-                { 
-                    last = now;
-                    hal::devices::vbe->clear(0xFF000000);
-                    if (sys::assets::img_logo.data().ptr() != NULL) { hal::devices::vbe->copy((hal::devices::vbe->modeinfo().width / 2) - (sys::assets::img_logo.size().x / 2), (hal::devices::vbe->modeinfo().height / 2) - (sys::assets::img_logo.size().y / 2), sys::assets::img_logo.size().x, sys::assets::img_logo.size().y, sys::assets::img_logo.data().ptr());  }
-                    sys::debug::draw_overlay();
-                }
                 threading::scheduler::monitor();
-
                 unlock();
                 threading::scheduler::yield();
             }
