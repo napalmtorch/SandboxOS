@@ -102,7 +102,11 @@ namespace std
 
         void image::rect(int x, int y, int w, int h, int t, uint32_t color)
         {
-            printf("%s std::gfx::image::rect not yet implemented\n", DEBUG_ERROR);
+            if (color == (uint32_t)color32::transparent) { return; }
+            rect_filled(x, y, w, t, color);
+            rect_filled(x, y + h - t, w, t, color);
+            rect_filled(x, y + t, t, h - (t * 2), color);
+            rect_filled(x + w - t, y + t, t, h - (t * 2), color);
         }
 
         void image::rect(int x, int y, int w, int h, int t, color32 color) { rect(x, y, w, h, t, (uint32_t)color); }
@@ -159,12 +163,13 @@ namespace std
         {
             if (sw == _size.x && sh == _size.y) { memcpy((void*)_data.ptr(), data, sw * sh * 4); return; }
 
+            uint32_t iw = sw;
             while (x + sw > (int)_size.x) { sw--; }
             while (y + sh > (int)_size.y) { sh--; }
 
             for (int yy = 0; yy < sh; yy++)
             {
-                uint8_t* src = (uint8_t*)(data + (yy * sw));
+                uint8_t* src = (uint8_t*)(data + (yy * iw));
                 int xx = x;
                 if (xx < 0) { xx = 0; }
                 while (xx + sw > (int)_size.x) { xx--; }
@@ -219,6 +224,24 @@ namespace std
         void image::copy(ivec2d_t pos, uint32_t trans, image* img) { copy(pos.x, pos.y, img->size().x, img->size().y, trans, img->data().ptr()); }
 
         void image::copy(ivec2d_t pos, color32 trans, image* img) { copy(pos.x, pos.y, img->size().x, img->size().y, (uint32_t)trans, img->data().ptr()); }
+
+        void image::copy(int x, int y, irect_t src, uint32_t trans, image* img)
+        {
+            if (img == NULL) { return; }
+            for (int i = 0; i < src.w * src.h; i++)
+            {
+                if (img->data()[(src.y + (i / src.w)) * img->size().x + (src.x + (i % src.w))] != (uint32_t)trans) { blit(x + (i % src.w), y + (i / src.w), img->data()[(src.y + (i / src.w)) * img->size().x + (src.x + (i % src.w))]); }
+            }
+        }
+
+        void image::copy(int x, int y, irect_t src, color32 trans, image* img)
+        {
+            if (img == NULL) { return; }
+            for (int i = 0; i < src.w * src.h; i++)
+            {
+                if (img->data()[(src.y + (i / src.w)) * img->size().x + (src.x + (i % src.w))] != (uint32_t)trans) { blit(x + (i % src.w), y + (i / src.w), img->data()[(src.y + (i / src.w)) * img->size().x + (src.x + (i % src.w))]); }
+            }
+        }
 
         ivec2d_t image::size() { return _size; }
 

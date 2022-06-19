@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <gfx/image.h>
 #include <core/exec/thread.h>
+#include <core/services/shell/taskbar.h>
 
 namespace os
 {
@@ -14,7 +15,7 @@ namespace os
             public:
                 std::gfx::image      framebuffer;
                 threading::thread_t* thread;
-
+                shell_taskbar*       taskbar;
                 
             private:
                 uint32_t _fps;

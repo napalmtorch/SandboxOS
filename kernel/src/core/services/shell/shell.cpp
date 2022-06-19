@@ -5,13 +5,25 @@ namespace os
 {
     namespace services
     {
+        std::gui::window* win;
+        std::gui::button* btn;
+
         void shell_host::init()
         {
+            std::gui::default_styles::init();
+
             framebuffer = std::gfx::image(hal::devices::vbe->modeinfo().width, hal::devices::vbe->modeinfo().height);
             if (sys::assets::bg_default.data().ptr() != NULL)
             {
                 if (!sys::assets::bg_default.size().equals(framebuffer.size())) { sys::assets::bg_default.resize(framebuffer.size()); }
             }
+
+            taskbar = new shell_taskbar(this);
+
+            win = new std::gui::window(320, 240, 256, 192, "TESTING");
+            btn = new std::gui::button(32, 32, 92, 22, "hello", win);
+            win->add_ctrl(btn);
+
             printf("%s Initialized shell instance\n", DEBUG_OK);
         }
 
@@ -33,7 +45,7 @@ namespace os
 
         void shell_host::update()
         {
-            
+
         }
 
         void shell_host::draw()
@@ -41,6 +53,12 @@ namespace os
             if (sys::assets::bg_default.data().ptr() == NULL) { framebuffer.clear(std::color32::dark_cyan); }
             else { framebuffer.copy(0, 0, &sys::assets::bg_default); }
             sys::debug::draw_overlay(&framebuffer);
+            
+            win->update();
+            win->render();
+
+            taskbar->update();
+            taskbar->render();
 
             framebuffer.copy(std::mspos(), std::color32::magenta, &sys::assets::mscur_default);
 

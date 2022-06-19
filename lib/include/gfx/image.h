@@ -134,6 +134,9 @@ namespace std
                 void copy(ivec2d_t pos, uint32_t trans, image* img);
                 void copy(ivec2d_t pos, color32 trans, image* img);
 
+                void copy(int x, int y, irect_t src, uint32_t trans, image* img);
+                void copy(int x, int y, irect_t src, color32 trans, image* img);
+
             public:
                 /// @brief Get width and height of image @return 2d-vector containing width and height
                 ivec2d_t size();

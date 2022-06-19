@@ -27,7 +27,7 @@ namespace std
             /// @brief Create rectangle with specified position and size @param pos Rectangle coordinates @param size Rectangle size
             irect_t(ivec2d_t pos, ivec2d_t size) { this->x = pos.x; this->y = pos.y; this->w = size.x; this->h = size.y; }
             /// @brief Create copy of existing rectangle @param rect Reference to existing rectangle
-            irect_t(irect_t& rect) { this->x = rect.x; this->y = rect.y; this->w = rect.w; this->h = rect.h; }
+            irect_t(const irect_t& rect) { this->x = rect.x; this->y = rect.y; this->w = rect.w; this->h = rect.h; }
 
         public:
             /// @brief Check if rectangle dimensions are equivalent to specified @param x X coordinate @param y Y coordinate @param w Rectangle width @param h Rectangle height @return Rectangles are identical
@@ -35,14 +35,14 @@ namespace std
             /// @brief Check if rectangle dimensions are equivalent to specified position and size @param pos Rectangle coordinates @param size Rectangle size @return Rectangles are identical
             bool equals(ivec2d_t pos, ivec2d_t size) { return equals(pos.x, pos.y, size.x, size.y); }
             /// @brief Check if rectangle dimensions are equivalent to existing rectangle @param rect Reference to existing rectangle @return Rectangles are identical
-            bool equals(irect_t& rect) { return equals(rect.x, rect.y, rect.w, rect.h); }
+            bool equals(const irect_t& rect) { return equals(rect.x, rect.y, rect.w, rect.h); }
             
             /// @brief Check if coordinates are within rectangle bounds @param x X coordinate @param y Y coordinate @return Coordinates are within rectangle
             bool contains(int x, int y) { return (x >= this->x && y >= this->y && x < this->x + this->w && y < this->y + this->h); }
             /// @brief Check if coordinates are within rectangle bounds @param pos Rectangle coordinates @return Coordinates are within rectangle
             bool contains(ivec2d_t pos) { return contains(pos.x, pos.y); }
             /// @brief Check if position of existing rectangle is within rectangle bounds @param rect Reference to existing rectangle @return Coordinates are within rectangle
-            bool contains(irect_t& rect) { return contains(rect.x, rect.y); }
+            bool contains(const irect_t& rect) { return contains(rect.x, rect.y); }
     };
 
     /// @brief Structure for managing floating-point rectangles
@@ -66,7 +66,7 @@ namespace std
             /// @brief Create rectangle with specified position and size @param pos Rectangle coordinates @param size Rectangle size
             frect_t(fvec2d_t pos, fvec2d_t size) { this->x = pos.x; this->y = pos.y; this->w = size.x; this->h = size.y; }
             /// @brief Create copy of existing rectangle @param rect Reference to existing rectangle
-            frect_t(frect_t& rect) { this->x = rect.x; this->y = rect.y; this->w = rect.w; this->h = rect.h; }
+            frect_t(const frect_t& rect) { this->x = rect.x; this->y = rect.y; this->w = rect.w; this->h = rect.h; }
 
         public:
             /// @brief Check if rectangle dimensions are equivalent to specified @param x X coordinate @param y Y coordinate @param w Rectangle width @param h Rectangle height @return Rectangles are identical
@@ -74,13 +74,13 @@ namespace std
             /// @brief Check if rectangle dimensions are equivalent to specified position and size @param pos Rectangle coordinates @param size Rectangle size @return Rectangles are identical
             bool equals(fvec2d_t pos, fvec2d_t size) { return equals(pos.x, pos.y, size.x, size.y); }
             /// @brief Check if rectangle dimensions are equivalent to existing rectangle @param rect Reference to existing rectangle @return Rectangles are identical
-            bool equals(frect_t& rect) { return equals(rect.x, rect.y, rect.w, rect.h); }
+            bool equals(const frect_t& rect) { return equals(rect.x, rect.y, rect.w, rect.h); }
             
             /// @brief Check if coordinates are within rectangle bounds @param x X coordinate @param y Y coordinate @return Coordinates are within rectangle
             bool contains(float x, float y) { return (x >= this->x && y >= this->y && x < this->x + this->w && y < this->y + this->h); }
             /// @brief Check if coordinates are within rectangle bounds @param pos Rectangle coordinates @return Coordinates are within rectangle
             bool contains(fvec2d_t pos) { return contains(pos.x, pos.y); }
             /// @brief Check if position of existing rectangle is within rectangle bounds @param rect Reference to existing rectangle @return Coordinates are within rectangle
-            bool contains(frect_t& rect) { return contains(rect.x, rect.y); }
+            bool contains(const frect_t& rect) { return contains(rect.x, rect.y); }
     };
 }

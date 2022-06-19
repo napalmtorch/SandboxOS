@@ -24,6 +24,10 @@
 #include <gfx/primitives/rectangle.h>
 #include <gui/control.h>
 #include <gui/container.h>
+#include <gui/button.h>
+#include <gui/titlebar.h>
+#include <gui/window.h>
+#include <gui/style.h>
 #include <core/system/multiboot.h>
 #include <core/system/debug.h>
 #include <core/system/tests.h>
