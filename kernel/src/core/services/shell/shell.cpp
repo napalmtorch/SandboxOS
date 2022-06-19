@@ -20,9 +20,15 @@ namespace os
 
             taskbar = new shell_taskbar(this);
 
+            winmgr.init();
+
             win = new std::gui::window(320, 240, 256, 192, "TESTING");
             btn = new std::gui::button(32, 32, 92, 22, "hello", win);
             win->add_ctrl(btn);
+            winmgr.load(win);
+            winmgr.load(new std::gui::window(64, 64, 320, 240, "Window Test"));
+            winmgr.set_active(win);
+            
 
             printf("%s Initialized shell instance\n", DEBUG_OK);
         }
@@ -45,7 +51,7 @@ namespace os
 
         void shell_host::update()
         {
-
+            
         }
 
         void shell_host::draw()
@@ -54,8 +60,8 @@ namespace os
             else { framebuffer.copy(0, 0, &sys::assets::bg_default); }
             sys::debug::draw_overlay(&framebuffer);
             
-            win->update();
-            win->render();
+            winmgr.update();
+            winmgr.draw();
 
             taskbar->update();
             taskbar->render();

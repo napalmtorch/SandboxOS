@@ -11,6 +11,8 @@ namespace os
             this->_info.style = (std::gui::visual_style*)tmalloc(sizeof(std::gui::visual_style), ALLOCTYPE_OBJ);
             memcpy(this->_info.style, std::gui::default_styles::CONTAINER, sizeof(std::gui::visual_style));
             this->_info.style->set_bordersz(0);
+            this->btn_menu = new std::gui::button(0, 0, 100, 19, "Activities", this);
+            this->add_ctrl(this->btn_menu);
             update();
             draw();
             render();
@@ -25,6 +27,9 @@ namespace os
         {
             container::update();
             _info.bounds = std::irect_t(0, host->framebuffer.size().y - 22, host->framebuffer.size().x, 22);
+
+            btn_menu->bounds()->x = 2;
+            btn_menu->bounds()->y = 2;
 
             std::time_t tm = std::timenow();
             _now = tm.second;

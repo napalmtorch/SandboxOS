@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <gui/container.h>
+#include <gui/button.h>
 
 namespace os
 {
@@ -13,7 +14,8 @@ namespace os
         class shell_taskbar : public std::gui::container
         {
             public:
-                shell_host* host;
+                shell_host*       host;
+                std::gui::button* btn_menu;
 
             private:
                 int _now, _last;

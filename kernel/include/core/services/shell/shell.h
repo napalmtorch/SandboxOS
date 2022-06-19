@@ -5,6 +5,7 @@
 #include <gfx/image.h>
 #include <core/exec/thread.h>
 #include <core/services/shell/taskbar.h>
+#include <core/services/shell/winmgr.h>
 
 namespace os
 {
@@ -13,6 +14,7 @@ namespace os
         class shell_host
         {
             public:
+                window_manager       winmgr;
                 std::gfx::image      framebuffer;
                 threading::thread_t* thread;
                 shell_taskbar*       taskbar;
