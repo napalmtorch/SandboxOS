@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <gui/container.h>
 #include <gui/button.h>
+#include <gui/window.h>
 
 namespace os
 {
@@ -16,9 +17,12 @@ namespace os
             public:
                 shell_host*       host;
                 std::gui::button* btn_menu;
+                std::arraylist<std::gui::button*> taskbtns;
 
             private:
                 int _now, _last;
+                int _wincnt, _wincnt_last;
+                std::gui::window* _winlast;
                 char timestr[64];
 
             public:

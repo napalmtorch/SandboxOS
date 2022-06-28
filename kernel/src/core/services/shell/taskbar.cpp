@@ -18,6 +18,10 @@ namespace os
             this->btn_menu->flags()->tooltip    = true;
             this->add_ctrl(this->btn_menu);
 
+            _wincnt = 11111;
+            _wincnt_last = 1111111;
+            _winlast = NULL;
+
             update();
             draw();
             render();
@@ -46,12 +50,45 @@ namespace os
                 std::timestr(tm, timestr, std::time_format::standard, true);
                 draw();
             }
+
+            _wincnt = kernel::shell->winmgr.windows.length();
+            if (_wincnt != _wincnt_last)
+            {
+                _wincnt_last = _wincnt;
+                for (size_t i = 0; i < taskbtns.length(); i++) { taskbtns[i]->dispose(); free(taskbtns[i]); }
+                taskbtns.clear();
+                for (size_t i = 0; i < kernel::shell->winmgr.windows.length(); i++) { taskbtns.add(new std::gui::button(0, 0, 0, 0, kernel::shell->winmgr.windows[i]->label(), this)); }
+                update();
+                draw();
+                render();
+            }
+
+            if (_winlast != kernel::shell->winmgr.active_win)
+            {
+                _winlast = kernel::shell->winmgr.active_win;
+                for (size_t i = 0; i < taskbtns.length(); i++) { taskbtns[i]->dispose(); free(taskbtns[i]); }
+                taskbtns.clear();
+                for (size_t i = 0; i < kernel::shell->winmgr.windows.length(); i++) { taskbtns.add(new std::gui::button(0, 0, 0, 0, kernel::shell->winmgr.windows[i]->label(), this)); }
+                update();
+                draw();
+                render();
+            }
+
+            int xx = btn_menu->bounds()->x + btn_menu->bounds()->w + 12, yy = btn_menu->bounds()->y;
+            for (size_t i = 0; i < taskbtns.length(); i++) 
+            { 
+                taskbtns[i]->info()->bounds = std::irect_t(xx, yy, 128, btn_menu->bounds()->h);
+                taskbtns[i]->update();
+                xx += taskbtns[i]->info()->bounds.w + 4;
+            }
         }
 
         void shell_taskbar::draw()
         {
             container::draw();
             framebuffer.rect_filled(0, 0, _info.bounds.w, 1, _info.style->color(std::gui::color_index::border_down));
+
+            for (size_t i = 0; i < taskbtns.length(); i++) { taskbtns[i]->draw(); }
 
             int tx = _info.bounds.w - (strlen(timestr) * _info.style->font().width()) - 8;
             int ty = (_info.bounds.h / 2) - (_info.style->font().height() / 2);
@@ -65,6 +102,7 @@ namespace os
         void shell_taskbar::render()
         {
             container::render();
+            for (size_t i = 0; i < taskbtns.length(); i++) { taskbtns[i]->render(); }
         }
     }
 }
