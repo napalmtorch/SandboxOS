@@ -11,8 +11,13 @@ namespace os
             this->_info.style = (std::gui::visual_style*)tmalloc(sizeof(std::gui::visual_style), ALLOCTYPE_OBJ);
             memcpy(this->_info.style, std::gui::default_styles::CONTAINER, sizeof(std::gui::visual_style));
             this->_info.style->set_bordersz(0);
+
             this->btn_menu = new std::gui::button(0, 0, 100, 19, "Activities", this);
+            this->btn_menu->info()->tooltip_txt = (char*)tmalloc(256, ALLOCTYPE_STRING);
+            strcat(this->btn_menu->info()->tooltip_txt, "Start applications and manage system");
+            this->btn_menu->flags()->tooltip    = true;
             this->add_ctrl(this->btn_menu);
+
             update();
             draw();
             render();
@@ -20,6 +25,7 @@ namespace os
 
         void shell_taskbar::dispose()
         {
+            if (this->btn_menu->info()->tooltip_txt != NULL) { free(this->btn_menu->info()->tooltip_txt); }
             container::dispose();
         }
 

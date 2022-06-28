@@ -132,6 +132,19 @@ namespace os
             strcat(temp2, ltoa(kernel::heap_large.calc_used(kernel::shell->thread) + kernel::heap_small.calc_used(kernel::shell->thread), temp, 10));
             strcat(temp2, " bytes");
             img->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+
+            // cmd handler
+            img->putstr(0, 15 * yy, "CMDHOST   - ", std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
+            memset(temp, 0, sizeof(temp));
+            memset(temp2, 0, sizeof(temp2));
+            strcat(temp2, "CPU: ");
+            if (sys::command_handler::thread->time.cpu_usage < 10) { stradd(temp2, '0'); }
+            strcat(temp2, ltoa(sys::command_handler::thread->time.cpu_usage, temp, 10));
+            strcat(temp2, "% MEM: ");
+            memset(temp, 0, sizeof(temp));
+            strcat(temp2, ltoa(kernel::heap_large.calc_used(sys::command_handler::thread) + kernel::heap_small.calc_used(sys::command_handler::thread), temp, 10));
+            strcat(temp2, " bytes");
+            img->putstr(108, 15 * yy++, temp2, std::FONT_DEFAULT, 0xFF00FF00, 0xFF000000);
         }
     }
 }

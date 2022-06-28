@@ -53,13 +53,15 @@ namespace std
 
         void container::render()
         {
-            control::render();
             if (_info.parent != NULL)
             {
                 return;   
-            }
+            }   
 
             os::kernel::shell->framebuffer.copy(_info.bounds.x, _info.bounds.y, &framebuffer);
+            control::render();
+
+            for (size_t i = 0; i < _ctrls.length(); i++) { _ctrls[i]->render(); }
         }
 
         bool container::add_ctrl(control* ctrl)

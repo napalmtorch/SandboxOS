@@ -26,12 +26,14 @@ namespace std
             bool unclicked;
             bool toggled;
             bool active;
+            bool tooltip;
         } PACKED control_flags_t;
 
         typedef struct
         {
             irect_t       bounds;
             char*         label;
+            char*         tooltip_txt;
             container*    parent;
             visual_style* style;
         } control_info_t;

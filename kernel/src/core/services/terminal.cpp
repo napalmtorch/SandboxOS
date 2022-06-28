@@ -11,6 +11,12 @@ namespace os
             memcpy(_info.style, std::gui::default_styles::WINDOW, sizeof(std::gui::visual_style));
             _info.style->set_color(std::gui::color_index::bg, bg);
 
+            if (x == - 1 && y == -1)
+            {
+                _info.bounds.x = rand(hal::devices::vbe->modeinfo().width);
+                _info.bounds.y = rand(hal::devices::vbe->modeinfo().height);
+            }
+
             _bg     = bg;
             _fg     = fg;
             _cx     = 0;
@@ -99,10 +105,9 @@ namespace os
         void terminal_host::on_enter(terminal_host* sender, void* arg)
         {
             if (sender == NULL) { return; }
-            sender->print("\nYou typed: ");
-            sender->println(sender->_kb.instream.ptr());
+            sender->newline();
+            sys::command_handler::push(sender, sender->_kb.instream.ptr());
             sender->_kb.instream.clear();
-            sender->print_caret();
         }
 
         void terminal_host::print_caret()

@@ -94,7 +94,19 @@ namespace std
 
         void control::render()
         {
+            if (_flags.tooltip && _info.tooltip_txt != NULL && _flags.hover)
+            {
+                std::gfx::image img = os::kernel::shell->framebuffer;
 
+                ivec2d_t txt_size = ivec2d_t(_info.style->font().width() * strlen(_info.tooltip_txt), _info.style->font().height());
+                int xx = std::mspos().x, yy = std::mspos().y;
+                if (yy + txt_size.y + 8 >= os::hal::devices::vbe->modeinfo().height) { yy -= txt_size.y + 8; }
+                while (xx + txt_size.x + 8 >= os::hal::devices::vbe->modeinfo().width) { xx--; }
+
+                img.rect_filled(xx, yy, txt_size.x + 8, txt_size.y + 8, _info.style->color(std::gui::color_index::bg));
+                img.rect(xx, yy, txt_size.x + 8, txt_size.y + 8, 1, _info.style->color(std::gui::color_index::border));
+                img.putstr(xx + 4, yy + 4, _info.tooltip_txt, _info.style->font(), _info.style->color(std::gui::color_index::txt), (uint32_t)std::color32::transparent);
+            }
         }
 
         void control::set_label(char* label)

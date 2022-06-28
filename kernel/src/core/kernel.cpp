@@ -60,6 +60,9 @@ namespace os
             // load assets
             sys::assets::load();
 
+            // initialize command handler
+            sys::command_handler::init();
+
             // start shell
             shell = new services::shell_host();
             shell->start();
@@ -83,6 +86,7 @@ namespace os
             while (true)
             {
                 lock();
+                threading::thread_monitor();
                 threading::scheduler::monitor();
                 unlock();
                 threading::scheduler::yield();
