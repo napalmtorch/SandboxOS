@@ -50,6 +50,10 @@ namespace os
             int tx = _info.bounds.w - (strlen(timestr) * _info.style->font().width()) - 8;
             int ty = (_info.bounds.h / 2) - (_info.style->font().height() / 2);
             framebuffer.putstr(tx, ty, timestr, _info.style->font(), _info.style->color(std::gui::color_index::txt), (uint32_t)std::color32::transparent);
+
+            framebuffer.copy(tx - 20, 3, std::irect_t(32, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
+            framebuffer.copy(tx - 40, 3, std::irect_t(0, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
+            framebuffer.copy(tx - 60, 3, std::irect_t(48, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
         }
 
         void shell_taskbar::render()

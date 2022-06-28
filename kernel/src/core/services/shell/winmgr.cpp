@@ -82,6 +82,8 @@ namespace os
                     windows.remove_at(i);
                     printf("%s Unloaded window - %s\n","" DEBUG_INFO, win->label());
                     if (disp) { win->dispose(); }
+                    if (windows.length() > 0) { set_active(windows[windows.length() - 1]); }
+                    else { set_active(NULL); }
                     return;
                 }
             }

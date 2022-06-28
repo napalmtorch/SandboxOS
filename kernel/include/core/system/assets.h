@@ -15,6 +15,7 @@ namespace os
             extern std::gfx::bitfont font_comic;
             extern std::gfx::bitfont font_thin;
 
+            extern std::gfx::image sys_icons;
             extern std::gfx::image img_logo;
             extern std::gfx::image bg_default;
             extern std::gfx::image tbar_icons;

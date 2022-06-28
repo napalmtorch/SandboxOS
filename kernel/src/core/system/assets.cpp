@@ -11,6 +11,7 @@ namespace os
             std::gfx::bitfont font_comic;
             std::gfx::bitfont font_thin;
 
+            std::gfx::image sys_icons;
             std::gfx::image img_logo;
             std::gfx::image bg_default;
             std::gfx::image tbar_icons;
@@ -44,6 +45,7 @@ namespace os
                 if (font_thin.data() != NULL && font_thin.width(false) > 0) { std::FONT_DEFAULT = font_thin; }
                 else { std::FONT_DEFAULT = std::gfx::bitfont(8, 14, 1, 0, (uint8_t*)std::FONTDATA_DEFAULT); }
 
+                sys_icons     = std::gfx::image("A:/sysicons.bmp");
                 img_logo      = std::gfx::image("A:/logo.bmp");
                 bg_default    = std::gfx::image("A:/bg.bmp");
                 tbar_icons    = std::gfx::image("A:/tbar.bmp");
