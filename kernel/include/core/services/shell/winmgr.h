@@ -17,6 +17,10 @@ namespace os
                 std::arraylist<std::gui::window*> windows;
                 std::gui::window*                 active_win;
 
+            private:
+                bool _msdown;
+                int  _wintop;
+
             public:
                 void init();
                 void update();
@@ -24,7 +28,7 @@ namespace os
 
             public:
                 void load(std::gui::window* win);
-                void unload(std::gui::window* win);
+                void unload(std::gui::window* win, bool disp = true);
 
             public:
                 std::gui::window* set_active(std::gui::window* win);

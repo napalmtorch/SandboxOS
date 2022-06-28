@@ -25,6 +25,8 @@ namespace std
         {
             container::update();
 
+            if (os::kernel::shell->winmgr.active_win != this) { this->_flags.active = false; }
+
             if (_tbar != NULL) { _tbar->update(); }
         }
 

@@ -73,7 +73,6 @@ namespace os
         void terminal_host::draw()
         {
             window::draw();
-            //framebuffer.copy(1, _tbar->info()->bounds.h + 1, _info.bounds.w - 2, _info.bounds.h - _tbar->info()->bounds.h - 2, tbuff.data().ptr());
             framebuffer.copy(1, _tbar->info()->bounds.h + 1, &tbuff);
         }
 

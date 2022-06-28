@@ -19,6 +19,8 @@ namespace std
             btn_min = new button(0, 0, 16, 16, "", parent);
             btn_min->events()->on_click = btn_min_click;
 
+            _info.style = parent->_info.style;
+
             update();
             draw();
             render();
@@ -79,10 +81,7 @@ namespace std
             control::draw();
 
             uint32_t bg = _info.style->color(color_index::top);
-            if (_type == control_type::window)
-            {
-                if (((window*)_info.parent)->_flags.active) { bg =_info.style->color(color_index::top_inactive); }
-            }
+            if (!((window*)_info.parent)->_flags.active) { bg =_info.style->color(color_index::top_inactive); }
             _info.parent->framebuffer.rect_filled(_info.bounds, bg);
             
             if (_info.parent->label() != NULL)
@@ -107,7 +106,7 @@ namespace std
 
         void titlebar::handle_movement()
         {
-            if (_info.parent->flags()->active)
+            if (_info.parent->flags()->active && os::kernel::shell->winmgr.active_win == _info.parent)
             {
                 if (screen_bounds().contains(mspos()))
                 {
@@ -161,6 +160,9 @@ namespace std
                 win->state = window_state::normal;
                 win->_info.bounds = win->_old_bounds;
             }
+            win->update();
+            win->draw();
+            win->render();
         }
 
         void titlebar::btn_min_click(control* sender, void* arg)

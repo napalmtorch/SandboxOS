@@ -19,7 +19,7 @@ namespace std
                     0xFF202020, 0xFF404040, 0xFF303030, 0xFF404040, 0xFF000000, 
                     0xFFBFBFBF, 0xFFFFFFFF, 0xFFDFDFDF, 0xFF7F7F7F, 0xFF000000, 
                     0xFF7F7F7F, 0xFFAFAFAF, 0xFF404040, 0xFF303030, 
-                    0xFF303030, 0xFF404040, 0xFF7F7F7F, 0xFFFFFFFF, 0xFFFFFFFF, 0xFF000000 
+                    0xFF303030, 0xFF404040, 0xFF606060, 0xFFFFFFFF, 0xFFFFFFFF, 0xFF000000 
                 };
                 
                 CONTAINER = new visual_style("default", colors, 1, false, false, FONT_DEFAULT);
