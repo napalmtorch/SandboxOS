@@ -37,7 +37,7 @@ namespace os
 
             void load()
             {
-                font_square = load_font("A:/font.bin", 8, 14, 1, 0);
+                font_square = load_font("A:/font.bin", 8, 12, 1, 1);
                 font_comic  = load_font("A:/font_comic.bin", 8, 16, 1, 0);
                 font_thin   = load_font("A:/font_thin.bin", 8, 14, 1, 0);
 

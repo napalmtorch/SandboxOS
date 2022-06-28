@@ -5,6 +5,8 @@
 #include <arraylist.h>
 #include <gui/container.h>
 
+namespace os::services { class window_manager; }
+
 namespace std
 {
     namespace gui
@@ -14,10 +16,14 @@ namespace std
         class window : public container
         {
             friend class titlebar;
-            
+            friend class os::services::window_manager;
+
+            public:
+                int index;
+
             protected:
                 titlebar* _tbar;
-                bool      _moving, _resizing;
+                bool      _moving, _resizing, _closed;
             
             public:
                 window(int x, int y, int w, int h, char* label);

@@ -11,6 +11,8 @@ namespace std
         titlebar::titlebar(window* parent) : control(0, 0, 128, 22, "titlebar", control_type::titlebar, parent)
         {
             btn_close = new button(0, 0, 16, 16, "", parent);
+            btn_close->events()->on_click = btn_close_click;
+
             btn_max   = new button(0, 0, 16, 16, "", parent);
             btn_min   = new button(0, 0, 16, 16, "", parent);
             update();
@@ -21,6 +23,9 @@ namespace std
         void titlebar::dispose()
         {
             control::dispose();
+            btn_close->dispose();
+            btn_max->dispose();
+            btn_min->dispose();
         }
 
         void titlebar::update()
@@ -60,7 +65,12 @@ namespace std
         {
             control::draw();
 
-            _info.parent->framebuffer.rect_filled(_info.bounds, _info.style->color(color_index::top));
+            uint32_t bg = _info.style->color(color_index::top);
+            if (_type == control_type::window)
+            {
+                if (((window*)_info.parent)->_flags.active) { bg =_info.style->color(color_index::top_inactive); }
+            }
+            _info.parent->framebuffer.rect_filled(_info.bounds, bg);
             
             if (_info.parent->label() != NULL)
             {
@@ -115,6 +125,12 @@ namespace std
                 ((window*)_info.parent)->_resizing = false;
                 _win_click = false;
             }
+        }
+
+        void titlebar::btn_close_click(control* sender, void* arg)
+        {
+            titlebar* tbar = (titlebar*)sender;
+            ((window*)tbar->_info.parent)->_closed = true;
         }
     }
 }

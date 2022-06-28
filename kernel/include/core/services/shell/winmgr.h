@@ -11,6 +11,8 @@ namespace os
     {
         class window_manager
         {
+            friend class window;
+
             public:
                 std::arraylist<std::gui::window*> windows;
                 std::gui::window*                 active_win;

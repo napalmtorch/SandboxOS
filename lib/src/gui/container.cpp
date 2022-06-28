@@ -18,6 +18,9 @@ namespace std
         void container::dispose()
         {
             control::dispose();
+            framebuffer.dispose();
+            for (size_t i = 0; i < _ctrls.length(); i++) { _ctrls[i]->dispose(); }
+            _ctrls.dispose();
         }
 
         void container::update()

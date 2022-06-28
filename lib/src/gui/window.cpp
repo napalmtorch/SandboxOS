@@ -17,6 +17,7 @@ namespace std
         void window::dispose()
         {
             container::dispose();
+            _tbar->dispose();
         }
         
         void window::update()

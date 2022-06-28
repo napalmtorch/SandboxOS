@@ -1,4 +1,5 @@
 #include <core/services/shell/shell.h>
+#include <core/services/terminal.h>
 #include <core/kernel.h>
 
 namespace os
@@ -26,8 +27,8 @@ namespace os
             btn = new std::gui::button(32, 32, 92, 22, "hello", win);
             win->add_ctrl(btn);
             winmgr.load(win);
-            winmgr.load(new std::gui::window(64, 64, 320, 240, "Window Test"));
-            winmgr.set_active(win);
+
+            winmgr.load(new os::services::terminal_host(128, 128, 80, 25, 0xFFFFFFFF, 0xFF000000, os::sys::assets::font_square));
             
 
             printf("%s Initialized shell instance\n", DEBUG_OK);

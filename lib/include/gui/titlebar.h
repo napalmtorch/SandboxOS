@@ -32,6 +32,9 @@ namespace std
 
             public:
                 void handle_movement();
+
+            private:
+                static void btn_close_click(control* sender, void* arg);
         };
     }
 }

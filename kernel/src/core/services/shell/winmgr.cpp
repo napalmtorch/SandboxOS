@@ -16,6 +16,7 @@ namespace os
             for (size_t i = 0; i < windows.length(); i++)
             {
                 windows[i]->update();
+                if (windows[i]->_closed) { unload(windows[i]); }
             }
         }
 
@@ -30,6 +31,7 @@ namespace os
         void window_manager::load(std::gui::window* win)
         {
             if (win == NULL) { perror("Tried to load null window into manager"); return; }
+            win->index = windows.length();
             windows.add(win);
             set_active(win);
             printf("%s Loaded window - %s\n", DEBUG_INFO, win->label());
@@ -43,7 +45,8 @@ namespace os
                 if (windows[i] == win)
                 {
                     windows.remove_at(i);
-                    printf("%s Unloaded window - %s\n", DEBUG_INFO, win->label());
+                    printf("%s Unloaded window - %s\n","" DEBUG_INFO, win->label());
+                    win->dispose();
                     return;
                 }
             }
@@ -56,11 +59,13 @@ namespace os
             std::arraylist<std::gui::window*> wins;
             for (size_t i = 0; i < windows.length(); i++)
             {
-                if (windows[i] != win) { wins.add(windows[i]); }
+                if (windows[i] != win) { wins.add(windows[i]); windows[i]->flags()->active = false; }
             }
             wins.add(win);
             windows.dispose();
             windows = wins;
+            win->flags()->active = true;
+            active_win = win;
             return win;
         }
     }
