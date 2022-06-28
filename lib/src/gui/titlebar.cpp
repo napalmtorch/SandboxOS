@@ -13,8 +13,12 @@ namespace std
             btn_close = new button(0, 0, 16, 16, "", parent);
             btn_close->events()->on_click = btn_close_click;
 
-            btn_max   = new button(0, 0, 16, 16, "", parent);
-            btn_min   = new button(0, 0, 16, 16, "", parent);
+            btn_max = new button(0, 0, 16, 16, "", parent);
+            btn_max->events()->on_click = btn_max_click;
+
+            btn_min = new button(0, 0, 16, 16, "", parent);
+            btn_min->events()->on_click = btn_min_click;
+
             update();
             draw();
             render();
@@ -56,6 +60,15 @@ namespace std
                 btn_min->bounds()->y = 4;
                 btn_min->update();
                 xx -= 18;
+            }
+
+            if (_ow != _info.bounds.x || _oh != _info.bounds.y)
+            {
+                _ow = _info.bounds.x;
+                _oh = _info.bounds.y;
+                ((window*)_info.parent)->update();
+                ((window*)_info.parent)->draw();
+                ((window*)_info.parent)->render();
             }
 
             handle_movement();
@@ -131,6 +144,30 @@ namespace std
         {
             titlebar* tbar = (titlebar*)sender;
             ((window*)tbar->_info.parent)->_closed = true;
+        }
+
+        void titlebar::btn_max_click(control* sender, void* arg)
+        {
+            titlebar* tbar = (titlebar*)sender;
+            window* win = (window*)tbar->_info.parent;
+            if (win->state == window_state::normal)
+            {
+                win->state = window_state::maximized;
+                win->_old_bounds  = irect_t(win->_info.bounds.x, win->_info.bounds.y, win->_info.bounds.w, win->_info.bounds.h);
+                win->_info.bounds = irect_t(0, 0, os::hal::devices::vbe->modeinfo().width, os::hal::devices::vbe->modeinfo().height);
+            }
+            else if (win->state == window_state::maximized)
+            {
+                win->state = window_state::normal;
+                win->_info.bounds = win->_old_bounds;
+            }
+        }
+
+        void titlebar::btn_min_click(control* sender, void* arg)
+        {
+            titlebar* tbar = (titlebar*)sender;
+            window* win = (window*)tbar->_info.parent;
+            win->state = window_state::minimized;
         }
     }
 }

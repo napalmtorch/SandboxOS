@@ -7,6 +7,10 @@ namespace os
     {
         terminal_host::terminal_host(int x, int y, int x_count, int y_count, uint32_t fg, uint32_t bg, std::gfx::bitfont font) : std::gui::window(x, y, (x_count * font.width()) + 2, (y_count * font.height()) + 24, "Terminal")
         {
+            _info.style = new std::gui::visual_style();
+            memcpy(_info.style, std::gui::default_styles::WINDOW, sizeof(std::gui::visual_style));
+            _info.style->set_color(std::gui::color_index::bg, bg);
+
             _bg     = bg;
             _fg     = fg;
             _cx     = 0;
@@ -25,6 +29,8 @@ namespace os
             _kb.on_enter     = (std::keyboard_event_t)on_enter;           
 
             tbuff = std::gfx::image(x_count * font.width(), y_count * font.height());
+            _ow = tbuff.size().x;
+            _oh = tbuff.size().y;
 
             clear();
             println("SandboxOS Terminal Client");
@@ -53,12 +59,22 @@ namespace os
             if (_ctimer >= 30) { _ctimer = 0; _cflash = !_cflash; }
 
             if (_flags.active && hal::devices::kbd->get_state() != &_kb) { hal::devices::kbd->attach_state(&_kb); }
+
+            if (_ow != framebuffer.size().x || _oh != framebuffer.size().y)
+            {
+                _ow     = framebuffer.size().x;
+                _oh     = framebuffer.size().y;
+                int w   = (_ow - 2)  / _font.width();
+                int h   = (_oh - 24) / _font.height();
+                resize(w, h);
+            }
         }
 
         void terminal_host::draw()
         {
             window::draw();
-            framebuffer.copy(1, _tbar->info()->bounds.h + 1, _info.bounds.w - 2, _info.bounds.h - _tbar->info()->bounds.h - 2, tbuff.data().ptr());
+            //framebuffer.copy(1, _tbar->info()->bounds.h + 1, _info.bounds.w - 2, _info.bounds.h - _tbar->info()->bounds.h - 2, tbuff.data().ptr());
+            framebuffer.copy(1, _tbar->info()->bounds.h + 1, &tbuff);
         }
 
         void terminal_host::render()
@@ -125,6 +141,16 @@ namespace os
             memcpy(tbuff.data().ptr(), (uint32_t*)((uint32_t)tbuff.data().ptr() + line), size - line);
             memset((uint32_t*)((uint32_t)tbuff.data().ptr() + (size - line)), (uint32_t)_bg, line);
             set_cursor(0, _ycount - 1);
+        }
+
+        void terminal_host::resize(int w, int h)
+        {
+            if (w == _xcount && h == _ycount) { return; }
+            _xcount = w; _ycount = h;
+            tbuff.dispose();
+            tbuff = std::gfx::image(w * _font.width(), h * _font.height());
+            clear();
+            print_caret();
         }
 
         void terminal_host::clear() { clear(_bg); }

@@ -9,6 +9,7 @@ namespace std
         {
             _type = control_type::window;
             _tbar = new titlebar(this);
+            state = window_state::normal;
             update();
             draw();
             render();
@@ -36,7 +37,7 @@ namespace std
 
         void window::render()
         {
-            _tbar->render();
+            if (_tbar != NULL) { _tbar->render(); }
             container::render();
         }
     }

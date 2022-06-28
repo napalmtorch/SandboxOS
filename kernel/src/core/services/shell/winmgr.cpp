@@ -24,7 +24,7 @@ namespace os
         {
             for (size_t i = 0; i < windows.length(); i++)
             {
-                windows[i]->render();
+                if (windows[i]->state != std::gui::window_state::minimized) { windows[i]->render(); }
             }
         }
 

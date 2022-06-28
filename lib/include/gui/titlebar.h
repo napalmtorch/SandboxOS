@@ -21,6 +21,9 @@ namespace std
                 button* btn_max;
                 button* btn_min;
             
+            private:
+                int _ow, _oh;
+
             public:
                 titlebar(window* parent);
 
@@ -35,6 +38,8 @@ namespace std
 
             private:
                 static void btn_close_click(control* sender, void* arg);
+                static void btn_max_click(control* sender, void* arg);
+                static void btn_min_click(control* sender, void* arg);
         };
     }
 }

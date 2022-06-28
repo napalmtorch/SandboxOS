@@ -22,6 +22,7 @@ namespace os
             private:
                 uint32_t _fg, _bg;
                 uint32_t _cx, _cy;
+                uint32_t _ow, _oh;
                 uint32_t _xcount, _ycount;
                 uint32_t _now, _last, _ctimer;
                 bool     _cflash;
@@ -50,6 +51,7 @@ namespace os
                 void newline(int count = 1);
                 void backspace(int count = 1);
                 void scroll(int count = 1);
+                void resize(int w, int h);
 
             public:
                 void clear();

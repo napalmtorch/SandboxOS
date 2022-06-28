@@ -27,6 +27,7 @@ namespace os
 
         void debug::print_regs(hal::idt_registers_t* regs)
         {
+            if (regs == NULL) { return; }
             printf("EAX: 0x%8x EBX: 0x%8x ECX: 0x%8x EDX: 0x%8x\n", regs->eax, regs->ebx, regs->ecx, regs->edx);
             printf("ESI: 0x%8x EDI: 0x%8x EBP: 0x%8x ESP: 0x%8x\n", regs->esi, regs->edi, regs->ebp, regs->esp);
             printf("EIP: 0x%8x EFL: 0x%8x CS:  0x%8x SS:  0x%8x\n", regs->eip, regs->eflags, regs->cs, regs->ss);
@@ -35,6 +36,7 @@ namespace os
 
         void debug::print_regs(threading::thread_regs_t* regs)
         {
+            if (regs == NULL) { return; }
             printf("EAX: 0x%8x EBX: 0x%8x ECX: 0x%8x EDX: 0x%8x\n", regs->eax, regs->ebx, regs->ecx, regs->edx);
             printf("ESI: 0x%8x EDI: 0x%8x EBP: 0x%8x ESP: 0x%8x\n", regs->esi, regs->edi, regs->ebp, regs->esp);
             printf("EFL: 0x%8x CS:  0x%8x SS:  0x%8x\n", regs->eflags);

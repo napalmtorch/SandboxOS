@@ -13,17 +13,26 @@ namespace std
     {
         class titlebar;        
 
+        enum class window_state : uint8_t
+        {
+            minimized,
+            maximized,
+            normal,
+        };
+
         class window : public container
         {
             friend class titlebar;
             friend class os::services::window_manager;
 
             public:
-                int index;
+                int          index;
+                window_state state;
 
             protected:
-                titlebar* _tbar;
-                bool      _moving, _resizing, _closed;
+                titlebar*   _tbar;
+                bool        _moving, _resizing, _closed;
+                std::irect_t _old_bounds;
             
             public:
                 window(int x, int y, int w, int h, char* label);

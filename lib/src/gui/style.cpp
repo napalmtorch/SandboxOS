@@ -23,7 +23,7 @@ namespace std
                 };
                 
                 CONTAINER = new visual_style("default", colors, 1, false, false, FONT_DEFAULT);
-                WINDOW    = NULL;
+                WINDOW    = new visual_style("default", colors, 1, false, false, FONT_DEFAULT);
                 BUTTON    = NULL;
                 TEXTBOX   = NULL;
                 printf("%s Initialized default visual style\n", DEBUG_OK);
