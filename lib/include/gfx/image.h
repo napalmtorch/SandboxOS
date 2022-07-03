@@ -16,6 +16,8 @@ namespace std
         class image
         {
             private:
+                /// @brief Identification number used by asset manager
+                uint32_t _id;
                 /// @brief Width and height of image
                 ivec2d_t _size;
                 /// @brief Physical image data 
@@ -37,6 +39,9 @@ namespace std
 
                 /// @brief Dispose all allocations used by this image
                 void dispose();
+
+                /// @brief Set identification number
+                void set_id(uint32_t id);
 
                 /// @brief Create an image with exising data @param w Width of image @param h Height of image @param data Array containing raw image data @return Image loaded successfully
                 bool load(int w, int h, std::array<uint32_t> data);
@@ -140,9 +145,11 @@ namespace std
             public:
                 /// @brief Get width and height of image @return 2d-vector containing width and height
                 ivec2d_t size();
-
                 /// @brief Get raw data of image @return Array containing raw image data
                 array<uint32_t> data();
+                /// @brief Get identification number
+                uint32_t id();
+
         };
     }
 }

@@ -11,6 +11,8 @@ namespace std
         class bitfont
         {
             private:
+                /// @brief Identification number used by asset manager
+                uint32_t _id;
                 /// @brief Width of character
                 uint8_t _cw;
                 /// @brief Height of character
@@ -24,9 +26,12 @@ namespace std
 
             public:
                 /// @brief Default font constructor - initializes all values to null
-                bitfont() { _cw = 0; _ch = 0; _sx = 0; _sy = 0; _data = NULL; }
+                bitfont() { _cw = 0; _ch = 0; _sx = 0; _sy = 0; _data = NULL; _id = 0; }
                 /// @brief Create new bitfont structure with specified values @param cw Width of character @param ch Height of character @param sx Horizontal spacing of each character @param sy Vertical spacing of each character @param data Pointer to physical font data
-                bitfont(uint8_t cw, uint8_t ch, uint8_t sx, uint8_t sy, uint8_t* data) { _cw = cw; _ch = ch; _sx = sx; _sy = sy; _data = data; }
+                bitfont(uint8_t cw, uint8_t ch, uint8_t sx, uint8_t sy, uint8_t* data) { _cw = cw; _ch = ch; _sx = sx; _sy = sy; _data = data; _id = 0; }
+
+            public:
+                void set_id(uint32_t id) { _id = id; }
 
             public:
                 /// @brief Get pointer to physical font data
@@ -39,6 +44,8 @@ namespace std
                 int spacing_x() { return _sx; }
                 /// @brief Get vertical spacing of each character
                 int spacing_y() { return _sy; }
+                /// @brief Get identification number
+                uint32_t id() { return _id; }
         };
     }
 

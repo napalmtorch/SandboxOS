@@ -27,6 +27,8 @@ namespace std
             _size = ivec2d_t(0, 0);
         }
 
+        void image::set_id(uint32_t id) { _id = id; }
+
         bool image::load(int w, int h, array<uint32_t> data)
         {
             this->_size  = ivec2d_t(w, h);
@@ -246,5 +248,7 @@ namespace std
         ivec2d_t image::size() { return _size; }
 
         array<uint32_t> image::data() { return _data; }
+
+        uint32_t image::id() { return _id; }
     }
 }

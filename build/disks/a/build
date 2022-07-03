@@ -1,10 +1,12 @@
 create 16777216
 add democode.gs build/disks/a/democode.gs
 add boot.ini build/disks/a/boot.ini
-add font.bin build/disks/a/font.bin
-add font_comic.bin build/disks/a/font_comic.bin
-add font_thin.bin build/disks/a/font_thin.bin
+add font_square12.bin build/disks/a/font_square12.bin
+add font_comic16.bin build/disks/a/font_comic16.bin
+add font_thin12.bin build/disks/a/font_thin12.bin
+add font_thin14.bin build/disks/a/font_thin14.bin
 add logo.bmp build/disks/a/logo.bmp
+add icons32.bmp build/disks/a/icons32.bmp
 add sysicons.bmp build/disks/a/sysicons.bmp
 add bg.bmp build/disks/a/bg.bmp
 add mscur_caret.bmp build/disks/a/mscur_caret.bmp

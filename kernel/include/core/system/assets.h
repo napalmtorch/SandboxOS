@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <arraylist.h>
 #include <gfx/image.h>
 #include <gfx/font.h>
 
@@ -9,23 +10,47 @@ namespace os
 {
     namespace sys
     {
-        namespace assets
+        enum class font_id : uint32_t
         {
-            extern std::gfx::bitfont font_square;
-            extern std::gfx::bitfont font_comic;
-            extern std::gfx::bitfont font_thin;
+            comic_8x16 = 0xA0000000,
+            square_8x12,
+            thin_8x12,
+            thin_8x14,
+        };
 
-            extern std::gfx::image sys_icons;
-            extern std::gfx::image img_logo;
-            extern std::gfx::image bg_default;
-            extern std::gfx::image tbar_icons;
-            extern std::gfx::image mscur_default;
-            extern std::gfx::image mscur_hand;
-            extern std::gfx::image mscur_grab;
-            extern std::gfx::image mscur_caret;
-            extern std::gfx::image mscur_wait;
+        enum class image_id : uint32_t
+        {
+            logo = 0xF0000000,
+            default_bg,
+            icons,
+            icons_tray,
+            icons_tbar,
+            ms_default,
+            ms_hand,
+            ms_wait,
+            ms_grab,
+            ms_caret,
+        };
 
-            void load();
-        }
+        class asset_manager
+        {
+            private:
+                static std::arraylist<std::gfx::bitfont> _fonts;
+                static std::arraylist<std::gfx::image>   _images;
+
+            public:
+                static void init();
+
+            public:
+                static std::gfx::bitfont* load_font(const char* fname, int w, int h, int sx, int sy, font_id id);
+                static std::gfx::image*   load_image(const char* fname, image_id id);
+
+            public:
+                static std::gfx::bitfont* fetch_font(font_id id);
+                static std::gfx::image*   fetch_image(image_id id);
+
+            public:
+                static bool id_used(uint32_t id);
+        };
     }
 }

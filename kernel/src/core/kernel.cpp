@@ -58,7 +58,7 @@ namespace os
             filesystem::init();
 
             // load assets
-            sys::assets::load();
+            sys::asset_manager::init();
 
             // initialize command handler
             sys::command_handler::init();

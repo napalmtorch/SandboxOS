@@ -16,6 +16,9 @@ namespace os
             this->btn_menu->info()->tooltip_txt = (char*)tmalloc(256, ALLOCTYPE_STRING);
             strcat(this->btn_menu->info()->tooltip_txt, "Start applications and manage system");
             this->btn_menu->flags()->tooltip    = true;
+            this->btn_menu->info()->style = new std::gui::visual_style();
+            memcpy(this->btn_menu->info()->style, std::gui::default_styles::CONTAINER, sizeof(std::gui::visual_style));
+            this->btn_menu->info()->style->set_color(std::gui::color_index::bg, 0xFF200020);
             this->add_ctrl(this->btn_menu);
 
             _wincnt = 11111;
@@ -87,6 +90,7 @@ namespace os
         {
             container::draw();
             framebuffer.rect_filled(0, 0, _info.bounds.w, 1, _info.style->color(std::gui::color_index::border_down));
+            framebuffer.rect_filled(btn_menu->bounds()->x + btn_menu->bounds()->w + 6, btn_menu->bounds()->y + 1, 1, btn_menu->bounds()->h - 2, _info.style->color(std::gui::color_index::border_down));
 
             for (size_t i = 0; i < taskbtns.length(); i++) { taskbtns[i]->draw(); }
 
@@ -94,9 +98,9 @@ namespace os
             int ty = (_info.bounds.h / 2) - (_info.style->font().height() / 2);
             framebuffer.putstr(tx, ty, timestr, _info.style->font(), _info.style->color(std::gui::color_index::txt), (uint32_t)std::color32::transparent);
 
-            framebuffer.copy(tx - 20, 3, std::irect_t(32, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
-            framebuffer.copy(tx - 40, 3, std::irect_t(0, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
-            framebuffer.copy(tx - 60, 3, std::irect_t(48, 0, 16, 16), std::color32::magenta, &os::sys::assets::sys_icons);
+            framebuffer.copy(tx - 20, 3, std::irect_t(32, 0, 16, 16), std::color32::magenta, sys::asset_manager::fetch_image(sys::image_id::icons_tray));
+            framebuffer.copy(tx - 40, 3, std::irect_t(0, 0, 16, 16), std::color32::magenta, sys::asset_manager::fetch_image(sys::image_id::icons_tray));
+            framebuffer.copy(tx - 60, 3, std::irect_t(48, 0, 16, 16), std::color32::magenta, sys::asset_manager::fetch_image(sys::image_id::icons_tray));
         }
 
         void shell_taskbar::render()

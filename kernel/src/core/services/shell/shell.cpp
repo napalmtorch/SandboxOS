@@ -14,9 +14,9 @@ namespace os
             std::gui::default_styles::init();
 
             framebuffer = std::gfx::image(hal::devices::vbe->modeinfo().width, hal::devices::vbe->modeinfo().height);
-            if (sys::assets::bg_default.data().ptr() != NULL)
+            if (sys::asset_manager::fetch_image(sys::image_id::default_bg) != NULL)
             {
-                if (!sys::assets::bg_default.size().equals(framebuffer.size())) { sys::assets::bg_default.resize(framebuffer.size()); }
+                if (!sys::asset_manager::fetch_image(sys::image_id::default_bg)->size().equals(framebuffer.size())) { sys::asset_manager::fetch_image(sys::image_id::default_bg)->resize(framebuffer.size()); }
             }
 
             taskbar = new shell_taskbar(this);
@@ -28,7 +28,7 @@ namespace os
             win->add_ctrl(btn);
             winmgr.load(win);
 
-            winmgr.load(new os::services::terminal_host(128, 128, 80, 25, 0xFFFFFFFF, 0xFF000000, os::sys::assets::font_square));
+            winmgr.load(new os::services::terminal_host(128, 128, 80, 25, 0xFFFFFFFF, 0xFF000000, *sys::asset_manager::fetch_font(sys::font_id::thin_8x12)));
             
 
             printf("%s Initialized shell instance\n", DEBUG_OK);
@@ -57,8 +57,8 @@ namespace os
 
         void shell_host::draw()
         {
-            if (sys::assets::bg_default.data().ptr() == NULL) { framebuffer.clear(std::color32::dark_cyan); }
-            else { framebuffer.copy(0, 0, &sys::assets::bg_default); }
+            if (sys::asset_manager::fetch_image(sys::image_id::default_bg)== NULL) { framebuffer.clear(std::color32::dark_cyan); }
+            else { framebuffer.copy(0, 0, sys::asset_manager::fetch_image(sys::image_id::default_bg)); }
             sys::debug::draw_overlay(&framebuffer);
             
             winmgr.update();
@@ -67,7 +67,7 @@ namespace os
             taskbar->update();
             taskbar->render();
 
-            framebuffer.copy(std::mspos(), std::color32::magenta, &sys::assets::mscur_default);
+            framebuffer.copy(std::mspos(), std::color32::magenta, sys::asset_manager::fetch_image(sys::image_id::ms_default));
 
             hal::devices::vbe->copy(0, 0, framebuffer.size().x, framebuffer.size().y, framebuffer.data().ptr());
         }

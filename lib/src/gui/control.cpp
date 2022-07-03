@@ -103,7 +103,7 @@ namespace std
                 if (yy + txt_size.y + 8 >= os::hal::devices::vbe->modeinfo().height) { yy -= txt_size.y + 8; }
                 while (xx + txt_size.x + 8 >= os::hal::devices::vbe->modeinfo().width) { xx--; }
 
-                img.rect_filled(xx, yy, txt_size.x + 8, txt_size.y + 8, _info.style->color(std::gui::color_index::bg));
+                img.rect_filled(xx, yy, txt_size.x + 8, txt_size.y + 8, _info.style->color(std::gui::color_index::bg_down));
                 img.rect(xx, yy, txt_size.x + 8, txt_size.y + 8, 1, _info.style->color(std::gui::color_index::border));
                 img.putstr(xx + 4, yy + 4, _info.tooltip_txt, _info.style->font(), _info.style->color(std::gui::color_index::txt), (uint32_t)std::color32::transparent);
             }

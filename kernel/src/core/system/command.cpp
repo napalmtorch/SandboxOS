@@ -113,7 +113,7 @@ namespace os
 
             void TERM(command_args_t args)
             {
-                kernel::shell->winmgr.load(new os::services::terminal_host(-1, -1, 80, 25, 0xFFFFFFFF, 0xFF000000, os::sys::assets::font_square));
+                kernel::shell->winmgr.load(new os::services::terminal_host(-1, -1, 80, 25, 0xFFFFFFFF, 0xFF000000, *sys::asset_manager::fetch_font(sys::font_id::thin_8x12)));
             }
 
             void HELP(command_args_t args)
